@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //INGHRIDY - 03/02/20 - SET01- Criação das Branchs GITHUB
         Log.i("Teste", "Teste");
+        Log.i("Teste", "Teste - branch epic");
     }
 }
