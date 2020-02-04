@@ -15,5 +15,6 @@ public class MainActivity extends AppCompatActivity {
         //INGHRIDY - 03/02/20 - SET01- Criação das Branchs GITHUB
         Log.i("Teste", "Teste");
         Log.i("Teste", "Teste - branch epic");
+        Log.i("Teste", "Teste - branch epic");
     }
 }
