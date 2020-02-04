@@ -16,5 +16,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Teste", "Teste");
         Log.i("Teste", "Teste - branch epic");
         Log.i("Teste", "Teste - branch epic");
+        Log.i("Teste", "Teste - branch epic");
     }
 }
