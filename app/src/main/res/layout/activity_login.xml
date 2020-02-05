@@ -7,7 +7,7 @@
     android:background="#000000"
     tools:context=".LoginActivity">
 
-    //Cristiane - 02/02/20
+     //Cristiane - 02/02/20
     //Inghridy Santos - 04/02/20 - MODIFICACAO
 
 <!--    <EditText-->
@@ -123,9 +123,7 @@
             android:layout_height="wrap_content"
             android:hint="Usuário"
             android:textColor="@color/colorAccent"
-            android:textColorHighlight="@color/colorAccent"
-            android:textColorHint="@color/colorAccent"
-            android:textColorLink="@color/colorAccent" />
+            android:textColorHint="@color/colorAccent"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
