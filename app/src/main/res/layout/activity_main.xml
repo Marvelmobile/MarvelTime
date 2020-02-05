@@ -1,18 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/preto"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="143dp">
 
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="281.32dp"
+        android:layout_height="142.5dp"
+        app:srcCompat="@drawable/marvellogopreto"
+        tools:layout_editor_absoluteX="64.75dp"
+        tools:layout_editor_absoluteY="19.5dp" />
+
+
+    <TextView
+        style="@style/textoCadastro"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:width="491dp"
+        android:height="50.07dp"
+        android:text="Cadastre-se:"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="217dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="61.96dp"
+        android:layout_height="44.19dp"
+        app:srcCompat="@drawable/palavratimecorreta"
+        tools:layout_editor_absoluteX="275dp"
+        tools:layout_editor_absoluteY="140dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
