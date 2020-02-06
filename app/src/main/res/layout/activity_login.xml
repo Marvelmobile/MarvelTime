@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@color/backgroundPreto"
     tools:context=".LoginActivity">
 
-     //Cristiane - 02/02/20
+     //Cristiane - 02/02/20 - FDEV02 - Login
     //Inghridy Santos - 04/02/20 - MODIFICACAO
 
 <!--    <EditText-->
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:text="@string/AindaNaoMembroRegistre"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/corStrings"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +102,7 @@
 <!--        app:layout_constraintHorizontal_bias="0.476"-->
 <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-    //INGHRIDY SANTOS - 04/02/20 -
+    //INGHRIDY SANTOS - 04/02/20 - FDEV02 - Login
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginUsuario"
@@ -116,14 +116,14 @@
         app:layout_constraintVertical_bias="0.576"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="416dp"
-        android:textColorHint="@color/colorAccent">
+        android:textColorHint="@color/corStrings">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Usuário"
-            android:textColor="@color/colorAccent"
-            android:textColorHint="@color/colorAccent"/>
+            android:hint="@string/usuarioLogin"
+            android:textColor="@color/corStrings"
+            android:textColorHint="@color/corStrings"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -131,21 +131,21 @@
         android:layout_width="327dp"
         android:layout_height="50dp"
         android:layout_marginBottom="12dp"
-        android:background="#2F8D8C8C"
-        android:textColorHint="@color/colorAccent"
+        android:background="@color/backgroundCaixaTexto"
+        android:textColorHint="@color/corStrings"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginUsuario"
-        app:passwordToggleTint="@color/colorAccent">
+        app:passwordToggleTint="@color/corStrings">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Senha"
+            android:hint="@string/senhaLogin"
             android:inputType="textPassword"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/corStrings" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
