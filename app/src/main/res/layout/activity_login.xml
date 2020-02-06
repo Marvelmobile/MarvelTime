@@ -106,30 +106,28 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginUsuario"
-        android:layout_width="327dp"
-        android:layout_height="50dp"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
         android:background="@color/backgroundCaixaTexto"
+        android:textColorHint="@color/corStrings"
         app:layout_constraintBottom_toTopOf="@+id/loginSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagemInicio"
-        app:layout_constraintVertical_bias="0.576"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="416dp"
-        android:textColorHint="@color/corStrings">
+        app:layout_constraintVertical_bias="0.576">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/usuarioLogin"
             android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings"/>
+            android:textColorHint="@color/corStrings" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginSenha"
-        android:layout_width="327dp"
-        android:layout_height="50dp"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="12dp"
         android:background="@color/backgroundCaixaTexto"
         android:textColorHint="@color/corStrings"
