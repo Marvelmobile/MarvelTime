@@ -15,6 +15,12 @@
         <item name="android:textSize">22.5sp</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>
 
 
