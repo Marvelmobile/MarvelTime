@@ -7,18 +7,9 @@
     android:background="@color/preto"
     tools:context=".CadastroActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="143dp">
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgLogoMarvel"
         android:layout_width="281.32dp"
         android:layout_height="142.5dp"
         app:srcCompat="@drawable/marvellogo_branco"
@@ -27,8 +18,8 @@
 
 
     <TextView
+        android:id="@+id/textCadastro"
         style="@style/textoCadastro"
-
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:width="491dp"
@@ -36,15 +27,108 @@
         android:text="Cadastre-se:"
         android:textAlignment="center"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="217dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgLogoTime"
         android:layout_width="61.96dp"
         android:layout_height="44.19dp"
         app:srcCompat="@drawable/timelogo_branco"
         tools:layout_editor_absoluteX="275dp"
         tools:layout_editor_absoluteY="140dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cadastrarNome"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/backgroundCaixaTexto"
+        android:textColorHint="@color/corStrings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCadastro">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Insira seu nome completo!"
+            android:textColor="@color/corStrings"
+            android:textColorHint="@color/corStrings"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cadastrarEmail"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/backgroundCaixaTexto"
+        android:textColorHint="@color/corStrings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrarNome">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Insira seu email!"
+            android:textColor="@color/corStrings"
+            android:textColorHint="@color/corStrings" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cadastrarSenha"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/backgroundCaixaTexto"
+        android:textColorHint="@color/corStrings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrarEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Insira sua sua!"
+            android:textColor="@color/corStrings"
+            android:textColorHint="@color/corStrings" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cadastrarSenhaConfirmacao"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/backgroundCaixaTexto"
+        android:textColorHint="@color/corStrings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrarSenha">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirme sua senha!"
+            android:textColor="@color/corStrings"
+            android:textColorHint="@color/corStrings" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
