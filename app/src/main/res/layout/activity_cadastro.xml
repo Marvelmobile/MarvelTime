@@ -133,16 +133,22 @@
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/loginFacebook"
         android:layout_width="42dp"
         android:layout_height="42dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginLeft="108dp"
-        android:layout_marginTop="16dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/face"
+        tools:layout_editor_absoluteX="111dp"
+        android:backgroundTint="@color/azul_facebook"
+        tools:layout_editor_absoluteY="510dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/face" />
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="16dp"/>
 
     <ImageView
         android:id="@+id/loginGoogle"
@@ -157,8 +163,8 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/bntCadastrar"
-        android:layout_width="52dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
@@ -166,13 +172,15 @@
         android:layout_marginRight="32dp"
         android:clickable="true"
         android:text="Button"
+        android:backgroundTint="branco"
         app:backgroundTint="@android:color/darker_gray"
+        app:fabSize="mini"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastrarSenhaConfirmacao"
         app:maxImageSize="40dp"
-        app:srcCompat="@android:drawable/ic_menu_send" />
+        app:srcCompat="@drawable/img_entrar" />
 
     <TextView
         android:id="@+id/textView2"
@@ -191,6 +199,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bntCadastrar" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
