@@ -172,7 +172,7 @@
         android:layout_marginRight="32dp"
         android:clickable="true"
         android:text="Button"
-        android:backgroundTint="branco"
+        android:backgroundTint="@color/branco"
         app:backgroundTint="@android:color/darker_gray"
         app:fabSize="mini"
         app:layout_constraintEnd_toEndOf="parent"

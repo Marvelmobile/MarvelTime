@@ -11,4 +11,7 @@
     <color name="preto">#000000</color>
     <color name="branco">#FFFFFF</color>
     <color name="azul_facebook">#3b5998</color>
+
+    <!-- Adelania - 03/02/2020 - FDEV01-->
+    <color name="red_splash">#EE1C25</color>
 </resources>
