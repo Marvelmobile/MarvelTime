@@ -27,10 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //INGHRIDY - 03/02/20 - SET01- Criação das Branchs GITHUB
-        Log.i("Teste", "Teste");
-        Log.i("Teste", "Teste - branch epic");
-
         initViews();
 
         bntLogin.setOnClickListener(new View.OnClickListener() {
