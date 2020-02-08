@@ -8,4 +8,19 @@
         <item name="colorAccent">@color/corStrings</item>
     </style>
 
+
+    <style name="textoCadastro" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">Lato</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingMultiplier">1.29</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>
+
+

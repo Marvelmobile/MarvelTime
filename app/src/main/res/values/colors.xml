@@ -8,4 +8,7 @@
     <color name="corStrings">#FFFFFF</color>
     <color name="backgroundCaixaTexto">#2F8D8C8C</color>
     <color name="backgroundPreto">#000000</color>
+    <color name="preto">#000000</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="azul_facebook">#3b5998</color>
 </resources>
