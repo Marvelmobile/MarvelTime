@@ -3,4 +3,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+   <!-- Adelania - 03/02/2020 - FDEV01-->
+    <color name="red_spash">#EE1C25</color>
 </resources>
