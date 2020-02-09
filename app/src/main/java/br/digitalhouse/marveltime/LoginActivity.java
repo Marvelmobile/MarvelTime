@@ -3,6 +3,7 @@ package br.digitalhouse.marveltime;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initViews();
+        linkCadastroUsuario();
 
         bntLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,12 +42,23 @@ public class LoginActivity extends AppCompatActivity {
                     notificacao();
                 else if (!usuarioValido(usuario) || !senhaValida(senha))
                     notificacaoInformacaoIncorreta();
-                else
+                else {
                     notificacaoParaProximaTela();
+
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                }
             }
         });
 
-        linkCadastroUsuario();
+
+        loginRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(LoginActivity.this, CadastroActivity.class));
+            }
+        });
+
 
     }
 
@@ -67,6 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                 notificacaoParaProximaTela(); }
         };
         mySpannable.setSpan(myClickableSpan, i1, i2 + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
     }
 
     private void initViews (){
@@ -145,8 +160,8 @@ public class LoginActivity extends AppCompatActivity {
 
     protected void notificacaoParaProximaTela (){
         Context contexto = getApplicationContext();
-        String textoNotificacao = "PARABÉNS, em instantes você será direcionado a próxima tela.";
-        int duracaoNotifacao = Toast.LENGTH_LONG;
+        String textoNotificacao = "PARABÉNS, em instantes você será direcionado a tela de cadastro.";
+        int duracaoNotifacao = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
         toast.show();

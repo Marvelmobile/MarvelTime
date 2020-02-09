@@ -22,13 +22,13 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 jump();
             }
-        }, 3000);
+        }, 2000);
     }
 
     private void jump() {
 
         timer.cancel();
-        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
         finish();
     }
 
