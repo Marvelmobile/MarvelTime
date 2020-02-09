@@ -16,12 +16,16 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 
+import static br.digitalhouse.marveltime.CadastroActivity.CHAVE_EMAIL;
+
 public class LoginActivity extends AppCompatActivity {
 
+    private static final int Activity_UM_DOIS = 1;
     private TextInputLayout loginUsuario;
     private TextInputLayout loginSenha;
     private FloatingActionButton bntLogin;
     private TextView loginRegistro;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +54,29 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         loginRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(LoginActivity.this, CadastroActivity.class));
+                startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class),1);
+
             }
         });
 
-
     }
 
+    //ADELANIA SANTOS - 09/02/20 - BDEV06 - LINK TELAS
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == Activity_UM_DOIS) {
+            if(resultCode == RESULT_OK){
+                String resultado = data.getStringExtra(CHAVE_EMAIL);
+                //Coloque no EditText
+                loginUsuario.getEditText().setText(resultado);
+            }
+        }
+
+    }
 
     //INGHRIDY SANTOS 04/02/20 - BDEV04 - TEXTVIEW COM LINK
     private void linkCadastroUsuario() {

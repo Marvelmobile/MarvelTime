@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,6 +14,7 @@ import com.google.android.material.textfield.TextInputLayout;
 public class CadastroActivity extends AppCompatActivity {
 
 
+    public static final String CHAVE_EMAIL = "EMAIL";
     private TextInputLayout cadastrarNome;
     private TextInputLayout cadastrarEmail;
     private TextInputLayout cadastrarSenha;
@@ -43,12 +45,31 @@ public class CadastroActivity extends AppCompatActivity {
                 else if (senhaValida(senha)) {
                     if (!senhaIguais(senha, senhaConfirmacao))
                         notificacaoSenhaDiferente();
-                    else
-                        notificacaoParaProximaTela();
-                } else
+                    else{
+                        notificacaoParaProximaTela("Cadastro Realizado com Sucesso!");
+
+                        voltarTelaLoginActivity(email);
+                    }
+                 } else
                     notificacaoSenhaInvalida();
             }
+
+
         });
+    }
+
+    //ADELANIA SANTOS - 09/02/20 - BDEV06 - LINK TELAS
+    private void voltarTelaLoginActivity(String email) {
+
+        if(!email.isEmpty()) {
+
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra(CHAVE_EMAIL,email);
+            setResult(RESULT_OK, returnIntent);
+        }
+
+        finish();
+
     }
 
 
@@ -151,10 +172,10 @@ public class CadastroActivity extends AppCompatActivity {
         toast.show();
     }
 
-    protected void notificacaoParaProximaTela() {
+    protected void notificacaoParaProximaTela(String mensagem) {
         Context contexto = getApplicationContext();
-        String textoNotificacao = "PARABÉNS, em instantes você será direcionado a próxima tela.";
-        int duracaoNotifacao = Toast.LENGTH_LONG;
+        String textoNotificacao = mensagem;
+        int duracaoNotifacao = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
         toast.show();
