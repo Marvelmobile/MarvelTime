@@ -3,4 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    //Inghridy Santos 04/02/20 - FDEV02 - Login
+    <color name="corStrings">#FFFFFF</color>
+    <color name="backgroundCaixaTexto">#2F8D8C8C</color>
+    <color name="backgroundPreto">#000000</color>
+    <color name="preto">#000000</color>
+     <color name="azul_facebook">#3b5998</color>
+
+    <!-- Adelania - 03/02/2020 - FDEV01-->
+    <color name="red_splash">#EE1C25</color>
+    <color name="branco">#FFFFFF</color>
 </resources>

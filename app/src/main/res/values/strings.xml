@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MarvelTime</string>
+    <string name="AindaNaoMembroRegistre">Ainda não é membro? Registre-se aqui</string>
+    <string name="usuarioLogin">Usuário</string>
+    <string name="senhaLogin">Senha</string>
+    <string name="entrar_google_face">Ou entre com suas redes sociais:</string>
 </resources>

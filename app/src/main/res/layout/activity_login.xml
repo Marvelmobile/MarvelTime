@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundPreto"
+    tools:context=".LoginActivity">
+
+     //Cristiane - 02/02/20 - FDEV02 - Login
+    //Inghridy Santos - 04/02/20 - MODIFICACAO
+
+
+    <TextView
+        android:id="@+id/loginRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/AindaNaoMembroRegistre"
+        android:textColor="@color/corStrings"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    //INGHRIDY SANTOS - 04/02/20 - FDEV02 - Login
+
+    <ImageView
+        android:id="@+id/imagemInicio"
+        android:layout_width="328dp"
+        android:layout_height="262dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/heroes" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginUsuario"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:background="@color/backgroundCaixaTexto"
+        android:textColorHint="@color/corStrings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagemInicio">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/usuarioLogin"
+            android:textColor="@color/corStrings"
+            android:textColorHint="@color/corStrings" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginSenha"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/backgroundCaixaTexto"
+        android:textColorHint="@color/corStrings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginUsuario"
+        app:passwordToggleTint="@color/corStrings">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/senhaLogin"
+            android:inputType="textPassword"
+            android:textColor="@color/corStrings" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--  Adelania - 07/02/2020 - Alteracao para FAB-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:text="Button"
+        app:backgroundTint="@color/branco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginSenha"
+        app:maxImageSize="40dp"
+        app:srcCompat="@drawable/img_entrar" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/loginFacebook"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/azul_facebook"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/loginRegistro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="27dp"
+        app:srcCompat="@drawable/face" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/loginGoogle"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginRight="90dp"
+        android:layout_marginBottom="32dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/loginRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/google" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
