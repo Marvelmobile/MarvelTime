@@ -4,13 +4,4 @@
     <string name="usuarioLogin">Usuário</string>
     <string name="senhaLogin">Senha</string>
     <string name="entrar_google_face">Ou entre com suas redes sociais:</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="sabe_homem_aranha">Você sabe tudo sobre o homem aranha?</string>
-    <string name="perguntaUm">Qual o nome do meio de Peter Parker?</string>
-    <string name="respostaUm">Fleck</string>
-    <string name="respostaDois">Wayne</string>
-    <string name="respostaTres">Benjamin</string>
-    <string name="respostaQuatro">Stark</string>
 </resources>
