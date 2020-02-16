@@ -94,7 +94,7 @@
     <TextView
         android:id="@+id/textViewNome"
         style="@style/titulo"
-        android:text="@string/textoOla"
+        android:text="Olá, Marvel Fã"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.497"

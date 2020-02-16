@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
@@ -35,16 +34,20 @@ public class FavoritosActivity extends AppCompatActivity {
         tapBarMenu.close();
         switch (view.getId()) {
             case R.id.item1:
+                //Home
                 startActivity(new Intent(FavoritosActivity.this, MainActivity.class));
                 break;
             case R.id.item2:
+                //Favoritos
                 startActivity(new Intent(FavoritosActivity.this, FavoritosActivity.class));
                 break;
             case R.id.item3:
-                startActivity(new Intent(FavoritosActivity.this, MainActivity.class));
+                //Personagens
+                startActivity(new Intent(FavoritosActivity.this, FavoritosActivity.class));
                 break;
             case R.id.item4:
-                startActivity(new Intent(FavoritosActivity.this, MainActivity.class));
+                //Quiz
+                startActivity(new Intent(FavoritosActivity.this, FavoritosActivity.class));
                 break;
         }
     }

@@ -44,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (usuarioVazio(usuario) || senhaVazia(senha))
                     notificacao();
-               // else if (!usuarioValido(usuario) || !senhaValida(senha))
-                //    notificacaoInformacaoIncorreta();
+                else if (!usuarioValido(usuario) || !senhaValida(senha))
+                    notificacaoInformacaoIncorreta();
                 else {
 
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -68,8 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (requestCode == Activity_UM_DOIS) {
             if(resultCode == RESULT_OK){
-                String resultado = data.getStringExtra(CHAVE_EMAIL);
-                loginUsuario.getEditText().setText(resultado);
+                loginUsuario.getEditText().setText(data.getStringExtra(CHAVE_EMAIL));
             }
         }
 
