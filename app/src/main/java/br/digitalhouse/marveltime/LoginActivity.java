@@ -44,10 +44,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (usuarioVazio(usuario) || senhaVazia(senha))
                     notificacao();
-                else if (!usuarioValido(usuario) || !senhaValida(senha))
-                    notificacaoInformacaoIncorreta();
+               // else if (!usuarioValido(usuario) || !senhaValida(senha))
+                //    notificacaoInformacaoIncorreta();
                 else {
-                    notificacaoParaProximaTela();
 
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
@@ -65,20 +64,17 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    //ADELANIA SANTOS - 09/02/20 - BDEV06 - LINK TELAS
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == Activity_UM_DOIS) {
             if(resultCode == RESULT_OK){
                 String resultado = data.getStringExtra(CHAVE_EMAIL);
-                //Coloque no EditText
                 loginUsuario.getEditText().setText(resultado);
             }
         }
 
     }
 
-    //INGHRIDY SANTOS 04/02/20 - BDEV04 - TEXTVIEW COM LINK
     private void linkCadastroUsuario() {
         String msgRegistroUsuario = "Ainda não é membro? [Registre-se aqui]";
         int i1 = msgRegistroUsuario.indexOf("[");
@@ -107,7 +103,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    //INGHRIDY SANTOS  - 04/02/20 - BDEV02 - VALIDAÇÃO USUARIO
     private boolean usuarioValido (String usuario){
         if (usuario.contains("@") && usuario.contains(".com") )
             return true;
@@ -122,9 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             return false;
     }
 
-
-    //INGHRIDY SANTOS  - 04/02/20 - BDEV03 - VALIDAÇÃO SENHA
-    public static boolean senhaValida(String senha) {
+      public static boolean senhaValida(String senha) {
         if (senha.length() < 6)
             return false;
 
@@ -143,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
             else
                 achouSimbolo = true;
         }
+
         return achouNumero && achouMaiuscula && achouMinuscula && achouSimbolo;
     }
 
@@ -152,8 +146,6 @@ public class LoginActivity extends AppCompatActivity {
         else
             return false;
     }
-
-    //INGHRIDY SANTOS  - 04/02/20 - BDEV02 - NOTIFICAÇÕES
 
     protected void notificacao (){
         Context contexto = getApplicationContext();

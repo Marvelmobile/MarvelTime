@@ -58,8 +58,7 @@ public class CadastroActivity extends AppCompatActivity {
         });
     }
 
-    //ADELANIA SANTOS - 09/02/20 - BDEV06 - LINK TELAS
-    private void voltarTelaLoginActivity(String email) {
+     private void voltarTelaLoginActivity(String email) {
 
         if(!email.isEmpty()) {
 
@@ -72,9 +71,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-
-
-    private void initViews() {
+     private void initViews() {
         cadastrarNome = findViewById(R.id.cadastrarNome);
         cadastrarEmail = findViewById(R.id.cadastrarEmail);
         cadastrarSenha = findViewById(R.id.cadastrarSenha);
@@ -82,7 +79,6 @@ public class CadastroActivity extends AppCompatActivity {
         bntCadastrar = findViewById(R.id.bntCadastrar);
     }
 
-    //INGHRIDY SANTOS  - 05/02/20 - BDEV02 - VALIDAÇÃO USUARIO
     private boolean nomeValido(String nomeCompleto) {
 
         if (nomeCompleto.contains(" "))
@@ -97,7 +93,7 @@ public class CadastroActivity extends AppCompatActivity {
         else
             return false;
     }
-    //INGHRIDY SANTOS  - 05/02/20 - BDEV03 - VALIDAÇÃO SENHA
+
     private boolean senhaValida(String senha) {
         if (senha.length() < 6)
             return false;
@@ -134,9 +130,7 @@ public class CadastroActivity extends AppCompatActivity {
             return false;
     }
 
-
-    //INGHRIDY SANTOS  - 05/02/20 - BDEV02 - NOTIFICAÇÕES
-    protected void notificacao() {
+     protected void notificacao() {
         Context contexto = getApplicationContext();
         String textoNotificacao = "Por favor, preencha todos os campos";
         int duracaoNotifacao = Toast.LENGTH_LONG;
