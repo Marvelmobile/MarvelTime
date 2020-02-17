@@ -4,4 +4,9 @@
     <string name="usuarioLogin">Usuário</string>
     <string name="senhaLogin">Senha</string>
     <string name="entrar_google_face">Ou entre com suas redes sociais:</string>
+    <string name="cadastro">Cadastre-se:</string>
+    <string name="nome_completo">Insira seu nome completo</string>
+    <string name="email">Insira seu email</string>
+    <string name="insira_senha">Insira sua senha</string>
+    <string name="confirma_senha">Confirme sua senha</string>
 </resources>

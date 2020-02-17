@@ -1,14 +1,10 @@
 package br.digitalhouse.marveltime;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
-//Adelania - 03/02/2020 - FDEV01
 public class SplashActivity extends AppCompatActivity {
     private Timer timer = new Timer();
 
@@ -26,10 +22,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void jump() {
-
         timer.cancel();
         startActivity(new Intent(SplashActivity.this, LoginActivity.class));
         finish();
     }
-
 }
