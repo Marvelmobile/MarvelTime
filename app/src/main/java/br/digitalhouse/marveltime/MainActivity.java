@@ -1,5 +1,4 @@
 package br.digitalhouse.marveltime;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         homemAranha = findViewById(R.id.homemAranha);
 
         homemAranha.setOnClickListener(new View.OnClickListener() {
@@ -25,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
                 direcionaPerguntas();
             }
         });
-
     }
 
     private void direcionaPerguntas(){
