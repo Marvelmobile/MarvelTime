@@ -45,8 +45,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCadastro">
@@ -68,8 +68,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastrarNome">
@@ -91,8 +91,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastrarEmail">
@@ -116,8 +116,8 @@
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintBottom_toTopOf="@+id/bntCadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,8 +128,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/confirma_senha"
             android:inputType="textPassword"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings" />
+            android:textColor="@color/corStringsBranco"
+            android:textColorHint="@color/corStringsBranco" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

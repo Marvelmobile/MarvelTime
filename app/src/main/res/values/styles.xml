@@ -4,7 +4,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/corStrings</item>
+        <item name="colorAccent">@color/corStringsBranco</item>
     </style>
 
     <style name="textoCadastro" parent="Theme.AppCompat.Light.NoActionBar">
@@ -17,6 +17,10 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.RoundedCornerMaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/round_button</item>
     </style>
 
 </resources>
