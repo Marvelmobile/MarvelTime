@@ -12,7 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FavoritosActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
@@ -20,7 +20,7 @@ public class FavoritosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favoritos);
+        setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
     }
 
@@ -35,19 +35,19 @@ public class FavoritosActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.item1:
                 //Home
-                startActivity(new Intent(FavoritosActivity.this, MainActivity.class));
+                startActivity(new Intent(MenuActivity.this, MainActivity.class));
                 break;
             case R.id.item2:
                 //Favoritos
-                startActivity(new Intent(FavoritosActivity.this, FavoritosActivity.class));
+                startActivity(new Intent(MenuActivity.this, MenuActivity.class));
                 break;
             case R.id.item3:
                 //Personagens
-                startActivity(new Intent(FavoritosActivity.this, FavoritosActivity.class));
+                startActivity(new Intent(MenuActivity.this, MenuActivity.class));
                 break;
             case R.id.item4:
                 //Quiz
-                startActivity(new Intent(FavoritosActivity.this, FavoritosActivity.class));
+                startActivity(new Intent(MenuActivity.this, MenuActivity.class));
                 break;
         }
     }

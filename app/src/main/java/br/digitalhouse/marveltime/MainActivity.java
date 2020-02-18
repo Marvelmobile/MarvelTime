@@ -24,21 +24,21 @@ public class MainActivity extends AppCompatActivity {
         imageViewQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, FavoritosActivity.class));
+                startActivity(new Intent(MainActivity.this, MenuActivity.class));
             }
         });
 
         imageViewPersonagens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, FavoritosActivity.class));
+                startActivity(new Intent(MainActivity.this, MenuActivity.class));
             }
         });
 
         imageViewFavoritos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, FavoritosActivity.class));
+                startActivity(new Intent(MainActivity.this, MenuActivity.class));
             }
         });
 
