@@ -1,16 +1,21 @@
 package br.digitalhouse.marveltime;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
+
 import static br.digitalhouse.marveltime.CadastroActivity.CHAVE_EMAIL;
 
 public class LoginActivity extends AppCompatActivity {
@@ -20,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputLayout loginSenha;
     private FloatingActionButton bntLogin;
     private TextView loginRegistro;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +50,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
-
-            if(validaCampos()){
-                   startActivity(new Intent(LoginActivity.this, MainActivity.class));
-               }
             }
         });
 
@@ -59,20 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-    }
 
-    private boolean validaCampos(){
-        String usuario = loginUsuario.getEditText().getText().toString();
-        String senha = loginSenha.getEditText().getText().toString();
-
-        if (Helper.isEmptyString(usuario) || Helper.isEmptyString(senha))
-            notificacao( "Por favor, preencha todos os campos");
-        else if (!Helper.usuarioValido(usuario) || !Helper.senhaValida(senha))
-            notificacao( "Usuário ou senha não atendem as regras, por favor, tente novamente");
-        else
-            return true;
-
-        return false;
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -82,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 loginUsuario.getEditText().setText(data.getStringExtra(CHAVE_EMAIL));
             }
         }
+
     }
 
     private void linkCadastroUsuario() {
@@ -95,10 +85,13 @@ public class LoginActivity extends AppCompatActivity {
 
         ClickableSpan myClickableSpan = new ClickableSpan() {
             @Override
-            public void onClick(View widget) { }
-        };
+            public void onClick(View widget) {
 
+                notificacaoParaProximaTela(); }
+        };
         mySpannable.setSpan(myClickableSpan, i1, i2 + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
     }
 
     private void initViews (){
@@ -107,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
         bntLogin = findViewById(R.id.btnLogin);
         loginRegistro = findViewById(R.id.loginRegistro);
     }
+
 
     private boolean usuarioValido (String usuario){
         if (usuario.contains("@") && usuario.contains(".com") )
@@ -152,12 +146,32 @@ public class LoginActivity extends AppCompatActivity {
             return false;
     }
 
-    protected void notificacao (String sMensagem){
+    protected void notificacao (){
         Context contexto = getApplicationContext();
-        String textoNotificacao = sMensagem;
+        String textoNotificacao = "Por favor, preencha todos os campos";
         int duracaoNotifacao = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
         toast.show();
     }
+
+    protected void notificacaoInformacaoIncorreta (){
+        Context contexto = getApplicationContext();
+        String textoNotificacao = "Usuário ou senha não atendem as regras, por favor, tente novamente";
+        int duracaoNotifacao = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
+        toast.show();
+    }
+
+    protected void notificacaoParaProximaTela (){
+        Context contexto = getApplicationContext();
+        String textoNotificacao = "PARABÉNS, em instantes você será direcionado a tela de cadastro.";
+        int duracaoNotifacao = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
+        toast.show();
+    }
+
+
 }
