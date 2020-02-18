@@ -73,8 +73,8 @@
 
     <TextView
         android:id="@+id/quiz"
-        android:layout_width="185dp"
-        android:layout_height="51dp"
+        android:layout_width="197dp"
+        android:layout_height="49dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/border"
         android:fontFamily="sans-serif-black"
