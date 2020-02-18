@@ -7,30 +7,23 @@
     android:background="@color/backgroundPreto"
     tools:context=".LoginActivity">
 
-     //Cristiane - 02/02/20 - FDEV02 - Login
-    //Inghridy Santos - 04/02/20 - MODIFICACAO
-
-
     <TextView
         android:id="@+id/loginRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/AindaNaoMembroRegistre"
-        android:textColor="@color/corStrings"
+        android:textColor="@color/corStringsBranco"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
-    //INGHRIDY SANTOS - 04/02/20 - FDEV02 - Login
-
     <ImageView
         android:id="@+id/imagemInicio"
         android:layout_width="328dp"
         android:layout_height="262dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -40,8 +33,8 @@
         android:id="@+id/loginUsuario"
         android:layout_width="330dp"
         android:layout_height="56dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagemInicio">
@@ -51,8 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/usuarioLogin"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings" />
+            android:textColor="@color/corStringsBranco"
+            android:textColorHint="@color/corStringsBranco" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -60,23 +53,22 @@
         android:layout_width="330dp"
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginUsuario"
-        app:passwordToggleTint="@color/corStrings">
+        app:passwordToggleTint="@color/corStringsBranco">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/senhaLogin"
             android:inputType="textPassword"
-            android:textColor="@color/corStrings" />
+            android:textColor="@color/corStringsBranco" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!--  Adelania - 07/02/2020 - Alteracao para FAB-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"

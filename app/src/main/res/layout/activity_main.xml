@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/preto"
+    android:background="@drawable/home"
     tools:context=".MainActivity">
 
-
-    <ImageView
+  <ImageView
         android:id="@+id/imgLogoMarvel"
         android:layout_width="264dp"
         android:layout_height="117dp"
@@ -18,10 +17,8 @@
         android:layout_marginEnd="66dp"
         android:layout_marginRight="66dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_marvel_time_branco" />
-
 
     <TextView
         android:id="@+id/textView"
