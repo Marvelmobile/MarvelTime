@@ -3,14 +3,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
-import android.widget.Button;
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button homemAranha;
-
+    private CircleImageView imageViewPersonagens;
+    private CircleImageView imageViewFavoritos;
+    private CircleImageView imageViewQuiz;
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +27,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+        initViews();
+        imageViewQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MenuActivity.class));
+            }
+        });
+        imageViewPersonagens.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MenuActivity.class));
+            }
+        });
+        imageViewFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MenuActivity.class));
+            }
+        });
+    }
 
-    private void direcionaPerguntas(){
-        startActivity(new Intent(MainActivity.this, RecebePerguntasQuizActivity.class));
+    private void initViews (){
+        imageViewFavoritos = findViewById(R.id.img_favoritos);
+        imageViewPersonagens = findViewById(R.id.img_personagens);
+        imageViewQuiz = findViewById(R.id.img_quiz);
     }
 }
