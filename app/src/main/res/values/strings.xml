@@ -9,4 +9,7 @@
     <string name="email">Insira seu email</string>
     <string name="insira_senha">Insira sua senha</string>
     <string name="confirma_senha">Confirme sua senha</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
