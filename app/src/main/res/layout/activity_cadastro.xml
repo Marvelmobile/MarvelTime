@@ -11,11 +11,11 @@
         android:id="@+id/imgLogoMarvel"
         android:layout_width="264dp"
         android:layout_height="117dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginRight="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -45,8 +45,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCadastro">
@@ -55,8 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nome_completo"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings" />
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -68,8 +68,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastrarNome">
@@ -78,8 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings" />
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -91,8 +91,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastrarEmail">
@@ -101,8 +101,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/insira_senha"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings"
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco"
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,8 +116,8 @@
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/backgroundCaixaTexto"
-        android:textColorHint="@color/corStrings"
+        android:background="@color/backgroundCaixaTextoCinza"
+        android:textColorHint="@color/corStringsBranco"
         app:layout_constraintBottom_toTopOf="@+id/bntCadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,10 +128,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/confirma_senha"
             android:inputType="textPassword"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings" />
+            android:textColor="@color/corStringsBranco"
+            android:textColorHint="@color/corStringsBranco" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/loginFacebook"
@@ -203,6 +202,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bntCadastrar" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

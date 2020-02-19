@@ -32,9 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         bntLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if(validaCampos()){
-                   startActivity(new Intent(LoginActivity.this, MainActivity.class));
-               }
+                if(validaCampos()){
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                }
             }
         });
 

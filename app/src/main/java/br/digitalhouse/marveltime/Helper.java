@@ -36,7 +36,8 @@ public class Helper {
         return (nomeCompleto.contains(" "));
     }
 
-    public static boolean senhaIguais(String senha, String confirmacaoSenha) {
+    public static boolean senhaIguais(String senha, String confirmacaoSenha)
+    {
         return (confirmacaoSenha.equals(senha));
     }
 }
