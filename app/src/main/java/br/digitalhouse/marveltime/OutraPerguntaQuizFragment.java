@@ -26,8 +26,7 @@ public class OutraPerguntaQuizFragment extends Fragment {
     private int corRespostaCorreta = 0x8005850C;
     private int corRespostaErrada = 0xD09C300E;
 
-    public OutraPerguntaQuizFragment() {
-    }
+    public OutraPerguntaQuizFragment() {  }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -113,5 +112,4 @@ public class OutraPerguntaQuizFragment extends Fragment {
         Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
         toast.show();
     }
-
 }

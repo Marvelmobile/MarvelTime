@@ -43,9 +43,6 @@
             android:name=".RecebePerguntasQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".TelaFavoritosActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 

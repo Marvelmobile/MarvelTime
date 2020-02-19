@@ -1,11 +1,7 @@
 package br.digitalhouse.marveltime;
-
-
 import android.content.Context;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class PerguntasQuizFragment extends Fragment {
@@ -31,8 +26,7 @@ public class PerguntasQuizFragment extends Fragment {
     private int corRespostaCorreta = 0x8005850C;
     private int corRespostaErrada = 0xD09C300E;
 
-    public PerguntasQuizFragment() {
-    }
+    public PerguntasQuizFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,5 +109,4 @@ public class PerguntasQuizFragment extends Fragment {
         Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
         toast.show();
     }
-
 }

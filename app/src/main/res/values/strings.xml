@@ -25,4 +25,15 @@
     <string name="confirma_senha">Confirme sua senha</string>
     <string name="quiz_homem_ferro">Você sabe tudo sobre o Homem de Ferro?</string>
     <string name="doutor_estranho">Doutor Estranho</string>
+    <string name="ola">Olá, Marvel Fã</string>
+    <string name="personagens">Personagens</string>
+    <string name="gamorra">Gamorra</string>
+    <string name="homem_de_ferro">Homem de Ferro</string>
+    <string name="capita">Capitã Marvel</string>
+    <string name="thor">Thor</string>
+    <string name="pantera_negra">Pantera Negra</string>
+    <string name="quiz">QUIZ</string>
+    <string name="quiz_spider_man">Você sabe tudo sobre o Homem Aranha?</string>
+    <string name="quiz_iron_man">Você sabe tudo sobre o Homem de Ferro?</string>
+    <string name="quiz_thor">Você sabe tudo sobre o Thor?</string>
 </resources>

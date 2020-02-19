@@ -23,13 +23,13 @@
 
     <ImageView
         android:id="@+id/imgLogoMarvel4"
-        android:layout_width="264dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
+        android:layout_width="261dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginRight="65dp"
         android:src="@drawable/logo_marvel_time_branco"
         app:layout_constraintBottom_toTopOf="@+id/personagens"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,14 +86,15 @@
 
     <TextView
         android:id="@+id/quiz"
-        android:layout_width="203dp"
-        android:layout_height="50dp"
+        android:layout_width="212dp"
+        android:layout_height="47dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/border"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/lato"
         android:gravity="center"
-        android:text="QUIZ"
-        android:textColor="#000000"
+        android:textStyle="bold"
+        android:text="@string/quiz"
+        android:textColor="@color/preto"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,10 +109,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/lato"
         android:gravity="center"
-        android:text="Você sabe tudo sobre o Homem Aranha?"
-        android:textColor="#FFFFFF"
+        android:text="@string/quiz_spider_man"
+        android:textColor="@color/branco"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.216"
@@ -156,10 +157,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/lato"
         android:gravity="center"
-        android:text="Você sabe tudo sobre o Homem de Ferro?"
-        android:textColor="#FFFFFF"
+        android:text="@string/quiz_iron_man"
+        android:textColor="@color/branco"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.209"
@@ -176,10 +177,10 @@
         android:layout_marginEnd="24dp"
 
         android:layout_marginRight="24dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/lato"
         android:gravity="center"
-        android:text="Você sabe tudo sobre o Thor?"
-        android:textColor="#FFFFFF"
+        android:text="@string/quiz_thor"
+        android:textColor="@color/branco"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.34"
@@ -218,5 +219,64 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_iron_man"
         app:srcCompat="@drawable/thor" />
+
+    <com.michaldrabik.tapbarmenulib.TapBarMenu
+        android:id="@+id/tapBarMenu"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tbm_backgroundColor="@color/branco"
+        app:tbm_buttonSize="52dp"
+        app:tbm_iconClosed="@drawable/img_menu"
+        app:tbm_iconOpened="@drawable/img_close"
+        app:tbm_menuAnchor="bottom">
+
+        <ImageView
+            android:id="@+id/item1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/img_home"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/item2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/img_favoritos" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/item3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/img_hferro" />
+
+        <ImageView
+            android:id="@+id/item4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/img_quiz_menu" />
+    </com.michaldrabik.tapbarmenulib.TapBarMenu>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
