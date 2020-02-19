@@ -23,4 +23,6 @@
     <string name="email">Insira seu email</string>
     <string name="insira_senha">Insira sua senha</string>
     <string name="confirma_senha">Confirme sua senha</string>
+    <string name="quiz_homem_ferro">Você sabe tudo sobre o Homem de Ferro?</string>
+    <string name="doutor_estranho">Doutor Estranho</string>
 </resources>

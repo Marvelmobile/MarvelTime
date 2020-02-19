@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         imageViewFavoritos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MenuActivity.class));
+                startActivity(new Intent(MainActivity.this, TelaFavoritosActivity.class));
             }
         });
     }
