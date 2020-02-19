@@ -162,7 +162,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageH"
+        android:id="@+id/img_spider_man"
         android:layout_width="123dp"
         android:layout_height="110dp"
         android:layout_marginStart="32dp"
@@ -173,7 +173,7 @@
         app:srcCompat="@drawable/miniaranha" />
 
     <ImageView
-        android:id="@+id/imageHferro"
+        android:id="@+id/img_iron_man"
         android:layout_width="129dp"
         android:layout_height="112dp"
         android:layout_marginStart="32dp"
@@ -184,7 +184,7 @@
         app:srcCompat="@drawable/minihferro" />
 
     <ImageView
-        android:id="@+id/imageThor"
+        android:id="@+id/img_thor"
         android:layout_width="129dp"
         android:layout_height="112dp"
         android:layout_marginStart="32dp"
@@ -193,6 +193,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/thor" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

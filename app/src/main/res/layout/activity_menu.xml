@@ -65,9 +65,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:src="@drawable/img_quiz_menu"/>
-
         </com.michaldrabik.tapbarmenulib.TapBarMenu>
-
-    </FrameLayout>
+ </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

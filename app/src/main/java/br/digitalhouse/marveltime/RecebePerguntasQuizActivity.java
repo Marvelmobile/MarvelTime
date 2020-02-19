@@ -2,7 +2,6 @@ package br.digitalhouse.marveltime;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 
 public class RecebePerguntasQuizActivity extends AppCompatActivity implements Selecionavel {

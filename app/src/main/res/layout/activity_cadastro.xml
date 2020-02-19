@@ -55,8 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nome_completo"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings" />
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -78,8 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings" />
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -101,8 +101,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/insira_senha"
-            android:textColor="@color/corStrings"
-            android:textColorHint="@color/corStrings"
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco"
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +131,6 @@
             android:textColor="@color/corStringsBranco"
             android:textColorHint="@color/corStringsBranco" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/loginFacebook"
@@ -203,6 +202,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bntCadastrar" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,22 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         bntLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String usuario = loginUsuario.getEditText().getText().toString();
-                String senha = loginSenha.getEditText().getText().toString();
-
-                if (usuarioVazio(usuario) || senhaVazia(senha))
-                    notificacao();
-                else if (!usuarioValido(usuario) || !senhaValida(senha))
-                    notificacaoInformacaoIncorreta();
-                else {
-
+                if(validaCampos()){
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
-
-            if(validaCampos()){
-                   startActivity(new Intent(LoginActivity.this, MainActivity.class));
-               }
             }
         });
 
@@ -106,50 +93,6 @@ public class LoginActivity extends AppCompatActivity {
         loginSenha = findViewById(R.id.loginSenha);
         bntLogin = findViewById(R.id.btnLogin);
         loginRegistro = findViewById(R.id.loginRegistro);
-    }
-
-    private boolean usuarioValido (String usuario){
-        if (usuario.contains("@") && usuario.contains(".com") )
-            return true;
-        else
-            return false;
-    }
-
-    private boolean usuarioVazio (String usuario){
-        if (usuario.isEmpty())
-            return true;
-        else
-            return false;
-    }
-
-      public static boolean senhaValida(String senha) {
-        if (senha.length() < 6)
-            return false;
-
-        boolean achouNumero = false;
-        boolean achouMaiuscula = false;
-        boolean achouMinuscula = false;
-        boolean achouSimbolo = false;
-
-        for (char c : senha.toCharArray()) {
-            if (c >= '0' && c <= '9')
-                achouNumero = true;
-            else if (c >= 'A' && c <= 'Z')
-                achouMaiuscula = true;
-            else if (c >= 'a' && c <= 'z')
-                achouMinuscula = true;
-            else
-                achouSimbolo = true;
-        }
-
-        return achouNumero && achouMaiuscula && achouMinuscula && achouSimbolo;
-    }
-
-    private boolean senhaVazia (String senha){
-        if (senha.isEmpty())
-            return true;
-        else
-            return false;
     }
 
     protected void notificacao (String sMensagem){

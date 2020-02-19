@@ -1,12 +1,9 @@
 package br.digitalhouse.marveltime;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 import de.hdodenhof.circleimageview.CircleImageView;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,28 +15,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        homemAranha = findViewById(R.id.homemAranha);
 
-        homemAranha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                direcionaPerguntas();
-            }
-        });
-    }
         initViews();
         imageViewQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MenuActivity.class));
+                startActivity(new Intent(MainActivity.this, QuizActivity.class));
             }
         });
+
         imageViewPersonagens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MenuActivity.class));
+                startActivity(new Intent(MainActivity.this, PersonagensActivity.class));
             }
         });
+
         imageViewFavoritos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

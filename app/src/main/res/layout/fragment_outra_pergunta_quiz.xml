@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:fontFamily="@font/lato_bold_italic"
@@ -31,12 +31,12 @@
         android:id="@+id/fragment_background_imageview_perguntas_outra"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@color/backgroundBrancoComOpacidade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_titulo_principal_outra"/>
+        app:layout_constraintTop_toBottomOf="@+id/fragment_titulo_principal_outra" />
 
     <TextView
         android:id="@+id/fragement_textview_pergunta_outra"
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/round_button"
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/round_button"
@@ -87,7 +87,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_button_alternativaUm_outra"/>
+        app:layout_constraintTop_toBottomOf="@+id/fragment_button_alternativaUm_outra" />
 
     <Button
         android:id="@+id/fragment_button_alternativaTres_outra"
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/round_button"
@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/round_button"
@@ -124,7 +124,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_button_alternativaTres_outra"/>
+        app:layout_constraintTop_toBottomOf="@+id/fragment_button_alternativaTres_outra" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fragment_floatingActionButton_voltar_outra"
@@ -132,24 +132,28 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/setaesquerda"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_button_alternativaQuatro_outra"/>
+        app:layout_constraintTop_toBottomOf="@+id/fragment_button_alternativaQuatro_outra" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fragment_floatingActionButton_proximo_outra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/setadireita"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_button_alternativaQuatro_outra"/>
+        app:layout_constraintTop_toBottomOf="@+id/fragment_button_alternativaQuatro_outra" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,7 +60,6 @@ public class CadastroActivity extends AppCompatActivity {
         bntCadastrar = findViewById(R.id.bntCadastrar);
     }
 
-
     protected void notificacao(String sMensagem) {
         Context contexto = getApplicationContext();
         String textoNotificacao = sMensagem;
