@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime;
+package br.digitalhouse.marveltime.Activitys;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
-import static br.digitalhouse.marveltime.CadastroActivity.CHAVE_EMAIL;
+
+import br.digitalhouse.marveltime.R;
+
+import static br.digitalhouse.marveltime.Activitys.CadastroActivity.CHAVE_EMAIL;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -64,8 +67,9 @@ public class LoginActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Activity_UM_DOIS) {
-            if(resultCode == RESULT_OK){
+            if (resultCode == RESULT_OK) {
                 loginUsuario.getEditText().setText(data.getStringExtra(CHAVE_EMAIL));
             }
         }

@@ -1,10 +1,15 @@
-package br.digitalhouse.marveltime;
+package br.digitalhouse.marveltime.Activitys;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
+
+import br.digitalhouse.marveltime.Fragments.OutraPerguntaQuizFragment;
+import br.digitalhouse.marveltime.Fragments.PerguntasQuizFragment;
+import br.digitalhouse.marveltime.Interfaces.Selecionavel;
+import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -52,13 +57,13 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements Se
                 startActivity(new Intent(RecebePerguntasQuizActivity.this, MainActivity.class));
                 break;
             case R.id.item2:
-                startActivity(new Intent(RecebePerguntasQuizActivity.this, TelaFavoritosActivity.class));
+                startActivity(new Intent(RecebePerguntasQuizActivity.this, RecyclerFavoritosActivity.class));
                 break;
             case R.id.item3:
-                startActivity(new Intent(RecebePerguntasQuizActivity.this, PersonagensActivity.class));
+                startActivity(new Intent(RecebePerguntasQuizActivity.this, RecyclerPersonagensActivity.class));
                 break;
             case R.id.item4:
-                startActivity(new Intent(RecebePerguntasQuizActivity.this, QuizActivity.class));
+                startActivity(new Intent(RecebePerguntasQuizActivity.this, RecyclerQuizActivity.class));
                 break;
         }
     }

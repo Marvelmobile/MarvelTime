@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activitys.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,26 +25,29 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activitys.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activitys.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CadastroActivity"
+            android:name=".Activitys.CadastroActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".PersonagensActivity"
+            android:name=".Activitys.RecebePerguntasQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".QuizActivity"
+            android:name=".Activitys.RecyclerQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RecebePerguntasQuizActivity"
+            android:name=".Activitys.RecyclerFavoritosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TelaFavoritosActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:name=".Activitys.RecyclerPersonagensActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activitys.PersonagensTelaActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 
