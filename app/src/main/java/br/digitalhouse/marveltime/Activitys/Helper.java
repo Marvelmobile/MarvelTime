@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime;
+package br.digitalhouse.marveltime.Activitys;
 
 public class Helper {
 

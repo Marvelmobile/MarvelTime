@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime;
+package br.digitalhouse.marveltime.Fragments;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import br.digitalhouse.marveltime.Interfaces.Selecionavel;
+import br.digitalhouse.marveltime.R;
 
 public class OutraPerguntaQuizFragment extends Fragment {
 
