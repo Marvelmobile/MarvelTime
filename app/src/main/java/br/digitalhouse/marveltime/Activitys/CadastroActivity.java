@@ -12,7 +12,7 @@ import br.digitalhouse.marveltime.Activitys.Helper;
 import br.digitalhouse.marveltime.R;
 
 public class CadastroActivity extends AppCompatActivity {
-    public static final String CHAVE_EMAIL = "EMAIL";
+    public static final String CHAVE_EMAIL = "email";
     private TextInputLayout cadastrarNome;
     private TextInputLayout cadastrarEmail;
     private TextInputLayout cadastrarSenha;

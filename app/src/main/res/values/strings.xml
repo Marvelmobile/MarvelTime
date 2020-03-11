@@ -31,7 +31,9 @@
     <string name="homem_de_ferro">Homem de Ferro</string>
     <string name="capita">Capitã Marvel</string>
     <string name="thor">Thor</string>
+    <string name="cadatrook">Cadastro Realizado com Sucesso!</string>
     <string name="pantera_negra">Pantera Negra</string>
+    <string name="preencha">"Por favor, preencha todos os campos"</string>
     <string name="quiz">QUIZ</string>
     <string name="quiz_spider_man">Você sabe tudo sobre o Homem Aranha?</string>
     <string name="quiz_iron_man">Você sabe tudo sobre o Homem de Ferro?</string>
