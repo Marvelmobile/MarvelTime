@@ -3,4 +3,16 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="corStringsBranco">#FFFFFF</color>
+    <color name="backgroundCaixaTextoCinza">#2F8D8C8C</color>
+    <color name="backgroundPreto">#000000</color>
+    <color name="preto">#000000</color>
+    <color name="azul_facebook">#3b5998</color>
+    <color name="backgroundBrancoComOpacidade">#68FFFFFF</color>
+    <color name="red_splash">#EE1C25</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="backgroundButtonPretoComOpacidade">#92000000</color>
+    <color name="vermelhoRespostaErrada">#D09C300E</color>
+    <color name="verdeRespostaCerta">#8005850C</color>
+
 </resources>
