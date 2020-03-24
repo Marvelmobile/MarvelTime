@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 
-import br.digitalhouse.marveltime.Fragments.OutraPerguntaQuizFragment;
 import br.digitalhouse.marveltime.Fragments.PerguntasQuizFragment;
 import br.digitalhouse.marveltime.Interfaces.Selecionavel;
 import br.digitalhouse.marveltime.R;
@@ -14,28 +13,31 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RecebePerguntasQuizActivity extends AppCompatActivity implements Selecionavel {
+public class RecebePerguntasQuizActivity extends AppCompatActivity{
+    public static String nome;
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recebe_perguntas_quiz);
+        Intent intent = getIntent();
+        nome = intent.getExtras().getString("NOME");
         replaceFragments(R.id.container, new PerguntasQuizFragment());
         ButterKnife.bind(this);
     }
 
-    @Override
-    public void selecionar(int id) {
-
-        if(id == R.id.fragment_layout_quiz_outra){
-            replaceFragments(R.id.container, new OutraPerguntaQuizFragment());
-        }
-        if (id == R.id.fragment_layout_quiz){
-            replaceFragments(R.id.container, new PerguntasQuizFragment());
-        }
-
-    }
+//    @Override
+//    public void selecionar(int id) {
+//
+//        if(id == R.id.fragment_layout_quiz_outra){
+//            replaceFragments(R.id.container, new OutraPerguntaQuizFragment());
+//        }
+//        if (id == R.id.fragment_layout_quiz){
+//            replaceFragments(R.id.container, new PerguntasQuizFragment());
+//        }
+//
+//    }
 
     private void replaceFragments(int container, Fragment fragment){
         getSupportFragmentManager()
@@ -43,6 +45,8 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements Se
                 .replace(container, fragment)
                 .commit();
     }
+
+
 
     @OnClick(R.id.tapBarMenu)
     public void onMenuButtonClick() {

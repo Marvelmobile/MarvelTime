@@ -24,6 +24,7 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
         private Context mContext;
 
 
+
     public AdapterRecyclerQuiz(Context mContext, ArrayList<CardModel> listaCards) {
             this.listaCards= listaCards;
             this.mContext = mContext;
@@ -46,12 +47,23 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
             holder.image.setOnClickListener(v -> {
                 Log.d(TAG, "onClick: clicked");
                 Intent intent= new Intent(mContext, RecebePerguntasQuizActivity.class);
+                int position1= position;
+                intent.putExtra("NOME",verifica(position));
                 mContext.startActivity(intent);
             });
 
         }
 
-        @Override
+    private String verifica(int n) {
+        String nomeHeroi = null;
+        if(n==0){nomeHeroi="HA";}
+        if(n==1){nomeHeroi="TH";}
+        if(n==2){nomeHeroi="HF";}
+        if(n==3){nomeHeroi="CA";}
+        return nomeHeroi;
+    }
+
+    @Override
         public int getItemCount() {
             return listaCards.size();
         }

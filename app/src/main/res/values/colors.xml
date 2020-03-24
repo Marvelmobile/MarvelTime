@@ -12,7 +12,7 @@
     <color name="red_splash">#EE1C25</color>
     <color name="branco">#FFFFFF</color>
     <color name="backgroundButtonPretoComOpacidade">#92000000</color>
-    <color name="vermelhoRespostaErrada">#D09C300E</color>
-    <color name="verdeRespostaCerta">#8005850C</color>
+    <color name="errado">#D09C300E</color>
+    <color name="correto">#8005850C</color>
 
 </resources>

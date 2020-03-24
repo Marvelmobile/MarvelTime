@@ -2,16 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_layout_quiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.PerguntasQuizFragment"
     android:background="@drawable/backgroundquiz"
-    android:id="@+id/fragment_layout_quiz">
+    tools:context=".Fragments.PerguntasQuizFragment">
 
     <TextView
         android:id="@+id/fragment_titulo_principal"
         android:layout_width="384dp"
         android:layout_height="wrap_content"
+        android:padding="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
@@ -30,7 +31,7 @@
     <ImageView
         android:id="@+id/fragment_background_imageview_perguntas"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:layout_marginTop="16dp"
         android:background="@color/backgroundBrancoComOpacidade"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +43,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_bold"
+        android:padding="16dp"
         android:text="@string/perguntaUm"
+        android:textAlignment="center"
         android:textColor="@color/preto"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/fragment_background_imageview_perguntas"
@@ -52,11 +55,11 @@
 
     <Button
         android:id="@+id/fragment_button_alternativaUm"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/round_button"
@@ -70,7 +73,7 @@
 
     <Button
         android:id="@+id/fragment_button_alternativaDois"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -88,7 +91,7 @@
 
     <Button
         android:id="@+id/fragment_button_alternativaTres"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -106,7 +109,7 @@
 
     <Button
         android:id="@+id/fragment_button_alternativaQuatro"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
