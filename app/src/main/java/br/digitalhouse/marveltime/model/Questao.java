@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Models;
+package br.digitalhouse.marveltime.model;
 
 public class Questao {
     private String nome, pergunta, alternativa1, alternativa2, alternativa3, alternativa4, resposta;

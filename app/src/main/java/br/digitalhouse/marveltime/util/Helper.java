@@ -1,7 +1,11 @@
-package br.digitalhouse.marveltime.Activitys;
+package br.digitalhouse.marveltime.util;
+
+import android.content.Context;
+import android.widget.Toast;
+
+import br.digitalhouse.marveltime.R;
 
 public class Helper {
-
     public static boolean usuarioValido (String usuario){
         return (usuario.contains("@") && usuario.contains(".com") );
     }
@@ -40,4 +44,5 @@ public class Helper {
     {
         return (confirmacaoSenha.equals(senha));
     }
+
 }

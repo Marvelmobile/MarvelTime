@@ -1,28 +1,18 @@
-package br.digitalhouse.marveltime.Adapter;
-
+package br.digitalhouse.marveltime.view.adapter;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-
-import br.digitalhouse.marveltime.Activitys.MainActivity;
-import br.digitalhouse.marveltime.Activitys.PersonagensTelaActivity;
-import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
-import br.digitalhouse.marveltime.Models.CardModel;
+import br.digitalhouse.marveltime.view.activity.PersonagensTelaActivity;
+import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.Views.ViewHolderFavoritos;
-import br.digitalhouse.marveltime.Views.ViewHolderPersonagens;
+import br.digitalhouse.marveltime.view.viewholder.ViewHolderPersonagens;
 
 public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderPersonagens> {
-
-    private static final String TAG = "AdapterPersonagens";
     private ArrayList<CardModel> listaCards;
     private Context mContext;
 
@@ -41,16 +31,12 @@ public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderP
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPersonagens holder, int position) {
-        Log.d(TAG, "onBindViewHolder: called.");
-
         holder.image.setImageResource(listaCards.get(position).getImagem());
         holder.texto.setText(listaCards.get(position).getNome());
         holder.image.setOnClickListener(v -> {
-            Log.d(TAG, "onClick: clicked");
             Intent intent= new Intent(mContext, PersonagensTelaActivity.class);
             intent.putExtra("IMAGEM",listaCards.get(position).getImagem());
             intent.putExtra("NOME",listaCards.get(position).getNome());
-
             mContext.startActivity(intent);
         });
     }

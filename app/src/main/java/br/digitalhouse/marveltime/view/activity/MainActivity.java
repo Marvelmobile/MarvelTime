@@ -1,14 +1,12 @@
-package br.digitalhouse.marveltime.Activitys;
+package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import br.digitalhouse.marveltime.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
-
     private CircleImageView imageViewPersonagens;
     private CircleImageView imageViewFavoritos;
     private CircleImageView imageViewQuiz;
@@ -46,5 +44,4 @@ public class MainActivity extends AppCompatActivity {
         imageViewPersonagens = findViewById(R.id.img_personagens);
         imageViewQuiz = findViewById(R.id.img_quiz);
     }
-
 }

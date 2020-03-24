@@ -1,43 +1,32 @@
-package br.digitalhouse.marveltime.Fragments;
-
+package br.digitalhouse.marveltime.view.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import br.digitalhouse.marveltime.Activitys.MainActivity;
-import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
-import br.digitalhouse.marveltime.Interfaces.Selecionavel;
-import br.digitalhouse.marveltime.Models.Questao;
+import br.digitalhouse.marveltime.view.activity.MainActivity;
+import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
+import br.digitalhouse.marveltime.view.Interfaces.Selecionavel;
+import br.digitalhouse.marveltime.model.Questao;
 import br.digitalhouse.marveltime.R;
-
 import static android.widget.Toast.LENGTH_SHORT;
 import static br.digitalhouse.marveltime.R.color.branco;
 
 public class PerguntasQuizFragment extends Fragment {
-
     private TextView fragment_titulo;
     private TextView fragmentPergunta;
     private Button fragmentAlternativaUm;
@@ -48,14 +37,12 @@ public class PerguntasQuizFragment extends Fragment {
     private FloatingActionButton fragmentProximo;
     private Selecionavel selecionavel;
     private List<Questao> listaperguntas;
-    private List<Questao> listaperguntasfiltrada=new ArrayList<>();
+    private List<Questao> listaperguntasfiltrada = new ArrayList<>();
     int perguntaAtual = 0;
     int correto = 0, errado = 0;
     int duracaoNotifacao = LENGTH_SHORT;
 
-
-    public PerguntasQuizFragment() {
-    }
+    public PerguntasQuizFragment() {  }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,34 +61,23 @@ public class PerguntasQuizFragment extends Fragment {
                 if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa1().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
                     correto++;
                     ficaVerde(fragmentAlternativaUm);
-
-//                    Toast.makeText(contexto, "Correto!", duracaoNotifacao).show();
                 } else {
                     errado++;
                     ficaVermelho(fragmentAlternativaUm);
-
-
-//                    Toast.makeText(contexto, "Errado! Resposta correta:"+ listaperguntas.get(perguntaAtual).getResposta(), duracaoNotifacao).show();
                 }
-
             }
         });
 
         fragmentAlternativaDois.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa2().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
                     correto++;
                     ficaVerde(fragmentAlternativaDois);
-//                    Toast.makeText(contexto, "Correto!", duracaoNotifacao).show();
                 } else {
                     errado++;
                     ficaVermelho(fragmentAlternativaDois);
-//                    Toast.makeText(contexto, "Errado! Resposta correta:"+ listaperguntas.get(perguntaAtual).getResposta(), duracaoNotifacao).show();
                 }
-
-
             }
         });
 
@@ -111,15 +87,10 @@ public class PerguntasQuizFragment extends Fragment {
                 if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa3().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
                     correto++;
                     ficaVerde(fragmentAlternativaTres);
-
-//                    Toast.makeText(contexto, "Correto!", duracaoNotifacao).show();
                 } else {
                     errado++;
                     ficaVermelho(fragmentAlternativaTres);
-//                    Toast.makeText(contexto, "Errado! Resposta correta:"+ listaperguntas.get(perguntaAtual).getResposta(), duracaoNotifacao).show();
                 }
-
-
             }
         });
 
@@ -129,32 +100,17 @@ public class PerguntasQuizFragment extends Fragment {
                 if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa4().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
                     correto++;
                     ficaVerde(fragmentAlternativaQuatro);
-//                    Toast.makeText(contexto, "Correto!", duracaoNotifacao).show();
                 } else {
                     errado++;
                     ficaVermelho(fragmentAlternativaQuatro);
-//                    Toast.makeText(contexto, "Errado! Resposta correta:"+ listaperguntas.get(perguntaAtual).getResposta(), duracaoNotifacao).show();
                 }
-
-
             }
         });
-
-
-//        fragmentProximo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                selecionavel.selecionar(R.id.fragment_layout_quiz_outra);
-//            }
-//        });
 
         fragmentVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-            }
+            public void onClick(View v) {  }
         });
-
         return v;
     }
 
@@ -195,8 +151,7 @@ public class PerguntasQuizFragment extends Fragment {
         return json;
     }
 
-
-    private void mudaTitulo(){
+    private void mudaTitulo() {
         if (RecebePerguntasQuizActivity.nome.equals("HA")) {
             fragment_titulo.setText(R.string.quiz_spider_man);
         }
@@ -211,21 +166,21 @@ public class PerguntasQuizFragment extends Fragment {
         }
     }
 
-    private void filtroLista(){
-        for (int i=0; i<listaperguntas.size(); i++){
-            if (RecebePerguntasQuizActivity.nome.equals(listaperguntas.get(i).getNome())){
+    private void filtroLista() {
+        for (int i = 0; i < listaperguntas.size(); i++) {
+            if (RecebePerguntasQuizActivity.nome.equals(listaperguntas.get(i).getNome())) {
                 listaperguntasfiltrada.add(listaperguntas.get(i));
             }
         }
-            mudaTitulo();
+        mudaTitulo();
     }
-    private void colocarPerguntasTela(int numero) {
 
-            fragmentPergunta.setText(listaperguntasfiltrada.get(numero).getPergunta());
-            fragmentAlternativaUm.setText(listaperguntasfiltrada.get(numero).getAlternativa1());
-            fragmentAlternativaDois.setText(listaperguntasfiltrada.get(numero).getAlternativa2());
-            fragmentAlternativaTres.setText(listaperguntasfiltrada.get(numero).getAlternativa3());
-            fragmentAlternativaQuatro.setText(listaperguntasfiltrada.get(numero).getAlternativa4());
+    private void colocarPerguntasTela(int numero) {
+        fragmentPergunta.setText(listaperguntasfiltrada.get(numero).getPergunta());
+        fragmentAlternativaUm.setText(listaperguntasfiltrada.get(numero).getAlternativa1());
+        fragmentAlternativaDois.setText(listaperguntasfiltrada.get(numero).getAlternativa2());
+        fragmentAlternativaTres.setText(listaperguntasfiltrada.get(numero).getAlternativa3());
+        fragmentAlternativaQuatro.setText(listaperguntasfiltrada.get(numero).getAlternativa4());
     }
 
     private void carregaTodasPerguntas() {
@@ -235,31 +190,28 @@ public class PerguntasQuizFragment extends Fragment {
             JSONObject jsonObject = new JSONObject(jsonStr);
             JSONArray perguntas = jsonObject.getJSONArray("perguntas");
             for (int i = 0; i < perguntas.length(); i++) {
-                    JSONObject pergunta = perguntas.getJSONObject(i);
+                JSONObject pergunta = perguntas.getJSONObject(i);
 
-                    String nomeString = pergunta.getString("nome");
-                    String perguntaString = pergunta.getString("pergunta");
-                    String alternativa1String = pergunta.getString("alternativa1");
-                    String alternativa2String = pergunta.getString("alternativa2");
-                    String alternativa3String = pergunta.getString("alternativa3");
-                    String alternativa4String = pergunta.getString("alternativa4");
-                    String respostaString = pergunta.getString("resposta");
+                String nomeString = pergunta.getString("nome");
+                String perguntaString = pergunta.getString("pergunta");
+                String alternativa1String = pergunta.getString("alternativa1");
+                String alternativa2String = pergunta.getString("alternativa2");
+                String alternativa3String = pergunta.getString("alternativa3");
+                String alternativa4String = pergunta.getString("alternativa4");
+                String respostaString = pergunta.getString("resposta");
 
-                    listaperguntas.add(new Questao(nomeString,
-                            perguntaString,
-                            alternativa1String,
-                            alternativa2String,
-                            alternativa3String,
-                            alternativa4String,
-                            respostaString
-                    ));
-                }
-
-
+                listaperguntas.add(new Questao(nomeString,
+                        perguntaString,
+                        alternativa1String,
+                        alternativa2String,
+                        alternativa3String,
+                        alternativa4String,
+                        respostaString
+                ));
+            }
         } catch (JSONException e) {
 
         }
-
     }
 
     private void ficaVermelho(Button button) {
@@ -274,7 +226,6 @@ public class PerguntasQuizFragment extends Fragment {
     }
 
     private void voltaBranco(Button button) {
-
         Handler handler = new Handler();
         long delay = 1000;
         handler.postDelayed(new Runnable() {

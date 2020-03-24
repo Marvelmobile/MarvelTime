@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Activitys;
+package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,14 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
-
 import br.digitalhouse.marveltime.R;
-
-import static br.digitalhouse.marveltime.Activitys.CadastroActivity.CHAVE_EMAIL;
+import br.digitalhouse.marveltime.util.Helper;
+import static br.digitalhouse.marveltime.util.Constantes.Activity_UM_DOIS;
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private static final int Activity_UM_DOIS = 1;
     private TextInputLayout loginUsuario;
     private TextInputLayout loginSenha;
     private FloatingActionButton bntLogin;
@@ -28,7 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         initViews();
         linkCadastroUsuario();
 
@@ -44,9 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         loginRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class),1);
-
+             startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class),1);
             }
         });
     }
@@ -56,9 +51,9 @@ public class LoginActivity extends AppCompatActivity {
         String senha = loginSenha.getEditText().getText().toString();
 
         if (Helper.isEmptyString(usuario) || Helper.isEmptyString(senha))
-            notificacao( "Por favor, preencha todos os campos");
+            notificacao(getString(R.string.preencher_campos));
         else if (!Helper.usuarioValido(usuario) || !Helper.senhaValida(senha))
-            notificacao( "Usuário ou senha não atendem as regras, por favor, tente novamente");
+            notificacao( getString(R.string.user_senha_fora_regra));
         else
             return true;
 
@@ -66,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Activity_UM_DOIS) {
             if (resultCode == RESULT_OK) {
@@ -76,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void linkCadastroUsuario() {
-        String msgRegistroUsuario = "Ainda não é membro? [Registre-se aqui]";
+        String msgRegistroUsuario = getString(R.string.registre_se);
         int i1 = msgRegistroUsuario.indexOf("[");
         int i2 = msgRegistroUsuario.indexOf("]");
 
@@ -88,7 +82,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View widget) { }
         };
-
         mySpannable.setSpan(myClickableSpan, i1, i2 + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
@@ -102,9 +95,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void notificacao (String sMensagem){
         Context contexto = getApplicationContext();
         String textoNotificacao = sMensagem;
-        int duracaoNotifacao = Toast.LENGTH_LONG;
-
-        Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
+        Toast toast = Toast.makeText(contexto, textoNotificacao, Toast.LENGTH_LONG);
         toast.show();
     }
 }

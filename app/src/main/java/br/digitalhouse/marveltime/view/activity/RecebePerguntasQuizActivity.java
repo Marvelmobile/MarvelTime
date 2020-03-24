@@ -1,14 +1,12 @@
-package br.digitalhouse.marveltime.Activitys;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+package br.digitalhouse.marveltime.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-
-import br.digitalhouse.marveltime.Fragments.PerguntasQuizFragment;
-import br.digitalhouse.marveltime.Interfaces.Selecionavel;
 import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.view.fragment.PerguntasQuizFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -17,6 +15,7 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity{
     public static String nome;
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,26 +26,12 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity{
         ButterKnife.bind(this);
     }
 
-//    @Override
-//    public void selecionar(int id) {
-//
-//        if(id == R.id.fragment_layout_quiz_outra){
-//            replaceFragments(R.id.container, new OutraPerguntaQuizFragment());
-//        }
-//        if (id == R.id.fragment_layout_quiz){
-//            replaceFragments(R.id.container, new PerguntasQuizFragment());
-//        }
-//
-//    }
-
     private void replaceFragments(int container, Fragment fragment){
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(container, fragment)
                 .commit();
     }
-
-
 
     @OnClick(R.id.tapBarMenu)
     public void onMenuButtonClick() {

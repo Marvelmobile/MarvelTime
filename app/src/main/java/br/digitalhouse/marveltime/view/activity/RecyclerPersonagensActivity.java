@@ -1,30 +1,22 @@
-package br.digitalhouse.marveltime.Activitys;
-
+package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-
 import java.util.ArrayList;
-
-import br.digitalhouse.marveltime.Adapter.AdapterRecyclerPersonagens;
-import br.digitalhouse.marveltime.Models.CardModel;
+import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerPersonagens;
+import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class RecyclerPersonagensActivity extends AppCompatActivity {
-
-
     private RecyclerView recycler;
     private ArrayList<CardModel> listaCards = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +27,12 @@ public class RecyclerPersonagensActivity extends AppCompatActivity {
     }
 
     public void initListas() {
-
         listaCards.add(new CardModel(R.drawable.tony, R.string.homem_de_ferro));
         listaCards.add(new CardModel(R.drawable.capita, R.string.capita));
         listaCards.add(new CardModel(R.drawable.gamorra, R.string.gamora));
         listaCards.add(new CardModel(R.drawable.thorx, R.string.thor));
         listaCards.add(new CardModel(R.drawable.dr, R.string.doutor_estranho));
         listaCards.add(new CardModel(R.drawable.panter, R.string.pantera_negra));
-
 
         initAdapter();
     }

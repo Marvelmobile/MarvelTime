@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Activitys;
+package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
@@ -7,12 +7,11 @@ import android.content.Intent;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
-
-import br.digitalhouse.marveltime.Activitys.Helper;
 import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.util.Helper;
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
 
 public class CadastroActivity extends AppCompatActivity {
-    public static final String CHAVE_EMAIL = "email";
     private TextInputLayout cadastrarNome;
     private TextInputLayout cadastrarEmail;
     private TextInputLayout cadastrarSenha;
@@ -23,7 +22,6 @@ public class CadastroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
         initViews();
 
         bntCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +39,7 @@ public class CadastroActivity extends AppCompatActivity {
         String senhaConfirmacao = cadastrarSenhaConfirmacao.getEditText().getText().toString();
 
         if(validaCampos(nomeCompleto, email, senha, senhaConfirmacao)){
-            notificacao("Cadastro Realizado com Sucesso!");
+            notificacao(getString(R.string.cad_sucesso));
             voltarTelaLoginActivity(email);
         }
     }
@@ -66,26 +64,25 @@ public class CadastroActivity extends AppCompatActivity {
     protected void notificacao(String sMensagem) {
         Context contexto = getApplicationContext();
         String textoNotificacao = sMensagem;
-        int duracaoNotifacao = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(contexto, textoNotificacao, duracaoNotifacao);
+        Toast toast = Toast.makeText(contexto, textoNotificacao, Toast.LENGTH_LONG);
         toast.show();
     }
 
     private boolean validaCampos(String nomeCompleto, String email, String senha, String senhaConfirmacao) {
         if (Helper.isEmptyString(nomeCompleto) || Helper.isEmptyString(email)
                 || Helper.isEmptyString(senha) || Helper.isEmptyString(senhaConfirmacao))
-            notificacao("Por favor, preencha todos os campos");
+            notificacao(getString(R.string.preencher_campos));
         else if (!Helper.nomeValido(nomeCompleto))
-            notificacao("Por favor, preencha o nome completo para cadastro no Marvel Time");
+            notificacao(getString(R.string.preencher_nome));
         else if (!Helper.usuarioValido(email))
-            notificacao("Por favor, insira um e-mail válido");
+            notificacao(getString(R.string.inserir_email));
         else if (Helper.senhaValida(senha)) {
             if (!Helper.senhaIguais(senha, senhaConfirmacao))
-                notificacao("Os dados inseridos nos campos Senha e Confirme sua senha, devem ser iguais. Tente novamente.");
+                notificacao(getString(R.string.confirmar_senhas_iguais));
             else
                 return true;
         } else
-            notificacao("A senha deve conter pelo menos 6 caracteres, uma letra maiuscula e minuscula, um número e um caracter especial.");
+            notificacao(getString(R.string.regra_senha));
 
         return false;
     }

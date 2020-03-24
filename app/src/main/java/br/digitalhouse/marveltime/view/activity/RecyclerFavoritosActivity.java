@@ -1,33 +1,24 @@
-package br.digitalhouse.marveltime.Activitys;
-
+package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-
 import java.util.ArrayList;
-
-import br.digitalhouse.marveltime.Adapter.AdapterRecyclerFavoritos;
-import br.digitalhouse.marveltime.Models.CardModel;
+import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerFavoritos;
+import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class RecyclerFavoritosActivity extends AppCompatActivity {
-    private static final String TAG = "FavoritosActivity";
     private ArrayList<CardModel> listaCards = new ArrayList<>();
 
     private void initBitmaps() {
-        Log.d(TAG, "initBitmaps: Inicio Bitmaps");
-
-        listaCards.add(new CardModel(R.drawable.miniaranha, R.string.sabe_homem_aranha));
+        listaCards.add(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha));
         listaCards.add(new CardModel(R.drawable.thor, R.string.quiz_thor));
         listaCards.add(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro));
         listaCards.add(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao));
@@ -41,13 +32,11 @@ public class RecyclerFavoritosActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-
     @BindView(R.id.tapBarMenu)
     public TapBarMenu tapBarMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate: Inicio recycler.");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_favoritos);
         ButterKnife.bind(this);
