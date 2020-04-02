@@ -17,7 +17,6 @@
         android:orientation="vertical"
         >
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imagem_personagens"
             android:layout_width="match_parent"

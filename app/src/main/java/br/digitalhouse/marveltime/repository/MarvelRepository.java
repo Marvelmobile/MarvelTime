@@ -11,7 +11,7 @@ import static br.digitalhouse.marveltime.util.Constantes.TS;
 public class MarvelRepository {
     String hash = Helper.md5(TS + PRIVATE_KEY + PUBLIC_KEY );
 
-    public Observable<PersonagemResponse> getComics(Integer offset){
-        return getApiService().getPersonagens();
+    public Observable<PersonagemResponse> getPersonagem(Integer offset){
+        return getApiService().getPersonagens("name", TS, hash, PUBLIC_KEY, offset);
     }
 }
