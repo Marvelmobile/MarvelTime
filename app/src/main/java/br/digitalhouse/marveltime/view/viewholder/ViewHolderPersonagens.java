@@ -1,4 +1,5 @@
 package br.digitalhouse.marveltime.view.viewholder;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -23,5 +24,7 @@ public class ViewHolderPersonagens extends RecyclerView.ViewHolder {
     public void onBind(PersonagemResult personagemResult) {
         texto.setText(personagemResult.getName());
         Picasso.get().load(personagemResult.getThumbnail().getPath() + "." + personagemResult.getThumbnail().getExtension()).into(image);
+
+        Log.i(personagemResult.getThumbnail().getPath(), "ERRO");
     }
 }

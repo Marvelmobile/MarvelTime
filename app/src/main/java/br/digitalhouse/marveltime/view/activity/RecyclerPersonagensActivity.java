@@ -23,7 +23,6 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements br
 
     private AdapterRecyclerPersonagens adapter;
     private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
-    private Integer offset = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements br
 //        initListas();
 
         MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
-        marvelViewModel.getPersongens(offset);
+        marvelViewModel.getPersongens();
         marvelViewModel.getPersonagensLista().observe(this, personagemResults -> adapter.atualizaLista(personagemResultsLista));
 
         recycler = findViewById(R.id.recycler_view_personagens);

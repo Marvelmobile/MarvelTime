@@ -23,7 +23,7 @@
             android:layout_height="100dp"
             android:padding="5dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/tony" />
+            android:src="@drawable/tony"/>
 
         <TextView
             android:id="@+id/texto_personagens"
