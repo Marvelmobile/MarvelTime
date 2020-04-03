@@ -1,15 +1,16 @@
 package br.digitalhouse.marveltime.network;
 
 import br.digitalhouse.marveltime.model.PersonagemResponse;
+import io.reactivex.Flowable;
 import io.reactivex.Single;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface MarvelAPI {
 
-    @GET( "comics?" )
+    @GET("characters?")
     Single<PersonagemResponse> getPersonagens(
             @Query ( "ts" ) String ts,
             @Query ( "hash" ) String hash,
-            @Query ( "apikey" ) String apikey);
+            @Query ( "apiKey" ) String apikey);
 }

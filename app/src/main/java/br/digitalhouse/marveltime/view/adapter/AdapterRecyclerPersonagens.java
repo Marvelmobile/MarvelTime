@@ -6,16 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import br.digitalhouse.marveltime.model.PersonagemResult;
-import br.digitalhouse.marveltime.view.Interfaces.OnClick;
+import br.digitalhouse.marveltime.view.Interfaces.OnClickListenerPersonagem;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderPersonagens;
 
 public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderPersonagens> {
 
     private List<PersonagemResult> personagemResultsList;
-    private OnClick personagemListener;
+    private OnClickListenerPersonagem personagemListener;
 
-    public AdapterRecyclerPersonagens(List<PersonagemResult> personagemResultsList, OnClick personagemListener) {
+    public AdapterRecyclerPersonagens(List<PersonagemResult> personagemResultsList, OnClickListenerPersonagem personagemListener) {
         this.personagemResultsList = personagemResultsList;
         this.personagemListener = personagemListener;
     }
@@ -33,12 +33,7 @@ public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderP
     public void onBindViewHolder(@NonNull ViewHolderPersonagens holder, int position) {
         PersonagemResult personagemResult = personagemResultsList.get(position);
         holder.onBind(personagemResult);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                personagemListener.click(personagemResult);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> personagemListener.click(personagemResult));
     }
 
     @Override

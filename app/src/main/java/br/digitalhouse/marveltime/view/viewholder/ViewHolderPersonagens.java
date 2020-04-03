@@ -22,6 +22,7 @@ public class ViewHolderPersonagens extends RecyclerView.ViewHolder {
     }
 
     public void onBind(PersonagemResult personagemResult) {
+        Log.i("TAG", "ENTRA AQUI NO VIEWHOLDER");
         texto.setText(personagemResult.getName());
         Picasso.get().load(personagemResult.getThumbnail().getPath() + "." + personagemResult.getThumbnail().getExtension()).into(image);
 

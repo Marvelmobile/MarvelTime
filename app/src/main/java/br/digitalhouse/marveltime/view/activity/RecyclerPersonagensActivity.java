@@ -4,12 +4,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
 import java.util.List;
-
 import br.digitalhouse.marveltime.model.PersonagemResult;
+import br.digitalhouse.marveltime.view.Interfaces.OnClickListenerPersonagem;
 import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerPersonagens;
 import br.digitalhouse.marveltime.R;
@@ -17,9 +18,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RecyclerPersonagensActivity extends AppCompatActivity implements br.digitalhouse.marveltime.view.Interfaces.OnClick {
+public class RecyclerPersonagensActivity extends AppCompatActivity implements OnClickListenerPersonagem {
     private RecyclerView recycler;
 //    private ArrayList<CardModel> listaCards = new ArrayList<>();
+
+    //TODO: MUDAR MANISFEST PARA A SPLASH ACTIVITY ANTES DO MERGE
+    //TODO: AVALIAR COM O HENRIQUE OS CODIGOS RETIRADOS
 
     private AdapterRecyclerPersonagens adapter;
     private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
@@ -29,10 +33,11 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements br
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_personagens);
         ButterKnife.bind(this);
-//        initListas();
 
         MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
+        Log.i("TAG", "ANTES DE CHAMAR");
         marvelViewModel.getPersongens();
+        Log.i("TAG", "DEPOIS DE CHAMAR");
         marvelViewModel.getPersonagensLista().observe(this, personagemResults -> adapter.atualizaLista(personagemResultsLista));
 
         recycler = findViewById(R.id.recycler_view_personagens);
@@ -40,24 +45,6 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements br
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new GridLayoutManager(this, 3));
     }
-
-//    public void initListas() {
-//        listaCards.add(new CardModel(R.drawable.tony, R.string.homem_de_ferro));
-//        listaCards.add(new CardModel(R.drawable.capita, R.string.capita));
-//        listaCards.add(new CardModel(R.drawable.gamorra, R.string.gamora));
-//        listaCards.add(new CardModel(R.drawable.thorx, R.string.thor));
-//        listaCards.add(new CardModel(R.drawable.dr, R.string.doutor_estranho));
-//        listaCards.add(new CardModel(R.drawable.panter, R.string.pantera_negra));
-//
-//        initAdapter();
-//    }
-
-//    public void initAdapter() {
-//        recycler = findViewById(R.id.recycler_view_personagens);
-//        AdapterRecyclerPersonagens adapter = new AdapterRecyclerPersonagens(, this);
-//        recycler.setAdapter(adapter);
-//        recycler.setLayoutManager(new GridLayoutManager(this, 2));
-//    }
 
     @BindView(R.id.tapBarMenu)
     public TapBarMenu tapBarMenu;
@@ -88,7 +75,6 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements br
 
     @Override
     public void click(PersonagemResult personagem) {
-
     }
 }
 
