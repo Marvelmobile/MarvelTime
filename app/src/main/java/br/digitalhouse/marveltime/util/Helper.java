@@ -1,15 +1,9 @@
 package br.digitalhouse.marveltime.util;
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.widget.Toast;
-
-import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import br.digitalhouse.marveltime.R;
 
 public class Helper {
     public static boolean usuarioValido (String usuario){
@@ -55,7 +49,6 @@ public class Helper {
         ConnectivityManager connectivityManager = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo;
-
         if (connectivityManager != null){
             networkInfo = connectivityManager.getActiveNetworkInfo();
             return networkInfo != null && networkInfo.isConnected() &&
@@ -65,17 +58,27 @@ public class Helper {
         return false;
     }
 
+    private static char[] HEXCHARS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    private static String hexEncode(byte[] bytes) {
+        char[] result = new char[bytes.length * 2];
+        int b;
+        for (int i = 0, j = 0; i < bytes.length; i++) {
+            b = bytes[i] & 0xff;
+            result[j++] = HEXCHARS[b >> 4];
+            result[j++] = HEXCHARS[b & 0xf];
+        }
+        return new String(result);
+    }
+
     public static String md5(String s) {
-        String sen = "";
-        MessageDigest md = null;
         try {
-            md = MessageDigest.getInstance("MD5");
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            return hexEncode(digest.digest());
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        BigInteger hash = new BigInteger(1, md.digest(s.getBytes()));
-        sen = hash.toString(16);
-        return sen;
+        return "";
     }
-
 }

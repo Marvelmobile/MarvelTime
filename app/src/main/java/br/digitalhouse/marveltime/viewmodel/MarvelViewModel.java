@@ -1,5 +1,4 @@
 package br.digitalhouse.marveltime.viewmodel;
-
 import android.app.Application;
 import android.util.Log;
 import androidx.annotation.NonNull;
@@ -15,7 +14,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MarvelViewModel extends AndroidViewModel {
     private MutableLiveData<List<PersonagemResult>> personagemLista = new MutableLiveData<>();
-    //TODO INGHRIDY COLOCAR LOADING
     private CompositeDisposable disposable = new CompositeDisposable();
     private MarvelRepository repository = new MarvelRepository();
 

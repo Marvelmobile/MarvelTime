@@ -11,7 +11,6 @@ import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderPersonagens;
 
 public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderPersonagens> {
-
     private List<PersonagemResult> personagemResultsList;
     private OnClickListenerPersonagem personagemListener;
 
@@ -19,7 +18,6 @@ public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderP
         this.personagemResultsList = personagemResultsList;
         this.personagemListener = personagemListener;
     }
-
 
     @NonNull
     @Override
@@ -49,5 +47,4 @@ public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderP
         }
         notifyDataSetChanged();
     }
-
 }

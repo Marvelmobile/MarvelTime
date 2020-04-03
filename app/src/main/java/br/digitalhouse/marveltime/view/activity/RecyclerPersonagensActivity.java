@@ -4,7 +4,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
@@ -20,11 +19,6 @@ import butterknife.OnClick;
 
 public class RecyclerPersonagensActivity extends AppCompatActivity implements OnClickListenerPersonagem {
     private RecyclerView recycler;
-//    private ArrayList<CardModel> listaCards = new ArrayList<>();
-
-    //TODO: MUDAR MANISFEST PARA A SPLASH ACTIVITY ANTES DO MERGE
-    //TODO: AVALIAR COM O HENRIQUE OS CODIGOS RETIRADOS
-
     private AdapterRecyclerPersonagens adapter;
     private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
 
@@ -35,10 +29,10 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         ButterKnife.bind(this);
 
         MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
-        Log.i("TAG", "ANTES DE CHAMAR");
         marvelViewModel.getPersongens();
-        Log.i("TAG", "DEPOIS DE CHAMAR");
-        marvelViewModel.getPersonagensLista().observe(this, personagemResults -> adapter.atualizaLista(personagemResultsLista));
+        marvelViewModel.getPersonagensLista().observe(this, personagemResults -> {
+            adapter.atualizaLista(personagemResults);
+        });
 
         recycler = findViewById(R.id.recycler_view_personagens);
         adapter = new AdapterRecyclerPersonagens(personagemResultsLista, this);
