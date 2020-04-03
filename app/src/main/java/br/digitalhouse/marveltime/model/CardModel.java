@@ -1,6 +1,14 @@
 package br.digitalhouse.marveltime.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "card")
 public class CardModel {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    private long id;
     private int Nome;
     private int Imagem;
 
@@ -20,7 +28,8 @@ public class CardModel {
         Imagem = imagem;
     }
 
-    public CardModel(int imagem, int nome) {
+    public CardModel(long id, int imagem, int nome) {
+        this.id = id;
         Nome = nome;
         Imagem = imagem;
     }

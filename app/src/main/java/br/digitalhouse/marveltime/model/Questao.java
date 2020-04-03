@@ -1,9 +1,19 @@
 package br.digitalhouse.marveltime.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "questao")
 public class Questao {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    private long id;
+
     private String nome, pergunta, alternativa1, alternativa2, alternativa3, alternativa4, resposta;
 
-    public Questao(String nome, String pergunta, String alternativa1, String alternativa2, String alternativa3, String alternativa4, String resposta) {
+    public Questao(long id, String nome, String pergunta, String alternativa1, String alternativa2, String alternativa3, String alternativa4, String resposta) {
+        this.id = id;
         this.nome = nome;
         this.pergunta = pergunta;
         this.alternativa1 = alternativa1;

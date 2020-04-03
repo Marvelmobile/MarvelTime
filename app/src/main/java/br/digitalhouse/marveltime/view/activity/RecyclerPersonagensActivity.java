@@ -27,12 +27,12 @@ public class RecyclerPersonagensActivity extends AppCompatActivity {
     }
 
     public void initListas() {
-        listaCards.add(new CardModel(R.drawable.tony, R.string.homem_de_ferro));
-        listaCards.add(new CardModel(R.drawable.capita, R.string.capita));
-        listaCards.add(new CardModel(R.drawable.gamorra, R.string.gamora));
-        listaCards.add(new CardModel(R.drawable.thorx, R.string.thor));
-        listaCards.add(new CardModel(R.drawable.dr, R.string.doutor_estranho));
-        listaCards.add(new CardModel(R.drawable.panter, R.string.pantera_negra));
+        listaCards.add(new CardModel(id, R.drawable.tony, R.string.homem_de_ferro));
+        listaCards.add(new CardModel(id, R.drawable.capita, R.string.capita));
+        listaCards.add(new CardModel(id, R.drawable.gamorra, R.string.gamora));
+        listaCards.add(new CardModel(id, R.drawable.thorx, R.string.thor));
+        listaCards.add(new CardModel(id, R.drawable.dr, R.string.doutor_estranho));
+        listaCards.add(new CardModel(id, R.drawable.panter, R.string.pantera_negra));
 
         initAdapter();
     }

@@ -18,10 +18,10 @@ public class RecyclerFavoritosActivity extends AppCompatActivity {
     private ArrayList<CardModel> listaCards = new ArrayList<>();
 
     private void initBitmaps() {
-        listaCards.add(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha));
-        listaCards.add(new CardModel(R.drawable.thor, R.string.quiz_thor));
-        listaCards.add(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro));
-        listaCards.add(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao));
+        listaCards.add(new CardModel(id, R.drawable.miniaranha, R.string.quiz_homem_aranha));
+        listaCards.add(new CardModel(id, R.drawable.thor, R.string.quiz_thor));
+        listaCards.add(new CardModel(id, R.drawable.minihferro, R.string.quiz_homem_ferro));
+        listaCards.add(new CardModel(id, R.drawable.capitaoamerica, R.string.quiz_capitao));
         initReclycer();
     }
 

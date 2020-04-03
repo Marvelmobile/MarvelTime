@@ -1,6 +1,17 @@
 package br.digitalhouse.marveltime.model;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
+
+@Entity(tableName = "result")
 public class PersonagemResult {
+
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "id")
+    private long id;
+
     @Expose
     private String description;
     @Expose
@@ -13,6 +24,10 @@ public class PersonagemResult {
     private String resourceURI;
     @Expose
     private PersonagemImagem thumbnail;
+
+    public PersonagemResult(Long id) {
+        this.id = id;
+    }
 
     public String getDescription() {
         return description;
@@ -62,3 +77,4 @@ public class PersonagemResult {
         this.thumbnail = thumbnail;
     }
 }
+
