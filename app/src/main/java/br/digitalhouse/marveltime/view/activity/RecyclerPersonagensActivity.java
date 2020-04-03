@@ -7,42 +7,58 @@ import android.os.Bundle;
 import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
+import java.util.List;
+
+import br.digitalhouse.marveltime.model.PersonagemResult;
+import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerPersonagens;
-import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RecyclerPersonagensActivity extends AppCompatActivity {
+public class RecyclerPersonagensActivity extends AppCompatActivity implements br.digitalhouse.marveltime.view.Interfaces.OnClick {
     private RecyclerView recycler;
-    private ArrayList<CardModel> listaCards = new ArrayList<>();
+//    private ArrayList<CardModel> listaCards = new ArrayList<>();
+
+    private AdapterRecyclerPersonagens adapter;
+    private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
+    private Integer offset = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_personagens);
         ButterKnife.bind(this);
-        initListas();
-    }
+//        initListas();
 
-    public void initListas() {
-        listaCards.add(new CardModel(R.drawable.tony, R.string.homem_de_ferro));
-        listaCards.add(new CardModel(R.drawable.capita, R.string.capita));
-        listaCards.add(new CardModel(R.drawable.gamorra, R.string.gamora));
-        listaCards.add(new CardModel(R.drawable.thorx, R.string.thor));
-        listaCards.add(new CardModel(R.drawable.dr, R.string.doutor_estranho));
-        listaCards.add(new CardModel(R.drawable.panter, R.string.pantera_negra));
+        MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
+        marvelViewModel.getPersongens(offset);
+        marvelViewModel.getPersonagensLista().observe(this, personagemResults -> adapter.atualizaLista(personagemResultsLista));
 
-        initAdapter();
-    }
-
-    public void initAdapter() {
         recycler = findViewById(R.id.recycler_view_personagens);
-        AdapterRecyclerPersonagens adapter = new AdapterRecyclerPersonagens(listaCards, this);
+        adapter = new AdapterRecyclerPersonagens(personagemResultsLista, this);
         recycler.setAdapter(adapter);
-        recycler.setLayoutManager(new GridLayoutManager(this, 2));
+        recycler.setLayoutManager(new GridLayoutManager(this, 3));
     }
+
+//    public void initListas() {
+//        listaCards.add(new CardModel(R.drawable.tony, R.string.homem_de_ferro));
+//        listaCards.add(new CardModel(R.drawable.capita, R.string.capita));
+//        listaCards.add(new CardModel(R.drawable.gamorra, R.string.gamora));
+//        listaCards.add(new CardModel(R.drawable.thorx, R.string.thor));
+//        listaCards.add(new CardModel(R.drawable.dr, R.string.doutor_estranho));
+//        listaCards.add(new CardModel(R.drawable.panter, R.string.pantera_negra));
+//
+//        initAdapter();
+//    }
+
+//    public void initAdapter() {
+//        recycler = findViewById(R.id.recycler_view_personagens);
+//        AdapterRecyclerPersonagens adapter = new AdapterRecyclerPersonagens(, this);
+//        recycler.setAdapter(adapter);
+//        recycler.setLayoutManager(new GridLayoutManager(this, 2));
+//    }
 
     @BindView(R.id.tapBarMenu)
     public TapBarMenu tapBarMenu;
@@ -69,6 +85,11 @@ public class RecyclerPersonagensActivity extends AppCompatActivity {
                 startActivity(new Intent(RecyclerPersonagensActivity.this, RecyclerQuizActivity.class));
                 break;
         }
+    }
+
+    @Override
+    public void click(PersonagemResult personagem) {
+
     }
 }
 

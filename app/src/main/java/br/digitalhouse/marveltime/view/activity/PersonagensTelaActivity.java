@@ -1,17 +1,11 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-import java.util.ArrayList;
-import java.util.List;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.model.PersonagemResult;
-import br.digitalhouse.marveltime.model.viewmodel.PersonagemViewModel;
-import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerPersonagens;
 import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -19,11 +13,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PersonagensTelaActivity extends AppCompatActivity {
     private CircleImageView personagem;
     private TextView nomeP;
-    private AdapterRecyclerPersonagens adapter;
-    private RecyclerPersonagensActivity recyclerPersonagensActivity;
-    private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
-    private Integer offset = 0;
-
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
 
@@ -32,24 +21,13 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personagens_tela_activity);
         Intent intent = getIntent();
-//        int nome = intent.getExtras().getInt("NOME");
-//        int imagem = intent.getExtras().getInt("IMAGEM");
+        int nome = intent.getExtras().getInt("NOME");
+        int imagem = intent.getExtras().getInt("IMAGEM");
         initExtras();
 
-//        personagem.setImageResource(imagem);
-//        nomeP.setText(nome);
-
-        PersonagemViewModel personagemViewModel = new PersonagemViewModel(getApplication());
-        personagemViewModel.getPersongens(offset);
-        personagemViewModel.getPersonagensLista().observe(this, new Observer<List<PersonagemResult>>() {
-            @Override
-            public void onChanged(List<PersonagemResult> personagemResults) {
-                adapter.atualizaLista(personagemResultsLista);
-            }
-        });
-
+        personagem.setImageResource(imagem);
+        nomeP.setText(nome);
     }
-
 
     private void initExtras() {
         personagem = findViewById(R.id.imagem_personagem_historia);
