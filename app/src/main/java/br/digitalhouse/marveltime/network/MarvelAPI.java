@@ -12,5 +12,5 @@ public interface MarvelAPI {
     Single<PersonagemResponse> getPersonagens(
             @Query ( "ts" ) String ts,
             @Query ( "hash" ) String hash,
-            @Query ( "apiKey" ) String apikey);
+            @Query ( "apikey" ) String apikey);
 }
