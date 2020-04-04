@@ -1,10 +1,12 @@
 package br.digitalhouse.marveltime.view.activity;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,10 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
     private RecyclerView recycler;
     private AdapterRecyclerPersonagens adapter;
     private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
+    public static final String PERSONAGEM_KEY = "personagem";
+    private Integer offset = 0;
+    private ProgressBar progressBar;
+    private MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +34,25 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         setContentView(R.layout.activity_recycler_personagens);
         ButterKnife.bind(this);
 
-        MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
-        marvelViewModel.getPersongens();
+        progressBar = findViewById(R.id.progress_bar);
+
+        marvelViewModel.getPersongens(offset);
         marvelViewModel.getPersonagensLista().observe(this, personagemResults -> {
             adapter.atualizaLista(personagemResults);
+        });
+
+        marvelViewModel.getLoading().observe(this, loading -> {
+            if (loading) {
+                progressBar.setVisibility(View.VISIBLE);
+            } else {
+                progressBar.setVisibility(View.GONE);
+            }
         });
 
         recycler = findViewById(R.id.recycler_view_personagens);
         adapter = new AdapterRecyclerPersonagens(personagemResultsLista, this);
         recycler.setAdapter(adapter);
+        setScrollView();
         recycler.setLayoutManager(new GridLayoutManager(this, 3));
     }
 
@@ -69,6 +85,38 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
 
     @Override
     public void click(PersonagemResult personagem) {
+        Intent intent = new Intent(RecyclerPersonagensActivity.this, PersonagensTelaActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(PERSONAGEM_KEY, personagem);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    private void setScrollView() {
+        recycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                GridLayoutManager layoutManager = (GridLayoutManager) recyclerView.getLayoutManager();
+
+                int totalItemCount = layoutManager.getItemCount();
+
+                int lastVisible = layoutManager.findLastVisibleItemPosition();
+
+                boolean ultimoItem = lastVisible + 5 >= totalItemCount;
+
+                if (totalItemCount > 0 && ultimoItem) {
+                    offset+=20;
+                    marvelViewModel.getPersongens(offset);
+                }
+            }
+        });
     }
 }
 

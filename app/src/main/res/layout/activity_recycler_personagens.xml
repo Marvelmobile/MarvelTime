@@ -48,6 +48,22 @@
         tools:listitem="@layout/cards_personagens"
         />
 
+    <FrameLayout
+        android:layout_width="123dp"
+        android:layout_height="81dp"
+        android:layout_centerInParent="true">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="111dp"
+            android:layout_height="81dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recyclerViewComics" />
+    </FrameLayout>
+
     <com.michaldrabik.tapbarmenulib.TapBarMenu
         android:id="@+id/tapBarMenu"
         android:layout_width="match_parent"

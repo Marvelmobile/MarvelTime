@@ -5,14 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
+import com.squareup.picasso.Picasso;
 import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.model.PersonagemResult;
 import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
+import static br.digitalhouse.marveltime.view.activity.RecyclerPersonagensActivity.PERSONAGEM_KEY;
 
 public class PersonagensTelaActivity extends AppCompatActivity {
     private CircleImageView personagem;
     private TextView nomeP;
+    private PersonagemResult personagemResult;
+
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
 
@@ -20,13 +25,23 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personagens_tela_activity);
-        Intent intent = getIntent();
-        int nome = intent.getExtras().getInt("NOME");
-        int imagem = intent.getExtras().getInt("IMAGEM");
-        initExtras();
+        initView();
 
-        personagem.setImageResource(imagem);
-        nomeP.setText(nome);
+        if (getIntent() != null){
+            Bundle bundle = getIntent().getExtras();
+            personagemResult = bundle.getParcelable(PERSONAGEM_KEY);
+            nomeP.setText(personagemResult.getDescription());
+            String imageURL = personagemResult.getThumbnail()
+                    .getPath().replace("http://", "https://");
+            Picasso.get().load(imageURL+"."
+                    +personagemResult.getThumbnail().getExtension()).into(personagem);
+        }
+        initExtras();
+    }
+
+    private void initView(){
+        personagem = findViewById(R.id.imagem_personagem_historia);
+        nomeP = findViewById(R.id.texto_historia);
     }
 
     private void initExtras() {
