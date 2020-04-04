@@ -2,13 +2,10 @@ package br.digitalhouse.marveltime.model;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
 import com.google.gson.annotations.Expose;
-
 
 @Entity(tableName = "response")
 public class PersonagemResponse {
-
  @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private long id;
