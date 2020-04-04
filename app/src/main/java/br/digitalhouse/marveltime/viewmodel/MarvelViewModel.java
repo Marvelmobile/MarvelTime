@@ -1,22 +1,17 @@
 package br.digitalhouse.marveltime.viewmodel;
-
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import java.util.List;
-
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.repository.MarvelRepository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
 import static br.digitalhouse.marveltime.util.Util.verificaConexaoComInternet;
-
 
 public class MarvelViewModel extends AndroidViewModel {
     private MutableLiveData<List<PersonagemResult>> listaPersonagemResult = new MutableLiveData<>();
@@ -38,7 +33,6 @@ public class MarvelViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> mutableLiveDataErro = new MutableLiveData<>();
     public LiveData<String> liveDataErro = mutableLiveDataErro;
-
 
     private void carregaDadosBD() {
         disposable.add(
@@ -66,10 +60,4 @@ public class MarvelViewModel extends AndroidViewModel {
         disposable.clear();
     }
 }
-
-
-
-
-
-
 
