@@ -200,7 +200,7 @@ public class PerguntasQuizFragment extends Fragment {
                 String alternativa4String = pergunta.getString("alternativa4");
                 String respostaString = pergunta.getString("resposta");
 
-                listaperguntas.add(new Questao(id, nomeString,
+                listaperguntas.add(new Questao(nomeString,
                         perguntaString,
                         alternativa1String,
                         alternativa2String,

@@ -15,6 +15,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static br.digitalhouse.marveltime.util.Util.verificaConexaoComInternet;
+
 
 public class MarvelViewModel extends AndroidViewModel {
     private MutableLiveData<List<PersonagemResult>> listaPersonagemResult = new MutableLiveData<>();
@@ -37,29 +39,6 @@ public class MarvelViewModel extends AndroidViewModel {
     private MutableLiveData<String> mutableLiveDataErro = new MutableLiveData<>();
     public LiveData<String> liveDataErro = mutableLiveDataErro;
 
-    public void getPersonagemResult(Integer offset) {
-        if (verificaConexaoComInternet(getApplication())) {
-            recuperaOsDadosApi(offset);
-        } else {
-            carregaDadosBD();
-        }
-    }
-
-    public void recuperaOsDadosApi(Integer offset) {
-        disposable.add(
-                repository.getPersonagemResult(offset)
-                        .map(this::insereDadosBd)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doOnSubscribe(disposable1 -> loading.setValue(true))
-                        .doOnTerminate(() -> loading.setValue(false))
-                        .subscribe(personagemResponse -> listaPersonagemResponse.setValue(personagemResponse.getData().getResults()),
-                                throwable -> {
-                                    mutableLiveDataErro.setValue(throwable.getMessage());
-                                    carregaDadosBD();
-                                })
-        );
-    }
 
     private void carregaDadosBD() {
         disposable.add(

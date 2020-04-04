@@ -10,12 +10,10 @@ public class PersonagemResult {
 
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
+    @Expose
     private long id;
-
     @Expose
     private String description;
-    @Expose
-    private Long id;
     @Expose
     private String modified;
     @Expose

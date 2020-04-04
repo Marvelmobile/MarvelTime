@@ -14,7 +14,6 @@ public class PersonagemImagem implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private long id;
-
     @Expose
     private String extension;
     @Expose
@@ -77,34 +76,3 @@ public class PersonagemImagem implements Parcelable {
 }
 
 
-//
-//@Entity(tableName = "imagem")
-//public class PersonagemImagem  {
-//    @PrimaryKey(autoGenerate = true)
-//    @ColumnInfo(name = "id")
-//    @Expose
-//    private String extension;
-//    @Expose
-//    private String path;
-//
-//    public PersonagemImagem(String extension) {
-//        this.extension = extension;
-//    }
-//
-//    public String getExtension() {
-//        return extension;
-//    }
-//
-//    public void setExtension(String extension) {
-//        this.extension = extension;
-//    }
-//
-//    public String getPath() {
-//        return path;
-//    }
-//
-//    public void setPath(String path) {
-//        this.path = path;
-//    }
-//
-//}

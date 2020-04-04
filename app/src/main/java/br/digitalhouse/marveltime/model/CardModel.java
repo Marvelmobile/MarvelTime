@@ -4,11 +4,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "card")
+
 public class CardModel {
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    private long id;
+
     private int Nome;
     private int Imagem;
 
@@ -28,8 +26,7 @@ public class CardModel {
         Imagem = imagem;
     }
 
-    public CardModel(long id, int imagem, int nome) {
-        this.id = id;
+    public CardModel(int imagem, int nome) {
         Nome = nome;
         Imagem = imagem;
     }
