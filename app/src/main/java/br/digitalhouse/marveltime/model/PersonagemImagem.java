@@ -1,13 +1,10 @@
 package br.digitalhouse.marveltime.model;
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
 import com.google.gson.annotations.Expose;
-
 
 @Entity(tableName = "imagem")
 public class PersonagemImagem implements Parcelable {
@@ -25,7 +22,6 @@ public class PersonagemImagem implements Parcelable {
         extension = in.readString();
         path = in.readString();
     }
-
 
     public static final Creator<PersonagemImagem> CREATOR = new Creator<PersonagemImagem>() {
         @Override
@@ -74,5 +70,3 @@ public class PersonagemImagem implements Parcelable {
         dest.writeString(path);
     }
 }
-
-
