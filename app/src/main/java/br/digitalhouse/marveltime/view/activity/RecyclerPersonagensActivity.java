@@ -18,12 +18,12 @@ import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
 
 public class RecyclerPersonagensActivity extends AppCompatActivity implements OnClickListenerPersonagem {
     private RecyclerView recycler;
     private AdapterRecyclerPersonagens adapter;
     private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
-    public static final String PERSONAGEM_KEY = "personagem";
     private Integer offset = 0;
     private ProgressBar progressBar;
     private MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
@@ -102,13 +102,9 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-
                 GridLayoutManager layoutManager = (GridLayoutManager) recyclerView.getLayoutManager();
-
                 int totalItemCount = layoutManager.getItemCount();
-
                 int lastVisible = layoutManager.findLastVisibleItemPosition();
-
                 boolean ultimoItem = lastVisible + 5 >= totalItemCount;
 
                 if (totalItemCount > 0 && ultimoItem) {

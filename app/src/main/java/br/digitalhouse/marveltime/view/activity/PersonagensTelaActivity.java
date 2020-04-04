@@ -11,12 +11,13 @@ import br.digitalhouse.marveltime.model.PersonagemResult;
 import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
-import static br.digitalhouse.marveltime.view.activity.RecyclerPersonagensActivity.PERSONAGEM_KEY;
+import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
 
 public class PersonagensTelaActivity extends AppCompatActivity {
-    private CircleImageView personagem;
-    private TextView nomeP;
+    private CircleImageView imagemPersonagem;
+    private TextView descricaoPersonagem;
     private PersonagemResult personagemResult;
+    private TextView nomePersonagem;
 
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
@@ -30,23 +31,19 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         if (getIntent() != null){
             Bundle bundle = getIntent().getExtras();
             personagemResult = bundle.getParcelable(PERSONAGEM_KEY);
-            nomeP.setText(personagemResult.getDescription());
+            descricaoPersonagem.setText(personagemResult.getDescription());
             String imageURL = personagemResult.getThumbnail()
                     .getPath().replace("http://", "https://");
             Picasso.get().load(imageURL+"."
-                    +personagemResult.getThumbnail().getExtension()).into(personagem);
+                    +personagemResult.getThumbnail().getExtension()).into(imagemPersonagem);
+            nomePersonagem.setText(personagemResult.getName());
         }
-        initExtras();
     }
 
     private void initView(){
-        personagem = findViewById(R.id.imagem_personagem_historia);
-        nomeP = findViewById(R.id.texto_historia);
-    }
-
-    private void initExtras() {
-        personagem = findViewById(R.id.imagem_personagem_historia);
-        nomeP = findViewById(R.id.personagem);
+        imagemPersonagem = findViewById(R.id.imagem_personagem_historia);
+        descricaoPersonagem = findViewById(R.id.texto_historia);
+        nomePersonagem = findViewById(R.id.textView_nomePersonagem);
     }
 
     @OnClick(R.id.tapBarMenu)
