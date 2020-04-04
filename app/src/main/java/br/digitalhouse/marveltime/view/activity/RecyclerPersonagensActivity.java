@@ -33,9 +33,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_personagens);
         ButterKnife.bind(this);
-
         progressBar = findViewById(R.id.progress_bar);
-
         marvelViewModel.getPersongens(offset);
         marvelViewModel.getPersonagensLista().observe(this, personagemResults -> {
             adapter.atualizaLista(personagemResults);
