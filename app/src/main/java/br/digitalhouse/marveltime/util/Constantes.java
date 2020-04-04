@@ -1,5 +1,4 @@
 package br.digitalhouse.marveltime.util;
-
 import static br.digitalhouse.marveltime.util.Helper.md5;
 
 public class Constantes {
