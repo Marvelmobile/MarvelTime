@@ -4,7 +4,6 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 public class CardModel {
-
     private int Nome;
     private int Imagem;
 
