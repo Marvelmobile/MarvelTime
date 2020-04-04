@@ -1,9 +1,9 @@
 package br.digitalhouse.marveltime.Fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -11,11 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,31 +23,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import br.digitalhouse.marveltime.Activitys.MainActivity;
 import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
-import br.digitalhouse.marveltime.Interfaces.Selecionavel;
+import br.digitalhouse.marveltime.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.Models.Questao;
 import br.digitalhouse.marveltime.R;
 
-import static android.widget.Toast.LENGTH_SHORT;
-import static br.digitalhouse.marveltime.R.color.branco;
-
 public class PerguntasQuizFragment extends Fragment {
 
+    private HelperQuiz helperQuiz;
     private TextView fragment_titulo;
     private TextView fragmentPergunta;
-    private Button fragmentAlternativaUm;
-    private Button fragmentAlternativaDois;
-    private Button fragmentAlternativaTres;
-    private Button fragmentAlternativaQuatro;
-    private FloatingActionButton fragmentVoltar;
-    private FloatingActionButton fragmentProximo;
-    private Selecionavel selecionavel;
+    private Button alternativaUm;
+    private Button alternativaDois;
+    private Button alternativaTres;
+    private Button alternativaQuatro;
     private List<Questao> listaperguntas;
-    private List<Questao> listaperguntasfiltrada=new ArrayList<>();
-    int perguntaAtual = 0;
-    int correto = 0, errado = 0;
-    int duracaoNotifacao = LENGTH_SHORT;
+    private List<Questao> listaperguntasfiltrada = new ArrayList<>();
+    private int perguntaAtual = 0, correto = 0, errado = 0;
 
 
     public PerguntasQuizFragment() {
@@ -68,115 +56,56 @@ public class PerguntasQuizFragment extends Fragment {
         filtroLista();
         colocarPerguntasTela(perguntaAtual);
 
-        fragmentAlternativaUm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa1().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
-                    correto++;
-                    ficaVerde(fragmentAlternativaUm);
-
-//                    Toast.makeText(contexto, "Correto!", duracaoNotifacao).show();
-                } else {
-                    errado++;
-                    ficaVermelho(fragmentAlternativaUm);
-
-
-//                    Toast.makeText(contexto, "Errado! Resposta correta:"+ listaperguntas.get(perguntaAtual).getResposta(), duracaoNotifacao).show();
-                }
-
+        alternativaUm.setOnClickListener(v1 -> {
+            if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa1().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
+                correto++;
+                ficaVerde(alternativaUm);
+            } else {
+                errado++;
+                ficaVermelho(alternativaUm);
             }
         });
 
-        fragmentAlternativaDois.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa2().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
-                    correto++;
-                    ficaVerde(fragmentAlternativaDois);
-//                    Toast.makeText(contexto, "Correto!", duracaoNotifacao).show();
-                } else {
-                    errado++;
-                    ficaVermelho(fragmentAlternativaDois);
-//                    Toast.makeText(contexto, "Errado! Resposta correta:"+ listaperguntas.get(perguntaAtual).getResposta(), duracaoNotifacao).show();
-                }
-
-
+        alternativaDois.setOnClickListener(v12 -> {
+            if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa2().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
+                correto++;
+                ficaVerde(alternativaDois);
+            } else {
+                errado++;
+                ficaVermelho(alternativaDois);
             }
         });
 
-        fragmentAlternativaTres.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa3().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
-                    correto++;
-                    ficaVerde(fragmentAlternativaTres);
+        alternativaTres.setOnClickListener(v13 -> {
+            if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa3().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
+                correto++;
+                ficaVerde(alternativaTres);
 
-//                    Toast.makeText(contexto, "Correto!", duracaoNotifacao).show();
-                } else {
-                    errado++;
-                    ficaVermelho(fragmentAlternativaTres);
-//                    Toast.makeText(contexto, "Errado! Resposta correta:"+ listaperguntas.get(perguntaAtual).getResposta(), duracaoNotifacao).show();
-                }
-
-
+            } else {
+                errado++;
+                ficaVermelho(alternativaTres);
             }
         });
 
-        fragmentAlternativaQuatro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa4().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
-                    correto++;
-                    ficaVerde(fragmentAlternativaQuatro);
-//                    Toast.makeText(contexto, "Correto!", duracaoNotifacao).show();
-                } else {
-                    errado++;
-                    ficaVermelho(fragmentAlternativaQuatro);
-//                    Toast.makeText(contexto, "Errado! Resposta correta:"+ listaperguntas.get(perguntaAtual).getResposta(), duracaoNotifacao).show();
-                }
-
-
+        alternativaQuatro.setOnClickListener(v14 -> {
+            if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa4().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
+                correto++;
+                ficaVerde(alternativaQuatro);
+            } else {
+                errado++;
+                ficaVermelho(alternativaQuatro);
             }
         });
-
-
-//        fragmentProximo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                selecionavel.selecionar(R.id.fragment_layout_quiz_outra);
-//            }
-//        });
-
-        fragmentVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         return v;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        try {
-            this.selecionavel = (Selecionavel) context;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     private void initViews(View view) {
         fragment_titulo = view.findViewById(R.id.fragment_titulo_principal);
         fragmentPergunta = view.findViewById(R.id.fragement_textview_pergunta);
-        fragmentAlternativaUm = view.findViewById(R.id.fragment_button_alternativaUm);
-        fragmentAlternativaDois = view.findViewById(R.id.fragment_button_alternativaDois);
-        fragmentAlternativaTres = view.findViewById(R.id.fragment_button_alternativaTres);
-        fragmentAlternativaQuatro = view.findViewById(R.id.fragment_button_alternativaQuatro);
-        fragmentVoltar = view.findViewById(R.id.fragment_floatingActionButton_voltar);
-        fragmentProximo = view.findViewById(R.id.fragment_floatingActionButton_proximo);
+        alternativaUm = view.findViewById(R.id.fragment_button_alternativaUm);
+        alternativaDois = view.findViewById(R.id.fragment_button_alternativaDois);
+        alternativaTres = view.findViewById(R.id.fragment_button_alternativaTres);
+        alternativaQuatro = view.findViewById(R.id.fragment_button_alternativaQuatro);
     }
 
     private String carregaJsonDoAsset(String file) {
@@ -195,8 +124,7 @@ public class PerguntasQuizFragment extends Fragment {
         return json;
     }
 
-
-    private void mudaTitulo(){
+    private void mudaTitulo() {
         if (RecebePerguntasQuizActivity.nome.equals("HA")) {
             fragment_titulo.setText(R.string.quiz_spider_man);
         }
@@ -211,21 +139,22 @@ public class PerguntasQuizFragment extends Fragment {
         }
     }
 
-    private void filtroLista(){
-        for (int i=0; i<listaperguntas.size(); i++){
-            if (RecebePerguntasQuizActivity.nome.equals(listaperguntas.get(i).getNome())){
+    private void filtroLista() {
+        for (int i = 0; i < listaperguntas.size(); i++) {
+            if (RecebePerguntasQuizActivity.nome.equals(listaperguntas.get(i).getNome())) {
                 listaperguntasfiltrada.add(listaperguntas.get(i));
             }
         }
-            mudaTitulo();
+        mudaTitulo();
     }
+
     private void colocarPerguntasTela(int numero) {
 
-            fragmentPergunta.setText(listaperguntasfiltrada.get(numero).getPergunta());
-            fragmentAlternativaUm.setText(listaperguntasfiltrada.get(numero).getAlternativa1());
-            fragmentAlternativaDois.setText(listaperguntasfiltrada.get(numero).getAlternativa2());
-            fragmentAlternativaTres.setText(listaperguntasfiltrada.get(numero).getAlternativa3());
-            fragmentAlternativaQuatro.setText(listaperguntasfiltrada.get(numero).getAlternativa4());
+        fragmentPergunta.setText(listaperguntasfiltrada.get(numero).getPergunta());
+        alternativaUm.setText(listaperguntasfiltrada.get(numero).getAlternativa1());
+        alternativaDois.setText(listaperguntasfiltrada.get(numero).getAlternativa2());
+        alternativaTres.setText(listaperguntasfiltrada.get(numero).getAlternativa3());
+        alternativaQuatro.setText(listaperguntasfiltrada.get(numero).getAlternativa4());
     }
 
     private void carregaTodasPerguntas() {
@@ -235,53 +164,48 @@ public class PerguntasQuizFragment extends Fragment {
             JSONObject jsonObject = new JSONObject(jsonStr);
             JSONArray perguntas = jsonObject.getJSONArray("perguntas");
             for (int i = 0; i < perguntas.length(); i++) {
-                    JSONObject pergunta = perguntas.getJSONObject(i);
+                JSONObject pergunta = perguntas.getJSONObject(i);
 
-                    String nomeString = pergunta.getString("nome");
-                    String perguntaString = pergunta.getString("pergunta");
-                    String alternativa1String = pergunta.getString("alternativa1");
-                    String alternativa2String = pergunta.getString("alternativa2");
-                    String alternativa3String = pergunta.getString("alternativa3");
-                    String alternativa4String = pergunta.getString("alternativa4");
-                    String respostaString = pergunta.getString("resposta");
+                String nomeString = pergunta.getString("nome");
+                String perguntaString = pergunta.getString("pergunta");
+                String alternativa1String = pergunta.getString("alternativa1");
+                String alternativa2String = pergunta.getString("alternativa2");
+                String alternativa3String = pergunta.getString("alternativa3");
+                String alternativa4String = pergunta.getString("alternativa4");
+                String respostaString = pergunta.getString("resposta");
 
-                    listaperguntas.add(new Questao(nomeString,
-                            perguntaString,
-                            alternativa1String,
-                            alternativa2String,
-                            alternativa3String,
-                            alternativa4String,
-                            respostaString
-                    ));
-                }
-
-
+                listaperguntas.add(new Questao(nomeString,
+                        perguntaString,
+                        alternativa1String,
+                        alternativa2String,
+                        alternativa3String,
+                        alternativa4String,
+                        respostaString
+                ));
+            }
         } catch (JSONException e) {
-
+            e.printStackTrace();
         }
-
     }
 
     private void ficaVermelho(Button button) {
-        button.setTextColor(getResources().getColor(R.color.errado));
-        voltaBranco(button);
+        button.setBackground(getResources().getDrawable(R.drawable.round_button_vermelho));
+        ficaNormal(button);
     }
 
     private void ficaVerde(Button button) {
 
-        button.setTextColor(getResources().getColor(R.color.correto));
-        voltaBranco(button);
+        button.setBackground(getResources().getDrawable(R.drawable.round_button_verde));
+        ficaNormal(button);
     }
 
-    private void voltaBranco(Button button) {
+    private void ficaNormal(Button button) {
 
         Handler handler = new Handler();
         long delay = 1000;
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                button.setTextColor(getResources().getColor(branco));
-                confereEPoe();
-            }
+        handler.postDelayed(() -> {
+            button.setBackground(getResources().getDrawable(R.drawable.round_button));
+            confereEPoe();
         }, delay);
     }
 
@@ -290,8 +214,16 @@ public class PerguntasQuizFragment extends Fragment {
             perguntaAtual++;
             colocarPerguntasTela(perguntaAtual);
         } else {
-            Context context = getContext();
-            startActivity(new Intent(context, MainActivity.class));
+            helperQuiz.correto(correto);
+            helperQuiz.errado(errado);
+            helperQuiz.titulo(fragment_titulo.getText().toString());
+            helperQuiz.troca();
         }
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        helperQuiz= (HelperQuiz) getActivity();
     }
 }

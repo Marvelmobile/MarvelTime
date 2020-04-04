@@ -1,45 +1,49 @@
 package br.digitalhouse.marveltime.Activitys;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 
 import br.digitalhouse.marveltime.Fragments.PerguntasQuizFragment;
-import br.digitalhouse.marveltime.Interfaces.Selecionavel;
+import br.digitalhouse.marveltime.Fragments.ResultadoFragment;
+import br.digitalhouse.marveltime.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RecebePerguntasQuizActivity extends AppCompatActivity{
+public class RecebePerguntasQuizActivity extends AppCompatActivity implements HelperQuiz {
     public static String nome;
+    private ResultadoFragment fragmentResultado;
+    private PerguntasQuizFragment fragmentQuiz;
+    int mcorreto = 0, merrado = 0;
+    String mtitulo= " ";
+    boolean mtroca = false;
+
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recebe_perguntas_quiz);
+        fragmentResultado = new ResultadoFragment();
+        fragmentQuiz = new PerguntasQuizFragment();
         Intent intent = getIntent();
         nome = intent.getExtras().getString("NOME");
-        replaceFragments(R.id.container, new PerguntasQuizFragment());
         ButterKnife.bind(this);
+        replaceFragments(R.id.container, fragmentQuiz);
     }
 
-//    @Override
-//    public void selecionar(int id) {
-//
-//        if(id == R.id.fragment_layout_quiz_outra){
-//            replaceFragments(R.id.container, new OutraPerguntaQuizFragment());
-//        }
-//        if (id == R.id.fragment_layout_quiz){
-//            replaceFragments(R.id.container, new PerguntasQuizFragment());
-//        }
-//
-//    }
 
-    private void replaceFragments(int container, Fragment fragment){
+    private void replaceFragments(int container, Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(container, fragment)
@@ -47,13 +51,12 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity{
     }
 
 
-
     @OnClick(R.id.tapBarMenu)
     public void onMenuButtonClick() {
         tapBarMenu.toggle();
     }
 
-    @OnClick({ R.id.item1, R.id.item2, R.id.item3, R.id.item4 })
+    @OnClick({R.id.item1, R.id.item2, R.id.item3, R.id.item4})
     public void onMenuItemClick(View view) {
         tapBarMenu.close();
         switch (view.getId()) {
@@ -71,4 +74,32 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity{
                 break;
         }
     }
+
+
+    @Override
+    public void correto(int correto) {
+        mcorreto = correto;
+    }
+
+    @Override
+    public void errado(int errado) {
+        merrado = errado;
+    }
+
+    @Override
+    public void troca() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("correto", mcorreto);
+        bundle.putInt("errado", merrado);
+        bundle.putString("titulo", mtitulo);
+        fragmentResultado.setArguments(bundle);
+        replaceFragments(R.id.container, fragmentResultado);
+    }
+
+    @Override
+    public void titulo(String titulo) {
+        mtitulo=titulo;
+    }
+
+
 }
