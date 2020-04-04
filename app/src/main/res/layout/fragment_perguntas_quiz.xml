@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundquiz"
-    tools:context=".Fragments.PerguntasQuizFragment">
+    tools:context=".view.fragment.PerguntasQuizFragment">
 
     <TextView
         android:id="@+id/fragment_titulo_principal"
@@ -20,7 +20,7 @@
         android:layout_marginRight="8dp"
         android:fontFamily="@font/lato_bold_italic"
         android:gravity="center"
-        android:text="@string/sabe_homem_aranha"
+        android:text="@string/quiz_homem_aranha"
         android:textColor="@color/branco"
         android:textSize="32sp"
         android:textStyle="bold"
