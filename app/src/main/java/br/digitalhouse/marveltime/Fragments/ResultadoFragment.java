@@ -1,24 +1,15 @@
 package br.digitalhouse.marveltime.Fragments;
-
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.text.DecimalFormat;
-
-import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.R;
-
 public class ResultadoFragment extends Fragment {
     DecimalFormat formato = new DecimalFormat("#");
 
@@ -56,10 +47,10 @@ public class ResultadoFragment extends Fragment {
         questao = v.findViewById(R.id.resultado_numero_questao);
         titulo = v.findViewById(R.id.titulo_resultado);
     }
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         helperQuiz= (HelperQuiz) getActivity();
     }
-
 }
