@@ -28,7 +28,7 @@
             android:name=".view.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.RecyclerPersonagensActivity"
+            android:name=".view.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.CadastroActivity"
@@ -43,7 +43,7 @@
             android:name=".view.activity.RecyclerFavoritosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name=".view.activity.RecyclerPersonagensActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.PersonagensTelaActivity"
