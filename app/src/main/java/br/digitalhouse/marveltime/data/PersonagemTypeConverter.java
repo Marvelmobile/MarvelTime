@@ -1,18 +1,15 @@
 package br.digitalhouse.marveltime.data;
-
 import androidx.room.TypeConverter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
-
 import br.digitalhouse.marveltime.model.Data;
 import br.digitalhouse.marveltime.model.PersonagemImagem;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 
 public class PersonagemTypeConverter {
-
     @TypeConverter
     public Object fromObject(String value) {
         Type listType = (Type) new TypeToken<Object>() {
@@ -25,19 +22,19 @@ public class PersonagemTypeConverter {
         Gson gson = new Gson();
         return gson.toJson(object);
     }
-
+    
     @TypeConverter
     public List<PersonagemResult> fromListPersonagem(String value) {
         Type listType = (Type) new TypeToken<List<PersonagemResult>>() {
         }.getType();
         return new Gson().fromJson(value, listType);
     }
+    
     @TypeConverter
     public String fromListPersonagemObject(List<PersonagemResult> list) {
         Gson gson = new Gson();
         return gson.toJson(list);
     }
-
 
     @TypeConverter
     public PersonagemImagem fromImagem(String value) {
@@ -77,8 +74,4 @@ public class PersonagemTypeConverter {
         Gson gson = new Gson();
         return gson.toJson(list);
     }
-
 }
-
-
-
