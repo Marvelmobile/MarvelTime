@@ -47,7 +47,6 @@ public class ResultadoFragment extends Fragment {
         questao = v.findViewById(R.id.resultado_numero_questao);
         titulo = v.findViewById(R.id.titulo_resultado);
     }
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
