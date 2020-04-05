@@ -1,15 +1,11 @@
 package br.digitalhouse.marveltime.Activitys;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-
 import br.digitalhouse.marveltime.Fragments.PerguntasQuizFragment;
 import br.digitalhouse.marveltime.Fragments.ResultadoFragment;
 import br.digitalhouse.marveltime.Interfaces.HelperQuiz;
@@ -40,14 +36,12 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
         replaceFragments(R.id.container, fragmentQuiz);
     }
 
-
     private void replaceFragments(int container, Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(container, fragment)
                 .commit();
     }
-
 
     @OnClick(R.id.tapBarMenu)
     public void onMenuButtonClick() {
@@ -73,7 +67,6 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
         }
     }
 
-
     @Override
     public void correto(int correto) {
         mcorreto = correto;
@@ -98,6 +91,4 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
     public void titulo(String titulo) {
         mtitulo=titulo;
     }
-
-
 }
