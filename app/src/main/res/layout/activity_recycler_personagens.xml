@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/preto"
     android:layout_gravity="center"
-    tools:context=".Activitys.RecyclerPersonagensActivity">
+    tools:context=".view.activity.RecyclerPersonagensActivity">
 
 
     <ImageView
