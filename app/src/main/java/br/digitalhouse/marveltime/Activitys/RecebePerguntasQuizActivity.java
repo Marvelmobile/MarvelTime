@@ -28,8 +28,6 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
 
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
