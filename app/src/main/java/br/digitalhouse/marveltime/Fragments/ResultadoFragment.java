@@ -20,7 +20,6 @@ public class ResultadoFragment extends Fragment {
     private TextView titulo;
     double rcorreto=0, rerrado=0, resultado=0;
     private String porcento, porcento2;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_resultado, container, false);
