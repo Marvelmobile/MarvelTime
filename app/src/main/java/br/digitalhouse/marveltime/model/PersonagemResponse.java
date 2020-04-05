@@ -1,7 +1,10 @@
 package br.digitalhouse.marveltime.model;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 
-public class PersonagemResponse {
+public class PersonagemResponse implements Parcelable {
     @Expose
     private String attributionHTML;
     @Expose
@@ -16,6 +19,31 @@ public class PersonagemResponse {
     private String etag;
     @Expose
     private String status;
+
+    protected PersonagemResponse(Parcel in) {
+        attributionHTML = in.readString();
+        attributionText = in.readString();
+        if (in.readByte() == 0) {
+            code = null;
+        } else {
+            code = in.readLong();
+        }
+        copyright = in.readString();
+        etag = in.readString();
+        status = in.readString();
+    }
+
+    public static final Creator<PersonagemResponse> CREATOR = new Creator<PersonagemResponse>() {
+        @Override
+        public PersonagemResponse createFromParcel(Parcel in) {
+            return new PersonagemResponse(in);
+        }
+
+        @Override
+        public PersonagemResponse[] newArray(int size) {
+            return new PersonagemResponse[size];
+        }
+    };
 
     public String getAttributionHTML() {
         return attributionHTML;
@@ -71,5 +99,25 @@ public class PersonagemResponse {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(attributionHTML);
+        dest.writeString(attributionText);
+        if (code == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(code);
+        }
+        dest.writeString(copyright);
+        dest.writeString(etag);
+        dest.writeString(status);
     }
 }

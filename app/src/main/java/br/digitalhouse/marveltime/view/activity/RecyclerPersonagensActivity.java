@@ -1,47 +1,59 @@
 package br.digitalhouse.marveltime.view.activity;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
+import java.util.List;
+import br.digitalhouse.marveltime.model.PersonagemResult;
+import br.digitalhouse.marveltime.view.Interfaces.OnClickListenerPersonagem;
+import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerPersonagens;
-import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
 
-public class RecyclerPersonagensActivity extends AppCompatActivity {
+public class RecyclerPersonagensActivity extends AppCompatActivity implements OnClickListenerPersonagem {
     private RecyclerView recycler;
-    private ArrayList<CardModel> listaCards = new ArrayList<>();
+    private AdapterRecyclerPersonagens adapter;
+    private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
+    private Integer offset = 0;
+    private ProgressBar progressBar;
+    private MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_personagens);
         ButterKnife.bind(this);
-        initListas();
-    }
 
-    public void initListas() {
-        listaCards.add(new CardModel(R.drawable.tony, R.string.homem_de_ferro));
-        listaCards.add(new CardModel(R.drawable.capita, R.string.capita));
-        listaCards.add(new CardModel(R.drawable.gamorra, R.string.gamora));
-        listaCards.add(new CardModel(R.drawable.thorx, R.string.thor));
-        listaCards.add(new CardModel(R.drawable.dr, R.string.doutor_estranho));
-        listaCards.add(new CardModel(R.drawable.panter, R.string.pantera_negra));
+        progressBar = findViewById(R.id.progress_bar);
 
-        initAdapter();
-    }
+        marvelViewModel.getPersongens(offset);
+        marvelViewModel.getPersonagensLista().observe(this, personagemResults -> {
+            adapter.atualizaLista(personagemResults);
+        });
 
-    public void initAdapter() {
+        marvelViewModel.getLoading().observe(this, loading -> {
+            if (loading) {
+                progressBar.setVisibility(View.VISIBLE);
+            } else {
+                progressBar.setVisibility(View.GONE);
+            }
+        });
+
         recycler = findViewById(R.id.recycler_view_personagens);
-        AdapterRecyclerPersonagens adapter = new AdapterRecyclerPersonagens(listaCards, this);
+        adapter = new AdapterRecyclerPersonagens(personagemResultsLista, this);
         recycler.setAdapter(adapter);
-        recycler.setLayoutManager(new GridLayoutManager(this, 2));
+        setScrollView();
+        recycler.setLayoutManager(new GridLayoutManager(this, 3));
     }
 
     @BindView(R.id.tapBarMenu)
@@ -70,5 +82,38 @@ public class RecyclerPersonagensActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    @Override
+    public void click(PersonagemResult personagem) {
+        Intent intent = new Intent(RecyclerPersonagensActivity.this, PersonagensTelaActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(PERSONAGEM_KEY, personagem);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    private void setScrollView() {
+        recycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                GridLayoutManager layoutManager = (GridLayoutManager) recyclerView.getLayoutManager();
+                int totalItemCount = layoutManager.getItemCount();
+                int lastVisible = layoutManager.findLastVisibleItemPosition();
+                boolean ultimoItem = lastVisible + 5 >= totalItemCount;
+
+                if (totalItemCount > 0 && ultimoItem) {
+                    offset+=20;
+                    marvelViewModel.getPersongens(offset);
+                }
+            }
+        });
+    }
+
 }
 

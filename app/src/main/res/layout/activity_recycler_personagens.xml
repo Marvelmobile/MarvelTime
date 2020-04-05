@@ -1,59 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/preto"
-    android:layout_gravity="center"
     tools:context=".view.activity.RecyclerPersonagensActivity">
 
-
-    <ImageView
-        android:id="@+id/imgLogoMarvel2"
-        android:layout_width="264dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="65dp"
-        app:srcCompat="@drawable/logo_marvel_time_branco" />
-
-
-    <TextView
-        android:id="@+id/personagens"
-        android:layout_width="208dp"
-        android:layout_height="55dp"
-        android:layout_below="@+id/imgLogoMarvel2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border"
-        android:fontFamily="@font/lato"
-        android:gravity="center"
-        android:text="@string/personagens"
-        android:textColor="@color/preto"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_personagens"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tapBarMenu"
-        android:layout_below="@+id/personagens"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/preto"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="top|center">
+
+                <ImageView
+                    android:id="@+id/imgLogoMarvel2"
+                    android:layout_width="264dp"
+                    android:layout_height="117dp"
+                    android:layout_marginStart="65dp"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="65dp"
+                    android:layout_marginRight="65dp"
+                    app:srcCompat="@drawable/logo_marvel_time_branco" />
+
+                <TextView
+                    android:id="@+id/personagens"
+                    android:layout_width="208dp"
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/imgLogoMarvel2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
+                    android:text="@string/personagens"
+                    android:textColor="@color/preto"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_personagens"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity=""
+                    tools:listitem="@layout/cards_personagens"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="111dp"
+            android:layout_height="81dp"
+            android:visibility="visible"
+            android:layout_gravity="center"/>
+    </FrameLayout>
 
     <com.michaldrabik.tapbarmenulib.TapBarMenu
         android:id="@+id/tapBarMenu"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:layout_margin="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:tbm_backgroundColor="@color/branco"
         app:tbm_buttonSize="52dp"
         app:tbm_iconClosed="@drawable/img_menu"
@@ -103,4 +134,4 @@
             android:src="@drawable/img_quiz_menu" />
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
