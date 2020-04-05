@@ -1,24 +1,22 @@
 package br.digitalhouse.marveltime.view.adapter;
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
-import br.digitalhouse.marveltime.view.activity.PersonagensTelaActivity;
-import br.digitalhouse.marveltime.model.CardModel;
+import java.util.List;
+import br.digitalhouse.marveltime.model.PersonagemResult;
+import br.digitalhouse.marveltime.view.Interfaces.OnClickListenerPersonagem;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderPersonagens;
 
 public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderPersonagens> {
-    private ArrayList<CardModel> listaCards;
-    private Context mContext;
+    private List<PersonagemResult> personagemResultsList;
+    private OnClickListenerPersonagem personagemListener;
 
-    public AdapterRecyclerPersonagens(ArrayList<CardModel> listaCards, Context mContext) {
-        this.listaCards = listaCards;
-        this.mContext = mContext;
+    public AdapterRecyclerPersonagens(List<PersonagemResult> personagemResultsList, OnClickListenerPersonagem personagemListener) {
+        this.personagemResultsList = personagemResultsList;
+        this.personagemListener = personagemListener;
     }
 
     @NonNull
@@ -31,18 +29,22 @@ public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderP
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPersonagens holder, int position) {
-        holder.image.setImageResource(listaCards.get(position).getImagem());
-        holder.texto.setText(listaCards.get(position).getNome());
-        holder.image.setOnClickListener(v -> {
-            Intent intent= new Intent(mContext, PersonagensTelaActivity.class);
-            intent.putExtra("IMAGEM",listaCards.get(position).getImagem());
-            intent.putExtra("NOME",listaCards.get(position).getNome());
-            mContext.startActivity(intent);
-        });
+        PersonagemResult personagemResult = personagemResultsList.get(position);
+        holder.onBind(personagemResult);
+        holder.itemView.setOnClickListener(v -> personagemListener.click(personagemResult));
     }
 
     @Override
     public int getItemCount() {
-        return listaCards.size();
+        return personagemResultsList.size();
+    }
+
+    public void atualizaLista(List<PersonagemResult> novaLista) {
+        if (this.personagemResultsList.isEmpty()) {
+            this.personagemResultsList = novaLista;
+        } else {
+            this.personagemResultsList.addAll(novaLista);
+        }
+        notifyDataSetChanged();
     }
 }

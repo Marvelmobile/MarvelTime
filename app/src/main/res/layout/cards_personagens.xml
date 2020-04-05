@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_personagens_layout"
-    android:layout_width="120dp"
-    android:layout_height="150dp"
-    android:layout_margin="30dp"
-    android:elevation="10dp"
-    cardview:cardBackgroundColor="#212121"
-    cardview:cardCornerRadius="5dp"
-    android:clickable="true">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="118dp"
+    android:layout_height="220dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="@color/branco"
+    android:orientation="vertical"
+    android:id="@+id/card_personagens_layout">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imagem_personagens"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/tony"/>
+
+    <TextView
+        android:id="@+id/texto_personagens"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imagem_personagens"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tony" />
-
-        <TextView
-            android:id="@+id/texto_personagens"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/lato"
-            android:padding="5dp"
-            android:text="@string/homem_de_ferro"
-            android:textAlignment="center"
-            android:textColor="@color/branco"
-            android:textSize="16sp" />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+        android:background="@color/preto"
+        android:textColor="@color/branco"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Homem de ferro"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+</LinearLayout>

@@ -3,9 +3,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 @Entity(tableName = "result")
-public class PersonagemResult {
+public class PersonagemResult implements Parcelable {
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
     @Expose
@@ -24,6 +26,31 @@ public class PersonagemResult {
     public PersonagemResult(Long id) {
         this.id = id;
     }
+
+    public PersonagemResult(Parcel in) {
+        description = in.readString();
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readLong();
+        }
+        modified = in.readString();
+        name = in.readString();
+        resourceURI = in.readString();
+        thumbnail = in.readParcelable(PersonagemImagem.class.getClassLoader());
+    }
+
+    public static final Creator<PersonagemResult> CREATOR = new Creator<PersonagemResult>() {
+        @Override
+        public PersonagemResult createFromParcel(Parcel in) {
+            return new PersonagemResult(in);
+        }
+
+        @Override
+        public PersonagemResult[] newArray(int size) {
+            return new PersonagemResult[size];
+        }
+    };
 
     public String getDescription() {
         return description;
@@ -72,5 +99,24 @@ public class PersonagemResult {
     public void setThumbnail(PersonagemImagem thumbnail) {
         this.thumbnail = thumbnail;
     }
-}
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(description);
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(id);
+        }
+        dest.writeString(modified);
+        dest.writeString(name);
+        dest.writeString(resourceURI);
+        dest.writeParcelable(thumbnail, flags);
+    }
+}

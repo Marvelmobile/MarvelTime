@@ -70,4 +70,5 @@ public class Data {
     public void setTotal(Long total) {
         this.total = total;
     }
+
 }
