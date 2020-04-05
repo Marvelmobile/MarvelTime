@@ -7,8 +7,7 @@ import com.google.gson.annotations.Expose;
 
 @Entity(tableName = "data")
 public class Data {
- @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
+    @PrimaryKey(autoGenerate = true)
     private long id;
     @Expose
     private Long count;

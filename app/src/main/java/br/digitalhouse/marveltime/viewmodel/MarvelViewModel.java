@@ -12,7 +12,6 @@ import br.digitalhouse.marveltime.repository.MarvelRepository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import static br.digitalhouse.marveltime.util.Util.verificaConexaoComInternet;
 
 public class MarvelViewModel extends AndroidViewModel {
     private MutableLiveData<List<PersonagemResult>> personagemLista = new MutableLiveData<>();
@@ -35,7 +34,8 @@ public class MarvelViewModel extends AndroidViewModel {
     }
   
     public void getPersongens (Integer offset){
-        disposable.add(repository.getPersonagem(offset)
+        disposable.add(
+                repository.getPersonagem(offset)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(disposable1 -> loading.setValue(true))
@@ -48,19 +48,20 @@ public class MarvelViewModel extends AndroidViewModel {
         );
     }
 
-     private void carregaDadosBD() {
+/*     private void carregaDadosBD() {
         disposable.add(
                 repository.retornaPersonagemBD(getApplication())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(subscription -> loading.setValue(true))
                         .doAfterTerminate(() -> loading.setValue(false))
-                        .subscribe(albumList ->
-                                        listaPersonagemResult.setValue(albumList),
-                                throwable ->
-                                        mutableLiveDataErro.setValue(throwable.getMessage() + "problema banco de dados"))
+                        .subscribe(personagemResponse ->
+                                        personagemLista.setValue(personagemResponse.getd),
+                                throwable -> {
+                                    Log.i("LOG", "Problemas de banco de dados" + throwable.getMessage());
+                                })
         );
-    }
+    }*/
 
     private PersonagemResponse insereDadosBd(PersonagemResponse personagemResponse) {
         repository.apagaOsDadosBD(personagemResponse, getApplication());

@@ -1,4 +1,5 @@
 package br.digitalhouse.marveltime.data;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -7,7 +8,7 @@ import androidx.room.Query;
 import java.util.List;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
-import io.reactivex.Flowable;
+import io.reactivex.Observable;
 
 @Dao
 public interface PersonagemDAO {
@@ -15,7 +16,7 @@ public interface PersonagemDAO {
     void insereListaBD(List<PersonagemResult> listaPersonagemResult);
 
     @Query("SELECT * FROM result")
-    Flowable<List<PersonagemResult>> recuperaPersonagemDoBD();
+    Observable<List<PersonagemResult>> recuperaPersonagemDoBD();
 
     @Delete
     void apagaDadosBd(PersonagemResponse personagemResponse);

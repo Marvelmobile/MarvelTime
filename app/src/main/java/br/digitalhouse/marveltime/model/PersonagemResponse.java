@@ -9,7 +9,6 @@ import android.os.Parcelable;
 @Entity(tableName = "response")
 public class PersonagemResponse implements Parcelable {
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
     private long id;
     @Expose
     private String attributionHTML;
