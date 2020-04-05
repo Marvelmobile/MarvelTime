@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:layout_gravity="center"
     android:background="@drawable/backgroundquiz"
     android:orientation="vertical">
-
     <ImageView
         android:id="@+id/fragment_background_imageview_perguntas"
         android:layout_width="300dp"
@@ -16,6 +16,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo_resultado" />
+=======
+    tools:context=".view.fragment.ResultadoFragment">
+>>>>>>> origin/pre_epic
 
     <TextView
         android:id="@+id/titulo_resultado"
@@ -119,6 +122,5 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultado_numero_questao" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
