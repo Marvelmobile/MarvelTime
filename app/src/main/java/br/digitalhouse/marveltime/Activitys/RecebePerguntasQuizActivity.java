@@ -84,7 +84,6 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
         fragmentResultado.setArguments(bundle);
         replaceFragments(R.id.container, fragmentResultado);
     }
-
     @Override
     public void titulo(String titulo) {
         mtitulo=titulo;
