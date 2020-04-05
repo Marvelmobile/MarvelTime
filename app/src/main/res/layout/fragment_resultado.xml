@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:layout_gravity="center"
     android:background="@drawable/backgroundquiz"
     android:orientation="vertical">
+
     <ImageView
         android:id="@+id/fragment_background_imageview_perguntas"
         android:layout_width="300dp"
@@ -16,9 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo_resultado" />
-=======
-    tools:context=".view.fragment.ResultadoFragment">
->>>>>>> origin/pre_epic
 
     <TextView
         android:id="@+id/titulo_resultado"
@@ -27,7 +23,7 @@
         android:fontFamily="@font/lato_bold_italic"
         android:gravity="center"
         android:padding="16dp"
-        android:text="@string/sabe_homem_aranha"
+        android:text="@string/quiz_homem_aranha"
         android:textColor="@color/branco"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -54,14 +50,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_bold"
-        android:text="3/5 questões corretas"
+        android:text="@string/_3_5_quest_es_corretas"
         android:textAlignment="center"
         android:padding="16dp"
         android:textColor="@color/preto"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
         app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintTop_toBottomOf="@+id/resultado_numero"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/resultado_numero">
+    </TextView>
 
     <TextView
         android:id="@+id/fragement_textview_pergunta"
@@ -70,7 +67,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/lato_bold"
         android:padding="16dp"
-        android:text="Resultado:"
+        android:text="@string/resultado"
         android:textAlignment="center"
         android:textColor="@color/preto"
         android:textSize="40sp"
@@ -104,7 +101,6 @@
             android:src="@drawable/ic_star_border_black_24dp" />
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/texto_historia"
         android:layout_width="300dp"
@@ -113,7 +109,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/lato_bold"
         android:gravity="center_vertical"
-        android:text="Mostre sua força e compartilhe o resultado!"
+        android:text="@string/compartilhe_resultado"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/preto"
@@ -122,5 +118,4 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultado_numero_questao" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

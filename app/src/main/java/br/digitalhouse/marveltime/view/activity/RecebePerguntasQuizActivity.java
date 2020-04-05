@@ -1,17 +1,13 @@
 package br.digitalhouse.marveltime.view.activity;
-import android.content.Intent;
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Activitys/RecebePerguntasQuizActivity.java
-import br.digitalhouse.marveltime.Fragments.PerguntasQuizFragment;
-import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
-=======
->>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/activity/RecebePerguntasQuizActivity.java
-import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.view.fragment.PerguntasQuizFragment;
+import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.view.fragment.ResultadoFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,7 +15,7 @@ import butterknife.OnClick;
 
 public class RecebePerguntasQuizActivity extends AppCompatActivity implements HelperQuiz {
     public static String nome;
-    private br.digitalhouse.marveltime.view.fragment.ResultadoFragment.ResultadoFragment fragmentResultado;
+    private ResultadoFragment fragmentResultado;
     private PerguntasQuizFragment fragmentQuiz;
     int mcorreto = 0, merrado = 0;
     String mtitulo= " ";
@@ -30,7 +26,7 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recebe_perguntas_quiz);
-        fragmentResultado = new ResultadoFragment.ResultadoFragment();
+        fragmentResultado = new ResultadoFragment();
         fragmentQuiz = new PerguntasQuizFragment();
         Intent intent = getIntent();
         nome = intent.getExtras().getString("NOME");
@@ -38,11 +34,7 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
         replaceFragments(R.id.container, fragmentQuiz);
     }
 
-<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Activitys/RecebePerguntasQuizActivity.java
     private void replaceFragments(int container, Fragment fragment) {
-=======
-    private void replaceFragments(int container, Fragment fragment){
->>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/activity/RecebePerguntasQuizActivity.java
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(container, fragment)
@@ -92,6 +84,7 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
         fragmentResultado.setArguments(bundle);
         replaceFragments(R.id.container, fragmentResultado);
     }
+
     @Override
     public void titulo(String titulo) {
         mtitulo=titulo;
