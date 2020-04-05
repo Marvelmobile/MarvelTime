@@ -49,4 +49,5 @@ public class MarvelViewModel extends AndroidViewModel {
         super.onCleared();
         disposable.clear();
     }
+
 }

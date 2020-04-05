@@ -114,5 +114,6 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
             }
         });
     }
+
 }
 

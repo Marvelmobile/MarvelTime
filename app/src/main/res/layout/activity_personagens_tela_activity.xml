@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/marvel_characters"/>
+                android:src="@drawable/mavel_universe"/>
 
             <FrameLayout
                 android:layout_width="160dp"

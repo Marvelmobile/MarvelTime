@@ -1,6 +1,8 @@
 package br.digitalhouse.marveltime.repository;
+
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import io.reactivex.Observable;
+
 import static br.digitalhouse.marveltime.network.RetrofitService.getApiService;
 import static br.digitalhouse.marveltime.util.Constantes.PRIVATE_KEY;
 import static br.digitalhouse.marveltime.util.Constantes.PUBLIC_KEY;

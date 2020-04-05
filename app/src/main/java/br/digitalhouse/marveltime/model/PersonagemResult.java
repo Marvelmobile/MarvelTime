@@ -17,7 +17,7 @@ public class PersonagemResult implements Parcelable {
     @Expose
     private PersonagemImagem thumbnail;
 
-    protected PersonagemResult(Parcel in) {
+    public PersonagemResult(Parcel in) {
         description = in.readString();
         if (in.readByte() == 0) {
             id = null;
