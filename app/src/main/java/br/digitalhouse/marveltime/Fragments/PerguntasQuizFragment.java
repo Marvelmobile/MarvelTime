@@ -165,7 +165,6 @@ public class PerguntasQuizFragment extends Fragment {
             JSONArray perguntas = jsonObject.getJSONArray("perguntas");
             for (int i = 0; i < perguntas.length(); i++) {
                 JSONObject pergunta = perguntas.getJSONObject(i);
-
                 String nomeString = pergunta.getString("nome");
                 String perguntaString = pergunta.getString("pergunta");
                 String alternativa1String = pergunta.getString("alternativa1");
