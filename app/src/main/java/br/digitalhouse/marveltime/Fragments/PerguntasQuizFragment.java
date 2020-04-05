@@ -1,35 +1,28 @@
 package br.digitalhouse.marveltime.Fragments;
-
 import android.content.Context;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.Models.Questao;
 import br.digitalhouse.marveltime.R;
 
 public class PerguntasQuizFragment extends Fragment {
-
     private HelperQuiz helperQuiz;
     private TextView fragment_titulo;
     private TextView fragmentPergunta;
@@ -40,7 +33,6 @@ public class PerguntasQuizFragment extends Fragment {
     private List<Questao> listaperguntas;
     private List<Questao> listaperguntasfiltrada = new ArrayList<>();
     private int perguntaAtual = 0, correto = 0, errado = 0;
-
 
     public PerguntasQuizFragment() {
     }
