@@ -1,7 +1,13 @@
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+package br.digitalhouse.marveltime.Fragments;
+=======
 package br.digitalhouse.marveltime.view.fragment;
-import android.content.Context;
-import android.content.Intent;
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
 import android.os.Bundle;
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+import androidx.annotation.NonNull;
+=======
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
 import androidx.fragment.app.Fragment;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -9,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+=======
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +26,15 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
+import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
+import br.digitalhouse.marveltime.Models.Questao;
+import br.digitalhouse.marveltime.R;
+
+public class PerguntasQuizFragment extends Fragment {
+    private HelperQuiz helperQuiz;
+=======
 import br.digitalhouse.marveltime.view.activity.MainActivity;
 import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.view.Interfaces.Selecionavel;
@@ -27,22 +44,27 @@ import static android.widget.Toast.LENGTH_SHORT;
 import static br.digitalhouse.marveltime.R.color.branco;
 
 public class PerguntasQuizFragment extends Fragment {
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
     private TextView fragment_titulo;
     private TextView fragmentPergunta;
-    private Button fragmentAlternativaUm;
-    private Button fragmentAlternativaDois;
-    private Button fragmentAlternativaTres;
-    private Button fragmentAlternativaQuatro;
-    private FloatingActionButton fragmentVoltar;
-    private FloatingActionButton fragmentProximo;
-    private Selecionavel selecionavel;
+    private Button alternativaUm;
+    private Button alternativaDois;
+    private Button alternativaTres;
+    private Button alternativaQuatro;
     private List<Questao> listaperguntas;
     private List<Questao> listaperguntasfiltrada = new ArrayList<>();
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+    private int perguntaAtual = 0, correto = 0, errado = 0;
+
+    public PerguntasQuizFragment() {
+    }
+=======
     int perguntaAtual = 0;
     int correto = 0, errado = 0;
     int duracaoNotifacao = LENGTH_SHORT;
 
     public PerguntasQuizFragment() {  }
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +77,47 @@ public class PerguntasQuizFragment extends Fragment {
         filtroLista();
         colocarPerguntasTela(perguntaAtual);
 
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+        alternativaUm.setOnClickListener(v1 -> {
+            if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa1().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
+                correto++;
+                ficaVerde(alternativaUm);
+            } else {
+                errado++;
+                ficaVermelho(alternativaUm);
+            }
+        });
+
+        alternativaDois.setOnClickListener(v12 -> {
+            if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa2().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
+                correto++;
+                ficaVerde(alternativaDois);
+            } else {
+                errado++;
+                ficaVermelho(alternativaDois);
+            }
+        });
+
+        alternativaTres.setOnClickListener(v13 -> {
+            if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa3().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
+                correto++;
+                ficaVerde(alternativaTres);
+
+            } else {
+                errado++;
+                ficaVermelho(alternativaTres);
+            }
+        });
+
+        alternativaQuatro.setOnClickListener(v14 -> {
+            if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa4().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
+                correto++;
+                ficaVerde(alternativaQuatro);
+            } else {
+                errado++;
+                ficaVermelho(alternativaQuatro);
+            }
+=======
         fragmentAlternativaUm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,29 +173,18 @@ public class PerguntasQuizFragment extends Fragment {
         fragmentVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {  }
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
         });
         return v;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        try {
-            this.selecionavel = (Selecionavel) context;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     private void initViews(View view) {
         fragment_titulo = view.findViewById(R.id.fragment_titulo_principal);
         fragmentPergunta = view.findViewById(R.id.fragement_textview_pergunta);
-        fragmentAlternativaUm = view.findViewById(R.id.fragment_button_alternativaUm);
-        fragmentAlternativaDois = view.findViewById(R.id.fragment_button_alternativaDois);
-        fragmentAlternativaTres = view.findViewById(R.id.fragment_button_alternativaTres);
-        fragmentAlternativaQuatro = view.findViewById(R.id.fragment_button_alternativaQuatro);
-        fragmentVoltar = view.findViewById(R.id.fragment_floatingActionButton_voltar);
-        fragmentProximo = view.findViewById(R.id.fragment_floatingActionButton_proximo);
+        alternativaUm = view.findViewById(R.id.fragment_button_alternativaUm);
+        alternativaDois = view.findViewById(R.id.fragment_button_alternativaDois);
+        alternativaTres = view.findViewById(R.id.fragment_button_alternativaTres);
+        alternativaQuatro = view.findViewById(R.id.fragment_button_alternativaQuatro);
     }
 
     private String carregaJsonDoAsset(String file) {
@@ -174,6 +226,16 @@ public class PerguntasQuizFragment extends Fragment {
         }
         mudaTitulo();
     }
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+
+    private void colocarPerguntasTela(int numero) {
+
+        fragmentPergunta.setText(listaperguntasfiltrada.get(numero).getPergunta());
+        alternativaUm.setText(listaperguntasfiltrada.get(numero).getAlternativa1());
+        alternativaDois.setText(listaperguntasfiltrada.get(numero).getAlternativa2());
+        alternativaTres.setText(listaperguntasfiltrada.get(numero).getAlternativa3());
+        alternativaQuatro.setText(listaperguntasfiltrada.get(numero).getAlternativa4());
+=======
 
     private void colocarPerguntasTela(int numero) {
         fragmentPergunta.setText(listaperguntasfiltrada.get(numero).getPergunta());
@@ -181,6 +243,7 @@ public class PerguntasQuizFragment extends Fragment {
         fragmentAlternativaDois.setText(listaperguntasfiltrada.get(numero).getAlternativa2());
         fragmentAlternativaTres.setText(listaperguntasfiltrada.get(numero).getAlternativa3());
         fragmentAlternativaQuatro.setText(listaperguntasfiltrada.get(numero).getAlternativa4());
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
     }
 
     private void carregaTodasPerguntas() {
@@ -210,29 +273,32 @@ public class PerguntasQuizFragment extends Fragment {
                 ));
             }
         } catch (JSONException e) {
-
+            e.printStackTrace();
         }
     }
 
     private void ficaVermelho(Button button) {
-        button.setTextColor(getResources().getColor(R.color.errado));
-        voltaBranco(button);
+        button.setBackground(getResources().getDrawable(R.drawable.round_button_vermelho));
+        ficaNormal(button);
     }
 
     private void ficaVerde(Button button) {
 
-        button.setTextColor(getResources().getColor(R.color.correto));
-        voltaBranco(button);
+        button.setBackground(getResources().getDrawable(R.drawable.round_button_verde));
+        ficaNormal(button);
     }
 
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+    private void ficaNormal(Button button) {
+
+=======
     private void voltaBranco(Button button) {
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
         Handler handler = new Handler();
         long delay = 1000;
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                button.setTextColor(getResources().getColor(branco));
-                confereEPoe();
-            }
+        handler.postDelayed(() -> {
+            button.setBackground(getResources().getDrawable(R.drawable.round_button));
+            confereEPoe();
         }, delay);
     }
 
@@ -241,8 +307,20 @@ public class PerguntasQuizFragment extends Fragment {
             perguntaAtual++;
             colocarPerguntasTela(perguntaAtual);
         } else {
-            Context context = getContext();
-            startActivity(new Intent(context, MainActivity.class));
+            helperQuiz.correto(correto);
+            helperQuiz.errado(errado);
+            helperQuiz.titulo(fragment_titulo.getText().toString());
+            helperQuiz.troca();
         }
     }
+<<<<<<< HEAD:app/src/main/java/br/digitalhouse/marveltime/Fragments/PerguntasQuizFragment.java
+
+    
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        helperQuiz= (HelperQuiz) getActivity();
+    }
+=======
+>>>>>>> origin/pre_epic:app/src/main/java/br/digitalhouse/marveltime/view/fragment/PerguntasQuizFragment.java
 }

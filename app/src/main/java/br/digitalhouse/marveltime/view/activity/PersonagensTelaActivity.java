@@ -31,7 +31,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
 
     private void initExtras() {
         personagem = findViewById(R.id.imagem_personagem_historia);
-        nomeP = findViewById(R.id.personagem);
+        nomeP = findViewById(R.id.resultado);
     }
 
     @OnClick(R.id.tapBarMenu)
