@@ -39,8 +39,8 @@ public class PersonagensTelaActivity extends AppCompatActivity {
             nomePersonagem.setText(personagemResult.getName());
         }
     }
-
-    private void initView(){
+  
+  private void initView(){
         imagemPersonagem = findViewById(R.id.imagem_personagem_historia);
         descricaoPersonagem = findViewById(R.id.texto_historia);
         nomePersonagem = findViewById(R.id.textView_nomePersonagem);
