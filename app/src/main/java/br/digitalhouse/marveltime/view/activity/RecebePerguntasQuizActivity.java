@@ -1,14 +1,14 @@
-package br.digitalhouse.marveltime.Activitys;
+package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-import br.digitalhouse.marveltime.Fragments.PerguntasQuizFragment;
-import br.digitalhouse.marveltime.Fragments.ResultadoFragment;
-import br.digitalhouse.marveltime.Interfaces.HelperQuiz;
+import br.digitalhouse.marveltime.view.fragment.PerguntasQuizFragment;
+import br.digitalhouse.marveltime.view.fragment.ResultadoFragment;
+import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;

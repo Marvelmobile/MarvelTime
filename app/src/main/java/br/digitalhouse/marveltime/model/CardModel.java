@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Models;
+package br.digitalhouse.marveltime.model;
 
 public class CardModel {
     private int Nome;
@@ -24,5 +24,4 @@ public class CardModel {
         Nome = nome;
         Imagem = imagem;
     }
-
 }

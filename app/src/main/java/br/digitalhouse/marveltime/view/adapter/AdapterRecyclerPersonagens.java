@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Adapter;
+package br.digitalhouse.marveltime.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,13 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import br.digitalhouse.marveltime.Activitys.MainActivity;
-import br.digitalhouse.marveltime.Activitys.PersonagensTelaActivity;
-import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
-import br.digitalhouse.marveltime.Models.CardModel;
+import br.digitalhouse.marveltime.view.activity.PersonagensTelaActivity;
+import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.Views.ViewHolderFavoritos;
-import br.digitalhouse.marveltime.Views.ViewHolderPersonagens;
+import br.digitalhouse.marveltime.view.viewholder.ViewHolderPersonagens;
 
 public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderPersonagens> {
 

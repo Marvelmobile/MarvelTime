@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundquiz"
-    tools:context=".Fragments.PerguntasQuizFragment">
+    tools:context=".view.fragment.PerguntasQuizFragment">
 
     <TextView
         android:id="@+id/fragment_titulo_principal"

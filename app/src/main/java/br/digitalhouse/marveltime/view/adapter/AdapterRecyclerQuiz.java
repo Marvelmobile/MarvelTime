@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Adapter;
+package br.digitalhouse.marveltime.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import br.digitalhouse.marveltime.Models.CardModel;
+import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
-import br.digitalhouse.marveltime.Views.ViewHolderQuiz;
+import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
+import br.digitalhouse.marveltime.view.viewholder.ViewHolderQuiz;
 
 public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
 

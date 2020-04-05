@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Activitys;
+package br.digitalhouse.marveltime.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

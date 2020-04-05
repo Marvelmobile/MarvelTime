@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Activitys;
+package br.digitalhouse.marveltime.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,8 +13,8 @@ import com.michaldrabik.tapbarmenulib.TapBarMenu;
 
 import java.util.ArrayList;
 
-import br.digitalhouse.marveltime.Adapter.AdapterRecyclerFavoritos;
-import br.digitalhouse.marveltime.Models.CardModel;
+import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerFavoritos;
+import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;

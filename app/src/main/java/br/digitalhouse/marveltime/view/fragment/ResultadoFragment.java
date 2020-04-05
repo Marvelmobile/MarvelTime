@@ -1,11 +1,9 @@
-package br.digitalhouse.marveltime.Fragments;
+package br.digitalhouse.marveltime.view.fragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,8 +13,7 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
-import br.digitalhouse.marveltime.Interfaces.HelperQuiz;
+import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.R;
 
 public class ResultadoFragment extends Fragment {

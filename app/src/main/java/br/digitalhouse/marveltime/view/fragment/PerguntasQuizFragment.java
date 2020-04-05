@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Fragments;
+package br.digitalhouse.marveltime.view.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import br.digitalhouse.marveltime.Activitys.RecebePerguntasQuizActivity;
-import br.digitalhouse.marveltime.Interfaces.HelperQuiz;
-import br.digitalhouse.marveltime.Models.Questao;
+import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
+import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
+import br.digitalhouse.marveltime.model.Questao;
 import br.digitalhouse.marveltime.R;
 
 public class PerguntasQuizFragment extends Fragment {

@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Interfaces;
+package br.digitalhouse.marveltime.view.Interfaces;
 
 public interface HelperQuiz {
     void correto(int correto);

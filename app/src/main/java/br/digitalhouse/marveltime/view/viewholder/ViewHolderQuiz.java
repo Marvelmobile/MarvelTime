@@ -1,7 +1,6 @@
-package br.digitalhouse.marveltime.Views;
+package br.digitalhouse.marveltime.view.viewholder;
 
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;

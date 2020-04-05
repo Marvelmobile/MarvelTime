@@ -1,4 +1,4 @@
-package br.digitalhouse.marveltime.Activitys;
+package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.util.Helper;
 
-import static br.digitalhouse.marveltime.Activitys.CadastroActivity.CHAVE_EMAIL;
+import static br.digitalhouse.marveltime.view.activity.CadastroActivity.CHAVE_EMAIL;
 
 public class LoginActivity extends AppCompatActivity {
 
