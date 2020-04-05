@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activitys.SplashActivity"
+            android:name=".view.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,28 +22,28 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Activitys.LoginActivity"
+            android:name=".view.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activitys.MainActivity"
+            android:name=".view.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activitys.CadastroActivity"
+            android:name=".view.activity.CadastroActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activitys.RecebePerguntasQuizActivity"
+            android:name=".view.activity.RecebePerguntasQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activitys.RecyclerQuizActivity"
+            android:name=".view.activity.RecyclerQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activitys.RecyclerFavoritosActivity"
+            android:name=".view.activity.RecyclerFavoritosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activitys.RecyclerPersonagensActivity"
+            android:name=".view.activity.RecyclerPersonagensActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activitys.PersonagensTelaActivity"
+            android:name=".view.activity.PersonagensTelaActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 </manifest>
