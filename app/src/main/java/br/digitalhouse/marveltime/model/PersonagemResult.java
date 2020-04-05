@@ -1,13 +1,19 @@
 package br.digitalhouse.marveltime.model;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import com.google.gson.annotations.Expose;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.gson.annotations.Expose;
+@Entity(tableName = "result")
 public class PersonagemResult implements Parcelable {
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "id")
+    @Expose
+    private long id;
     @Expose
     private String description;
-    @Expose
-    private Long id;
     @Expose
     private String modified;
     @Expose
@@ -16,6 +22,10 @@ public class PersonagemResult implements Parcelable {
     private String resourceURI;
     @Expose
     private PersonagemImagem thumbnail;
+
+    public PersonagemResult(Long id) {
+        this.id = id;
+    }
 
     public PersonagemResult(Parcel in) {
         description = in.readString();

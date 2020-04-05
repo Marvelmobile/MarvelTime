@@ -1,4 +1,5 @@
 package br.digitalhouse.marveltime.model;
+import androidx.room.Entity;
 
 public class Questao {
     private String nome, pergunta, alternativa1, alternativa2, alternativa3, alternativa4, resposta;
