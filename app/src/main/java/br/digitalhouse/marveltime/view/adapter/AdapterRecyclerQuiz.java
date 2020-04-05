@@ -17,7 +17,7 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
     private Context mContext;
 
     public AdapterRecyclerQuiz(Context mContext, ArrayList<CardModel> listaCards) {
-        this.listaCards = listaCards;
+        this.listaCards= listaCards;
         this.mContext = mContext;
     }
 
@@ -34,27 +34,20 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
         holder.image.setImageResource(listaCards.get(position).getImagem());
         holder.texto.setText(listaCards.get(position).getNome());
         holder.image.setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, RecebePerguntasQuizActivity.class);
-            int position1 = position;
-            intent.putExtra("NOME", verifica(position));
+              Intent intent= new Intent(mContext, RecebePerguntasQuizActivity.class);
+            int position1= position;
+            intent.putExtra("NOME",verifica(position));
             mContext.startActivity(intent);
         });
+
     }
 
     private String verifica(int n) {
         String nomeHeroi = null;
-        if (n == 0) {
-            nomeHeroi = "HA";
-        }
-        if (n == 1) {
-            nomeHeroi = "TH";
-        }
-        if (n == 2) {
-            nomeHeroi = "HF";
-        }
-        if (n == 3) {
-            nomeHeroi = "CA";
-        }
+        if(n==0){nomeHeroi="HA";}
+        if(n==1){nomeHeroi="TH";}
+        if(n==2){nomeHeroi="HF";}
+        if(n==3){nomeHeroi="CA";}
         return nomeHeroi;
     }
 
@@ -63,4 +56,3 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
         return listaCards.size();
     }
 }
-

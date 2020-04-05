@@ -56,33 +56,6 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         recycler.setLayoutManager(new GridLayoutManager(this, 3));
     }
 
-    @BindView(R.id.tapBarMenu)
-    public TapBarMenu tapBarMenu;
-
-    @OnClick(R.id.tapBarMenu)
-    public void onMenuButtonClick() {
-        tapBarMenu.toggle();
-    }
-
-    @OnClick({R.id.item1, R.id.item2, R.id.item3, R.id.item4})
-    public void onMenuItemClick(View view) {
-        tapBarMenu.close();
-        switch (view.getId()) {
-            case R.id.item1:
-                startActivity(new Intent(RecyclerPersonagensActivity.this, MainActivity.class));
-                break;
-            case R.id.item2:
-                startActivity(new Intent(RecyclerPersonagensActivity.this, RecyclerFavoritosActivity.class));
-                break;
-            case R.id.item3:
-                startActivity(new Intent(RecyclerPersonagensActivity.this, RecyclerPersonagensActivity.class));
-                break;
-            case R.id.item4:
-                startActivity(new Intent(RecyclerPersonagensActivity.this, RecyclerQuizActivity.class));
-                break;
-        }
-    }
-
     @Override
     public void click(PersonagemResult personagem) {
         Intent intent = new Intent(RecyclerPersonagensActivity.this, PersonagensTelaActivity.class);
@@ -115,5 +88,30 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         });
     }
 
-}
+    @BindView(R.id.tapBarMenu)
+    public TapBarMenu tapBarMenu;
 
+    @OnClick(R.id.tapBarMenu)
+    public void onMenuButtonClick() {
+        tapBarMenu.toggle();
+    }
+
+    @OnClick({R.id.item1, R.id.item2, R.id.item3, R.id.item4})
+    public void onMenuItemClick(View view) {
+        tapBarMenu.close();
+        switch (view.getId()) {
+            case R.id.item1:
+                startActivity(new Intent(RecyclerPersonagensActivity.this, MainActivity.class));
+                break;
+            case R.id.item2:
+                startActivity(new Intent(RecyclerPersonagensActivity.this, RecyclerFavoritosActivity.class));
+                break;
+            case R.id.item3:
+                startActivity(new Intent(RecyclerPersonagensActivity.this, RecyclerPersonagensActivity.class));
+                break;
+            case R.id.item4:
+                startActivity(new Intent(RecyclerPersonagensActivity.this, RecyclerQuizActivity.class));
+                break;
+        }
+    }
+}

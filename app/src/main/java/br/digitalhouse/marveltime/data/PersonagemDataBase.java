@@ -11,9 +11,7 @@ import br.digitalhouse.marveltime.model.PersonagemResult;
 
 @Database(entities = {PersonagemResponse.class, PersonagemResult.class, PersonagemImagem.class, Data.class}, version = 1, exportSchema = false)
 @TypeConverters(PersonagemTypeConverter.class)
-
 public abstract class PersonagemDataBase extends RoomDatabase {
-
     private static volatile PersonagemDataBase INSTANCE;
     public abstract PersonagemDAO personagemDAO();
 
@@ -30,4 +28,3 @@ public abstract class PersonagemDataBase extends RoomDatabase {
         return INSTANCE;
     }
 }
-

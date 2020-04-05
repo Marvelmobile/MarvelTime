@@ -11,9 +11,9 @@ import static br.digitalhouse.marveltime.util.Constantes.PUBLIC_KEY;
 import static br.digitalhouse.marveltime.util.Helper.md5;
 
 public class MarvelRepository {
-    String ts = Long.toString (System.currentTimeMillis()/1000 );
-    String hash = md5 (ts + PRIVATE_KEY + PUBLIC_KEY );
-  
+    public String ts = Long.toString (System.currentTimeMillis()/1000);
+    public String hash = md5 (ts + PRIVATE_KEY + PUBLIC_KEY );
+
     public Observable<List<PersonagemResult>> retornaPersonagemBD(Context context) {
         return PersonagemDataBase.getDatabase(context).personagemDAO().recuperaPersonagemDoBD();
     }

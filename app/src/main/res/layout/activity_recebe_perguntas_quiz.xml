@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.RecebePerguntasQuizActivity">
 
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    </LinearLayout>
 
     <com.michaldrabik.tapbarmenulib.TapBarMenu
         android:id="@+id/tapBarMenu"
@@ -65,5 +71,4 @@
             android:paddingBottom="10dp"
             android:src="@drawable/img_quiz_menu" />
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,4 @@
 package br.digitalhouse.marveltime.model;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import java.util.List;
@@ -69,5 +68,4 @@ public class Data {
     public void setTotal(Long total) {
         this.total = total;
     }
-
 }

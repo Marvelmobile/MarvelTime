@@ -1,6 +1,5 @@
 package br.digitalhouse.marveltime.view.adapter;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderFavoritos;
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -42,10 +40,6 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         removeAt(position);
 
         });
-        holder.image.setOnClickListener(v -> {
-            Intent intent= new Intent(mContext, RecebePerguntasQuizActivity.class);
-            mContext.startActivity(intent);
-        });
     }
 
     @Override
@@ -59,6 +53,4 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         notifyItemRangeChanged(position, listaCards.size());
     }
 }
-
-
 

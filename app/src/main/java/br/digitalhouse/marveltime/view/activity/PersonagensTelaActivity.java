@@ -19,9 +19,6 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     private PersonagemResult personagemResult;
     private TextView nomePersonagem;
 
-    @BindView(R.id.tapBarMenu)
-    TapBarMenu tapBarMenu;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +42,9 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         descricaoPersonagem = findViewById(R.id.texto_historia);
         nomePersonagem = findViewById(R.id.textView_nomePersonagem);
     }
+
+    @BindView(R.id.tapBarMenu)
+    TapBarMenu tapBarMenu;
 
     @OnClick(R.id.tapBarMenu)
     public void onMenuButtonClick() {

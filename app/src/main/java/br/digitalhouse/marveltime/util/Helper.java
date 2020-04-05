@@ -45,11 +45,11 @@ public class Helper {
         return (confirmacaoSenha.equals(senha));
     }
 
-    public static boolean verificaConexaoComInternet(Context context){
-        ConnectivityManager connectivityManager = (ConnectivityManager)
-                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    public static boolean verificaConexaoComInternet(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo;
-        if (connectivityManager != null){
+
+        if (connectivityManager != null) {
             networkInfo = connectivityManager.getActiveNetworkInfo();
             return networkInfo != null && networkInfo.isConnected() &&
                     (networkInfo.getType() == ConnectivityManager.TYPE_WIFI
