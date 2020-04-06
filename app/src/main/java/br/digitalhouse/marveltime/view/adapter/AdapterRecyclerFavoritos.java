@@ -1,6 +1,5 @@
 package br.digitalhouse.marveltime.view.adapter;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderFavoritos;
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -37,14 +35,10 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         holder.texto.setText(listaCards.get(position).getNome());
         holder.favoritado.setOnClickListener(view -> {
 
-        Toast toast = Toast.makeText(mContext,  holder.texto.getText().toString() + " foi desfavoritado", LENGTH_SHORT);
+        Toast toast = Toast.makeText(mContext,  holder.texto.getText().toString() + mContext.getString(R.string.msg_desfavoritado), LENGTH_SHORT);
         toast.show();
         removeAt(position);
 
-        });
-        holder.image.setOnClickListener(v -> {
-            Intent intent= new Intent(mContext, RecebePerguntasQuizActivity.class);
-            mContext.startActivity(intent);
         });
     }
 
@@ -59,6 +53,3 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         notifyItemRangeChanged(position, listaCards.size());
     }
 }
-
-
-

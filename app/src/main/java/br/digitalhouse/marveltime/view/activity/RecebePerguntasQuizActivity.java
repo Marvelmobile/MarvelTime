@@ -6,27 +6,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.view.fragment.PerguntasQuizFragment;
+import br.digitalhouse.marveltime.view.fragment.ResultadoFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RecebePerguntasQuizActivity extends AppCompatActivity{
+public class RecebePerguntasQuizActivity extends AppCompatActivity implements HelperQuiz {
     public static String nome;
+    private ResultadoFragment fragmentResultado;
+    private PerguntasQuizFragment fragmentQuiz;
+    int mcorreto = 0, merrado = 0;
+    String mtitulo= " ";
+    boolean mtroca = false;
+
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recebe_perguntas_quiz);
+        fragmentResultado = new ResultadoFragment();
+        fragmentQuiz = new PerguntasQuizFragment();
         Intent intent = getIntent();
         nome = intent.getExtras().getString("NOME");
-        replaceFragments(R.id.container, new PerguntasQuizFragment());
         ButterKnife.bind(this);
+        replaceFragments(R.id.container, fragmentQuiz);
     }
 
-    private void replaceFragments(int container, Fragment fragment){
+    private void replaceFragments(int container, Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(container, fragment)
@@ -38,7 +47,7 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity{
         tapBarMenu.toggle();
     }
 
-    @OnClick({ R.id.item1, R.id.item2, R.id.item3, R.id.item4 })
+    @OnClick({R.id.item1, R.id.item2, R.id.item3, R.id.item4})
     public void onMenuItemClick(View view) {
         tapBarMenu.close();
         switch (view.getId()) {
@@ -55,5 +64,30 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity{
                 startActivity(new Intent(RecebePerguntasQuizActivity.this, RecyclerQuizActivity.class));
                 break;
         }
+    }
+
+    @Override
+    public void correto(int correto) {
+        mcorreto = correto;
+    }
+
+    @Override
+    public void errado(int errado) {
+        merrado = errado;
+    }
+
+    @Override
+    public void troca() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("correto", mcorreto);
+        bundle.putInt("errado", merrado);
+        bundle.putString("titulo", mtitulo);
+        fragmentResultado.setArguments(bundle);
+        replaceFragments(R.id.container, fragmentResultado);
+    }
+
+    @Override
+    public void titulo(String titulo) {
+        mtitulo=titulo;
     }
 }

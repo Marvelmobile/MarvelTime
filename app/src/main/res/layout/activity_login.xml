@@ -111,5 +111,4 @@
         app:layout_constraintBottom_toTopOf="@+id/loginRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/google" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

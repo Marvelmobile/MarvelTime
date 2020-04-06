@@ -47,4 +47,22 @@
     <string name="regra_senha">A senha deve conter pelo menos 6 caracteres, uma letra maiuscula e minuscula, um número e um caracter especial.</string>
     <string name="registre_se">Ainda não é membro? [Registre-se aqui]</string>
     <string name="user_senha_fora_regra">Usuário ou senha não atendem as regras, por favor, tente novamente</string>
+    <string name="msg_desfavoritado">\" foi desfavoritado\"</string>
+    <string name="nome">nome</string>
+    <string name="pergunta">pergunta</string>
+    <string name="alt_1">alternativa1</string>
+    <string name="alt_2">alternativa2</string>
+    <string name="alt_3">alternativa3</string>
+    <string name="alt_4">alternativa4</string>
+    <string name="resposta">resposta</string>
+    <string name="perguntas">perguntas</string>
+    <string name="json">perguntas.json</string>
+    <string name="titulo">titulo</string>
+    <string name="errado">errado</string>
+    <string name="correto">correto</string>
+    <string name="resp_corretas">questões corretas</string>
+    <string name="_80">80%</string>
+    <string name="quest_corretas">3/5 questões corretas</string>
+    <string name="resultado">Resultado:</string>
+    <string name="compartilhe_resultado">Mostre sua força e compartilhe o resultado!</string>
 </resources>
