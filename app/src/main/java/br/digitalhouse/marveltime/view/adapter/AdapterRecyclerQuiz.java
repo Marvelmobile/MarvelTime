@@ -12,6 +12,8 @@ import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderQuiz;
 
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_NOME;
+
 public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
     private ArrayList<CardModel> listaCards;
     private Context mContext;
@@ -36,7 +38,7 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
         holder.image.setOnClickListener(v -> {
               Intent intent= new Intent(mContext, RecebePerguntasQuizActivity.class);
             int position1= position;
-            intent.putExtra("NOME",verifica(position));
+            intent.putExtra(CHAVE_NOME,verifica(position));
             mContext.startActivity(intent);
         });
 

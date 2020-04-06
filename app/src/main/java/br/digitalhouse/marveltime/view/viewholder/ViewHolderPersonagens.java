@@ -19,9 +19,8 @@ public class ViewHolderPersonagens extends RecyclerView.ViewHolder {
     }
 
     public void onBind(PersonagemResult personagemResult) {
-        String imageURL = personagemResult.getThumbnail()
-                .getPath().replace("http://", "https://");
         nomePersonagem.setText(personagemResult.getName());
+        String imageURL = personagemResult.getThumbnail().getPath().replace("http://", "https://");
         Picasso.get().load(imageURL+ "." + personagemResult.getThumbnail().getExtension()).into(imagemPersonagem);
     }
 }

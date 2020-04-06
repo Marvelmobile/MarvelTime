@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_bold"
-        android:text="80%"
+        android:text="@string/_80"
         android:layout_marginTop="15dp"
         android:textAlignment="center"
         android:textColor="@color/preto"
@@ -51,14 +51,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_bold"
-        android:text="3/5 questões corretas"
+        android:text="@string/quest_corretas"
         android:textAlignment="center"
         android:padding="16dp"
         android:textColor="@color/preto"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
         app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintTop_toBottomOf="@+id/resultado_numero"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/resultado_numero"/>
 
     <TextView
         android:id="@+id/fragement_textview_pergunta"
@@ -67,7 +67,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/lato_bold"
         android:padding="16dp"
-        android:text="Resultado:"
+        android:text="@string/resultado"
         android:textAlignment="center"
         android:textColor="@color/preto"
         android:textSize="40sp"
@@ -101,7 +101,6 @@
             android:src="@drawable/ic_star_border_black_24dp" />
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/texto_historia"
         android:layout_width="300dp"
@@ -110,11 +109,11 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/lato_bold"
         android:gravity="center_vertical"
-        android:text="Mostre sua força e compartilhe o resultado!"
+        android:text="@string/compartilhe_resultado"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/preto"
-        android:textSize="20sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"

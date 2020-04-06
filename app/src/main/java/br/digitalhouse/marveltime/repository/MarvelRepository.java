@@ -6,14 +6,11 @@ import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import io.reactivex.Observable;
 import static br.digitalhouse.marveltime.network.RetrofitService.getApiService;
-import static br.digitalhouse.marveltime.util.Constantes.PRIVATE_KEY;
+import static br.digitalhouse.marveltime.util.Constantes.HASH;
 import static br.digitalhouse.marveltime.util.Constantes.PUBLIC_KEY;
-import static br.digitalhouse.marveltime.util.Helper.md5;
+import static br.digitalhouse.marveltime.util.Constantes.TS;
 
 public class MarvelRepository {
-    public String ts = Long.toString (System.currentTimeMillis()/1000);
-    public String hash = md5 (ts + PRIVATE_KEY + PUBLIC_KEY );
-
     public Observable<List<PersonagemResult>> retornaPersonagemBD(Context context) {
         return PersonagemDataBase.getDatabase(context).personagemDAO().recuperaPersonagemDoBD();
     }
@@ -27,6 +24,6 @@ public class MarvelRepository {
     }
 
     public Observable<PersonagemResponse> getPersonagem(Integer offset){
-        return getApiService().getPersonagens(ts, hash, PUBLIC_KEY, offset);
+        return getApiService().getPersonagens(TS, HASH, PUBLIC_KEY, offset);
     }
 }

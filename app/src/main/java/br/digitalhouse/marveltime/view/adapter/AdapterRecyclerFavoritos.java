@@ -35,7 +35,7 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         holder.texto.setText(listaCards.get(position).getNome());
         holder.favoritado.setOnClickListener(view -> {
 
-        Toast toast = Toast.makeText(mContext,  holder.texto.getText().toString() + " foi desfavoritado", LENGTH_SHORT);
+        Toast toast = Toast.makeText(mContext,  holder.texto.getText().toString() + mContext.getString(R.string.msg_desfavoritado), LENGTH_SHORT);
         toast.show();
         removeAt(position);
 
@@ -53,4 +53,3 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         notifyItemRangeChanged(position, listaCards.size());
     }
 }
-

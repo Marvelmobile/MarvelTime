@@ -22,6 +22,8 @@ import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.model.Questao;
 import br.digitalhouse.marveltime.R;
 
+import static br.digitalhouse.marveltime.util.Constantes.UTF8;
+
 public class PerguntasQuizFragment extends Fragment {
     private HelperQuiz helperQuiz;
     private TextView fragment_titulo;
@@ -69,7 +71,6 @@ public class PerguntasQuizFragment extends Fragment {
             if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa3().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
                 correto++;
                 ficaVerde(alternativaTres);
-
             } else {
                 errado++;
                 ficaVermelho(alternativaTres);
@@ -105,8 +106,7 @@ public class PerguntasQuizFragment extends Fragment {
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new String(buffer, "UTF-8");
-
+            json = new String(buffer, UTF8);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -138,7 +138,6 @@ public class PerguntasQuizFragment extends Fragment {
     }
 
     private void colocarPerguntasTela(int numero) {
-
         fragmentPergunta.setText(listaperguntasfiltrada.get(numero).getPergunta());
         alternativaUm.setText(listaperguntasfiltrada.get(numero).getAlternativa1());
         alternativaDois.setText(listaperguntasfiltrada.get(numero).getAlternativa2());
@@ -148,20 +147,20 @@ public class PerguntasQuizFragment extends Fragment {
 
     private void carregaTodasPerguntas() {
         listaperguntas = new ArrayList<>();
-        String jsonStr = carregaJsonDoAsset("perguntas.json");
+        String jsonStr = carregaJsonDoAsset(getString(R.string.json));
         try {
             JSONObject jsonObject = new JSONObject(jsonStr);
-            JSONArray perguntas = jsonObject.getJSONArray("perguntas");
+            JSONArray perguntas = jsonObject.getJSONArray(getString(R.string.perguntas));
             for (int i = 0; i < perguntas.length(); i++) {
                 JSONObject pergunta = perguntas.getJSONObject(i);
 
-                String nomeString = pergunta.getString("nome");
-                String perguntaString = pergunta.getString("pergunta");
-                String alternativa1String = pergunta.getString("alternativa1");
-                String alternativa2String = pergunta.getString("alternativa2");
-                String alternativa3String = pergunta.getString("alternativa3");
-                String alternativa4String = pergunta.getString("alternativa4");
-                String respostaString = pergunta.getString("resposta");
+                String nomeString = pergunta.getString(getString(R.string.nome));
+                String perguntaString = pergunta.getString(getString(R.string.pergunta));
+                String alternativa1String = pergunta.getString(getString(R.string.alt_1));
+                String alternativa2String = pergunta.getString(getString(R.string.alt_2));
+                String alternativa3String = pergunta.getString(getString(R.string.alt_3));
+                String alternativa4String = pergunta.getString(getString(R.string.alt_4));
+                String respostaString = pergunta.getString(getString(R.string.resposta));
 
                 listaperguntas.add(new Questao(nomeString,
                         perguntaString,
@@ -183,13 +182,11 @@ public class PerguntasQuizFragment extends Fragment {
     }
 
     private void ficaVerde(Button button) {
-
         button.setBackground(getResources().getDrawable(R.drawable.round_button_verde));
         ficaNormal(button);
     }
 
     private void ficaNormal(Button button) {
-
         Handler handler = new Handler();
         long delay = 1000;
         handler.postDelayed(() -> {

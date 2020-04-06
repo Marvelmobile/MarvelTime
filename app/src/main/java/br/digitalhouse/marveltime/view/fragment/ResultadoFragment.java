@@ -26,16 +26,16 @@ public class ResultadoFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_resultado, container, false);
         initViews(v);
         Bundle bundle = this.getArguments();
-        rtitulo=bundle.getString("titulo");
-        rerrado=bundle.getInt("errado");
-        rcorreto=bundle.getInt("correto");
+        rtitulo=bundle.getString(getString(R.string.titulo));
+        rerrado=bundle.getInt(getString(R.string.errado));
+        rcorreto=bundle.getInt(getString(R.string.correto));
         rerrado+=rcorreto;
 
         titulo.setText(rtitulo);
         porcento = String.valueOf(formato.format(rerrado));
         porcento2 = String.valueOf(formato.format(rcorreto));
 
-        questao.setText(porcento2+"/"+porcento+" questões corretas");
+        questao.setText(porcento2+"/"+porcento+ " " +getString(R.string.resp_corretas));
         resultado= (rcorreto/rerrado)*100;
         porcento = String.valueOf(formato.format(resultado));
         porcentagem.setText(porcento+" %");
