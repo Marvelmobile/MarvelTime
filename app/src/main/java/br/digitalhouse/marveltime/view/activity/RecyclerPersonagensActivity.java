@@ -1,12 +1,14 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,15 +28,18 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
     private List<PersonagemResult> personagemResultsLista = new ArrayList<>();
     private Integer offset = 0;
     private ProgressBar progressBar;
-    private MarvelViewModel marvelViewModel = new MarvelViewModel(getApplication());
+    private MarvelViewModel marvelViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_personagens);
         ButterKnife.bind(this);
+        initViews();
 
-        progressBar = findViewById(R.id.progress_bar);
+        recycler.setLayoutManager(new GridLayoutManager(this, 3));
+        recycler.setAdapter(adapter);
+        setScrollView();
 
         marvelViewModel.getPersongens(offset);
         marvelViewModel.getPersonagensLista().observe(this, personagemResults -> {
@@ -49,11 +54,16 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
             }
         });
 
+        marvelViewModel.liveDataErro.observe(this, error -> {
+            Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+        });
+    }
+
+    private void initViews() {
         recycler = findViewById(R.id.recycler_view_personagens);
+        progressBar = findViewById(R.id.progress_bar);
         adapter = new AdapterRecyclerPersonagens(personagemResultsLista, this);
-        recycler.setAdapter(adapter);
-        setScrollView();
-        recycler.setLayoutManager(new GridLayoutManager(this, 3));
+        marvelViewModel = ViewModelProviders.of(this).get(MarvelViewModel.class);
     }
 
     @Override

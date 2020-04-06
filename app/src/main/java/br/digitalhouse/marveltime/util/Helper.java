@@ -48,7 +48,6 @@ public class Helper {
     public static boolean verificaConexaoComInternet(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo;
-
         if (connectivityManager != null) {
             networkInfo = connectivityManager.getActiveNetworkInfo();
             return networkInfo != null && networkInfo.isConnected() &&

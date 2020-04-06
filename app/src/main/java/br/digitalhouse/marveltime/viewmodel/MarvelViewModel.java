@@ -11,6 +11,7 @@ import br.digitalhouse.marveltime.repository.MarvelRepository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+import static br.digitalhouse.marveltime.util.Helper.verificaConexaoComInternet;
 
 public class MarvelViewModel extends AndroidViewModel {
     private MutableLiveData<List<PersonagemResult>> personagemLista = new MutableLiveData<>();
@@ -33,7 +34,11 @@ public class MarvelViewModel extends AndroidViewModel {
     }
 
     public void getPersongens(Integer offset) {
-        recuperaOsDadosApi(offset);
+        if (verificaConexaoComInternet(getApplication())){
+            recuperaOsDadosApi(offset);
+        } else {
+            recuperaOsDadosApi(offset);
+        }
     }
 
     public void recuperaOsDadosApi(Integer offset) {
