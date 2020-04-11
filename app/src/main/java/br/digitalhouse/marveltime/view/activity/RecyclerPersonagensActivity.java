@@ -50,7 +50,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
             if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
             } else {
-                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
 

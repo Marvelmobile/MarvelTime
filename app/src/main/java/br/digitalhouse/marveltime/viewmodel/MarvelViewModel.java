@@ -1,5 +1,7 @@
 package br.digitalhouse.marveltime.viewmodel;
 import android.app.Application;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -41,7 +43,7 @@ public class MarvelViewModel extends AndroidViewModel {
         }
     }
 
-    public void recuperaOsDadosApi(Integer offset) {
+    private void recuperaOsDadosApi(Integer offset) {
         disposable.add(
                 repository.getPersonagem(offset)
                         .subscribeOn(Schedulers.io())
@@ -51,9 +53,9 @@ public class MarvelViewModel extends AndroidViewModel {
                         .subscribe(personagemResponse ->
                                         personagemLista.setValue(personagemResponse.getData().getResults()),
                                 throwable -> {
-                                    mutableLiveDataErro.setValue(throwable.getMessage());
-                                    carregaDadosBD();
-                                })
+                                    Log.i("LOG", "erro : " + throwable.getMessage());
+                                    mutableLiveDataErro.setValue("Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!");
+                                   })
         );
     }
 
