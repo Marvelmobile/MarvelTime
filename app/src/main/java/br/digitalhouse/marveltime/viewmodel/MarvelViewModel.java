@@ -1,7 +1,6 @@
 package br.digitalhouse.marveltime.viewmodel;
 import android.app.Application;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -39,13 +38,18 @@ public class MarvelViewModel extends AndroidViewModel {
         if (verificaConexaoComInternet(getApplication())){
             recuperaOsDadosApi(offset);
         } else {
-            recuperaOsDadosApi(offset);
+            if(offset == 0) {
+                carregaDadosBD();
+            }else{
+                loading.setValue(false);
+            }
         }
     }
 
     private void recuperaOsDadosApi(Integer offset) {
         disposable.add(
                 repository.getPersonagem(offset)
+                        .map(this::insereDadosBd)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable1 -> loading.setValue(true))
@@ -55,7 +59,7 @@ public class MarvelViewModel extends AndroidViewModel {
                                 throwable -> {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
                                     mutableLiveDataErro.setValue("Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!");
-                                   })
+                                 })
         );
     }
 
@@ -65,11 +69,13 @@ public class MarvelViewModel extends AndroidViewModel {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(subscription -> loading.setValue(true))
-                        .doAfterTerminate(() -> loading.setValue(false))
+                        .doOnTerminate(() -> loading.setValue(false))
                         .subscribe(personagemResponse ->
                                         personagemLista.setValue(personagemResponse),
-                                throwable ->
-                                        mutableLiveDataErro.setValue(throwable.getMessage() + "problema banco de dados"))
+                                throwable -> {
+                                        Log.i("LOG", "erro : " + throwable.getMessage());
+                                        mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
+                                })
         );
     }
 

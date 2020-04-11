@@ -14,7 +14,7 @@ public interface PersonagemDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insereListaBD(List<PersonagemResult> listaPersonagemResult);
 
-    @Query("SELECT * FROM result")
+    @Query("SELECT * FROM result LIMIT 20")
     Observable<List<PersonagemResult>> recuperaPersonagemDoBD();
 
     @Delete
