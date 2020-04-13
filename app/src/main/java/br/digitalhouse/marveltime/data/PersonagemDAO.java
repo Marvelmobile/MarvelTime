@@ -7,15 +7,15 @@ import androidx.room.Query;
 import java.util.List;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
-import io.reactivex.Observable;
+import io.reactivex.Flowable;
 
 @Dao
 public interface PersonagemDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insereListaBD(List<PersonagemResult> listaPersonagemResult);
 
-    @Query("SELECT * FROM result LIMIT 20")
-    Observable<List<PersonagemResult>> recuperaPersonagemDoBD();
+    @Query("SELECT * FROM result WHERE id_db >= :offset LIMIT 20")
+    Flowable<List<PersonagemResult>> recuperaPersonagemDoBD(Integer offset);
 
     @Delete
     void apagaDadosBd(PersonagemResponse personagemResponse);

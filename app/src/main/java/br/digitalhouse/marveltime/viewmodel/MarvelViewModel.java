@@ -38,11 +38,8 @@ public class MarvelViewModel extends AndroidViewModel {
         if (verificaConexaoComInternet(getApplication())){
             recuperaOsDadosApi(offset);
         } else {
-            if(offset == 0) {
-                carregaDadosBD();
-            }else{
-                loading.setValue(false);
-            }
+            carregaDadosBD(offset);
+            loading.setValue(false);
         }
     }
 
@@ -63,19 +60,19 @@ public class MarvelViewModel extends AndroidViewModel {
         );
     }
 
-    private void carregaDadosBD() {
+    private void carregaDadosBD(Integer offset) {
         disposable.add(
-                repository.retornaPersonagemBD(getApplication())
+                repository.retornaPersonagemBD(getApplication(), offset)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .doOnSubscribe(subscription -> loading.setValue(true))
+                        .doOnSubscribe(disposable1 -> loading.setValue(true))
                         .doOnTerminate(() -> loading.setValue(false))
-                        .subscribe(personagemResponse ->
-                                        personagemLista.setValue(personagemResponse),
-                                throwable -> {
-                                        Log.i("LOG", "erro : " + throwable.getMessage());
-                                        mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
-                                })
+                        .subscribe(personagemResults ->
+                                personagemLista.setValue(personagemResults),
+                                 throwable -> {
+                                    Log.i("LOG", "erro : " + throwable.getMessage());
+                                    mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
+                                 })
         );
     }
 
