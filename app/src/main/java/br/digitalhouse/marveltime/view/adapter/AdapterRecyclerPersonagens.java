@@ -23,8 +23,7 @@ public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderP
     @Override
     public ViewHolderPersonagens onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cards_personagens, parent, false);
-        ViewHolderPersonagens holder = new ViewHolderPersonagens(view);
-        return holder;
+        return new ViewHolderPersonagens(view);
     }
 
     @Override

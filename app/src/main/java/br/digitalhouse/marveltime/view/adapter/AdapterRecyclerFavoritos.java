@@ -25,8 +25,7 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
     @Override
     public ViewHolderFavoritos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cards_favoritos, parent, false);
-        ViewHolderFavoritos holder = new ViewHolderFavoritos(view);
-        return holder;
+        return  new ViewHolderFavoritos(view);
     }
 
     @Override
