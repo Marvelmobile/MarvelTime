@@ -24,12 +24,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
         initViews();
 
-        bntCadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cadastraNovoUsuario();
-            }
-        });
+        bntCadastrar.setOnClickListener(v -> cadastraNovoUsuario());
     }
 
     private void cadastraNovoUsuario() {
