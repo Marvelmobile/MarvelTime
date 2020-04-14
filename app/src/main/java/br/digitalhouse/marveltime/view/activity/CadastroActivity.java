@@ -2,7 +2,6 @@ package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
