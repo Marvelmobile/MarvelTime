@@ -39,6 +39,7 @@ public class MarvelViewModel extends AndroidViewModel {
             recuperaOsDadosApi(offset);
         } else {
             carregaDadosBD(offset);
+            //TODO : Desse jeito funciona
             loading.setValue(false);
         }
     }
@@ -66,6 +67,7 @@ public class MarvelViewModel extends AndroidViewModel {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable1 -> loading.setValue(true))
+                        //TODO : Nao está funcinoando, fica em loading infinito
                         .doOnTerminate(() -> loading.setValue(false))
                         .subscribe(personagemResults ->
                                 personagemLista.setValue(personagemResults),
