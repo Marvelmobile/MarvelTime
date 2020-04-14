@@ -8,6 +8,7 @@ import br.digitalhouse.marveltime.model.Data;
 import br.digitalhouse.marveltime.model.PersonagemImagem;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
+import br.digitalhouse.marveltime.model.Url;
 
 public class PersonagemTypeConverter {
     @TypeConverter
@@ -71,6 +72,19 @@ public class PersonagemTypeConverter {
 
     @TypeConverter
     public String fromListDataObject(List<Data> list) {
+        Gson gson = new Gson();
+        return gson.toJson(list);
+    }
+
+    @TypeConverter
+    public List<Url> fromListUrl(String value) {
+        Type listType = (Type) new TypeToken<List<Url>>() {
+        }.getType();
+        return new Gson().fromJson(value, listType);
+    }
+
+    @TypeConverter
+    public String fromListUrlObject(List<Url> list) {
         Gson gson = new Gson();
         return gson.toJson(list);
     }
