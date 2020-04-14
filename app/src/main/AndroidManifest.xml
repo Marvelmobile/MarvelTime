@@ -16,7 +16,7 @@
             android:name=".view.activity.ImagemPersonagemActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".view.activity.RecyclerFavoritosActivity"
+            android:name=".view.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +43,7 @@
             android:name=".view.activity.RecyclerQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.SplashActivity"
+            android:name=".view.activity.RecyclerFavoritosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.MainActivity"
