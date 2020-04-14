@@ -23,10 +23,8 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         initView();
 
         if (getIntent() != null){
-            Bundle bundle = getIntent().getExtras();
-            assert bundle != null;
-            personagemResult = bundle.getParcelable(PERSONAGEM_KEY);
-            assert personagemResult != null;
+            Bundle bundle = getIntent().getExtras();           
+            personagemResult = bundle.getParcelable(PERSONAGEM_KEY);            
             descricaoPersonagem.setText(personagemResult.getDescription());
             nomePersonagem.setText(personagemResult.getName());
             String imageURL = personagemResult.getThumbnail().getPath().replace("http://", "https://");
