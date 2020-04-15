@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.activity.ImagemPersonagemActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
             android:name=".view.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,7 +26,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <activity
             android:name=".view.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
