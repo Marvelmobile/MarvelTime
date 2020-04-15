@@ -42,10 +42,10 @@ public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderP
     }
 
     public void atualizaLista(List<PersonagemResult> novaLista) {
-        for (PersonagemResult personagemResult : novaLista) {
-            if(!personagemResult.getThumbnail().getPath().contains("image_not_available")){
-                this.personagemResultsList.add(personagemResult);
-            }
+        if (this.personagemResultsList.isEmpty()) {
+            this.personagemResultsList = novaLista;
+        } else {
+            this.personagemResultsList.addAll(novaLista);
         }
         notifyDataSetChanged();
     }

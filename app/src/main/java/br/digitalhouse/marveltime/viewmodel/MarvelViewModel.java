@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import java.util.ArrayList;
 import java.util.List;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
@@ -47,6 +48,7 @@ public class MarvelViewModel extends AndroidViewModel {
     private void recuperaOsDadosApi(Integer offset) {
         disposable.add(
                 repository.getPersonagem(offset)
+                        .map(this::verificaPersonagem)
                         .map(this::insereDadosBd)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -76,6 +78,18 @@ public class MarvelViewModel extends AndroidViewModel {
                                     mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
                                  })
         );
+    }
+
+    private PersonagemResponse verificaPersonagem(PersonagemResponse response){
+        List<PersonagemResult> novaLista = new ArrayList<>();
+        for (PersonagemResult personagemResult : response.getData().getResults()) {
+            if(!personagemResult.getThumbnail().getPath().contains("image_not_available")){
+                novaLista.add(personagemResult);
+            }
+        }
+        response.getData().getResults().clear();
+        response.getData().setResults(novaLista);
+        return response;
     }
 
     private PersonagemResponse insereDadosBd(PersonagemResponse personagemResponse) {

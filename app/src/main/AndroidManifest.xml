@@ -13,20 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activity.ImagemPersonagemActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".view.activity.RecyclerFavoritosActivity"
+            android:name=".view.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
         <activity
             android:name=".view.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -43,7 +40,7 @@
             android:name=".view.activity.RecyclerQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.SplashActivity"
+            android:name=".view.activity.RecyclerFavoritosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.MainActivity"
@@ -52,5 +49,4 @@
             android:name=".view.activity.PersonagensTelaActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
 </manifest>
