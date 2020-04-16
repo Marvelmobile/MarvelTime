@@ -46,25 +46,25 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderFavoritos holder, final int position) {
-        if (listaFavoritos.get(position).getCardModelquestão() instanceof CardModel) {
+        if (listaFavoritos.get(position).getCardModelquestão() != null) {
             holder.image.setImageResource(listaFavoritos.get(position).getCardModelquestão().getImagem());
             holder.texto.setText(listaFavoritos.get(position).getCardModelquestão().getNome());
         }
 
-        if (listaFavoritos.get(position).getPersonagemResult() instanceof PersonagemResult) {
+        if (listaFavoritos.get(position).getPersonagemResult() != null) {
             String imageURL = listaFavoritos.get(position).getPersonagemResult().getThumbnail().getPath().replace("http://", "https://");
             Picasso.get().load(imageURL + "." + listaFavoritos.get(position).getPersonagemResult().getThumbnail().getExtension()).into(holder.image);
             holder.texto.setText(listaFavoritos.get(position).getPersonagemResult().getName());
         }
 
         holder.itemView.setOnClickListener(view -> {
-            if (listaFavoritos.get(position).getCardModelquestão() instanceof CardModel) {
+            if (listaFavoritos.get(position).getCardModelquestão() != null) {
                 Intent intent = new Intent(mContext, RecebePerguntasQuizActivity.class);
                 intent.putExtra(CHAVE_NOME, verifica(listaFavoritos.get(position).getCardModelquestão().getNome()));
                 mContext.startActivity(intent);
             }
 
-            if (listaFavoritos.get(position).getPersonagemResult() instanceof PersonagemResult) {
+            if (listaFavoritos.get(position).getPersonagemResult() != null) {
                 Intent intent = new Intent(mContext, PersonagensTelaActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(PERSONAGEM_KEY, (Parcelable) listaFavoritos.get(position));

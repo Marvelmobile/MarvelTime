@@ -1,8 +1,8 @@
 package br.digitalhouse.marveltime.model;
 
 public class Favoritos {
-    private PersonagemResult personagemResult;
-    private CardModel cardModelquestão;
+    private PersonagemResult personagemResult=null;
+    private CardModel cardModelquestão=null;
 
     public Favoritos(PersonagemResult personagemResult) {
         this.personagemResult = personagemResult;
