@@ -1,6 +1,8 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import br.digitalhouse.marveltime.R;
@@ -13,12 +15,15 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     private TextView descricaoPersonagem;
     private PersonagemResult personagemResult;
     private TextView nomePersonagem;
+    private ImageView share_Personagem;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personagens_tela_activity);
         initView();
+
+        clickBtnShared();
 
         if (getIntent() != null){
             Bundle bundle = getIntent().getExtras();
@@ -34,5 +39,19 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         imagemPersonagem = findViewById(R.id.imagem_personagem_historia);
         descricaoPersonagem = findViewById(R.id.texto_historia);
         nomePersonagem = findViewById(R.id.textView_nomePersonagem);
+        share_Personagem = findViewById(R.id.share_Personagem);
+    }
+
+    private void shareMarvel(PersonagemResult personagemResult) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT,  getString(R.string.marvel)+ personagemResult.getUrls().get(1).getUrl());
+        sendIntent.setType("text/plain");
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+    }
+    
+    private void clickBtnShared() {
+        share_Personagem.setOnClickListener(v -> shareMarvel(personagemResult));
     }
 }
