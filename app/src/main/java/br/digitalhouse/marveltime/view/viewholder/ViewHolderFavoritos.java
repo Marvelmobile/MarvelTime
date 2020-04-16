@@ -15,7 +15,7 @@ public class ViewHolderFavoritos extends RecyclerView.ViewHolder {
     public ViewHolderFavoritos(@NonNull View itemView) {
         super(itemView);
         favoritado= itemView.findViewById(R.id.favoritado);
-        image= itemView.findViewById(R.id.imagem_cardview_quiz);
-        texto= itemView.findViewById(R.id.textView1);
+        image= itemView.findViewById(R.id.imagem_favoritos);
+        texto= itemView.findViewById(R.id.textViewfavoritos);
     }
 }
