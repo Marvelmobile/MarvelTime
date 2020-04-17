@@ -38,18 +38,13 @@ public class ResultadoFragment extends Fragment {
         porcento = String.valueOf(formato.format(rerrado));
         porcento2 = String.valueOf(formato.format(rcorreto));
 
-        TesteCompartilhar();
-
-        clickBtnShared();
-
-        return v;
-    }
-
-    private void TesteCompartilhar() {
         questao.setText(porcento2+"/"+porcento+ " " +getString(R.string.resp_corretas));
         resultado= (rcorreto/rerrado)*100;
         porcento = String.valueOf(formato.format(resultado));
         porcentagem.setText(porcento+" %");
+
+        clickBtnShared();
+        return v;
     }
 
     private void initViews(View v) {
@@ -68,7 +63,8 @@ public class ResultadoFragment extends Fragment {
     private void shareMarvel() {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.result));
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.result) + "\nResultado: " +
+                porcento + "% \n" + porcento2 + getString(R.string.questoes_corretas));
         sendIntent.setType("text/plain");
 
         Intent shareIntent = Intent.createChooser(sendIntent, null);

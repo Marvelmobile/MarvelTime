@@ -45,7 +45,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     private void shareMarvel(PersonagemResult personagemResult) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT,  getString(R.string.marvel)+ personagemResult.getUrls().get(1).getUrl());
+        sendIntent.putExtra(Intent.EXTRA_TEXT,  getString(R.string.marvel)+"\n"+ personagemResult.getUrls().get(1).getUrl());
         sendIntent.setType("text/plain");
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         startActivity(shareIntent);
