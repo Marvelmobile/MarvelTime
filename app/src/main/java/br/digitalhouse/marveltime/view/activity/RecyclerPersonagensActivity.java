@@ -46,11 +46,11 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
             adapter.atualizaLista(personagemResults);
         });
 
-        marvelViewModel.getLoading().observe(this, loading -> {
+        marvelViewModel.getLoading().observe(this, (Boolean loading) -> {
             if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
             } else {
-                progressBar.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.GONE);
             }
         });
 

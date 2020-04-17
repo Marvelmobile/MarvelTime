@@ -31,7 +31,9 @@ public class AdapterRecyclerPersonagens extends RecyclerView.Adapter<ViewHolderP
     public void onBindViewHolder(@NonNull ViewHolderPersonagens holder, int position) {
         PersonagemResult personagemResult = personagemResultsList.get(position);
         holder.onBind(personagemResult);
-        holder.itemView.setOnClickListener(v -> personagemListener.click(personagemResult));
+        holder.itemView.setOnClickListener(v -> {
+            personagemListener.click(personagemResult);
+        });
     }
 
     @Override

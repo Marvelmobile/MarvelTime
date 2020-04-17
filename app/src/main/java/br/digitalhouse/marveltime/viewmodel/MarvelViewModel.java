@@ -1,11 +1,11 @@
 package br.digitalhouse.marveltime.viewmodel;
 import android.app.Application;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import java.util.ArrayList;
 import java.util.List;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
@@ -39,13 +39,17 @@ public class MarvelViewModel extends AndroidViewModel {
         if (verificaConexaoComInternet(getApplication())){
             recuperaOsDadosApi(offset);
         } else {
-            recuperaOsDadosApi(offset);
+            carregaDadosBD(offset);
+            //TODO : Desse jeito funciona
+            loading.setValue(false);
         }
     }
 
     private void recuperaOsDadosApi(Integer offset) {
         disposable.add(
                 repository.getPersonagem(offset)
+                        .map(this::verificaPersonagem)
+                        .map(this::insereDadosBd)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable1 -> loading.setValue(true))
@@ -55,22 +59,37 @@ public class MarvelViewModel extends AndroidViewModel {
                                 throwable -> {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
                                     mutableLiveDataErro.setValue("Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!");
-                                   })
+                                 })
         );
     }
 
-    private void carregaDadosBD() {
+    private void carregaDadosBD(Integer offset) {
         disposable.add(
-                repository.retornaPersonagemBD(getApplication())
+                repository.retornaPersonagemBD(getApplication(), offset)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .doOnSubscribe(subscription -> loading.setValue(true))
-                        .doAfterTerminate(() -> loading.setValue(false))
-                        .subscribe(personagemResponse ->
-                                        personagemLista.setValue(personagemResponse),
-                                throwable ->
-                                        mutableLiveDataErro.setValue(throwable.getMessage() + "problema banco de dados"))
+                        .doOnSubscribe(disposable1 -> loading.setValue(true))
+                        //TODO : Nao está funcinoando, fica em loading infinito
+                        .doOnTerminate(() -> loading.setValue(false))
+                        .subscribe(personagemResults ->
+                                personagemLista.setValue(personagemResults),
+                                 throwable -> {
+                                    Log.i("LOG", "erro : " + throwable.getMessage());
+                                    mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
+                                 })
         );
+    }
+
+    private PersonagemResponse verificaPersonagem(PersonagemResponse response){
+        List<PersonagemResult> novaLista = new ArrayList<>();
+        for (PersonagemResult personagemResult : response.getData().getResults()) {
+            if(!personagemResult.getThumbnail().getPath().contains("image_not_available")){
+                novaLista.add(personagemResult);
+            }
+        }
+        response.getData().getResults().clear();
+        response.getData().setResults(novaLista);
+        return response;
     }
 
     private PersonagemResponse insereDadosBd(PersonagemResponse personagemResponse) {
