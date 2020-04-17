@@ -3,7 +3,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.squareup.picasso.Picasso;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.PersonagemResult;
@@ -22,15 +21,12 @@ public class ImagemPersonagemActivity extends AppCompatActivity {
         initViews();
         if (getIntent() != null){
             Bundle bundle = getIntent().getExtras();
-            assert bundle != null;
             personagemResult = bundle.getParcelable(IMAGEM_KEY);
-            assert personagemResult != null;
             String imageURL = personagemResult.getThumbnail()
                     .getPath().replace("http://", "https://");
             Picasso.get().load(imageURL+"."
                     +personagemResult.getThumbnail().getExtension()).into(civImagemDetalhe);
         }
-
         bntFechar.setOnClickListener(view -> finish());
     }
 
