@@ -30,7 +30,6 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
     }
 
     @Override
-<<<<<<< HEAD
     public void onBindViewHolder(@NonNull ViewHolderFavoritos holder, int position) {
         holder.image.setImageResource(listaCards.get(position).getImagem());
         holder.texto.setText(listaCards.get(position).getNome());
@@ -40,34 +39,6 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         toast.show();
         removeAt(position);
 
-=======
-    public void onBindViewHolder(@NonNull ViewHolderFavoritos holder, final int position) {
-        if (listaFavoritos.get(position).getCardModelquestão() instanceof CardModel) {
-            holder.image.setImageResource(listaFavoritos.get(position).getCardModelquestão().getImagem());
-            holder.texto.setText(listaFavoritos.get(position).getCardModelquestão().getNome());
-        }
-
-        if (listaFavoritos.get(position).getPersonagemResult() instanceof PersonagemResult) {
-            String imageURL = listaFavoritos.get(position).getPersonagemResult().getThumbnail().getPath().replace("http://", "https://");
-            Picasso.get().load(imageURL + "." + listaFavoritos.get(position).getPersonagemResult().getThumbnail().getExtension()).into(holder.image);
-            holder.texto.setText(listaFavoritos.get(position).getPersonagemResult().getName());
-        }
-
-        holder.itemView.setOnClickListener(view -> {
-            if (listaFavoritos.get(position).getCardModelquestão() instanceof CardModel) {
-                Intent intent = new Intent(mContext, RecebePerguntasQuizActivity.class);
-                intent.putExtra(CHAVE_NOME, verifica(listaFavoritos.get(position).getCardModelquestão().getNome()));
-                mContext.startActivity(intent);
-            }
-
-            if (listaFavoritos.get(position).getPersonagemResult() instanceof PersonagemResult) {
-                Intent intent = new Intent(mContext, PersonagensTelaActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(PERSONAGEM_KEY, (Parcelable) listaFavoritos.get(position));
-                intent.putExtras(bundle);
-                mContext.startActivity(intent);
-            }
->>>>>>> parent of 9699771... Henrique Sprint 6
         });
     }
 
