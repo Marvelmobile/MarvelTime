@@ -8,25 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.Questao;
 import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
 import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
-
 import static br.digitalhouse.marveltime.util.Constantes.UTF8;
 
 public class PerguntasQuizFragment extends Fragment {

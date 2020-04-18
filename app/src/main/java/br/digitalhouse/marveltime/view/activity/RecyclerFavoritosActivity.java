@@ -7,10 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
-
 import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.model.Favoritos;
-import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerFavoritos;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;

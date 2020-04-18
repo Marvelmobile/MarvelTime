@@ -8,22 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
-
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.model.Favoritos;
-import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.view.activity.PersonagensTelaActivity;
 import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderFavoritos;
-
 import static android.widget.Toast.LENGTH_SHORT;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_NOME;
 import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
