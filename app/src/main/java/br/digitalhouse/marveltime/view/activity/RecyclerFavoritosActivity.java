@@ -7,31 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
-
-import br.digitalhouse.marveltime.model.CardModel;
-import br.digitalhouse.marveltime.model.Favoritos;
-import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerFavoritos;
+import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class RecyclerFavoritosActivity extends AppCompatActivity {
-    private ArrayList<Favoritos> favoritos = new ArrayList<>();
+    private ArrayList<CardModel> listaCards = new ArrayList<>();
 
     private void initBitmaps() {
-
-        favoritos.add(new Favoritos(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.thor, R.string.quiz_thor)));
+        listaCards.add(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha));
+        listaCards.add(new CardModel(R.drawable.thor, R.string.quiz_thor));
+        listaCards.add(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro));
+        listaCards.add(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao));
         initReclycer();
     }
 
     private void initReclycer() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view_favoritos);
-        AdapterRecyclerFavoritos adaptador = new AdapterRecyclerFavoritos(favoritos, this);
+        AdapterRecyclerFavoritos adaptador = new AdapterRecyclerFavoritos(listaCards, this);
         recyclerView.setAdapter(adaptador);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

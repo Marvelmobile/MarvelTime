@@ -12,7 +12,7 @@ public class ViewHolderQuiz extends RecyclerView.ViewHolder {
 
     public ViewHolderQuiz(@NonNull View itemView) {
         super(itemView);
-        image= itemView.findViewById(R.id.imagem_favoritos);
-        texto= itemView.findViewById(R.id.textViewfavoritos);
+        image= itemView.findViewById(R.id.imagem_cardview_quiz);
+        texto= itemView.findViewById(R.id.textView1);
     }
 }

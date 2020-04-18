@@ -11,6 +11,7 @@ import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderQuiz;
+
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_NOME;
 
 public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
@@ -26,18 +27,21 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
     @Override
     public ViewHolderQuiz onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cards_quiz, parent, false);
-        return new ViewHolderQuiz(view);
+        ViewHolderQuiz holder = new ViewHolderQuiz(view);
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderQuiz holder, final int position) {
         holder.image.setImageResource(listaCards.get(position).getImagem());
         holder.texto.setText(listaCards.get(position).getNome());
-        holder.itemView.setOnClickListener(v -> {
+        holder.image.setOnClickListener(v -> {
               Intent intent= new Intent(mContext, RecebePerguntasQuizActivity.class);
+            int position1= position;
             intent.putExtra(CHAVE_NOME,verifica(position));
             mContext.startActivity(intent);
         });
+
     }
 
     private String verifica(int n) {

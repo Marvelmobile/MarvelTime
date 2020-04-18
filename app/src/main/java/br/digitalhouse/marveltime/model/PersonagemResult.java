@@ -5,8 +5,6 @@ import com.google.gson.annotations.Expose;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.List;
-
 @Entity(tableName = "result")
 public class PersonagemResult implements Parcelable {
     @PrimaryKey(autoGenerate = true)
@@ -22,8 +20,6 @@ public class PersonagemResult implements Parcelable {
     private String resourceURI;
     @Expose
     private PersonagemImagem thumbnail;
-    @Expose
-    private List<Url> urls;
 
     public PersonagemResult() { }
 
@@ -98,14 +94,6 @@ public class PersonagemResult implements Parcelable {
 
     public void setThumbnail(PersonagemImagem thumbnail) {
         this.thumbnail = thumbnail;
-    }
-
-    public List<Url> getUrls() {
-        return urls;
-    }
-
-    public void setUrls(List<Url> urls) {
-        this.urls = urls;
     }
 
     @Override
