@@ -8,6 +8,7 @@ import com.squareup.picasso.Picasso;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import de.hdodenhof.circleimageview.CircleImageView;
+import static br.digitalhouse.marveltime.util.Constantes.IMAGEM_KEY;
 import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
 
 public class PersonagensTelaActivity extends AppCompatActivity {
@@ -26,13 +27,21 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         clickBtnShared();
 
         if (getIntent() != null){
-            Bundle bundle = getIntent().getExtras();
-            personagemResult = bundle.getParcelable(PERSONAGEM_KEY);
+            Bundle bundle = getIntent().getExtras();           
+            personagemResult = bundle.getParcelable(PERSONAGEM_KEY);            
             descricaoPersonagem.setText(personagemResult.getDescription());
             nomePersonagem.setText(personagemResult.getName());
             String imageURL = personagemResult.getThumbnail().getPath().replace("http://", "https://");
             Picasso.get().load(imageURL+"."+personagemResult.getThumbnail().getExtension()).into(imagemPersonagem);
         }
+
+        imagemPersonagem.setOnClickListener(view -> {
+            Intent intent = new Intent(PersonagensTelaActivity.this, ImagemPersonagemActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(IMAGEM_KEY, personagemResult);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        });
     }
 
     private void initView(){
