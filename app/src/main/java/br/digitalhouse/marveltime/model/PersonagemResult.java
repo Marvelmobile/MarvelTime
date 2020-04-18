@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import android.os.Parcel;
 import android.os.Parcelable;
+import java.util.List;
 
 @Entity(tableName = "result")
 public class PersonagemResult implements Parcelable {
@@ -23,20 +24,23 @@ public class PersonagemResult implements Parcelable {
     private String resourceURI;
     @Expose
     private PersonagemImagem thumbnail;
+    @Expose
+    private List<Url> urls;
 
     public PersonagemResult() { }
 
-    public PersonagemResult(Parcel in) {
-        description = in.readString();
+    protected PersonagemResult(Parcel in) {
         if (in.readByte() == 0) {
             id = null;
         } else {
             id = in.readLong();
         }
+        description = in.readString();
         modified = in.readString();
         name = in.readString();
         resourceURI = in.readString();
         thumbnail = in.readParcelable(PersonagemImagem.class.getClassLoader());
+        urls = in.createTypedArrayList(Url.CREATOR);
     }
 
     public static final Creator<PersonagemResult> CREATOR = new Creator<PersonagemResult>() {
@@ -107,23 +111,32 @@ public class PersonagemResult implements Parcelable {
         this.thumbnail = thumbnail;
     }
 
+    public List<Url> getUrls() {
+        return urls;
+    }
+
+    public void setUrls(List<Url> urls) {
+        this.urls = urls;
+    }
+
     @Override
     public int describeContents() {
         return 0;
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(description);
+    public void writeToParcel(Parcel parcel, int i) {
         if (id == null) {
-            dest.writeByte((byte) 0);
+            parcel.writeByte((byte) 0);
         } else {
-            dest.writeByte((byte) 1);
-            dest.writeLong(id);
+            parcel.writeByte((byte) 1);
+            parcel.writeLong(id);
         }
-        dest.writeString(modified);
-        dest.writeString(name);
-        dest.writeString(resourceURI);
-        dest.writeParcelable(thumbnail, flags);
+        parcel.writeString(description);
+        parcel.writeString(modified);
+        parcel.writeString(name);
+        parcel.writeString(resourceURI);
+        parcel.writeParcelable(thumbnail, i);
+        parcel.writeTypedList(urls);
     }
 }

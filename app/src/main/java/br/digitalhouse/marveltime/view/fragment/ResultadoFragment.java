@@ -1,9 +1,11 @@
 package br.digitalhouse.marveltime.view.fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,6 +22,7 @@ public class ResultadoFragment extends Fragment {
     private TextView titulo;
     double rcorreto=0, rerrado=0, resultado=0;
     private String porcento, porcento2;
+    private ImageView share_Personagem;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ public class ResultadoFragment extends Fragment {
         resultado= (rcorreto/rerrado)*100;
         porcento = String.valueOf(formato.format(resultado));
         porcentagem.setText(porcento+" %");
+
+        clickBtnShared();
         return v;
     }
 
@@ -46,10 +51,27 @@ public class ResultadoFragment extends Fragment {
         porcentagem = v.findViewById(R.id.resultado_numero);
         questao = v.findViewById(R.id.resultado_numero_questao);
         titulo = v.findViewById(R.id.titulo_resultado);
+        share_Personagem = v.findViewById(R.id.share_Personagem);
     }
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         helperQuiz= (HelperQuiz) getActivity();
+    }
+
+    private void shareMarvel() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.result) + "\nResultado: " +
+                porcento + "% \n" + porcento2 + getString(R.string.questoes_corretas));
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+    }
+
+    private void clickBtnShared() {
+        share_Personagem.setOnClickListener(v -> shareMarvel());
     }
 }

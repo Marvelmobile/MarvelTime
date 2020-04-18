@@ -42,11 +42,13 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         setScrollView();
 
         marvelViewModel.getPersongens(offset);
-        marvelViewModel.getPersonagensLista().observe(this, personagemResults -> {
+
+        marvelViewModel.personagemLista.observe(this, personagemResults -> {
             adapter.atualizaLista(personagemResults);
         });
 
-        marvelViewModel.getLoading().observe(this, (Boolean loading) -> {
+
+        marvelViewModel.getLoading.observe(this, loading -> {
             if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
             } else {

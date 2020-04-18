@@ -16,24 +16,17 @@ import io.reactivex.schedulers.Schedulers;
 import static br.digitalhouse.marveltime.util.Helper.verificaConexaoComInternet;
 
 public class MarvelViewModel extends AndroidViewModel {
-    private MutableLiveData<List<PersonagemResult>> personagemLista = new MutableLiveData<>();
+    private MutableLiveData<List<PersonagemResult>> mutablePersonagemLista = new MutableLiveData<>();
     private MutableLiveData<Boolean> loading = new MutableLiveData<>();
     private CompositeDisposable disposable = new CompositeDisposable();
     private MarvelRepository repository = new MarvelRepository();
     private MutableLiveData<String> mutableLiveDataErro = new MutableLiveData<>();
     public LiveData<String> liveDataErro = mutableLiveDataErro;
-
     public MarvelViewModel(@NonNull Application application) {
         super(application);
     }
-
-    public LiveData<List<PersonagemResult>> getPersonagensLista() {
-        return this.personagemLista;
-    }
-
-    public LiveData<Boolean> getLoading() {
-        return this.loading;
-    }
+    public LiveData<List<PersonagemResult>> personagemLista = mutablePersonagemLista;
+    public LiveData<Boolean> getLoading = loading;
 
     public void getPersongens(Integer offset) {
         if (verificaConexaoComInternet(getApplication())){
@@ -55,7 +48,7 @@ public class MarvelViewModel extends AndroidViewModel {
                         .doOnSubscribe(disposable1 -> loading.setValue(true))
                         .doOnTerminate(() -> loading.setValue(false))
                         .subscribe(personagemResponse ->
-                                        personagemLista.setValue(personagemResponse.getData().getResults()),
+                                        mutablePersonagemLista.setValue(personagemResponse.getData().getResults()),
                                 throwable -> {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
                                     mutableLiveDataErro.setValue("Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!");
@@ -77,6 +70,7 @@ public class MarvelViewModel extends AndroidViewModel {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
                                     mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
                                  })
+
         );
     }
 

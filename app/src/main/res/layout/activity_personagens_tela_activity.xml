@@ -85,7 +85,7 @@
                 android:paddingTop="40dp">
 
                 <ImageView
-                    android:id="@+id/share_historia"
+                    android:id="@+id/share_Personagem"
                     android:layout_width="40dp"
                     android:layout_height="38dp"
                     android:layout_weight="1"
