@@ -33,7 +33,7 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
     public void onBindViewHolder(@NonNull ViewHolderQuiz holder, final int position) {
         holder.image.setImageResource(listaCards.get(position).getImagem());
         holder.texto.setText(listaCards.get(position).getNome());
-        holder.image.setOnClickListener(v -> {
+        holder.itemView.setOnClickListener(v -> {
               Intent intent= new Intent(mContext, RecebePerguntasQuizActivity.class);
             intent.putExtra(CHAVE_NOME,verifica(position));
             mContext.startActivity(intent);
