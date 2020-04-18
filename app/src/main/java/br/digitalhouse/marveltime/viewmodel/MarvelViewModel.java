@@ -65,7 +65,7 @@ public class MarvelViewModel extends AndroidViewModel {
                         //TODO : Nao está funcinoando, fica em loading infinito
                         .doOnTerminate(() -> loading.setValue(false))
                         .subscribe(personagemResults ->
-                                personagemLista.setValue(personagemResults),
+                                        mutablePersonagemLista.setValue(personagemResults),
                                  throwable -> {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
                                     mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");

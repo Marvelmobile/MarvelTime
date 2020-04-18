@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.PersonagemResult;
-import de.hdodenhof.circleimageview.CircleImageView;
 import static br.digitalhouse.marveltime.util.Constantes.IMAGEM_KEY;
 
 public class ImagemPersonagemActivity extends AppCompatActivity {

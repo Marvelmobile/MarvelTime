@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.PersonagemResult;
+import br.digitalhouse.marveltime.model.Url;
 import de.hdodenhof.circleimageview.CircleImageView;
 import static br.digitalhouse.marveltime.util.Constantes.IMAGEM_KEY;
 import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
@@ -54,12 +55,24 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     private void shareMarvel(PersonagemResult personagemResult) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT,  getString(R.string.marvel)+"\n"+ personagemResult.getUrls().get(1).getUrl());
+        sendIntent.putExtra(Intent.EXTRA_TEXT,  getString(R.string.marvel)+"\n"+ getLinkPersonagem(personagemResult));
         sendIntent.setType("text/plain");
-        Intent shareIntent = Intent.createChooser(sendIntent, null);
-        startActivity(shareIntent);
+        startActivity(Intent.createChooser(sendIntent, null));
     }
-    
+
+    private String getLinkPersonagem(PersonagemResult personagemResult) {
+       if(personagemResult.getUrls()!=null){
+            for (Url url : personagemResult.getUrls()){
+                if(url.getType().equalsIgnoreCase("wiki")){
+                    return url.getUrl();
+                }
+            }
+            return  personagemResult.getUrls().get(0).getUrl();
+       }else{
+           return personagemResult.getThumbnail().getPath().concat(".").concat(personagemResult.getThumbnail().getExtension());
+       }
+    }
+
     private void clickBtnShared() {
         share_Personagem.setOnClickListener(v -> shareMarvel(personagemResult));
     }

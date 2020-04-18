@@ -2,7 +2,6 @@ package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import br.digitalhouse.marveltime.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 

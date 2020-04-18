@@ -42,7 +42,6 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         setScrollView();
 
         marvelViewModel.getPersongens(offset);
-
         marvelViewModel.personagemLista.observe(this, personagemResults -> {
             adapter.atualizaLista(personagemResults);
         });
