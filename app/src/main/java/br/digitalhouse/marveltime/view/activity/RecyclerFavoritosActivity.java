@@ -18,19 +18,10 @@ public class RecyclerFavoritosActivity extends AppCompatActivity {
     private ArrayList<CardModel> listaCards = new ArrayList<>();
 
     private void initBitmaps() {
-<<<<<<< HEAD
         listaCards.add(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha));
         listaCards.add(new CardModel(R.drawable.thor, R.string.quiz_thor));
         listaCards.add(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro));
         listaCards.add(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao));
-=======
-
-        favoritos.add(new Favoritos(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.thor, R.string.quiz_thor)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao)));
-   
->>>>>>> parent of 9699771... Henrique Sprint 6
         initReclycer();
     }
 
