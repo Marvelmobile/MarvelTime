@@ -15,7 +15,7 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imagem_cardview_quiz"
+            android:id="@+id/imagem_favoritos"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
@@ -25,7 +25,7 @@
             android:padding="10dp"/>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textViewfavoritos"
             android:layout_width="184dp"
             android:layout_height="55dp"
             android:layout_marginStart="8dp"
@@ -36,7 +36,7 @@
             android:textAlignment="center"
             android:textColor="@color/branco"
             android:textSize="16sp"
-            cardview:layout_constraintStart_toEndOf="@+id/imagem_cardview_quiz"
+            cardview:layout_constraintStart_toEndOf="@+id/imagem_favoritos"
             cardview:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -48,8 +48,8 @@
             android:layout_marginTop="16dp"
             android:contentDescription="@android:string/ok"
             android:src="@drawable/ic_share_black_24dp"
-            cardview:layout_constraintStart_toEndOf="@+id/imagem_cardview_quiz"
-            cardview:layout_constraintTop_toBottomOf="@+id/textView1" />
+            cardview:layout_constraintStart_toEndOf="@+id/imagem_favoritos"
+            cardview:layout_constraintTop_toBottomOf="@+id/textViewfavoritos" />
 
         <ImageView
             android:id="@+id/favoritado"
@@ -61,6 +61,6 @@
             android:contentDescription="@android:string/ok"
             android:src="@drawable/ic_star_border_black_24dp"
             cardview:layout_constraintStart_toEndOf="@+id/share1"
-            cardview:layout_constraintTop_toBottomOf="@+id/textView1" />
+            cardview:layout_constraintTop_toBottomOf="@+id/textViewfavoritos" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
