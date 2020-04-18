@@ -25,11 +25,7 @@
             android:padding="10dp"/>
 
         <TextView
-<<<<<<< HEAD
             android:id="@+id/textView1"
-=======
-            android:id="@+id/textViewfavoritos"
->>>>>>> parent of 9699771... Henrique Sprint 6
             android:layout_width="184dp"
             android:layout_height="55dp"
             android:layout_marginStart="8dp"
@@ -40,11 +36,7 @@
             android:textAlignment="center"
             android:textColor="@color/branco"
             android:textSize="16sp"
-<<<<<<< HEAD
             cardview:layout_constraintStart_toEndOf="@+id/imagem_cardview_quiz"
-=======
-            cardview:layout_constraintStart_toEndOf="@+id/imagem_favoritos"
->>>>>>> parent of 9699771... Henrique Sprint 6
             cardview:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -56,13 +48,8 @@
             android:layout_marginTop="16dp"
             android:contentDescription="@android:string/ok"
             android:src="@drawable/ic_share_black_24dp"
-<<<<<<< HEAD
             cardview:layout_constraintStart_toEndOf="@+id/imagem_cardview_quiz"
             cardview:layout_constraintTop_toBottomOf="@+id/textView1" />
-=======
-            cardview:layout_constraintStart_toEndOf="@+id/imagem_favoritos"
-            cardview:layout_constraintTop_toBottomOf="@+id/textViewfavoritos" />
->>>>>>> parent of 9699771... Henrique Sprint 6
 
         <ImageView
             android:id="@+id/favoritado"
@@ -74,10 +61,6 @@
             android:contentDescription="@android:string/ok"
             android:src="@drawable/estrelaamarela"
             cardview:layout_constraintStart_toEndOf="@+id/share1"
-<<<<<<< HEAD
             cardview:layout_constraintTop_toBottomOf="@+id/textView1" />
-=======
-            cardview:layout_constraintTop_toBottomOf="@+id/textViewfavoritos" />
->>>>>>> parent of 9699771... Henrique Sprint 6
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
