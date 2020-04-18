@@ -23,7 +23,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
+        <activity
+            android:name=".view.activity.ImagemPersonagemActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".view.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />

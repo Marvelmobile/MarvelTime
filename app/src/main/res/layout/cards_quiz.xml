@@ -18,19 +18,16 @@
             android:id="@+id/imagem_favoritos"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:padding="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/miniaranha"
             cardview:layout_constraintStart_toStartOf="parent"
-            cardview:layout_constraintTop_toTopOf="parent"
-            android:padding="10dp"/>
+            cardview:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewfavoritos"
             android:layout_width="184dp"
             android:layout_height="55dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/lato"
             android:text="@string/quiz_spider_man"
             android:textAlignment="center"
@@ -55,9 +52,7 @@
             android:id="@+id/favoritado"
             android:layout_width="45dp"
             android:layout_height="38dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:contentDescription="@android:string/ok"
             android:src="@drawable/ic_star_border_black_24dp"
             cardview:layout_constraintStart_toEndOf="@+id/share1"

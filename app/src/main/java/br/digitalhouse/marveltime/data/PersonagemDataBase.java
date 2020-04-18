@@ -10,7 +10,7 @@ import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.model.Url;
 
-@Database(entities = {PersonagemResponse.class, PersonagemResult.class, PersonagemImagem.class, Data.class, Url.class}, version = 1, exportSchema = false)
+@Database(entities = {PersonagemResponse.class, PersonagemResult.class, PersonagemImagem.class, Data.class, Url.class}, version = 2, exportSchema = false)
 @TypeConverters(PersonagemTypeConverter.class)
 public abstract class PersonagemDataBase extends RoomDatabase {
     private static volatile PersonagemDataBase INSTANCE;

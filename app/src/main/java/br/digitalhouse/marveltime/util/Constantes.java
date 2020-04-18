@@ -12,4 +12,5 @@ public class Constantes {
     public static final String HASH = md5 (TS + PRIVATE_KEY + PUBLIC_KEY );
     public static final String CHAVE_NOME = "NOME";
     public static final String UTF8 = "UTF-8";
+    public static final String IMAGEM_KEY = "detalheImagem";
 }
