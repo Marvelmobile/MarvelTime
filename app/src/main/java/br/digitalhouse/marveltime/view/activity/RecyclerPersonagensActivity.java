@@ -42,9 +42,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         setScrollView();
 
         marvelViewModel.getPersongens(offset);
-        marvelViewModel.personagemLista.observe(this, personagemResults -> {
-            adapter.atualizaLista(personagemResults);
-        });
+        marvelViewModel.personagemLista.observe(this, personagemResults -> adapter.atualizaLista(personagemResults));
 
 
         marvelViewModel.getLoading.observe(this, loading -> {
@@ -55,9 +53,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
             }
         });
 
-        marvelViewModel.liveDataErro.observe(this, error -> {
-            Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-        });
+        marvelViewModel.liveDataErro.observe(this, error -> Toast.makeText(this, error, Toast.LENGTH_LONG).show());
     }
 
     private void initViews() {

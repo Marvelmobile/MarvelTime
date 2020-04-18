@@ -2,14 +2,14 @@ package br.digitalhouse.marveltime.model;
 
 public class Favoritos {
     private PersonagemResult personagemResult=null;
-    private CardModel cardModelquestão=null;
+    private CardModel cardModelquestao=null;
 
     public Favoritos(PersonagemResult personagemResult) {
         this.personagemResult = personagemResult;
     }
 
-    public Favoritos(CardModel cardModelquestão) {
-        this.cardModelquestão = cardModelquestão;
+    public Favoritos(CardModel cardModelquestao) {
+        this.cardModelquestao = cardModelquestao;
     }
 
     public PersonagemResult getPersonagemResult() {
@@ -20,11 +20,11 @@ public class Favoritos {
         this.personagemResult = personagemResult;
     }
 
-    public CardModel getCardModelquestão() {
-        return cardModelquestão;
+    public CardModel getCardModelquestao() {
+        return cardModelquestao;
     }
 
-    public void setCardModelquestão(CardModel cardModelquestão) {
-        this.cardModelquestão = cardModelquestão;
+    public void setCardModelquestao(CardModel cardModelquestao) {
+        this.cardModelquestao = cardModelquestao;
     }
 }

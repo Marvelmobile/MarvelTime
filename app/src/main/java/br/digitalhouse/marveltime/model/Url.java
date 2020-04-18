@@ -22,9 +22,7 @@ public class Url implements Parcelable {
         url = in.readString();
     }
 
-    public Url() {
-
-    }
+    public Url() { }
 
     public static final Creator<Url> CREATOR = new Creator<Url>() {
         @Override

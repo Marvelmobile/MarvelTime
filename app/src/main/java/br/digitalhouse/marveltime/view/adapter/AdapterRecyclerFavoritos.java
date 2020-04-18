@@ -39,9 +39,9 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderFavoritos holder, final int position) {
-        if (listaFavoritos.get(position).getCardModelquestão() != null) {
-            holder.image.setImageResource(listaFavoritos.get(position).getCardModelquestão().getImagem());
-            holder.texto.setText(listaFavoritos.get(position).getCardModelquestão().getNome());
+        if (listaFavoritos.get(position).getCardModelquestao() != null) {
+            holder.image.setImageResource(listaFavoritos.get(position).getCardModelquestao().getImagem());
+            holder.texto.setText(listaFavoritos.get(position).getCardModelquestao().getNome());
         }
 
         if (listaFavoritos.get(position).getPersonagemResult() != null) {
@@ -51,9 +51,9 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         }
 
         holder.itemView.setOnClickListener(view -> {
-            if (listaFavoritos.get(position).getCardModelquestão() != null) {
+            if (listaFavoritos.get(position).getCardModelquestao() != null) {
                 Intent intent = new Intent(mContext, RecebePerguntasQuizActivity.class);
-                intent.putExtra(CHAVE_NOME, verifica(listaFavoritos.get(position).getCardModelquestão().getNome()));
+                intent.putExtra(CHAVE_NOME, verifica(listaFavoritos.get(position).getCardModelquestao().getNome()));
                 mContext.startActivity(intent);
             }
 

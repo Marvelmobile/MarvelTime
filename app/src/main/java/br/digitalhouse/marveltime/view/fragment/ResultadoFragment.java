@@ -51,7 +51,7 @@ public class ResultadoFragment extends Fragment {
         porcentagem = v.findViewById(R.id.resultado_numero);
         questao = v.findViewById(R.id.resultado_numero_questao);
         titulo = v.findViewById(R.id.titulo_resultado);
-        share_Personagem = v.findViewById(R.id.share_Personagem);
+        share_Personagem = v.findViewById(R.id.share_resultado);
     }
 
     @Override

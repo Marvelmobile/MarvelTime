@@ -81,24 +81,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_background_imageview_perguntas">
 
         <ImageView
-            android:id="@+id/share_Personagem"
+            android:id="@+id/share_resultado"
             android:layout_width="40dp"
             android:layout_height="38dp"
             android:layout_weight="1"
             android:src="@drawable/ic_share_black_24dp" />
 
-        <ImageView
-            android:id="@+id/estrela_historia"
-            android:layout_width="45dp"
-            android:layout_height="38dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_star_border_black_24dp" />
     </LinearLayout>
 
     <TextView

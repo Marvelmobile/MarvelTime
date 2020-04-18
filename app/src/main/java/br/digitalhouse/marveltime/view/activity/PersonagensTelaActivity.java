@@ -49,7 +49,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         imagemPersonagem = findViewById(R.id.imagem_personagem_historia);
         descricaoPersonagem = findViewById(R.id.texto_historia);
         nomePersonagem = findViewById(R.id.textView_nomePersonagem);
-        share_Personagem = findViewById(R.id.share_Personagem);
+        share_Personagem = findViewById(R.id.share_resultado);
     }
 
     private void shareMarvel(PersonagemResult personagemResult) {
