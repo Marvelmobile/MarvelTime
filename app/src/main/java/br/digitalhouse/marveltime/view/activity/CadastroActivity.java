@@ -2,6 +2,7 @@ package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,7 +24,12 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
         initViews();
 
-        bntCadastrar.setOnClickListener(v -> cadastraNovoUsuario());
+        bntCadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cadastraNovoUsuario();
+            }
+        });
     }
 
     private void cadastraNovoUsuario() {
