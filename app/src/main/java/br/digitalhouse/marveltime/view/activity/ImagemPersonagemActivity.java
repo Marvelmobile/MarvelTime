@@ -21,15 +21,12 @@ public class ImagemPersonagemActivity extends AppCompatActivity {
         initViews();
         if (getIntent() != null){
             Bundle bundle = getIntent().getExtras();
-            assert bundle != null;
             personagemResult = bundle.getParcelable(IMAGEM_KEY);
-            assert personagemResult != null;
             String imageURL = personagemResult.getThumbnail()
                     .getPath().replace("http://", "https://");
             Picasso.get().load(imageURL+"."
                     +personagemResult.getThumbnail().getExtension()).into(civImagemDetalhe);
         }
-
         bntFechar.setOnClickListener(view -> finish());
     }
 
