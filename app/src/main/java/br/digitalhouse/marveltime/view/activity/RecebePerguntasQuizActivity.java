@@ -19,7 +19,6 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
     private PerguntasQuizFragment fragmentQuiz;
     int mcorreto = 0, merrado = 0;
     String mtitulo= " ";
-    boolean mtroca = false;
 
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;

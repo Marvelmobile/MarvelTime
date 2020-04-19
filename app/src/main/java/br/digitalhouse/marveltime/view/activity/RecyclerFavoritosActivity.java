@@ -32,7 +32,7 @@ public class RecyclerFavoritosActivity extends AppCompatActivity {
         AdapterRecyclerFavoritos adaptador = new AdapterRecyclerFavoritos(favoritos, this);
         recyclerView.setAdapter(adaptador);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
+   }
 
     @BindView(R.id.tapBarMenu)
     public TapBarMenu tapBarMenu;

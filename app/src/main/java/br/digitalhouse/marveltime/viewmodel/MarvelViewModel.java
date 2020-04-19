@@ -52,7 +52,7 @@ public class MarvelViewModel extends AndroidViewModel {
                                 throwable -> {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
                                     mutableLiveDataErro.setValue("Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!");
-                                })
+                                 })
         );
     }
 
@@ -66,10 +66,11 @@ public class MarvelViewModel extends AndroidViewModel {
                         .doOnTerminate(() -> loading.setValue(false))
                         .subscribe(personagemResults ->
                                         mutablePersonagemLista.setValue(personagemResults),
-                                throwable -> {
+                                 throwable -> {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
                                     mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
-                                })
+                                 })
+
 
         );
     }

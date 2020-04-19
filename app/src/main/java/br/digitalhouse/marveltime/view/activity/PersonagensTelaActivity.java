@@ -28,8 +28,8 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         clickBtnShared();
 
         if (getIntent() != null){
-            Bundle bundle = getIntent().getExtras();
-            personagemResult = bundle.getParcelable(PERSONAGEM_KEY);
+            Bundle bundle = getIntent().getExtras();           
+            personagemResult = bundle.getParcelable(PERSONAGEM_KEY);            
             descricaoPersonagem.setText(personagemResult.getDescription());
             nomePersonagem.setText(personagemResult.getName());
             String imageURL = personagemResult.getThumbnail().getPath().replace("http://", "https://");
@@ -61,16 +61,17 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     }
 
     private String getLinkPersonagem(PersonagemResult personagemResult) {
-        if(personagemResult.getUrls()!=null){
+       if(personagemResult.getUrls()!=null){
+
             for (Url url : personagemResult.getUrls()){
                 if(url.getType().equalsIgnoreCase("wiki")){
                     return url.getUrl();
                 }
             }
             return  personagemResult.getUrls().get(0).getUrl();
-        }else{
-            return personagemResult.getThumbnail().getPath().concat(".").concat(personagemResult.getThumbnail().getExtension());
-        }
+       }else{
+           return personagemResult.getThumbnail().getPath().concat(".").concat(personagemResult.getThumbnail().getExtension());
+       }
     }
 
     private void clickBtnShared() {
