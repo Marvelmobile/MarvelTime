@@ -62,6 +62,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
 
     private String getLinkPersonagem(PersonagemResult personagemResult) {
        if(personagemResult.getUrls()!=null){
+
             for (Url url : personagemResult.getUrls()){
                 if(url.getType().equalsIgnoreCase("wiki")){
                     return url.getUrl();

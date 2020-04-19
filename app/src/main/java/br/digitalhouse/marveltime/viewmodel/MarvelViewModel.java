@@ -71,6 +71,7 @@ public class MarvelViewModel extends AndroidViewModel {
                                     mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
                                  })
 
+
         );
     }
 
