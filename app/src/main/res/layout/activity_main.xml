@@ -77,7 +77,6 @@
       android:background="@color/preto"
       android:src="@drawable/img_hferro"
       app:civ_circle_background_color="@color/branco"
-      app:layout_constraintBottom_toTopOf="@+id/tapBarMenu"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/img_quiz"
       app:layout_constraintVertical_bias="0.183" />
@@ -92,5 +91,4 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:layout_constraintVertical_bias="0.093" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

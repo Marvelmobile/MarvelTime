@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android= "http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,137 +8,96 @@
     android:background="@color/preto"
     android:orientation="vertical">
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintBottom_toTopOf="@+id/tapBarMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/share_historia"
-            android:layout_width="40dp"
-            android:layout_height="38dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_share_black_24dp" />
-
-        <ImageView
-            android:id="@+id/estrela_historia"
-            android:layout_width="45dp"
-            android:layout_height="38dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_star_border_black_24dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/personagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imgLogoMarvel2"
-        android:layout_margin="20dp"
-        android:background="@drawable/border"
-        android:fontFamily="@font/lato"
-        android:padding="10dp"
-        android:text="@string/personagens"
-        android:textAlignment="center"
-        android:textColor="@color/preto"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imagem_personagem_historia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imagem_personagem_historia"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/texto_historia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:background="@color/preto"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/texto_historia"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/border_personagens"
-        android:fontFamily="@font/lato"
-        android:gravity="center_vertical"
-        android:text="balabalbsabslfovbsdbvsdvsbdv.sdbvkasbdkjsbjbvjsbdvjbsdvbsadjvbskjdbvkjsdbvkjsbdvlsdbjksdabvkjsdbvksabdkvbsdkvjbsdvjbsdvbsajdvbjsdbvjsdb"
-        android:textAlignment="center"
-        android:textColor="@color/branco"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.michaldrabik.tapbarmenulib.TapBarMenu
-        android:id="@+id/tapBarMenu"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tbm_backgroundColor="@color/branco"
-        app:tbm_buttonSize="52dp"
-        app:tbm_iconClosed="@drawable/img_menu"
-        app:tbm_iconOpened="@drawable/img_close"
-        app:tbm_menuAnchor="bottom">
-
-        <ImageView
-            android:id="@+id/item1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:src="@drawable/img_home"
-            tools:visibility="visible" />
-
-        <ImageView
-            android:id="@+id/item2"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:src="@drawable/img_favoritos" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
 
-        <ImageView
-            android:id="@+id/item3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:src="@drawable/img_hferro" />
+                <ImageView
+                    android:id="@+id/imageViewBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mavel_universe" />
 
-        <ImageView
-            android:id="@+id/item4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:src="@drawable/img_quiz_menu" />
-    </com.michaldrabik.tapbarmenulib.TapBarMenu>
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imagem_personagem_historia"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/circle_corner"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/capitaoamerica" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textView_nomePersonagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:gravity="center"
+                android:paddingTop="16dp"
+                android:textAllCaps="true"
+                android:textColor="@color/branco"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Nome do personagem" />
+
+            <TextView
+                android:id="@+id/texto_historia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:textAlignment="gravity"
+                android:textColor="@color/branco"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="40dp">
+
+                <ImageView
+                    android:id="@+id/share_historia"
+                    android:layout_width="40dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_share_black_24dp" />
+
+                <ImageView
+                    android:id="@+id/estrela_historia"
+                    android:layout_width="45dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_star_border_black_24dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

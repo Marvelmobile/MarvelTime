@@ -24,7 +24,6 @@ public class RecyclerQuizActivity extends AppCompatActivity {
         listaCardQuiz.add(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao));
         initReclycer();
     }
-
     private void initReclycer(){
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         AdapterRecyclerQuiz adapterRecyclerQuiz = new AdapterRecyclerQuiz(this, listaCardQuiz);

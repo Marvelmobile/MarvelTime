@@ -19,4 +19,3 @@ public class ViewHolderFavoritos extends RecyclerView.ViewHolder {
         texto= itemView.findViewById(R.id.textView1);
     }
 }
-
