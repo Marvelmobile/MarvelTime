@@ -1,5 +1,4 @@
 package br.digitalhouse.marveltime.model;
-
 public class CardModel {
     private int Nome;
     private int Imagem;
