@@ -21,12 +21,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_gravity="top|center">
 
                 <ImageView
+                    android:contentDescription="@string/logo"
                     android:id="@+id/imgLogoMarvel2"
                     android:layout_width="264dp"
                     android:layout_height="117dp"
@@ -41,8 +42,6 @@
                     android:id="@+id/personagens"
                     android:layout_width="208dp"
                     android:layout_height="55dp"
-                    android:layout_below="@+id/imgLogoMarvel2"
-                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/border"
@@ -92,6 +91,7 @@
         app:tbm_menuAnchor="bottom">
 
         <ImageView
+            android:contentDescription="@string/item"
             android:id="@+id/item1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -102,6 +102,7 @@
             tools:visibility="visible" />
 
         <ImageView
+            android:contentDescription="@string/item"
             android:id="@+id/item2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -116,6 +117,7 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:contentDescription="@string/item"
             android:id="@+id/item3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -125,6 +127,7 @@
             android:src="@drawable/img_hferro" />
 
         <ImageView
+            android:contentDescription="@string/item"
             android:id="@+id/item4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

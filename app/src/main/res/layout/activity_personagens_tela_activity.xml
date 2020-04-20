@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/preto"
         android:orientation="vertical">
@@ -29,6 +29,7 @@
                 android:layout_height="300dp">
 
                 <ImageView
+                    android:contentDescription="@string/logo"
                     android:id="@+id/imageViewBackground"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
@@ -85,6 +86,7 @@
                 android:paddingTop="40dp">
 
                 <ImageView
+                    android:contentDescription="@string/share"
                     android:id="@+id/share_resultado"
                     android:layout_width="40dp"
                     android:layout_height="38dp"
@@ -92,6 +94,7 @@
                     android:src="@drawable/ic_share_black_24dp" />
 
                 <ImageView
+                    android:contentDescription="@string/estrela"
                     android:id="@+id/estrela_historia"
                     android:layout_width="45dp"
                     android:layout_height="38dp"

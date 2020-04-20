@@ -12,6 +12,7 @@
     android:id="@+id/card_personagens_layout">
 
     <ImageView
+        android:contentDescription="@string/logo"
         android:id="@+id/imagem_personagens"
         android:layout_width="match_parent"
         android:layout_height="170dp"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundPreto"
+    android:background="@color/preto"
     tools:context=".view.activity.ImagemPersonagemActivity">
 
     <LinearLayout
@@ -36,6 +36,7 @@
             android:background="@color/branco">
 
             <ImageView
+                android:contentDescription="@string/imagem_personagens"
                 android:id="@+id/circleImageViewDetalhe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
