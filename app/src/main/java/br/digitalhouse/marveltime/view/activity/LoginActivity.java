@@ -29,21 +29,13 @@ public class LoginActivity extends AppCompatActivity {
         initViews();
         linkCadastroUsuario();
 
-        bntLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(validaCampos()){
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                }
+        bntLogin.setOnClickListener(v -> {
+            if(validaCampos()){
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
 
-        loginRegistro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class),1);
-            }
-        });
+        loginRegistro.setOnClickListener(v -> startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class),1));
     }
 
     private boolean validaCampos(){
@@ -92,10 +84,9 @@ public class LoginActivity extends AppCompatActivity {
         loginRegistro = findViewById(R.id.loginRegistro);
     }
 
-    protected void notificacao (String sMensagem){
+    private void notificacao (String sMensagem){
         Context contexto = getApplicationContext();
-        String textoNotificacao = sMensagem;
-        Toast toast = Toast.makeText(contexto, textoNotificacao, Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(contexto, sMensagem, Toast.LENGTH_LONG);
         toast.show();
     }
 }

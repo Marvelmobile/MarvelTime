@@ -1,5 +1,4 @@
 package br.digitalhouse.marveltime.view.adapter;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;

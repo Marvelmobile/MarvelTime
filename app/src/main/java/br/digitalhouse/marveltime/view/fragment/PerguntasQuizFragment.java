@@ -1,5 +1,4 @@
 package br.digitalhouse.marveltime.view.fragment;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,8 +36,7 @@ public class PerguntasQuizFragment extends Fragment {
     private int perguntaAtual = 0, correto = 0, errado = 0;
     private boolean controle = true;
 
-    public PerguntasQuizFragment() {
-    }
+    public PerguntasQuizFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +46,6 @@ public class PerguntasQuizFragment extends Fragment {
         Collections.shuffle(listaperguntas);
         filtroLista();
         colocarPerguntasTela(perguntaAtual);
-
 
         alternativaUm.setOnClickListener(v1 -> {
 

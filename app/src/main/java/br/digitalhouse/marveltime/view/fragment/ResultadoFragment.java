@@ -14,13 +14,13 @@ import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.view.Interfaces.HelperQuiz;
 
 public class ResultadoFragment extends Fragment {
-    DecimalFormat formato = new DecimalFormat("#");
+    private DecimalFormat formato = new DecimalFormat("#");
     private HelperQuiz helperQuiz;
     private TextView porcentagem;
     private String rtitulo="";
     private TextView questao;
     private TextView titulo;
-    double rcorreto=0, rerrado=0, resultado=0;
+    private double rcorreto=0, rerrado=0, resultado=0;
     private String porcento, porcento2;
     private ImageView share_Personagem;
 
