@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "956623405096",
+    "firebase_url": "https://marvel-time-pi.firebaseio.com",
+    "project_id": "marvel-time-pi",
+    "storage_bucket": "marvel-time-pi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956623405096:android:51562352b9b8a24bb7b51d",
+        "android_client_info": {
+          "package_name": "br.digitalhouse.marveltime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956623405096-mr3ms08ietrgmlpl00kdatatcsgklc4b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.digitalhouse.marveltime",
+            "certificate_hash": "8a7261d32998d0de7e4a467ff4d7d10c8c463e51"
+          }
+        },
+        {
+          "client_id": "956623405096-ifhl5ss1jmaj9npc2jp32s5luktu275s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGCcx332_4NqhNFrxE2-IFFht6DB-3t_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956623405096-ifhl5ss1jmaj9npc2jp32s5luktu275s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
