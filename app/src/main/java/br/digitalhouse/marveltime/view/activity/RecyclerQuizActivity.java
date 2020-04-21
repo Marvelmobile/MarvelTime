@@ -1,5 +1,6 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
@@ -18,10 +19,10 @@ public class RecyclerQuizActivity extends AppCompatActivity {
     private ArrayList<CardModel> listaCardQuiz = new ArrayList<>();
 
     private void initCardModel() {
-        listaCardQuiz.add(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha));
-        listaCardQuiz.add(new CardModel(R.drawable.thor, R.string.quiz_thor));
-        listaCardQuiz.add(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro));
-        listaCardQuiz.add(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao));
+        listaCardQuiz.add(new CardModel(R.drawable.img_homem_aranha, R.string.quiz_homem_aranha));
+        listaCardQuiz.add(new CardModel(R.drawable.img_thor_ultimate, R.string.quiz_thor));
+        listaCardQuiz.add(new CardModel(R.drawable.img_homem_ferro, R.string.quiz_homem_ferro));
+        listaCardQuiz.add(new CardModel(R.drawable.img_capitao_america, R.string.quiz_capitao));
         initReclycer();
     }
 
@@ -29,7 +30,7 @@ public class RecyclerQuizActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         AdapterRecyclerQuiz adapterRecyclerQuiz = new AdapterRecyclerQuiz(this, listaCardQuiz);
         recyclerView.setAdapter(adapterRecyclerQuiz);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
     }
 
     @BindView(R.id.tapBarMenu)

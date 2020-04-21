@@ -19,10 +19,10 @@ public class RecyclerFavoritosActivity extends AppCompatActivity {
     private ArrayList<Favoritos> favoritos = new ArrayList<>();
 
     private void initBitmaps() {
-        favoritos.add(new Favoritos(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha)));
-        favoritos.add(new Favoritos(new CardModel(R.drawable.thor, R.string.quiz_thor)));
+        favoritos.add(new Favoritos(new CardModel(R.drawable.img_capitao_america, R.string.quiz_capitao)));
+        favoritos.add(new Favoritos(new CardModel(R.drawable.img_homem_ferro, R.string.quiz_homem_ferro)));
+        favoritos.add(new Favoritos(new CardModel(R.drawable.img_homem_aranha, R.string.quiz_homem_aranha)));
+        favoritos.add(new Favoritos(new CardModel(R.drawable.img_thor_ultimate, R.string.quiz_thor)));
         initReclycer();
     }
 
