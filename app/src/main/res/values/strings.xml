@@ -15,7 +15,6 @@
     <string name="senha">Senha</string>
     <string name="confirma_senha">Confirme a senha</string>
     <string name="quiz_homem_ferro">Você sabe tudo sobre o Homem de Ferro?</string>
-    <string name="ola">Olá, Marvel Fã</string>
     <string name="quiz">QUIZ</string>
     <string name="quiz_spider_man">Você sabe tudo sobre o Homem Aranha?</string>
     <string name="quiz_thor">Você sabe tudo sobre o Thor?</string>
@@ -62,4 +61,5 @@
     <string name="description_personagens_background">Background com vários personagens da Marvel</string>
     <string name="compartilhar">Compartilhar</string>
     <string name="favoritar">Favoritar</string>
+    <string name="description_item_favoritado">Imagem do item favoritado</string>
 </resources>

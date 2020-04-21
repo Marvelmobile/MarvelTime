@@ -26,7 +26,7 @@
             android:layout_marginEnd="3dp"
             android:layout_marginBottom="3dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/capitaoamerica"
+            android:src="@drawable/img_homem_aranha"
             android:contentDescription="@string/personagem"/>
     </LinearLayout>
 

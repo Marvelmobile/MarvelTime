@@ -8,7 +8,7 @@ import br.digitalhouse.marveltime.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ViewHolderFavoritos extends RecyclerView.ViewHolder {
-    public CircleImageView image;
+    public ImageView image;
     public TextView texto;
     public ImageView favoritado;
 

@@ -44,7 +44,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/miniaranha"
+                app:srcCompat="@drawable/img_homem_aranha"
                 android:contentDescription="@string/personagem"/>
         </FrameLayout>
     </LinearLayout>

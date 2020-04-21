@@ -104,7 +104,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:src="@drawable/ic_home"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            android:contentDescription="@string/item"/>
 
         <ImageView
             android:id="@+id/item2"
@@ -113,12 +114,13 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/ic_favorito_preto" />
+            android:src="@drawable/ic_favorito_preto"
+            android:contentDescription="@string/item"/>
 
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/item3"
@@ -127,7 +129,8 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/ic_personagem_preto" />
+            android:src="@drawable/ic_personagem_preto"
+            android:contentDescription="@string/item"/>
 
         <ImageView
             android:id="@+id/item4"
@@ -136,6 +139,7 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/ic_quiz_preto" />
+            android:src="@drawable/ic_quiz_preto"
+            android:contentDescription="@string/item"/>
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
 </androidx.constraintlayout.widget.ConstraintLayout>

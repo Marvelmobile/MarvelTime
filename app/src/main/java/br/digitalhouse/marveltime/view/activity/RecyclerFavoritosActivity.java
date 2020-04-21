@@ -1,5 +1,6 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
@@ -30,7 +31,7 @@ public class RecyclerFavoritosActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view_favoritos);
         AdapterRecyclerFavoritos adaptador = new AdapterRecyclerFavoritos(favoritos, this);
         recyclerView.setAdapter(adaptador);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
    }
 
     @BindView(R.id.tapBarMenu)

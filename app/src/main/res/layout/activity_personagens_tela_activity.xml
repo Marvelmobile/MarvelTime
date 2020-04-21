@@ -52,7 +52,7 @@
                         android:layout_margin="20dp"
                         android:background="@drawable/circle_corner"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/capitaoamerica" />
+                        android:src="@drawable/img_capitao_america" />
                 </FrameLayout>
             </FrameLayout>
 

@@ -76,8 +76,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/senha"
                     android:inputType="textPassword"
-                    android:textColor="@color/preto"
-                    android:textColorLink="#9C27B0" />
+                    android:textColor="@color/preto"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
