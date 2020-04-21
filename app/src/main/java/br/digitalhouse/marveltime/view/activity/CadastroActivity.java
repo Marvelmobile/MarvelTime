@@ -3,8 +3,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.content.Intent;
+import android.widget.Button;
 import android.widget.Toast;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
@@ -15,7 +15,7 @@ public class CadastroActivity extends AppCompatActivity {
     private TextInputLayout cadastrarEmail;
     private TextInputLayout cadastrarSenha;
     private TextInputLayout cadastrarSenhaConfirmacao;
-    private FloatingActionButton bntCadastrar;
+    private Button bntCadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

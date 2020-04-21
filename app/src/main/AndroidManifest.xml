@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activity.SplashActivity"
+            android:name=".view.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +45,7 @@
             android:name=".view.activity.RecyclerFavoritosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name=".view.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.PersonagensTelaActivity"

@@ -7,9 +7,9 @@ import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
@@ -19,7 +19,7 @@ import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
 public class LoginActivity extends AppCompatActivity {
     private TextInputLayout loginUsuario;
     private TextInputLayout loginSenha;
-    private FloatingActionButton bntLogin;
+    private Button bntLogin;
     private TextView loginRegistro;
 
     @Override

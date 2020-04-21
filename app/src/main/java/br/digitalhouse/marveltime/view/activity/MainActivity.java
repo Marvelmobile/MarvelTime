@@ -2,13 +2,15 @@ package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+
 import br.digitalhouse.marveltime.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
-    private CircleImageView imageViewPersonagens;
-    private CircleImageView imageViewFavoritos;
-    private CircleImageView imageViewQuiz;
+    private Button imageViewPersonagens;
+    private Button imageViewFavoritos;
+    private Button imageViewQuiz;
 
      @Override
     protected void onCreate(Bundle savedInstanceState) {

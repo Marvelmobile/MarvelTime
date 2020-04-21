@@ -1,90 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/preto"
+    android:background="@drawable/background_menu_principal"
     tools:context=".view.activity.MainActivity">
 
-  <ImageView
-      android:contentDescription="@string/logo"
-      android:id="@+id/imgLogoMarvel"
-      android:layout_width="264dp"
-      android:layout_height="117dp"
-      android:layout_marginStart="65dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="65dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/logo_marvel_time_branco" />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/textoBenVido"
-        android:layout_width="330dp"
-        android:layout_height="118dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/rounded_corner"
-        android:text="@string/msg_bem_vindo"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogoMarvel" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-  <de.hdodenhof.circleimageview.CircleImageView
-      android:id="@+id/img_quiz"
-      android:layout_width="126dp"
-      android:layout_height="111dp"
-      android:layout_marginStart="48dp"
-      android:layout_marginTop="16dp"
-      android:layout_weight="1"
-      android:background="@color/preto"
-      android:src="@drawable/img_quiz"
-      app:civ_circle_background_color="@color/branco"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView" />
+      <ImageView
+          android:id="@+id/imgLogoMarvel"
+          android:layout_width="264dp"
+          android:layout_height="117dp"
+          android:layout_marginStart="65dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="65dp"
+          android:paddingStart="30dp"
+          android:paddingEnd="10dp"
+          android:src="@drawable/img_logo_padrao"
+          android:contentDescription="@string/description_iv_logo"/>
 
-  <de.hdodenhof.circleimageview.CircleImageView
-      android:id="@+id/img_favoritos"
-      android:layout_width="95dp"
-      android:layout_height="80dp"
-      android:layout_marginTop="100dp"
-      android:layout_marginEnd="64dp"
-      android:background="@color/preto"
-      android:src="@drawable/img_favoritos"
-      app:civ_border_color="@color/preto"
-      app:civ_circle_background_color="@color/branco"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView" />
+      <ImageView
+          android:id="@+id/ivSair"
+          android:layout_width="80dp"
+          android:layout_height="50dp"
+          android:layout_marginStart="330dp"
+          android:layout_marginTop="10dp"
+          android:src="@drawable/ic_sair"
+          android:contentDescription="@string/description_sair"/>
+    </FrameLayout>
 
-  <de.hdodenhof.circleimageview.CircleImageView
-      android:id="@+id/img_personagens"
-      android:layout_width="123dp"
-      android:layout_height="130dp"
-      android:layout_marginStart="48dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginBottom="16dp"
-      android:background="@color/preto"
-      android:src="@drawable/img_hferro"
-      app:civ_circle_background_color="@color/branco"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/img_quiz"
-      app:layout_constraintVertical_bias="0.183" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
 
-  <TextView
-        android:id="@+id/textViewNome"
-        style="@style/titulo"
-        android:text="@string/ola"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.093" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+      <Button
+          android:id="@+id/img_quiz"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@drawable/rounded_corner"
+          android:backgroundTint="@color/red_splash"
+          android:text="@string/quiz"
+          android:textAllCaps="true"
+          android:textColor="@color/branco"
+          android:textSize="16sp"
+          android:textStyle="bold"
+          android:layout_marginTop="20dp"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:paddingLeft="50dp"
+          android:paddingRight="50dp"
+          android:drawableStart="@drawable/ic_quiz"/>
+
+      <Button
+          android:id="@+id/img_personagens"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@drawable/rounded_corner"
+          android:backgroundTint="@color/red_splash"
+          android:text="@string/personagem"
+          android:textAllCaps="true"
+          android:textColor="@color/branco"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          android:layout_marginTop="20dp"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:paddingLeft="50dp"
+          android:paddingRight="50dp"
+          android:drawableStart="@drawable/ic_personagem"/>
+
+      <Button
+          android:id="@+id/img_favoritos"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@drawable/rounded_corner"
+          android:backgroundTint="@color/red_splash"
+          android:text="@string/favoritos"
+          android:textAllCaps="true"
+          android:textColor="@color/branco"
+          android:textSize="16sp"
+          android:textStyle="bold"
+          android:layout_marginTop="20dp"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:paddingLeft="50dp"
+          android:paddingRight="50dp"
+          android:drawableStart="@drawable/ic_favorito"/>
+    </LinearLayout>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>
