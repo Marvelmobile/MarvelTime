@@ -11,7 +11,6 @@ import static br.digitalhouse.marveltime.util.Constantes.IMAGEM_KEY;
 public class ImagemPersonagemActivity extends AppCompatActivity {
     private ImageView civImagemDetalhe;
     private Button bntFechar;
-    private PersonagemResult personagemResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +19,11 @@ public class ImagemPersonagemActivity extends AppCompatActivity {
         initViews();
         if (getIntent() != null){
             Bundle bundle = getIntent().getExtras();
-            personagemResult = bundle.getParcelable(IMAGEM_KEY);
+            PersonagemResult personagemResult = bundle.getParcelable(IMAGEM_KEY);
             String imageURL = personagemResult.getThumbnail()
                     .getPath().replace("http://", "https://");
             Picasso.get().load(imageURL+"."
-                    +personagemResult.getThumbnail().getExtension()).into(civImagemDetalhe);
+                    + personagemResult.getThumbnail().getExtension()).into(civImagemDetalhe);
         }
         bntFechar.setOnClickListener(view -> finish());
     }

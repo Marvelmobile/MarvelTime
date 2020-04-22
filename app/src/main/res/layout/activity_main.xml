@@ -29,7 +29,7 @@
           android:contentDescription="@string/description_iv_logo"/>
 
       <ImageView
-          android:id="@+id/ivSair"
+          android:id="@+id/img_sair"
           android:layout_width="80dp"
           android:layout_height="50dp"
           android:layout_marginStart="330dp"

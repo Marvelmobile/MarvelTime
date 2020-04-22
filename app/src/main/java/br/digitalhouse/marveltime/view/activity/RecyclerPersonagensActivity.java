@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
 import java.util.List;
 import br.digitalhouse.marveltime.model.PersonagemResult;
+import br.digitalhouse.marveltime.util.Helper;
 import br.digitalhouse.marveltime.view.Interfaces.OnClickListenerPersonagem;
 import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerPersonagens;
@@ -29,6 +31,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
     private Integer offset = 0;
     private ProgressBar progressBar;
     private MarvelViewModel marvelViewModel;
+    private ImageView imageViewSairPersonagem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +56,15 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         });
 
         marvelViewModel.liveDataErro.observe(this, error -> Toast.makeText(this, error, Toast.LENGTH_LONG).show());
+
+        imageViewSairPersonagem.setOnClickListener(v -> {
+            Helper.deslogarFirebase();
+            startActivity(new Intent(RecyclerPersonagensActivity.this, LoginActivity.class));
+        });
     }
 
     private void initViews() {
+        imageViewSairPersonagem = findViewById(R.id.img_sair_personagens);
         recycler = findViewById(R.id.recycler_view_personagens);
         progressBar = findViewById(R.id.progress_bar);
         adapter = new AdapterRecyclerPersonagens(personagemResultsLista, this);

@@ -1,15 +1,16 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
 import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.model.Favoritos;
+import br.digitalhouse.marveltime.util.Helper;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerFavoritos;
 import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
@@ -18,6 +19,7 @@ import butterknife.OnClick;
 
 public class RecyclerFavoritosActivity extends AppCompatActivity {
     private ArrayList<Favoritos> favoritos = new ArrayList<>();
+    private ImageView imageViewSair;
 
     private void initBitmaps() {
         favoritos.add(new Favoritos(new CardModel(R.drawable.img_capitao_america, R.string.quiz_capitao)));
@@ -43,6 +45,12 @@ public class RecyclerFavoritosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_favoritos);
         ButterKnife.bind(this);
         initBitmaps();
+        initView();
+
+        imageViewSair.setOnClickListener(v -> {
+            Helper.deslogarFirebase();
+            startActivity(new Intent(RecyclerFavoritosActivity.this, LoginActivity.class));
+        });
     }
 
     @OnClick(R.id.tapBarMenu)
@@ -67,5 +75,9 @@ public class RecyclerFavoritosActivity extends AppCompatActivity {
                 startActivity(new Intent(RecyclerFavoritosActivity.this, RecyclerQuizActivity.class));
                 break;
         }
+    }
+
+    private void initView(){
+        imageViewSair = findViewById(R.id.img_sair_fav);
     }
 }

@@ -2,6 +2,7 @@ package br.digitalhouse.marveltime.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import com.google.firebase.auth.FirebaseAuth;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -79,5 +80,9 @@ public class Helper {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public static void deslogarFirebase(){
+        FirebaseAuth.getInstance().signOut();
     }
 }

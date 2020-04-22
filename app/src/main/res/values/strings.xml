@@ -62,4 +62,5 @@
     <string name="compartilhar">Compartilhar</string>
     <string name="favoritar">Favoritar</string>
     <string name="description_item_favoritado">Imagem do item favoritado</string>
+    <string name="erro_cadastro">Ocorreu um erro no seu cadastro, verifique sua conexão com a internet e tente novamente.</string>
 </resources>

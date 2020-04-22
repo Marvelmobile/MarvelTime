@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
@@ -16,25 +17,29 @@ public class CadastroActivity extends AppCompatActivity {
     private TextInputLayout cadastrarSenha;
     private TextInputLayout cadastrarSenhaConfirmacao;
     private Button bntCadastrar;
+    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
         initViews();
-
+        mFirebaseAuth = FirebaseAuth.getInstance();
         bntCadastrar.setOnClickListener(v -> cadastraNovoUsuario());
     }
 
     private void cadastraNovoUsuario() {
-        String nomeCompleto = cadastrarNome.getEditText().getText().toString();
-        String email = cadastrarEmail.getEditText().getText().toString();
-        String senha = cadastrarSenha.getEditText().getText().toString();
-        String senhaConfirmacao = cadastrarSenhaConfirmacao.getEditText().getText().toString();
 
-        if(validaCampos(nomeCompleto, email, senha, senhaConfirmacao)){
-            notificacao(getString(R.string.cad_sucesso));
-            voltarTelaLoginActivity(email);
+        if(validaCampos(getString(cadastrarNome), getString(cadastrarEmail), getString(cadastrarSenha), getString(cadastrarSenhaConfirmacao))){
+            mFirebaseAuth.createUserWithEmailAndPassword(getString(cadastrarEmail), getString(cadastrarSenhaConfirmacao))
+                    .addOnCompleteListener(CadastroActivity.this, task -> {
+                                if (!task.isSuccessful()){
+                                    Toast.makeText(CadastroActivity.this,
+                                            getString(R.string.erro_cadastro), Toast.LENGTH_LONG).show();
+                                } else {
+                                    voltarTelaLoginActivity(getString(cadastrarEmail));
+                                }
+                            });
         }
     }
 
@@ -77,5 +82,9 @@ public class CadastroActivity extends AppCompatActivity {
         } else
             notificacao(getString(R.string.regra_senha));
         return false;
+    }
+
+    private String getString(TextInputLayout viewName) {
+        return viewName.getEditText().getText().toString();
     }
 }

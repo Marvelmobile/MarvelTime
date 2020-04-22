@@ -1,13 +1,14 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
+import br.digitalhouse.marveltime.util.Helper;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerQuiz;
 import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
@@ -17,6 +18,7 @@ import butterknife.OnClick;
 
 public class RecyclerQuizActivity extends AppCompatActivity {
     private ArrayList<CardModel> listaCardQuiz = new ArrayList<>();
+    private ImageView imageViewSair;
 
     private void initCardModel() {
         listaCardQuiz.add(new CardModel(R.drawable.img_homem_aranha, R.string.quiz_homem_aranha));
@@ -31,6 +33,7 @@ public class RecyclerQuizActivity extends AppCompatActivity {
         AdapterRecyclerQuiz adapterRecyclerQuiz = new AdapterRecyclerQuiz(this, listaCardQuiz);
         recyclerView.setAdapter(adapterRecyclerQuiz);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        imageViewSair = findViewById(R.id.img_sair_quiz);
     }
 
     @BindView(R.id.tapBarMenu)
@@ -42,6 +45,11 @@ public class RecyclerQuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_quiz);
         ButterKnife.bind(this);
         initCardModel();
+
+        imageViewSair.setOnClickListener(v -> {
+            Helper.deslogarFirebase();
+            startActivity(new Intent(RecyclerQuizActivity.this, LoginActivity.class));
+        });
     }
 
     @OnClick(R.id.tapBarMenu)

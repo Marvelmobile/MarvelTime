@@ -17,12 +17,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/img_sair_quiz"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginStart="330dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_sair"
-            android:contentDescription="@string/description_sair"/>
+            android:contentDescription="@string/description_sair"
+            android:src="@drawable/ic_sair" />
 
         <Button
             android:id="@+id/personagens"
