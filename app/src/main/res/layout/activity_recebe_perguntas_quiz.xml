@@ -76,6 +76,6 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/ic_quiz" />
+            android:src="@drawable/ic_quiz_preto" />
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
 </androidx.constraintlayout.widget.ConstraintLayout>

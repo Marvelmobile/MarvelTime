@@ -35,7 +35,7 @@ public class CadastroActivity extends AppCompatActivity {
                     .addOnCompleteListener(CadastroActivity.this, task -> {
                                 if (!task.isSuccessful()){
                                     Toast.makeText(CadastroActivity.this,
-                                            getString(R.string.erro_cadastro), Toast.LENGTH_LONG).show();
+                                            getString(R.string.erro_firebase), Toast.LENGTH_LONG).show();
                                 } else {
                                     voltarTelaLoginActivity(getString(cadastrarEmail));
                                 }
