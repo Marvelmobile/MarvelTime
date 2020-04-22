@@ -3,6 +3,8 @@ public class CardModel {
     private int Nome;
     private int Imagem;
 
+    public CardModel() { }
+
     public int getNome() {
         return Nome;
     }

@@ -60,4 +60,9 @@
     <string name="item">item</string>
     <string name="estrela">estrela</string>
     <string name="share">share</string>
+    <string name="favoritado"> Adicionado as favoritos</string>
+    <string name="verde">#4CAF50</string>
+    <string name="correto">correto</string>
+    <string name="errado">errado</string>
+    <string name="titulo">titulo</string>
 </resources>

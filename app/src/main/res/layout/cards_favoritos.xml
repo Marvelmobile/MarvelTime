@@ -16,7 +16,7 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imagem_favoritos"
+            android:id="@+id/imagemFavoritado"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:padding="10dp"
@@ -36,7 +36,7 @@
             android:layout_margin="10dp">
 
             <TextView
-                android:id="@+id/textViewfavoritos"
+                android:id="@+id/textViewfavoritado"
                 android:layout_width="184dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="8dp"
@@ -50,7 +50,7 @@
                 cardview:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/favoritado"
+                android:id="@+id/desfavoritar"
                 android:layout_width="45dp"
                 android:layout_height="38dp"
                 android:layout_marginStart="76dp"
