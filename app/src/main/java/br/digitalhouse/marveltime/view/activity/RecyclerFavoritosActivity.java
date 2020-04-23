@@ -1,16 +1,13 @@
 package br.digitalhouse.marveltime.view.activity;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +16,7 @@ import br.digitalhouse.marveltime.util.Helper;
 import br.digitalhouse.marveltime.view.Interfaces.OnClickFavoritos;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerFavoritos;
 import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -27,10 +25,9 @@ import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
 
 public class RecyclerFavoritosActivity extends AppCompatActivity implements OnClickFavoritos {
     private List<Favoritos> listaFvoritos = new ArrayList<>();
-    private FirebaseDatabase database;
-    private DatabaseReference reference;
     private RecyclerView recyclerView;
     private AdapterRecyclerFavoritos adapter;
+    private MarvelViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +36,8 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
         ButterKnife.bind(this);
         initViews();
 
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("marvelTimeTeste" + "/favoritos");
-
-        carregarFavoritos();
+        viewModel.carregarFavorito();
+        viewModel.liveDatafavorito.observe(this, favoritos -> adapter.atualizaLista(favoritos));
     }
 
     private void initViews() {
@@ -50,46 +45,17 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
         adapter = new AdapterRecyclerFavoritos(listaFvoritos, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        viewModel = ViewModelProviders.of(this).get(MarvelViewModel.class);
     }
 
-    private void carregarFavoritos() {
-        reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<Favoritos> favoritos = new ArrayList<>();
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    Favoritos result = child.getValue(Favoritos.class);
-                    favoritos.add(result);
-                }
-                adapter.update(favoritos);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) { }
-        });
-    }
-
-    public void removeFavoritoClickListener(Favoritos result) {
-        reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    if (result.getPersonagemResult() != null && child.getValue(Favoritos.class).getPersonagemResult() != null) {
-                        if (child.getValue(Favoritos.class).getPersonagemResult().getId().equals(result.getPersonagemResult().getId())){
-                            child.getRef().removeValue();
-                            adapter.removeItem(result);
-                        }
-                    }else if (result.getCardModelquestao() != null && child.getValue(Favoritos.class).getCardModelquestao() != null) {
-                        if (child.getValue(Favoritos.class).getCardModelquestao().getNome() == (result.getCardModelquestao().getNome())){
-                            child.getRef().removeValue();
-                            adapter.removeItem(result);
-                        }
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+    public void removeFavoritoClickListener(Favoritos favorito) {
+        if (favorito != null){
+            viewModel.deletarFavorito(favorito);
+            viewModel.favoritado.observe(this, favoritos -> adapter.removeItem(favorito));
+            Snackbar snackbar = Snackbar.make(recyclerView, R.string.desfavoritado, Snackbar.LENGTH_LONG);
+            snackbar.getView().setBackgroundColor(Color.GREEN);
+            snackbar.show();
+        }
     }
 
     @Override

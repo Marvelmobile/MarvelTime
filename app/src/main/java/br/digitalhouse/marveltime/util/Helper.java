@@ -4,7 +4,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import br.digitalhouse.marveltime.R;
 
 public class Helper {

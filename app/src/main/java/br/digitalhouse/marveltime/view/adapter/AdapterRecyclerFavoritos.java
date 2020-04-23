@@ -4,7 +4,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
 import java.util.List;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.Favoritos;
@@ -35,11 +34,6 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
         viewHolder.desfavoritar.setOnClickListener(v -> clickFavoritos.removeFavoritoClickListener(favoritos));
     }
 
-    public void update(List<Favoritos> listaFavoritos) {
-        this.listaFavoritos = listaFavoritos;
-        notifyDataSetChanged();
-    }
-
     public void removeItem(Favoritos favoritos){
         this.listaFavoritos.remove(favoritos);
         notifyDataSetChanged();
@@ -48,5 +42,14 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
     @Override
     public int getItemCount() {
         return listaFavoritos.size();
+    }
+
+    public void atualizaLista(List<Favoritos> novaLista) {
+        if (this.listaFavoritos.isEmpty()) {
+            this.listaFavoritos = novaLista;
+        } else {
+            this.listaFavoritos.addAll(novaLista);
+        }
+        notifyDataSetChanged();
     }
 }
