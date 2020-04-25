@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:textColorHint="@color/preto"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginTop="90dp"
                     android:layout_marginEnd="16dp">
 
                     <com.google.android.material.textfield.TextInputEditText
