@@ -46,8 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             if(validaCampos()){
                 firebaseAuth.signInWithEmailAndPassword(getString(loginUsuario), getString(loginSenha)).addOnCompleteListener(LoginActivity.this, task -> {
                     if (!task.isSuccessful()){
-                        Toast.makeText(LoginActivity.this,
-                                getString(R.string.erro_firebase_login), Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     } else {
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }

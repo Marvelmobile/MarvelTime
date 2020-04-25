@@ -36,6 +36,14 @@
           android:layout_marginTop="10dp"
           android:src="@drawable/ic_sair"
           android:contentDescription="@string/description_sair"/>
+
+      <ImageView
+          android:id="@+id/img_perfil"
+          android:layout_width="80dp"
+          android:layout_height="50dp"
+          android:layout_marginTop="10dp"
+          android:src="@drawable/ic_user"
+          android:contentDescription="@string/description_sair"/>
     </FrameLayout>
 
     <LinearLayout
