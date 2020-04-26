@@ -44,11 +44,11 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/tapBarMenu"
+        android:layout_below="@+id/personagens"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:layout_above="@+id/tapBarMenu"
-        tools:listitem="@layout/cards_quiz"
-        android:layout_below="@+id/personagens" /> >
+        tools:listitem="@layout/cards_quiz" /> >
 
 
     <com.michaldrabik.tapbarmenulib.TapBarMenu
