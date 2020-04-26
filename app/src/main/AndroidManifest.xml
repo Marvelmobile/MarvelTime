@@ -21,11 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <activity
             android:name=".view.activity.ImagemPersonagemActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -54,5 +52,4 @@
             android:name=".view.activity.PersonagensTelaActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
 </manifest>
