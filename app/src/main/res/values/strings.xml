@@ -62,8 +62,6 @@
     <string name="compartilhar">Compartilhar</string>
     <string name="favoritar">Favoritar</string>
     <string name="description_item_favoritado">Imagem do item favoritado</string>
-    <string name="erro_firebase">Ocorreu um erro, verifique sua conexão com a internet e tente novamente.</string>
-    <string name="erro_firebase_login">Ocorreu um erro, por favor, registre-se e verifique a conexão com a internet.</string>
     <string name="salvar_perfil">SALVAR PERFIL</string>
     <string name="foto_usuario">Foto do usuário</string>
 </resources>
