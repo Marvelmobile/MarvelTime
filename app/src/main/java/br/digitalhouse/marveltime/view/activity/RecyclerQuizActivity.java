@@ -12,11 +12,8 @@ import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
 import br.digitalhouse.marveltime.util.Helper;
 import com.google.android.material.snackbar.Snackbar;
-import com.michaldrabik.tapbarmenulib.TapBarMenu;
-import java.util.ArrayList;
 import java.util.List;
 import br.digitalhouse.marveltime.model.Favoritos;
-import br.digitalhouse.marveltime.util.Helper;
 import br.digitalhouse.marveltime.view.Interfaces.OnClickQuiz;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerQuiz;
 import br.digitalhouse.marveltime.model.CardModel;
@@ -75,10 +72,10 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
     }
 
     private void initCardModel() {
-        listaCardQuiz.add(new CardModel(R.drawable.miniaranha, R.string.quiz_homem_aranha));
-        listaCardQuiz.add(new CardModel(R.drawable.thor, R.string.quiz_thor));
-        listaCardQuiz.add(new CardModel(R.drawable.minihferro, R.string.quiz_homem_ferro));
-        listaCardQuiz.add(new CardModel(R.drawable.capitaoamerica, R.string.quiz_capitao));
+        listaCardQuiz.add(new CardModel(R.drawable.img_homem_aranha, R.string.quiz_homem_aranha));
+        listaCardQuiz.add(new CardModel(R.drawable.img_thor_ultimate, R.string.quiz_thor));
+        listaCardQuiz.add(new CardModel(R.drawable.img_homem_ferro, R.string.quiz_homem_ferro));
+        listaCardQuiz.add(new CardModel(R.drawable.img_capitao_america, R.string.quiz_capitao));
     }
 
     @Override

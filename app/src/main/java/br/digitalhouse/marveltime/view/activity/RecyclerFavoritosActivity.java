@@ -49,6 +49,7 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
 
     private void initViews() {
         recyclerView = findViewById(R.id.recycler_view_favoritos);
+        imageViewSair = findViewById(R.id.img_sair_fav);
         adapter = new AdapterRecyclerFavoritos(listaFvoritos, this);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapter);
@@ -104,9 +105,5 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
                 startActivity(new Intent(RecyclerFavoritosActivity.this, RecyclerQuizActivity.class));
                 break;
         }
-    }
-
-    private void initView(){
-        imageViewSair = findViewById(R.id.img_sair_fav);
     }
 }

@@ -1,41 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="160dp"
-    android:layout_height="260dp"
-    android:layout_marginStart="30dp"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="170dp"
+    android:layout_height="305dp"
+    android:layout_marginStart="20dp"
     android:layout_marginTop="10dp"
     android:background="@drawable/rectangle_corner"
     android:focusable="true"
     android:clickable="true"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:gravity="center">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="118dp"
         android:layout_height="180dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/background_marvel"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imagem_favoritos"
+            android:id="@+id/imagem_quiz"
             android:layout_width="110dp"
             android:layout_height="170dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_homem_aranha"
-            android:contentDescription="@string/personagem"/>
+            android:contentDescription="@string/description_item_favoritado"/>
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textViewfavoritos"
-        android:layout_width="155dp"
+        android:id="@+id/textViewQuiz"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
         android:text="@string/quiz_spider_man"
         android:textAlignment="center"
         android:textColor="@color/preto"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:textSize="14sp"/>
-</LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <ImageView
+        android:id="@+id/favoritarQuiz"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@android:string/ok"
+        android:src="@drawable/ic_favoritar_item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/proximo"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@android:string/ok"
+        android:src="@drawable/ic_ir_pagina"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -9,8 +9,7 @@
     android:background="@drawable/rectangle_corner"
     android:focusable="true"
     android:clickable="true"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:gravity="center">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -25,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imagem_favoritos"
+            android:id="@+id/imagem_fav"
             android:layout_width="110dp"
             android:layout_height="170dp"
             android:scaleType="centerCrop"
@@ -34,7 +33,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textViewfavoritos"
+        android:id="@+id/textFav"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -49,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <ImageView
-        android:id="@+id/favoritado"
+        android:id="@+id/desfavoritar"
         android:layout_width="45dp"
         android:layout_height="38dp"
         android:layout_marginStart="20dp"
@@ -60,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/proximo"
+        android:id="@+id/proximo_fav"
         android:layout_width="45dp"
         android:layout_height="38dp"
         android:layout_marginEnd="20dp"

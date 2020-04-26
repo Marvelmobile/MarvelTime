@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.Favoritos;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ViewHolderFavoritos extends RecyclerView.ViewHolder {
     public ImageView imageFavoritado;
@@ -17,8 +16,8 @@ public class ViewHolderFavoritos extends RecyclerView.ViewHolder {
     public ViewHolderFavoritos(@NonNull View itemView) {
         super(itemView);
         desfavoritar = itemView.findViewById(R.id.desfavoritar);
-        imageFavoritado = itemView.findViewById(R.id.imagemFavoritado);
-        texto = itemView.findViewById(R.id.textViewfavoritado);
+        imageFavoritado = itemView.findViewById(R.id.imagem_fav);
+        texto = itemView.findViewById(R.id.textFav);
     }
 
     public void bind(Favoritos favoritos) {

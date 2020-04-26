@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.CardModel;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ViewHolderQuiz extends RecyclerView.ViewHolder {
     public ImageView image;
@@ -15,9 +14,9 @@ public class ViewHolderQuiz extends RecyclerView.ViewHolder {
 
     public ViewHolderQuiz(@NonNull View itemView) {
         super(itemView);
-        image = itemView.findViewById(R.id.imagem_favoritos);
-        texto = itemView.findViewById(R.id.textViewfavoritos);
-        imgViewFavorito = itemView.findViewById(R.id.imgFavoritoQuiz);
+        image = itemView.findViewById(R.id.imagem_quiz);
+        texto = itemView.findViewById(R.id.textViewQuiz);
+        imgViewFavorito = itemView.findViewById(R.id.favoritarQuiz);
     }
 
     public void bind(CardModel cardModel) {
