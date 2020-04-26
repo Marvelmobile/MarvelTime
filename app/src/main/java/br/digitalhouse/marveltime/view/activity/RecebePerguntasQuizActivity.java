@@ -12,15 +12,13 @@ import br.digitalhouse.marveltime.view.fragment.ResultadoFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import static br.digitalhouse.marveltime.util.Constantes.CHAVE_NOME;
 
 public class RecebePerguntasQuizActivity extends AppCompatActivity implements HelperQuiz {
     public static String nome;
     private ResultadoFragment fragmentResultado;
     private PerguntasQuizFragment fragmentQuiz;
-    private int mcorreto = 0;
-    private int merrado = 0;
-    private String mtitulo= "";
+    int mcorreto = 0, merrado = 0;
+    String mtitulo= " ";
 
     @BindView(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
@@ -28,20 +26,12 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recebe_perguntas_quiz);
-        ButterKnife.bind(this);
-
-        initViews();
-        if (getIntent() != null){
-            Intent intent = getIntent();
-            nome = intent.getExtras().getString(CHAVE_NOME);
-        }
-
-        replaceFragments(R.id.container, fragmentQuiz);
-    }
-
-    private void initViews() {
         fragmentResultado = new ResultadoFragment();
         fragmentQuiz = new PerguntasQuizFragment();
+        Intent intent = getIntent();
+        nome = intent.getExtras().getString("NOME");
+        ButterKnife.bind(this);
+        replaceFragments(R.id.container, fragmentQuiz);
     }
 
     private void replaceFragments(int container, Fragment fragment) {
@@ -88,9 +78,9 @@ public class RecebePerguntasQuizActivity extends AppCompatActivity implements He
     @Override
     public void troca() {
         Bundle bundle = new Bundle();
-        bundle.putInt(getString(R.string.correto), mcorreto);
-        bundle.putInt(getString(R.string.errado), merrado);
-        bundle.putString(getString(R.string.titulo), mtitulo);
+        bundle.putInt("correto", mcorreto);
+        bundle.putInt("errado", merrado);
+        bundle.putString("titulo", mtitulo);
         fragmentResultado.setArguments(bundle);
         replaceFragments(R.id.container, fragmentResultado);
     }

@@ -6,7 +6,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import br.digitalhouse.marveltime.R;
 
 public class Helper {
     public static boolean usuarioValido (String usuario){
@@ -90,23 +89,4 @@ public class Helper {
     public static String getString(TextInputLayout viewName) {
         return viewName.getEditText().getText().toString();
     }
-
-    public static String buscaChaveQuiz(int n) {
-        String sChave = "";
-        switch (n){
-            case R.string.quiz_homem_aranha:
-                sChave = "HA";
-                break;
-            case R.string.quiz_thor:
-                sChave = "TH";
-                break;
-            case R.string.quiz_homem_ferro:
-                sChave = "HF";
-                break;
-            case R.string.quiz_capitao:
-                sChave = "CA";
-                break;
-        }
-        return sChave;
-     }
 }

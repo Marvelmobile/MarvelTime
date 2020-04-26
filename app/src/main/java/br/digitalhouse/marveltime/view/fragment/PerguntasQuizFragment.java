@@ -48,6 +48,7 @@ public class PerguntasQuizFragment extends Fragment {
         colocarPerguntasTela(perguntaAtual);
 
         alternativaUm.setOnClickListener(v1 -> {
+
             if (controle) {
                 if (listaperguntasfiltrada.get(perguntaAtual).getAlternativa1().equals(listaperguntasfiltrada.get(perguntaAtual).getResposta())) {
                     correto++;
@@ -57,6 +58,7 @@ public class PerguntasQuizFragment extends Fragment {
                     ficaVermelho(alternativaUm);
                 }
             }
+
         });
 
         alternativaDois.setOnClickListener(v12 -> {
@@ -94,6 +96,7 @@ public class PerguntasQuizFragment extends Fragment {
                 }
             }
         });
+
         return v;
     }
 

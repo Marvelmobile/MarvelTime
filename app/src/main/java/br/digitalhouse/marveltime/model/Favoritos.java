@@ -1,10 +1,12 @@
 package br.digitalhouse.marveltime.model;
 
 public class Favoritos {
-    private PersonagemResult personagemResult;
-    private CardModel cardModelquestao;
+    private PersonagemResult personagemResult=null;
+    private CardModel cardModelquestao=null;
 
-    public Favoritos() {    }
+    public Favoritos(PersonagemResult personagemResult) {
+        this.personagemResult = personagemResult;
+    }
 
     public Favoritos(CardModel cardModelquestao) {
         this.cardModelquestao = cardModelquestao;
