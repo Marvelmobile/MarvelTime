@@ -37,9 +37,6 @@
     <string name="resposta">resposta</string>
     <string name="perguntas">perguntas</string>
     <string name="json">perguntas.json</string>
-    <string name="titulo">titulo</string>
-    <string name="errado">errado</string>
-    <string name="correto">correto</string>
     <string name="resp_corretas">questões corretas</string>
     <string name="_80">80%</string>
     <string name="quest_corretas">3/5 questões corretas</string>
@@ -64,4 +61,14 @@
     <string name="description_item_favoritado">Imagem do item favoritado</string>
     <string name="salvar_perfil">SALVAR PERFIL</string>
     <string name="foto_usuario">Foto do usuário</string>
+    <string name="estrela">estrela</string>
+    <string name="share">share</string>
+    <string name="favoritado"> Adicionado as favoritos</string>
+    <string name="verde">#4CAF50</string>
+    <string name="correto">correto</string>
+    <string name="errado">errado</string>
+    <string name="titulo">titulo</string>
+    <string name="erro_api">Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!</string>
+    <string name="erro_bd">Problema ao carregar Personagens do banco de dados</string>
+    <string name="desfavoritado">Item desfavoritado com sucesso!</string>
 </resources>

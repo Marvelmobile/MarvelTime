@@ -73,7 +73,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
 
     @Override
     public void click(PersonagemResult personagem) {
-        Intent intent = new Intent(RecyclerPersonagensActivity.this, PersonagensTelaActivity.class);
+        Intent intent = new Intent(this, PersonagensTelaActivity.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable(PERSONAGEM_KEY, personagem);
         intent.putExtras(bundle);
