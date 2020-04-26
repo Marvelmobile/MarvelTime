@@ -1,6 +1,5 @@
 package br.digitalhouse.marveltime.view.viewholder;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -13,14 +12,14 @@ public class ViewHolderFavoritos extends RecyclerView.ViewHolder {
     public ImageView imageFavoritado;
     public TextView texto;
     public ImageView desfavoritar;
-    public Button bntAbrirFavorito;
+    public ImageView imgAbrirFavorito;
 
     public ViewHolderFavoritos(@NonNull View itemView) {
         super(itemView);
         desfavoritar = itemView.findViewById(R.id.desfavoritar);
         imageFavoritado = itemView.findViewById(R.id.imagem_fav);
         texto = itemView.findViewById(R.id.textFav);
-        bntAbrirFavorito = itemView.findViewById(R.id.proximo_fav);
+        imgAbrirFavorito = itemView.findViewById(R.id.proximo_fav);
     }
 
     public void bind(Favoritos favoritos) {
