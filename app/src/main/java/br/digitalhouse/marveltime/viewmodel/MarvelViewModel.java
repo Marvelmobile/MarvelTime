@@ -5,8 +5,15 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.model.Favoritos;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.repository.MarvelRepository;
@@ -27,13 +34,18 @@ public class MarvelViewModel extends AndroidViewModel {
     }
     public LiveData<List<PersonagemResult>> personagemLista = mutablePersonagemLista;
     public LiveData<Boolean> getLoading = loading;
+    private MutableLiveData<List<Favoritos>> mutableLiveDatafavorito = new MutableLiveData<>();
+    public LiveData<List<Favoritos>> liveDatafavorito = mutableLiveDatafavorito;
+    private MutableLiveData<Favoritos> mutableLiveDatafavoritado = new MutableLiveData<>();
+    public LiveData<Favoritos> favoritado = mutableLiveDatafavoritado;
+    private DatabaseReference reference = FirebaseDatabase.getInstance()
+            .getReference("marvelTimeTeste" + "/favoritos");
 
     public void getPersongens(Integer offset) {
         if (verificaConexaoComInternet(getApplication())){
             recuperaOsDadosApi(offset);
         } else {
             carregaDadosBD(offset);
-            //TODO : Desse jeito funciona
             loading.setValue(false);
         }
     }
@@ -51,8 +63,8 @@ public class MarvelViewModel extends AndroidViewModel {
                                         mutablePersonagemLista.setValue(personagemResponse.getData().getResults()),
                                 throwable -> {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
-                                    mutableLiveDataErro.setValue("Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!");
-                                 })
+                                    mutableLiveDataErro.setValue(getApplication().getString(R.string.erro_api));
+                                })
         );
     }
 
@@ -62,16 +74,11 @@ public class MarvelViewModel extends AndroidViewModel {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable1 -> loading.setValue(true))
-                        //TODO : Nao está funcinoando, fica em loading infinito
                         .doOnTerminate(() -> loading.setValue(false))
-                        .subscribe(personagemResults ->
-                                        mutablePersonagemLista.setValue(personagemResults),
-                                 throwable -> {
-                                    Log.i("LOG", "erro : " + throwable.getMessage());
-                                    mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
-                                 })
-
-
+                        .subscribe(personagemResults -> mutablePersonagemLista.setValue(personagemResults),
+                                throwable -> {Log.i("LOG", "erro : " + throwable.getMessage());
+                                    mutableLiveDataErro.setValue(getApplication().getString(R.string.erro_bd));
+                                })
         );
     }
 
@@ -97,5 +104,92 @@ public class MarvelViewModel extends AndroidViewModel {
     protected void onCleared() {
         super.onCleared();
         disposable.clear();
+    }
+
+    public void salvarFavorito(Favoritos favorito) {
+        reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                boolean existe = false;
+
+                for (DataSnapshot resultSnapshot : dataSnapshot.getChildren()) {
+                    Favoritos firebaseResult = resultSnapshot.getValue(Favoritos.class);
+                    if (firebaseResult != null){
+                        if(firebaseResult.getPersonagemResult() != null && favorito.getPersonagemResult() != null){
+                            if(firebaseResult.getPersonagemResult().getId().equals(favorito.getPersonagemResult().getId())){
+                                existe = true;
+                            }
+                        }else if (firebaseResult.getCardModelquestao() != null && favorito.getCardModelquestao() != null){
+                            if(firebaseResult.getCardModelquestao().getNome() == (favorito.getCardModelquestao().getNome())){
+                                existe = true;
+                            }
+                        }
+                    }
+                }
+
+                if (existe) {
+                    mutableLiveDataErro.setValue("Item já favoritado!");
+                } else {
+                    salvarFavoritoVerificado(reference, favorito);
+                }
+            }
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
+        });
+    }
+
+    private void salvarFavoritoVerificado(DatabaseReference reference, Favoritos favorito) {
+        String key = reference.push().getKey();
+        reference.child(key).setValue(favorito);
+
+        reference.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Favoritos result1 = dataSnapshot.getValue(Favoritos.class);
+                mutableLiveDatafavoritado.setValue(result1);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
+        });
+    }
+
+    public void deletarFavorito(Favoritos favorito) {
+        reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    if (favorito.getPersonagemResult() != null && child.getValue(Favoritos.class).getPersonagemResult() != null) {
+                        if (child.getValue(Favoritos.class).getPersonagemResult().getId().equals(favorito.getPersonagemResult().getId())){
+                            child.getRef().removeValue();
+                            mutableLiveDatafavoritado.setValue(favorito);//TODO : TESTE
+                        }
+                    }else if (favorito.getCardModelquestao() != null && child.getValue(Favoritos.class).getCardModelquestao() != null) {
+                        if (child.getValue(Favoritos.class).getCardModelquestao().getNome() == (favorito.getCardModelquestao().getNome())){
+                            child.getRef().removeValue();
+                            mutableLiveDatafavoritado.setValue(favorito);//TODO : TESTE
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
+    public void carregarFavorito() {
+        reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<Favoritos> favoritos = new ArrayList<>();
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    Favoritos result = child.getValue(Favoritos.class);
+                    favoritos.add(result);
+                }
+                mutableLiveDatafavorito.setValue(favoritos);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
     }
 }

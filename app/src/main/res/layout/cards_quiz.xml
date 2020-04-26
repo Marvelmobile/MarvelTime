@@ -37,13 +37,13 @@
             android:textColor="@color/branco"
             android:textSize="16sp"
             android:textStyle="bold"
-            cardview:layout_constraintBottom_toTopOf="@+id/favoritado"
+            cardview:layout_constraintBottom_toTopOf="@+id/imgFavoritoQuiz"
             cardview:layout_constraintEnd_toEndOf="parent"
             cardview:layout_constraintStart_toEndOf="@+id/imagem_favoritos"
             cardview:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/favoritado"
+            android:id="@+id/imgFavoritoQuiz"
             android:layout_width="45dp"
             android:layout_height="38dp"
             android:layout_marginStart="16dp"
