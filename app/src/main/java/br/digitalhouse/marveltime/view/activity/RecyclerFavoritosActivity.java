@@ -1,12 +1,13 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import com.google.android.material.snackbar.Snackbar;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
     private RecyclerView recyclerView;
     private AdapterRecyclerFavoritos adapter;
     private MarvelViewModel viewModel;
+    private ImageView imageViewSair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +40,17 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
 
         viewModel.carregarFavorito();
         viewModel.liveDatafavorito.observe(this, favoritos -> adapter.atualizaLista(favoritos));
+      
+      imageViewSair.setOnClickListener(v -> {
+            Helper.deslogarFirebase();
+            startActivity(new Intent(RecyclerFavoritosActivity.this, LoginActivity.class));
+        });
     }
 
     private void initViews() {
         recyclerView = findViewById(R.id.recycler_view_favoritos);
         adapter = new AdapterRecyclerFavoritos(listaFvoritos, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapter);
         viewModel = ViewModelProviders.of(this).get(MarvelViewModel.class);
     }
@@ -58,7 +65,6 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
         }
     }
 
-    @Override
     public void abrirFavoritoClickListener(Favoritos favoritos) {
         if (favoritos.getPersonagemResult() != null) {
             Intent intent = new Intent(RecyclerFavoritosActivity.this, PersonagensTelaActivity.class);
@@ -98,5 +104,9 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
                 startActivity(new Intent(RecyclerFavoritosActivity.this, RecyclerQuizActivity.class));
                 break;
         }
+    }
+
+    private void initView(){
+        imageViewSair = findViewById(R.id.img_sair_fav);
     }
 }

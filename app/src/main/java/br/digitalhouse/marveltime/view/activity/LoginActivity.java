@@ -7,10 +7,13 @@ import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import org.jetbrains.annotations.NotNull;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
 import static br.digitalhouse.marveltime.util.Constantes.Activity_UM_DOIS;
@@ -19,8 +22,10 @@ import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
 public class LoginActivity extends AppCompatActivity {
     private TextInputLayout loginUsuario;
     private TextInputLayout loginSenha;
-    private FloatingActionButton bntLogin;
+    private Button bntLogin;
     private TextView loginRegistro;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +33,26 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initViews();
         linkCadastroUsuario();
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        authStateListener = firebaseAuth -> {
+            FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+            if (firebaseUser != null){
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            }
+        };
 
         bntLogin.setOnClickListener(v -> {
             if(validaCampos()){
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                firebaseAuth.signInWithEmailAndPassword(Helper.getString(loginUsuario),
+                        Helper.getString(loginSenha)).addOnCompleteListener(LoginActivity.this,
+                        task -> {
+                    if (!task.isSuccessful()){
+                        Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    } else {
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    }
+                });
             }
         });
 
@@ -39,13 +60,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean validaCampos(){
-        String usuario = loginUsuario.getEditText().getText().toString();
-        String senha = loginSenha.getEditText().getText().toString();
-
-        if (Helper.isEmptyString(usuario) || Helper.isEmptyString(senha))
+        if (Helper.isEmptyString(Helper.getString(loginUsuario)) || Helper.isEmptyString(Helper.getString(loginSenha)))
             notificacao(getString(R.string.preencher_campos));
-        else if (!Helper.usuarioValido(usuario) || !Helper.senhaValida(senha))
-            notificacao( getString(R.string.user_senha_fora_regra));
+        else if (!Helper.usuarioValido(Helper.getString(loginUsuario)) || !Helper.senhaValida(Helper.getString(loginSenha)))
+            notificacao(getString(R.string.user_senha_fora_regra));
         else
             return true;
 
@@ -72,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
         ClickableSpan myClickableSpan = new ClickableSpan() {
             @Override
-            public void onClick(View widget) { }
+            public void onClick(@NotNull View widget) { }
         };
         mySpannable.setSpan(myClickableSpan, i1, i2 + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
@@ -88,5 +106,11 @@ public class LoginActivity extends AppCompatActivity {
         Context contexto = getApplicationContext();
         Toast toast = Toast.makeText(contexto, sMensagem, Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebaseAuth.addAuthStateListener(authStateListener);
     }
 }

@@ -1,12 +1,16 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import com.michaldrabik.tapbarmenulib.TapBarMenu;
+import java.util.ArrayList;
+import br.digitalhouse.marveltime.util.Helper;
 import com.google.android.material.snackbar.Snackbar;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
@@ -28,7 +32,8 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
     private RecyclerView recyclerView;
     private AdapterRecyclerQuiz adapterRecyclerQuiz;
     private MarvelViewModel viewModel;
-
+    private ImageView imageViewSair;
+    
     @BindView(R.id.tapBarMenu)
     public TapBarMenu tapBarMenu;
 
@@ -38,6 +43,11 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
         setContentView(R.layout.activity_recycler_quiz);
         ButterKnife.bind(this);
         initViews();
+      
+        imageViewSair.setOnClickListener(v -> {
+            Helper.deslogarFirebase();
+            startActivity(new Intent(RecyclerQuizActivity.this, LoginActivity.class));
+        });
 
         viewModel.favoritado.observe(this, favoritos -> {
             if (favoritos != null){
@@ -56,9 +66,10 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
 
     private void initViews(){
         initCardModel();
+        imageViewSair = findViewById(R.id.img_sair_quiz);
         recyclerView = findViewById(R.id.recycler_view);
         adapterRecyclerQuiz = new AdapterRecyclerQuiz(listaCardQuiz, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setAdapter(adapterRecyclerQuiz);
         viewModel = ViewModelProviders.of(this).get(MarvelViewModel.class);
     }
@@ -79,7 +90,6 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
         startActivity(intent);
     }
 
-    @Override
     public void clickFavoritar(CardModel cardModel) {
         salvarFavorito(cardModel);
     }

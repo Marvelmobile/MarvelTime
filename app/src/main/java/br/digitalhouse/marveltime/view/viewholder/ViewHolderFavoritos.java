@@ -10,7 +10,7 @@ import br.digitalhouse.marveltime.model.Favoritos;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ViewHolderFavoritos extends RecyclerView.ViewHolder {
-    public CircleImageView imageFavoritado;
+    public ImageView imageFavoritado;
     public TextView texto;
     public ImageView desfavoritar;
 

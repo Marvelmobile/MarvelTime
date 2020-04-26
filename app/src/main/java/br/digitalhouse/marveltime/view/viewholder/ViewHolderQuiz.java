@@ -9,7 +9,7 @@ import br.digitalhouse.marveltime.model.CardModel;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ViewHolderQuiz extends RecyclerView.ViewHolder {
-    public CircleImageView image;
+    public ImageView image;
     public TextView texto;
     public ImageView imgViewFavorito;
 

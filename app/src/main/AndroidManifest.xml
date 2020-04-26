@@ -7,11 +7,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo_marvel_time_branco"
+        android:icon="@drawable/img_marveltime_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:supportsRtl="true">
+        <activity android:name=".view.activity.PerfilActivity"
+                  android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -25,7 +26,7 @@
             android:resource="@array/preloaded_fonts" />
         <activity
             android:name=".view.activity.ImagemPersonagemActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />

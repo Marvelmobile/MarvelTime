@@ -1,64 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    cardview:cardBackgroundColor="#212121"
-    cardview:cardCornerRadius="20dp"
-    android:layout_margin="10dp"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="170dp"
+    android:layout_height="305dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/rectangle_corner"
     android:focusable="true"
-    android:clickable="true">
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="118dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_marvel"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imagemFavoritado"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:padding="10dp"
+        <ImageView
+            android:id="@+id/imagem_favoritos"
+            android:layout_width="110dp"
+            android:layout_height="170dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/miniaranha"
-            cardview:layout_constraintStart_toStartOf="parent"
-            cardview:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/img_homem_aranha"
+            android:contentDescription="@string/description_item_favoritado"/>
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            cardview:layout_constraintBottom_toBottomOf="parent"
-            cardview:layout_constraintEnd_toEndOf="parent"
-            cardview:layout_constraintStart_toEndOf="@+id/imagem_favoritos"
-            cardview:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="10dp">
+    <TextView
+        android:id="@+id/textViewfavoritos"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/quiz_spider_man"
+        android:textAlignment="center"
+        android:textColor="@color/preto"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
-            <TextView
-                android:id="@+id/textViewfavoritado"
-                android:layout_width="184dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/lato"
-                android:text="@string/quiz_spider_man"
-                android:textAlignment="center"
-                android:textColor="@color/branco"
-                android:textSize="16sp"
-                cardview:layout_constraintStart_toEndOf="@+id/imagem_favoritos"
-                cardview:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/favoritado"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@android:string/ok"
+        android:src="@drawable/ic_favorito_amarelo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageView
-                android:id="@+id/desfavoritar"
-                android:layout_width="45dp"
-                android:layout_height="38dp"
-                android:layout_marginStart="76dp"
-                android:contentDescription="@android:string/ok"
-                android:src="@drawable/estrelaamarela"
-                cardview:layout_constraintStart_toEndOf="@+id/imagem_favoritos"
-                cardview:layout_constraintTop_toBottomOf="@+id/textViewfavoritos" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/proximo"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@android:string/ok"
+        android:src="@drawable/ic_ir_pagina"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
