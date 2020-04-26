@@ -30,14 +30,16 @@ public class CadastroActivity extends AppCompatActivity {
 
     private void cadastraNovoUsuario() {
 
-        if(validaCampos(getString(cadastrarNome), getString(cadastrarEmail), getString(cadastrarSenha), getString(cadastrarSenhaConfirmacao))){
-            mFirebaseAuth.createUserWithEmailAndPassword(getString(cadastrarEmail), getString(cadastrarSenhaConfirmacao))
+        if(validaCampos(Helper.getString(cadastrarNome), Helper.getString(cadastrarEmail),
+                Helper.getString(cadastrarSenha), Helper.getString(cadastrarSenhaConfirmacao))){
+            mFirebaseAuth.createUserWithEmailAndPassword(Helper.getString(cadastrarEmail),
+                    Helper.getString(cadastrarSenhaConfirmacao))
                     .addOnCompleteListener(CadastroActivity.this, task -> {
                                 if (!task.isSuccessful()){
                                     Toast.makeText(CadastroActivity.this,
-                                            getString(R.string.erro_firebase), Toast.LENGTH_LONG).show();
+                                            task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                 } else {
-                                    voltarTelaLoginActivity(getString(cadastrarEmail));
+                                    voltarTelaLoginActivity(Helper.getString(cadastrarEmail));
                                 }
                             });
         }
@@ -82,9 +84,5 @@ public class CadastroActivity extends AppCompatActivity {
         } else
             notificacao(getString(R.string.regra_senha));
         return false;
-    }
-
-    private String getString(TextInputLayout viewName) {
-        return viewName.getEditText().getText().toString();
     }
 }

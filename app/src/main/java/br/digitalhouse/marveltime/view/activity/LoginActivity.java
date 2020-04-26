@@ -44,7 +44,9 @@ public class LoginActivity extends AppCompatActivity {
 
         bntLogin.setOnClickListener(v -> {
             if(validaCampos()){
-                firebaseAuth.signInWithEmailAndPassword(getString(loginUsuario), getString(loginSenha)).addOnCompleteListener(LoginActivity.this, task -> {
+                firebaseAuth.signInWithEmailAndPassword(Helper.getString(loginUsuario),
+                        Helper.getString(loginSenha)).addOnCompleteListener(LoginActivity.this,
+                        task -> {
                     if (!task.isSuccessful()){
                         Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     } else {
@@ -58,10 +60,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean validaCampos(){
-        if (Helper.isEmptyString(getString(loginUsuario)) || Helper.isEmptyString(getString(loginSenha)))
+        if (Helper.isEmptyString(Helper.getString(loginUsuario)) || Helper.isEmptyString(Helper.getString(loginSenha)))
             notificacao(getString(R.string.preencher_campos));
-        else if (!Helper.usuarioValido(getString(loginUsuario)) || !Helper.senhaValida(getString(loginSenha)))
-            notificacao( getString(R.string.user_senha_fora_regra));
+        else if (!Helper.usuarioValido(Helper.getString(loginUsuario)) || !Helper.senhaValida(Helper.getString(loginSenha)))
+            notificacao(getString(R.string.user_senha_fora_regra));
         else
             return true;
 
@@ -104,10 +106,6 @@ public class LoginActivity extends AppCompatActivity {
         Context contexto = getApplicationContext();
         Toast toast = Toast.makeText(contexto, sMensagem, Toast.LENGTH_LONG);
         toast.show();
-    }
-
-    private String getString(TextInputLayout viewName) {
-        return viewName.getEditText().getText().toString();
     }
 
     @Override
