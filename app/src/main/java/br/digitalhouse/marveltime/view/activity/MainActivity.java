@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         imageViewPersonagens.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, RecyclerPersonagensActivity.class)));
 
         imageViewFavoritos.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, RecyclerFavoritosActivity.class)));
+
     }
 
     private void initViews (){
