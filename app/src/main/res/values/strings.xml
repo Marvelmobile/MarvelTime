@@ -61,6 +61,5 @@
     <string name="estrela">estrela</string>
     <string name="share">share</string>
     <string name="facebook_app_id">827026691132358</string>
-<!--    <string name="fb_login_protocol_scheme">827026691132358</string> //luc-->
-    <string name="fb_login_protocol_scheme">fb827026691132358</string> //fac
+    <string name="fb_login_protocol_scheme">fb827026691132358</string>
 </resources>
