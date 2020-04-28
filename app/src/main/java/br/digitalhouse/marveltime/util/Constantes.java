@@ -16,4 +16,5 @@ public class Constantes {
     public static final int PERMISSION_CODE = 100;
     public static final String CHAVE_APP = "CHAVE_APP";
     public static final String CHAVE_UIID = "UIID";
-}
+    public static final String CHAVE_IMG_PROFILE = "/image/profile/imagem-perfil";
+ }

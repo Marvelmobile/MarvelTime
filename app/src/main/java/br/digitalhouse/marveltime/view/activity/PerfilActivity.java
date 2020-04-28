@@ -28,6 +28,7 @@ import br.digitalhouse.marveltime.util.Helper;
 import de.hdodenhof.circleimageview.CircleImageView;
 import pl.aprilapps.easyphotopicker.DefaultCallback;
 import pl.aprilapps.easyphotopicker.EasyImage;
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_IMG_PROFILE;
 import static br.digitalhouse.marveltime.util.Constantes.PERMISSION_CODE;
 
 public class PerfilActivity extends AppCompatActivity {
@@ -36,6 +37,7 @@ public class PerfilActivity extends AppCompatActivity {
     private CircleImageView imgFotoPerfil;
     private Button bntSalvar;
     private InputStream stream = null;
+    private TextInputLayout tivNome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +45,10 @@ public class PerfilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_perfil);
         initView();
         loadEmail();
+        loadImageFromFirebase();
 
         imgFotoPerfil.setOnClickListener(v -> captureImage());
-        bntSalvar.setOnClickListener(v -> salvarImagemFirebase(stream, "imagem-perfil"));
+        bntSalvar.setOnClickListener(v -> salvarImagemFirebase(stream));
     }
 
     private void loadEmail(){
@@ -54,6 +57,7 @@ public class PerfilActivity extends AppCompatActivity {
             String email = user.getEmail();
             tivEmail.getEditText().setText(email);
             tivEmail.getEditText().setEnabled(false);
+            tivNome.getEditText().setText("Adelania Teste");
         }
     }
 
@@ -61,6 +65,7 @@ public class PerfilActivity extends AppCompatActivity {
         tivEmail = findViewById(R.id.textEmail);
         imgFotoPerfil = findViewById(R.id.imageviewUsuario);
         bntSalvar = findViewById(R.id.btnSalvar);
+        tivNome = findViewById(R.id.textNomeCompleto);
     }
 
     private void captureImage() {
@@ -74,17 +79,16 @@ public class PerfilActivity extends AppCompatActivity {
         }
     }
 
-    private void salvarImagemFirebase(InputStream stream, String name) {
+    private void salvarImagemFirebase(InputStream stream) {
         StorageReference storage = FirebaseStorage
                 .getInstance()
                 .getReference()
-                .child(Helper.getIdUsuario(getApplicationContext()) + "/image/profile/" + name);
+                .child(Helper.getIdUsuario(getApplicationContext()) + CHAVE_IMG_PROFILE);
 
         if (stream != null) {
             UploadTask uploadTask = storage.putStream(stream);
-            loadImageFromFirebase();
-
             uploadTask.addOnSuccessListener(taskSnapshot -> {
+                loadImageFromFirebase();
             }).addOnFailureListener(e -> {
                 Snackbar snackbar = Snackbar.make(tivEmail, e.getMessage(), Snackbar.LENGTH_LONG);
                 snackbar.getView().setBackgroundColor(Color.RED);
@@ -96,12 +100,10 @@ public class PerfilActivity extends AppCompatActivity {
         StorageReference storage = FirebaseStorage
                 .getInstance()
                 .getReference()
-                .child(Helper.getIdUsuario(getApplicationContext()) + "/image/profile/imagem-perfil");
+                .child(Helper.getIdUsuario(getApplicationContext()) + CHAVE_IMG_PROFILE);
 
         storage.getDownloadUrl()
-                .addOnSuccessListener(uri -> {
-                    Picasso.get().load(uri).rotate(90).into(imgFotoPerfil);
-                });
+                .addOnSuccessListener(uri -> Picasso.get().load(uri).into(imgFotoPerfil));
     }
 
     @Override
