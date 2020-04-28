@@ -1,5 +1,6 @@
 package br.digitalhouse.marveltime.util;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.google.android.material.textfield.TextInputLayout;
@@ -7,6 +8,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import br.digitalhouse.marveltime.R;
+
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_APP;
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_UIID;
 
 public class Helper {
     public static boolean usuarioValido (String usuario){
@@ -89,6 +93,16 @@ public class Helper {
 
     public static String getString(TextInputLayout viewName) {
         return viewName.getEditText().getText().toString();
+    }
+
+    public static String getIdUsuario(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(CHAVE_APP, Context.MODE_PRIVATE);
+        return preferences.getString(CHAVE_UIID, "");
+    }
+
+    public static void salvarIdUsuario(Context context, String uiid) {
+        SharedPreferences preferences = context.getSharedPreferences(CHAVE_APP, Context.MODE_PRIVATE);
+        preferences.edit().putString(CHAVE_UIID, uiid).apply();
     }
 
     public static String buscaChaveQuiz(int n) {

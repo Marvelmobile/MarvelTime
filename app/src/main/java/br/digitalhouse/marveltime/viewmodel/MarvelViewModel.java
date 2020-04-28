@@ -17,6 +17,7 @@ import br.digitalhouse.marveltime.model.Favoritos;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.repository.MarvelRepository;
+import br.digitalhouse.marveltime.util.Helper;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -39,7 +40,7 @@ public class MarvelViewModel extends AndroidViewModel {
     private MutableLiveData<Favoritos> mutableLiveDatafavoritado = new MutableLiveData<>();
     public LiveData<Favoritos> favoritado = mutableLiveDatafavoritado;
     private DatabaseReference reference = FirebaseDatabase.getInstance()
-            .getReference("marvelTimeTeste" + "/favoritos");
+            .getReference("favoritos/" + Helper.getIdUsuario(getApplication()));
 
     public void getPersongens(Integer offset) {
         if (verificaConexaoComInternet(getApplication())){
@@ -160,12 +161,12 @@ public class MarvelViewModel extends AndroidViewModel {
                     if (favorito.getPersonagemResult() != null && child.getValue(Favoritos.class).getPersonagemResult() != null) {
                         if (child.getValue(Favoritos.class).getPersonagemResult().getId().equals(favorito.getPersonagemResult().getId())){
                             child.getRef().removeValue();
-                            mutableLiveDatafavoritado.setValue(favorito);//TODO : TESTE
+                            mutableLiveDatafavoritado.setValue(favorito);
                         }
                     }else if (favorito.getCardModelquestao() != null && child.getValue(Favoritos.class).getCardModelquestao() != null) {
                         if (child.getValue(Favoritos.class).getCardModelquestao().getNome() == (favorito.getCardModelquestao().getNome())){
                             child.getRef().removeValue();
-                            mutableLiveDatafavoritado.setValue(favorito);//TODO : TESTE
+                            mutableLiveDatafavoritado.setValue(favorito);
                         }
                     }
                 }
