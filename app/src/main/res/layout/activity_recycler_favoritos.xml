@@ -46,7 +46,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginStart="20dp"
         tools:listitem="@layout/cards_favoritos"
         android:layout_above="@+id/tapBarMenu"
         android:layout_below="@+id/bntFavoritos" />
