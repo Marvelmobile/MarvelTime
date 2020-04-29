@@ -2,7 +2,6 @@ package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,12 +23,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
         initViews();
 
-        bntCadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cadastraNovoUsuario();
-            }
-        });
+        bntCadastrar.setOnClickListener(v -> cadastraNovoUsuario());
     }
 
     private void cadastraNovoUsuario() {
@@ -61,10 +55,9 @@ public class CadastroActivity extends AppCompatActivity {
         bntCadastrar = findViewById(R.id.bntCadastrar);
     }
 
-    protected void notificacao(String sMensagem) {
+    private void notificacao(String sMensagem) {
         Context contexto = getApplicationContext();
-        String textoNotificacao = sMensagem;
-        Toast toast = Toast.makeText(contexto, textoNotificacao, Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(contexto, sMensagem, Toast.LENGTH_LONG);
         toast.show();
     }
 
@@ -83,7 +76,6 @@ public class CadastroActivity extends AppCompatActivity {
                 return true;
         } else
             notificacao(getString(R.string.regra_senha));
-
         return false;
     }
 }

@@ -10,8 +10,6 @@ public class PersonagemResponse implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private long id;
     @Expose
-    private String attributionHTML;
-    @Expose
     private String attributionText;
     @Expose
     private Long code;
@@ -35,7 +33,6 @@ public class PersonagemResponse implements Parcelable {
     }
 
     protected PersonagemResponse(Parcel in) {
-        attributionHTML = in.readString();
         attributionText = in.readString();
         if (in.readByte() == 0) {
             code = null;
@@ -58,14 +55,6 @@ public class PersonagemResponse implements Parcelable {
             return new PersonagemResponse[size];
         }
     };
-
-    public String getAttributionHTML() {
-        return attributionHTML;
-    }
-
-    public void setAttributionHTML(String attributionHTML) {
-        this.attributionHTML = attributionHTML;
-    }
 
     public String getAttributionText() {
         return attributionText;
@@ -122,7 +111,6 @@ public class PersonagemResponse implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(attributionHTML);
         dest.writeString(attributionText);
         if (code == null) {
             dest.writeByte((byte) 0);

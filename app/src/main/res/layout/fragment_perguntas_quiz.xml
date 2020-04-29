@@ -29,6 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:contentDescription="@string/item"
         android:id="@+id/fragment_background_imageview_perguntas"
         android:layout_width="match_parent"
         android:layout_height="75dp"
@@ -39,6 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/fragment_titulo_principal" />
 
     <TextView
+        android:contentDescription="@string/item"
         android:id="@+id/fragement_textview_pergunta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,10 +114,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:background="@drawable/round_button"
         android:fontFamily="@font/lato_black"
         android:text="@string/fragment_resposta_quatro"

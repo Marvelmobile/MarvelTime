@@ -9,8 +9,8 @@ import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 
 public class ViewHolderPersonagens extends RecyclerView.ViewHolder {
-    public ImageView imagemPersonagem;
-    public TextView nomePersonagem;
+    private ImageView imagemPersonagem;
+    private TextView nomePersonagem;
 
     public ViewHolderPersonagens(@NonNull View itemView) {
         super(itemView);

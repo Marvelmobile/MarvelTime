@@ -42,21 +42,17 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         setScrollView();
 
         marvelViewModel.getPersongens(offset);
-        marvelViewModel.getPersonagensLista().observe(this, personagemResults -> {
-            adapter.atualizaLista(personagemResults);
-        });
+        marvelViewModel.personagemLista.observe(this, personagemResults -> adapter.atualizaLista(personagemResults));
 
-        marvelViewModel.getLoading().observe(this, loading -> {
+        marvelViewModel.getLoading.observe(this, loading -> {
             if (loading) {
                 progressBar.setVisibility(View.VISIBLE);
             } else {
-                progressBar.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.GONE);
             }
         });
 
-        marvelViewModel.liveDataErro.observe(this, error -> {
-            Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-        });
+        marvelViewModel.liveDataErro.observe(this, error -> Toast.makeText(this, error, Toast.LENGTH_LONG).show());
     }
 
     private void initViews() {

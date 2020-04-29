@@ -8,6 +8,7 @@
     tools:context=".view.activity.RecyclerQuizActivity">
 
     <ImageView
+        android:contentDescription="@string/logo"
         android:id="@+id/imgLogoMarvel4"
         android:layout_width="261dp"
         android:layout_height="105dp"
@@ -55,6 +56,7 @@
         app:tbm_menuAnchor="bottom">
 
         <ImageView
+            android:contentDescription="@string/item"
             android:id="@+id/item1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -65,6 +67,7 @@
             tools:visibility="visible" />
 
         <ImageView
+            android:contentDescription="@string/item"
             android:id="@+id/item2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -79,6 +82,7 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:contentDescription="@string/item"
             android:id="@+id/item3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -88,6 +92,7 @@
             android:src="@drawable/img_hferro" />
 
         <ImageView
+            android:contentDescription="@string/item"
             android:id="@+id/item4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

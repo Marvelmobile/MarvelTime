@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundPreto"
+    android:background="@color/preto"
     tools:context=".view.activity.ImagemPersonagemActivity">
 
     <LinearLayout
@@ -36,6 +36,7 @@
             android:background="@color/branco">
 
             <ImageView
+                android:contentDescription="@string/imagem_personagens"
                 android:id="@+id/circleImageViewDetalhe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -47,4 +48,4 @@
                 app:srcCompat="@drawable/heroes" />
         </FrameLayout>
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
     <ImageView
+        android:contentDescription="@string/item"
         android:id="@+id/fragment_background_imageview_perguntas"
         android:layout_width="300dp"
         android:layout_height="350dp"
@@ -19,7 +20,7 @@
 
     <TextView
         android:id="@+id/titulo_resultado"
-        android:layout_width="384dp"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_bold_italic"
         android:gravity="center"
@@ -81,31 +82,25 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_background_imageview_perguntas">
 
         <ImageView
-            android:id="@+id/share_historia"
-            android:layout_width="40dp"
+            android:contentDescription="@string/item"
+            android:id="@+id/share_resultado"
+            android:layout_width="00dp"
             android:layout_height="38dp"
             android:layout_weight="1"
             android:src="@drawable/ic_share_black_24dp" />
 
-        <ImageView
-            android:id="@+id/estrela_historia"
-            android:layout_width="45dp"
-            android:layout_height="38dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_star_border_black_24dp" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/texto_historia"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/lato_bold"
         android:gravity="center_vertical"
@@ -117,5 +112,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultado_numero_questao" />
+        app:layout_constraintTop_toBottomOf="@+id/resultado_numero_questao"
+        tools:ignore="RtlCompat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

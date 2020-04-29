@@ -49,4 +49,15 @@
     <string name="quest_corretas">3/5 questões corretas</string>
     <string name="resultado">Resultado:</string>
     <string name="compartilhe_resultado">Mostre sua força e compartilhe o resultado!</string>
+    <string name="marvel">Conheça mais sobre a Marvel e seus Super-heróis, baixe o App Marvel Time no Google Play e divirta-se!</string>
+    <string name="result">Veja, esse foi o meu resultado no Quiz Marvel! Baixe o App Marvel Time no Google Play e teste os seus conhecimentos também!</string>
+    <string name="questoes_corretas">/5 questões corretas!</string>
+    <string name="button">Button</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="logo">Logo</string>
+    <string name="imagem_personagens">imagem personagens</string>
+    <string name="imagem_tela_inicial">imagem tela inicial</string>
+    <string name="item">item</string>
+    <string name="estrela">estrela</string>
+    <string name="share">share</string>
 </resources>
