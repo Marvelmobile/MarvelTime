@@ -101,6 +101,15 @@
                     android:text="@string/salvar_perfil"
                     android:textStyle="bold"
                     android:textColor="@color/branco" />
+
+                <ProgressBar
+                    android:id="@+id/progressbarPerfil"
+                    android:layout_width="111dp"
+                    android:layout_height="81dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

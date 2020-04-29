@@ -3,12 +3,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import br.digitalhouse.marveltime.R;
-
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_APP;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_UIID;
 
@@ -123,4 +123,9 @@ public class Helper {
         }
         return sChave;
      }
+
+    public static void notificacao(Context contexto, String sMensagem) {
+        Toast toast = Toast.makeText(contexto, sMensagem, Toast.LENGTH_LONG);
+        toast.show();
+    }
 }

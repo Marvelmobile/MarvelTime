@@ -12,7 +12,7 @@ import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.Favoritos;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.model.Url;
-import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
+import br.digitalhouse.marveltime.viewmodel.FirebaseViewModel;
 import de.hdodenhof.circleimageview.CircleImageView;
 import static br.digitalhouse.marveltime.util.Constantes.IMAGEM_KEY;
 import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
@@ -24,7 +24,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     private TextView nomePersonagem;
     private ImageView share_Personagem;
     private ImageView imgFavorito;
-    private MarvelViewModel viewModel;
+    private FirebaseViewModel viewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     private void salvarFavorito(PersonagemResult personagemResult) {
         Favoritos favoritos = new Favoritos();
         favoritos.setPersonagemResult(personagemResult);
-        viewModel.salvarFavorito(favoritos);
+        viewModel.salvarFavoritoFirebase(favoritos);
     }
 
     private void initView(){
@@ -80,7 +80,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         nomePersonagem = findViewById(R.id.textView_nomePersonagem);
         share_Personagem = findViewById(R.id.share_resultado);
         imgFavorito = findViewById(R.id.favorito_personagem);
-        viewModel = ViewModelProviders.of(this).get(MarvelViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(FirebaseViewModel.class);
     }
 
     private void shareMarvel(PersonagemResult personagemResult) {
