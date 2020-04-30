@@ -96,7 +96,6 @@
                 android:id="@+id/fragement_textview_pergunta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:fontFamily="@font/lato_bold"
                 android:padding="16dp"
                 android:text="@string/resultado"
@@ -105,7 +104,7 @@
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
                 app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
-                app:layout_constraintTop_toBottomOf="@+id/titulo_resultado" />
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <TextView
