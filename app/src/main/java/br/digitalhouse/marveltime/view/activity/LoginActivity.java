@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         loginRegistro.setOnClickListener(v -> startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class), 1));
+        btngoogle.setOnClickListener(v -> SignInGoogle());
     }
 
     private void google() {
@@ -84,7 +85,6 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        btngoogle.setOnClickListener(v -> SignInGoogle());
     }
 
     void SignInGoogle() {
@@ -118,8 +118,9 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         firebaseUser = firebaseAuth.getCurrentUser();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
-                        notificacao("Falha ao tentar logar com o Google");
+                        notificacao(getString(R.string.falhagoogle));
                     }
                 });
     }

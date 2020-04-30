@@ -1,18 +1,27 @@
 package br.digitalhouse.marveltime.view.activity;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
+
 import java.util.ArrayList;
+
 import br.digitalhouse.marveltime.util.Helper;
+
 import com.google.android.material.snackbar.Snackbar;
+
 import java.util.List;
+
 import br.digitalhouse.marveltime.model.Favoritos;
 import br.digitalhouse.marveltime.view.Interfaces.OnClickQuiz;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerQuiz;
@@ -22,6 +31,7 @@ import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_NOME;
 
 public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQuiz {
@@ -30,7 +40,7 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
     private AdapterRecyclerQuiz adapterRecyclerQuiz;
     private MarvelViewModel viewModel;
     private ImageView imageViewSair;
-    
+
     @BindView(R.id.tapBarMenu)
     public TapBarMenu tapBarMenu;
 
@@ -40,14 +50,19 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
         setContentView(R.layout.activity_recycler_quiz);
         ButterKnife.bind(this);
         initViews();
-      
+
         imageViewSair.setOnClickListener(v -> {
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail()
+                    .build();
+            Helper.sairContaGoogle(gso, getApplicationContext(), this);
             Helper.deslogarFirebase();
             startActivity(new Intent(RecyclerQuizActivity.this, LoginActivity.class));
         });
 
         viewModel.favoritado.observe(this, favoritos -> {
-            if (favoritos != null){
+            if (favoritos != null) {
                 Snackbar snackbar = Snackbar.make(recyclerView, "Quiz " + getString(R.string.favoritado), Snackbar.LENGTH_LONG);
                 snackbar.getView().setBackgroundColor(Color.GREEN);
                 snackbar.show();
@@ -61,12 +76,12 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
         });
     }
 
-    private void initViews(){
+    private void initViews() {
         initCardModel();
         imageViewSair = findViewById(R.id.img_sair_quiz);
         recyclerView = findViewById(R.id.recycler_view);
         adapterRecyclerQuiz = new AdapterRecyclerQuiz(listaCardQuiz, this);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapterRecyclerQuiz);
         viewModel = ViewModelProviders.of(this).get(MarvelViewModel.class);
     }
@@ -80,7 +95,7 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
 
     @Override
     public void clickAbreQuiz(CardModel cardModel) {
-        Intent intent= new Intent(this, RecebePerguntasQuizActivity.class);
+        Intent intent = new Intent(this, RecebePerguntasQuizActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtra(CHAVE_NOME, Helper.buscaChaveQuiz(cardModel.getNome()));
         intent.putExtras(bundle);

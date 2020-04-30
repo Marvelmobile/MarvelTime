@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.snackbar.Snackbar;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
@@ -42,7 +44,12 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
         viewModel.liveDatafavorito.observe(this, favoritos -> adapter.atualizaLista(favoritos));
       
       imageViewSair.setOnClickListener(v -> {
-            Helper.deslogarFirebase();
+          GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                  .requestIdToken(getString(R.string.default_web_client_id))
+                  .requestEmail()
+                  .build();
+          Helper.sairContaGoogle(gso, getApplicationContext(), this);
+          Helper.deslogarFirebase();
             startActivity(new Intent(RecyclerFavoritosActivity.this, LoginActivity.class));
         });
     }

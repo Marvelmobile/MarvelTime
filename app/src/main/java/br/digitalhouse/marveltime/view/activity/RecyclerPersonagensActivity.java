@@ -1,18 +1,24 @@
 package br.digitalhouse.marveltime.view.activity;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.util.Helper;
 import br.digitalhouse.marveltime.view.Interfaces.OnClickListenerPersonagem;
@@ -22,6 +28,7 @@ import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
 
 public class RecyclerPersonagensActivity extends AppCompatActivity implements OnClickListenerPersonagem {
@@ -58,6 +65,11 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         marvelViewModel.liveDataErro.observe(this, error -> Toast.makeText(this, error, Toast.LENGTH_LONG).show());
 
         imageViewSairPersonagem.setOnClickListener(v -> {
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail()
+                    .build();
+            Helper.sairContaGoogle(gso, getApplicationContext(), this);
             Helper.deslogarFirebase();
             startActivity(new Intent(RecyclerPersonagensActivity.this, LoginActivity.class));
         });
@@ -96,7 +108,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
                 boolean ultimoItem = lastVisible + 5 >= totalItemCount;
 
                 if (totalItemCount > 0 && ultimoItem) {
-                    offset+=20;
+                    offset += 20;
                     marvelViewModel.getPersongens(offset);
                 }
             }
