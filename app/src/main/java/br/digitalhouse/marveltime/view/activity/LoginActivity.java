@@ -75,10 +75,8 @@ public class LoginActivity extends AppCompatActivity {
 
         loginRegistro.setOnClickListener(v -> startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class),1));
 
-         //Facebook
         callbackManager = CallbackManager.Factory.create();
 
-        // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();
         FacebookSdk.sdkInitialize(getApplicationContext());
 
