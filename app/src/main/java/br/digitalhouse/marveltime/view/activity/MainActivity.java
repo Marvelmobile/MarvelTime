@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import com.facebook.login.LoginManager;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         imageViewSair.setOnClickListener(v -> {
             Helper.deslogarFirebase();
+            LoginManager.getInstance().logOut();
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         });
 
