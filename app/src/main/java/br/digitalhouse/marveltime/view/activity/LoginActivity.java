@@ -1,4 +1,5 @@
 package br.digitalhouse.marveltime.view.activity;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -10,14 +11,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import org.jetbrains.annotations.NotNull;
+import java.util.Arrays;
+import br.digitalhouse.marveltime.AppUtil;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
 import static br.digitalhouse.marveltime.util.Constantes.Activity_UM_DOIS;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 public class LoginActivity extends AppCompatActivity {
     private TextInputLayout loginUsuario;
@@ -26,6 +42,11 @@ public class LoginActivity extends AppCompatActivity {
     private TextView loginRegistro;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
+    private FirebaseAuth mFirebaseAuth;
+//    private LoginButton loginButton;
+    private CallbackManager callbackManager;
+    private AccessTokenTracker accessTokenTracker;
+    private FloatingActionButton btnFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +78,20 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         loginRegistro.setOnClickListener(v -> startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class),1));
+//
+         //Facebook
+        callbackManager = CallbackManager.Factory.create();
+//        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+
+        // Initialize Firebase Auth
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
+
+
+        btnFacebook.setOnClickListener(click -> {
+            loginFacebook();
+        });
     }
 
     private boolean validaCampos(){
@@ -70,14 +105,15 @@ public class LoginActivity extends AppCompatActivity {
         return false;
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Activity_UM_DOIS) {
-            if (resultCode == RESULT_OK) {
-                loginUsuario.getEditText().setText(data.getStringExtra(CHAVE_EMAIL));
-            }
-        }
-    }
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == Activity_UM_DOIS) {
+//            if (resultCode == RESULT_OK) {
+//                loginUsuario.getEditText().setText(data.getStringExtra(CHAVE_EMAIL));
+//                callbackManager.onActivityResult(requestCode, resultCode, data);
+//            }
+//        }
+//    }
 
     private void linkCadastroUsuario() {
         String msgRegistroUsuario = getString(R.string.registre_se);
@@ -100,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
         loginSenha = findViewById(R.id.loginSenha);
         bntLogin = findViewById(R.id.btnLogin);
         loginRegistro = findViewById(R.id.loginRegistro);
+        btnFacebook = findViewById(R.id.loginFacebook);
     }
 
     private void notificacao (String sMensagem){
@@ -112,5 +149,44 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(authStateListener);
+    }
+    //FACEBOOK
+    private void irParaMain(String uiid) {
+        AppUtil.salvarIdUsuario(getApplication().getApplicationContext(), uiid);
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Pass the activity result back to the Facebook SDK
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+
+    }
+
+    public void loginFacebook() {
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile"));
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                AuthCredential credential = FacebookAuthProvider
+                        .getCredential(loginResult.getAccessToken().getToken());
+                FirebaseAuth.getInstance().signInWithCredential(credential)
+                        .addOnCompleteListener(task -> {
+                            irParaMain(loginResult.getAccessToken().getUserId());
+                        });
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(LoginActivity.this, "Cancelado!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
