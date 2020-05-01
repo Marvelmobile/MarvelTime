@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/red_splash"
     tools:context=".view.activity.SplashActivity">
 
     <ImageView
         android:contentDescription="@string/logo"
         android:id="@+id/splash"
         android:paddingStart="20dp"
-        android:paddingEnd="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/splash" />

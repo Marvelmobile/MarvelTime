@@ -13,7 +13,6 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash2);
-        getWindow().setBackgroundDrawableResource(R.color.red_splash);
         timer.schedule(new TimerTask() {
             @Override
             public void run() {

@@ -1,148 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_marvel"
     tools:context=".view.activity.CadastroActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/red_splash"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/textCadastro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="@string/cadastro"
-            android:textColor="@color/branco"
-            android:textSize="21sp"
-            android:textStyle="bold" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_gravity="center"
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="500dp"
             android:background="@drawable/rounded_corner"
-            android:orientation="vertical">
+            android:backgroundTint="@color/red_splash"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cadastrarNome"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/textCadastro"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:textColorHint="@color/preto"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/nome_completo"
-                    android:textColor="@color/preto"
-                    android:textColorHint="@color/preto" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cadastrarEmail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:textColorHint="@color/preto"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cadastrarNome">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/email"
-                    android:textColor="@color/preto"
-                    android:textColorHint="@color/preto" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cadastrarSenha"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:textColorHint="@color/preto"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cadastrarEmail">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/senha"
-                    android:inputType="textPassword"
-                    android:textColor="@color/preto"
-                    android:textColorHint="@color/preto" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cadastrarSenhaConfirmacao"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:textColorHint="@color/preto"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cadastrarSenha">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/confirma_senha"
-                    android:inputType="textPassword"
-                    android:textColor="@color/preto"
-                    android:textColorHint="@color/preto" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/bntCadastrar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/red_splash"
-                android:text="@string/cadastrar"
-                android:textAllCaps="true"
+                android:gravity="center"
+                android:text="@string/cadastro"
                 android:textColor="@color/branco"
-                android:textSize="16sp"
+                android:textSize="23sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.533"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cadastrarSenhaConfirmacao"
-                app:layout_constraintVertical_bias="0.0" />
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_gravity="center"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cadastrarNome"
+                    android:layout_width="330dp"
+                    android:layout_height="56dp"
+                    android:textColorHint="@color/preto"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.019">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nome_completo"
+                        android:textColor="@color/preto"
+                        android:textColorHint="@color/preto" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cadastrarEmail"
+                    android:layout_width="330dp"
+                    android:layout_height="56dp"
+                    android:textColorHint="@color/preto"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cadastrarNome"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email"
+                        android:textColor="@color/preto"
+                        android:textColorHint="@color/preto" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cadastrarSenha"
+                    android:layout_width="330dp"
+                    android:layout_height="56dp"
+                    android:textColorHint="@color/preto"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cadastrarEmail"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/senha"
+                        android:inputType="textPassword"
+                        android:textColor="@color/preto"
+                        android:textColorHint="@color/preto" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cadastrarSenhaConfirmacao"
+                    android:layout_width="330dp"
+                    android:layout_height="56dp"
+                    android:textColorHint="@color/preto"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cadastrarSenha"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/confirma_senha"
+                        android:inputType="textPassword"
+                        android:textColor="@color/preto"
+                        android:textColorHint="@color/preto" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/bntCadastrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:backgroundTint="@color/red_splash"
+                    android:text="@string/cadastrar"
+                    android:textAllCaps="true"
+                    android:textColor="@color/branco"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cadastrarSenhaConfirmacao"
+                    app:layout_constraintVertical_bias="0.2"/>
+
+                <TextView
+                    android:id="@+id/tvLoginRedesSociais"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/entrar_google_face"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bntCadastrar"
+                    app:layout_constraintVertical_bias="0.14" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/loginFacebook"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="120dp"
+                    android:backgroundTint="@color/azul_facebook"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:fabSize="mini"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/loginGoogle"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bntCadastrar"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:maxImageSize="27dp"
+                    app:srcCompat="@drawable/icon_facebook" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/loginGoogle"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="120dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:backgroundTint="@color/branco"
+                    app:fabSize="mini"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bntCadastrar"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/icon_google" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,126 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_menu_principal"
     tools:context=".view.activity.MainActivity">
 
-  <androidx.core.widget.NestedScrollView
+  <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:background="@drawable/background_menu_principal"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+      android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <ImageView
+          android:id="@+id/imgLogoMarvel"
+          android:layout_width="264dp"
+          android:layout_height="117dp"
+          android:layout_marginStart="65dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="65dp"
+          android:paddingStart="30dp"
+          android:paddingEnd="10dp"
+          android:src="@drawable/img_logo_padrao"
+          android:contentDescription="@string/description_iv_logo"/>
+
+      <ImageView
+          android:id="@+id/img_sair"
+          android:layout_width="80dp"
+          android:layout_height="50dp"
+          android:layout_marginStart="330dp"
+          android:layout_marginTop="10dp"
+          android:src="@drawable/ic_sair"
+          android:contentDescription="@string/description_sair"/>
+
+      <ImageView
+          android:id="@+id/img_perfil"
+          android:layout_width="80dp"
+          android:layout_height="50dp"
+          android:layout_marginTop="13dp"
+          android:src="@drawable/ic_perfil"
+          android:contentDescription="@string/description_sair"/>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="30dp">
 
-      <FrameLayout
+      <Button
+          android:id="@+id/img_quiz"
           android:layout_width="match_parent"
-          android:layout_height="match_parent">
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@drawable/rounded_corner"
+          android:backgroundTint="@color/red_splash"
+          android:text="@string/quiz"
+          android:textAllCaps="true"
+          android:textColor="@color/branco"
+          android:textSize="16sp"
+          android:textStyle="bold"
+          android:layout_marginTop="20dp"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:paddingLeft="50dp"
+          android:paddingRight="50dp"
+          android:drawableStart="@drawable/ic_quiz"/>
 
-        <ImageView
-            android:id="@+id/imgLogoMarvel"
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="24dp"
-            android:contentDescription="@string/description_iv_logo"
-            android:src="@drawable/img_logo_padrao" />
-
-        <ImageView
-            android:id="@+id/img_sair"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:contentDescription="@string/description_sair"
-            android:src="@drawable/ic_sair" />
-
-        <ImageView
-            android:id="@+id/img_perfil"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="start"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/description_sair"
-            android:src="@drawable/ic_perfil" />
-      </FrameLayout>
-
-      <LinearLayout
+      <Button
+          android:id="@+id/img_personagens"
           android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:orientation="vertical"
-          android:paddingTop="30dp">
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@drawable/rounded_corner"
+          android:backgroundTint="@color/red_splash"
+          android:text="@string/personagem"
+          android:textAllCaps="true"
+          android:textColor="@color/branco"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          android:layout_marginTop="20dp"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:paddingLeft="50dp"
+          android:paddingRight="50dp"
+          android:drawableStart="@drawable/ic_personagem"/>
 
-        <Button
-            android:id="@+id/img_quiz"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="@color/red_splash"
-            android:drawableStart="@drawable/ic_quiz"
-            android:paddingLeft="50dp"
-            android:paddingTop="10dp"
-            android:paddingRight="50dp"
-            android:paddingBottom="10dp"
-            android:text="@string/quiz"
-            android:textAllCaps="true"
-            android:textColor="@color/branco"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/img_personagens"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="@color/red_splash"
-            android:drawableStart="@drawable/ic_personagem"
-            android:paddingLeft="50dp"
-            android:paddingTop="10dp"
-            android:paddingRight="50dp"
-            android:paddingBottom="10dp"
-            android:text="@string/personagem"
-            android:textAllCaps="true"
-            android:textColor="@color/branco"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/img_favoritos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="@color/red_splash"
-            android:drawableStart="@drawable/ic_favorito"
-            android:paddingLeft="50dp"
-            android:paddingTop="10dp"
-            android:paddingRight="50dp"
-            android:paddingBottom="10dp"
-            android:text="@string/favoritos"
-            android:textAllCaps="true"
-            android:textColor="@color/branco"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-      </LinearLayout>
+      <Button
+          android:id="@+id/img_favoritos"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="@drawable/rounded_corner"
+          android:backgroundTint="@color/red_splash"
+          android:text="@string/favoritos"
+          android:textAllCaps="true"
+          android:textColor="@color/branco"
+          android:textSize="16sp"
+          android:textStyle="bold"
+          android:layout_marginTop="20dp"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:paddingLeft="50dp"
+          android:paddingRight="50dp"
+          android:drawableStart="@drawable/ic_favorito"/>
     </LinearLayout>
-  </androidx.core.widget.NestedScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>
