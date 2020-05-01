@@ -30,8 +30,7 @@ import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
 import static br.digitalhouse.marveltime.util.Constantes.Activity_UM_DOIS;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+
 public class LoginActivity extends AppCompatActivity {
     private TextInputLayout loginUsuario;
     private TextInputLayout loginSenha;
