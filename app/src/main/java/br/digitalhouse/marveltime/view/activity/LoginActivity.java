@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
         firebaseAuth.addAuthStateListener(authStateListener);
     }
     
-    private void irParaMain(String uiid) {
+    private void irParaMain(String userId) {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
