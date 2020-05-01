@@ -96,10 +96,10 @@ public class LoginActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Activity_UM_DOIS) {
             if (resultCode == RESULT_OK) {
                 loginUsuario.getEditText().setText(data.getStringExtra(CHAVE_EMAIL));
-                callbackManager.onActivityResult(requestCode, resultCode, data);
             }
         }
     }
