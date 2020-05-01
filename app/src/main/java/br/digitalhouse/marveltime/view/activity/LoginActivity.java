@@ -81,8 +81,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void google() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
@@ -101,16 +101,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
         if (requestCode == GOOGLE_SIGN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn
-                    .getSignedInAccountFromIntent(data);
-            try {
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account);
-            } catch (ApiException e) {
-                e.printStackTrace();
+                Task<GoogleSignInAccount> task = GoogleSignIn
+                        .getSignedInAccountFromIntent(data);
+                try {
+                    GoogleSignInAccount account = task.getResult(ApiException.class);
+                    firebaseAuthWithGoogle(account);
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                }
             }
         }
-    }
+
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
