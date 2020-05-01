@@ -38,6 +38,7 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_quiz);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_padrao);
         ButterKnife.bind(this);
         initViews();
       

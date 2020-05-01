@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_padrao"
     tools:context=".view.activity.RecyclerFavoritosActivity">
 
     <ImageView
@@ -16,7 +15,7 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/description_sair"
         android:src="@drawable/ic_sair"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentEnd="true"/>
 
     <Button
         android:id="@+id/bntFavoritos"
@@ -44,8 +43,8 @@
         android:id="@+id/recycler_view_favoritos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         tools:listitem="@layout/cards_favoritos"
         android:layout_above="@+id/tapBarMenu"
         android:layout_below="@+id/bntFavoritos" />

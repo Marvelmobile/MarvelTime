@@ -35,6 +35,7 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_favoritos);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_padrao);
         ButterKnife.bind(this);
         initViews();
 
