@@ -1,8 +1,6 @@
 package br.digitalhouse.marveltime.view.activity;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -26,18 +23,15 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-
 import org.jetbrains.annotations.NotNull;
-
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
-
 import static android.widget.Toast.LENGTH_LONG;
 import static br.digitalhouse.marveltime.util.Constantes.Activity_UM_DOIS;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
+import static br.digitalhouse.marveltime.util.Constantes.GOOGLE_SIGN;
 
 public class LoginActivity extends AppCompatActivity {
-    static final int GOOGLE_SIGN = 123;
     private TextInputLayout loginUsuario;
     private TextInputLayout loginSenha;
     private Button bntLogin;
@@ -111,8 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         }
-
-
+        
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         firebaseAuth.signInWithCredential(credential)

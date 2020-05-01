@@ -13,4 +13,5 @@ public class Constantes {
     public static final String CHAVE_NOME = "NOME";
     public static final String UTF8 = "UTF-8";
     public static final String IMAGEM_KEY = "detalheImagem";
+    public static final int GOOGLE_SIGN = 123;
 }

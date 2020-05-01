@@ -1,24 +1,19 @@
 package br.digitalhouse.marveltime.view.activity;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.util.Helper;
 import br.digitalhouse.marveltime.view.Interfaces.OnClickListenerPersonagem;

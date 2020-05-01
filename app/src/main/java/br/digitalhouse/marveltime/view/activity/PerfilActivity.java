@@ -5,9 +5,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
-
 import java.util.Objects;
-
 import br.digitalhouse.marveltime.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 

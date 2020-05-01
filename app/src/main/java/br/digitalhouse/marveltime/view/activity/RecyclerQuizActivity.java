@@ -1,27 +1,19 @@
 package br.digitalhouse.marveltime.view.activity;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
-
 import java.util.ArrayList;
-
 import br.digitalhouse.marveltime.util.Helper;
-
 import com.google.android.material.snackbar.Snackbar;
-
 import java.util.List;
-
 import br.digitalhouse.marveltime.model.Favoritos;
 import br.digitalhouse.marveltime.view.Interfaces.OnClickQuiz;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerQuiz;
@@ -31,7 +23,6 @@ import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_NOME;
 
 public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQuiz {
