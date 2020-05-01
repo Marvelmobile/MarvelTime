@@ -3,6 +3,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.facebook.login.LoginManager;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
@@ -12,13 +20,14 @@ import java.security.NoSuchAlgorithmException;
 import br.digitalhouse.marveltime.R;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_APP;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_UIID;
+import static com.google.android.gms.auth.api.Auth.*;
 
 public class Helper {
-    public static boolean usuarioValido (String usuario){
-        return (usuario.contains("@") && usuario.contains(".com") );
+    public static boolean usuarioValido(String usuario) {
+        return (usuario.contains("@") && usuario.contains(".com"));
     }
 
-    public static boolean isEmptyString (String valor){
+    public static boolean isEmptyString(String valor) {
         return valor == null || valor.trim().equals("");
     }
 
@@ -88,7 +97,7 @@ public class Helper {
         return "";
     }
 
-    public static void deslogarFirebase(){
+    public static void deslogarFirebase() {
         FirebaseAuth.getInstance().signOut();
         LoginManager.getInstance().logOut();
     }
@@ -109,7 +118,7 @@ public class Helper {
 
     public static String buscaChaveQuiz(int n) {
         String sChave = "";
-        switch (n){
+        switch (n) {
             case R.string.quiz_homem_aranha:
                 sChave = "HA";
                 break;
@@ -124,6 +133,31 @@ public class Helper {
                 break;
         }
         return sChave;
+
+    }
+
+    public static void sairContaGoogle(GoogleSignInOptions gso, Context context, FragmentActivity fragmentActivity) {
+        GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(context)
+                .enableAutoManage(fragmentActivity, new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+                    }
+                })
+                .addApi(GOOGLE_SIGN_IN_API, gso)
+                .build();
+        mGoogleApiClient.connect();
+        mGoogleApiClient.registerConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
+            @Override
+            public void onConnected(@Nullable Bundle bundle) {
+                FirebaseAuth.getInstance().signOut();
+                if (mGoogleApiClient.isConnected()) {
+                    Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+                }
+            }
+            @Override
+            public void onConnectionSuspended(int i) {
+            }
+        });
      }
 
     public static void notificacao(Context contexto, String sMensagem) {
