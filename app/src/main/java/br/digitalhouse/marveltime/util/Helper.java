@@ -2,6 +2,7 @@ package br.digitalhouse.marveltime.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import com.facebook.login.LoginManager;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import java.security.MessageDigest;
@@ -85,6 +86,7 @@ public class Helper {
 
     public static void deslogarFirebase(){
         FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
     }
 
     public static String getString(TextInputLayout viewName) {

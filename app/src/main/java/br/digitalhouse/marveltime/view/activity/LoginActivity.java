@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -38,9 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView loginRegistro;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private FirebaseAuth mFirebaseAuth;
     private CallbackManager callbackManager;
-    private AccessTokenTracker accessTokenTracker;
     private FloatingActionButton btnFacebook;
 
     @Override
@@ -160,7 +157,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                Toast.makeText(LoginActivity.this, "Cancelado!", Toast.LENGTH_SHORT).show();
+                notificacao(getString(R.string.fb_cancelado));
             }
 
             @Override

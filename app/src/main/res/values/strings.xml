@@ -73,4 +73,5 @@
     <string name="desfavoritado">Item desfavoritado com sucesso!</string>
     <string name="facebook_app_id">827026691132358</string>
     <string name="fb_login_protocol_scheme">fb827026691132358</string>
+    <string name="fb_cancelado">Cancelado</string>
 </resources>
