@@ -2,7 +2,6 @@
     <string name="app_name">Marvel Time</string>
     <string name="AindaNaoMembroRegistre">Ainda não é membro? Registre-se aqui</string>
     <string name="usuarioLogin">Usuário</string>
-    <string name="entrar_google_face">Ou entre com suas redes sociais:</string>
     <string name="quiz_homem_aranha">Você sabe tudo sobre o Homem Aranha?</string>
     <string name="perguntaUm">Qual o nome do meio de Peter Paker?</string>
     <string name="fragment_resposta_um">Fleck</string>
@@ -20,14 +19,12 @@
     <string name="quiz_thor">Você sabe tudo sobre o Thor?</string>
     <string name="quiz_capitao">Você sabe tudo sobre o Capitão América?</string>
     <string name="preencher_campos">Por favor, preencha todos os campos</string>
-    <string name="cad_sucesso">Cadastro Realizado com Sucesso!</string>
     <string name="preencher_nome">Por favor, preencha o nome completo para cadastro no Marvel Time</string>
     <string name="inserir_email">Por favor, insira um e-mail válido</string>
     <string name="confirmar_senhas_iguais">Os dados inseridos nos campos Senha e Confirme sua senha, devem ser iguais. Tente novamente.</string>
     <string name="regra_senha">A senha deve conter pelo menos 6 caracteres, uma letra maiuscula e minuscula, um número e um caracter especial.</string>
     <string name="registre_se">Ainda não é membro? [Registre-se aqui]</string>
     <string name="user_senha_fora_regra">Usuário ou senha não atendem as regras, por favor, tente novamente</string>
-    <string name="msg_desfavoritado">\" foi desfavoritado\"</string>
     <string name="nome">nome</string>
     <string name="pergunta">pergunta</string>
     <string name="alt_1">alternativa1</string>
@@ -37,7 +34,7 @@
     <string name="resposta">resposta</string>
     <string name="perguntas">perguntas</string>
     <string name="json">perguntas.json</string>
-    <string name="resp_corretas">questões corretas</string>
+    <string name="resp_corretas">\u0020 questões corretas</string>
     <string name="_80">80%</string>
     <string name="quest_corretas">3/5 questões corretas</string>
     <string name="resultado">Resultado:</string>
@@ -47,7 +44,6 @@
     <string name="questoes_corretas">/5 questões corretas!</string>
     <string name="favoritos">Favoritos</string>
     <string name="logo">Logo</string>
-    <string name="imagem_personagens">imagem personagens</string>
     <string name="item">item</string>
     <string name="bem_vindo">Bem-vindo ao Marvel Time!</string>
     <string name="entrar">ENTRAR</string>
@@ -61,10 +57,7 @@
     <string name="description_item_favoritado">Imagem do item favoritado</string>
     <string name="salvar_perfil">SALVAR PERFIL</string>
     <string name="foto_usuario">Foto do usuário</string>
-    <string name="estrela">estrela</string>
-    <string name="share">share</string>
     <string name="favoritado"> Adicionado as favoritos</string>
-    <string name="verde">#4CAF50</string>
     <string name="correto">correto</string>
     <string name="errado">errado</string>
     <string name="titulo">titulo</string>
@@ -76,4 +69,6 @@
     <string name="update_error">Falha ao salvar Perfil.</string>
     <string name="erro_favoritar">Item já favoritado!</string>
     <string name="erro_conexao">Por Favor verifique sua conexão.</string>
+    <string name="simbolo_percento">%</string>
+    <string name="simbolo_barra">/</string>
 </resources>

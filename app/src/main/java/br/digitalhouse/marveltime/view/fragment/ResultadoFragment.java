@@ -38,10 +38,12 @@ public class ResultadoFragment extends Fragment {
         porcento = String.valueOf(formato.format(rerrado));
         porcento2 = String.valueOf(formato.format(rcorreto));
 
-        questao.setText(porcento2+"/"+porcento+ " " +getString(R.string.resp_corretas));
+        String texto = porcento2.concat(getString(R.string.simbolo_barra))+porcento.concat(getString(R.string.resp_corretas));
+
+        questao.setText(texto);
         resultado= (rcorreto/rerrado)*100;
         porcento = String.valueOf(formato.format(resultado));
-        porcentagem.setText(porcento.concat("%"));
+        porcentagem.setText(porcento.concat(getString(R.string.simbolo_percento)));
 
         clickBtnShared();
         return v;
