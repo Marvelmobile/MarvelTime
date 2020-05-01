@@ -167,7 +167,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-}
 
     private void irParaHome(String uiid) {
         Helper.salvarIdUsuario(getApplicationContext(), uiid);

@@ -11,8 +11,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Bundle
-import android.widget.ImageView;
+import android.os.Bundle;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,12 +20,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,10 +39,7 @@ import static br.digitalhouse.marveltime.util.Constantes.PERMISSION_CODE;
 
 public class PerfilActivity extends AppCompatActivity {
     private TextInputLayout tilEmail;
-    private FirebaseUser user;
-    private ImageView imageUsuario;
     private TextInputLayout tilNome;
-    private TextInputLayout tilEmail;
     private CircleImageView imgFotoPerfil;
     private Button bntSalvar;
     private InputStream stream = null;
@@ -106,7 +98,7 @@ public class PerfilActivity extends AppCompatActivity {
             tilEmail.getEditText().setText(user.getEmail());
             tilEmail.getEditText().setEnabled(false);
             tilNome.getEditText().setText(user.getDisplayName());
-            Picasso.get().load(user.getPhotoUrl()).into(imageUsuario);
+            Picasso.get().load(user.getPhotoUrl()).into(imgFotoPerfil);
         }
     }
 
