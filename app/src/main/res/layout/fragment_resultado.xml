@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,103 +9,122 @@
     android:background="@drawable/background_menu_principal"
     android:orientation="vertical">
 
-    <ImageView
-        android:contentDescription="@string/item"
-        android:id="@+id/fragment_background_imageview_perguntas"
-        android:layout_width="350dp"
-        android:layout_height="450dp"
-        android:background="@drawable/result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo_resultado" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/titulo_resultado"
-        android:layout_width="385dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_bold"
-        android:gravity="center"
-        android:padding="16dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/quiz_homem_aranha"
-        android:textColor="@color/preto"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/titulo_resultado"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/lato_bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:text="@string/quiz_homem_aranha"
+            android:textColor="@color/preto"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.615"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/resultado_numero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_bold"
-        android:text="@string/_80"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"
-        android:textColor="@color/preto"
-        android:textSize="80sp"
-        app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintTop_toBottomOf="@+id/fragement_textview_pergunta" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/resultado_numero_questao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_bold"
-        android:text="@string/quest_corretas"
-        android:textAlignment="center"
-        android:padding="16dp"
-        android:textColor="@color/preto"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintTop_toBottomOf="@+id/resultado_numero"/>
+            <ImageView
+                android:id="@+id/fragment_background_imageview_perguntas"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/result"
+                android:contentDescription="@string/item"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/share_resultado"
-        android:layout_width="00dp"
-        android:layout_height="38dp"
-        android:layout_weight="1"
-        android:contentDescription="@string/item"
-        android:src="@drawable/ic_compartilhar"
-        app:layout_constraintBottom_toTopOf="@+id/texto_historia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultado_numero_questao" />
+            <TextView
+                android:id="@+id/resultado_numero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/_80"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/preto"
+                android:textSize="70sp"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
+                app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
+                app:layout_constraintTop_toBottomOf="@+id/fragement_textview_pergunta" />
 
-    <TextView
-        android:id="@+id/fragement_textview_pergunta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/lato_bold"
-        android:padding="16dp"
-        android:text="@string/resultado"
-        android:textAlignment="center"
-        android:textColor="@color/preto"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintTop_toBottomOf="@+id/titulo_resultado" />
+            <TextView
+                android:id="@+id/resultado_numero_questao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:padding="16dp"
+                android:text="@string/quest_corretas"
+                android:textAlignment="center"
+                android:textColor="@color/preto"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
+                app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
+                app:layout_constraintTop_toBottomOf="@+id/resultado_numero" />
+
+            <ImageView
+                android:id="@+id/share_resultado"
+                android:layout_width="00dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/item"
+                android:src="@drawable/ic_compartilhar"
+                app:layout_constraintBottom_toTopOf="@+id/texto_historia"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/resultado_numero_questao" />
+
+            <TextView
+                android:id="@+id/fragement_textview_pergunta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/lato_bold"
+                android:padding="16dp"
+                android:text="@string/resultado"
+                android:textAlignment="center"
+                android:textColor="@color/preto"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_background_imageview_perguntas"
+                app:layout_constraintStart_toStartOf="@+id/fragment_background_imageview_perguntas"
+                app:layout_constraintTop_toBottomOf="@+id/titulo_resultado" />
 
 
-    <TextView
-        android:id="@+id/texto_historia"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:fontFamily="@font/lato_bold"
-        android:gravity="center_vertical"
-        android:text="@string/compartilhe_resultado"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/preto"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/fragment_background_imageview_perguntas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="RtlCompat" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/texto_historia"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:text="@string/compartilhe_resultado"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/preto"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/share_resultado"
+                tools:ignore="RtlCompat" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

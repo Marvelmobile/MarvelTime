@@ -71,4 +71,9 @@
     <string name="erro_api">Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!</string>
     <string name="erro_bd">Problema ao carregar Personagens do banco de dados</string>
     <string name="desfavoritado">Item desfavoritado com sucesso!</string>
+    <string name="path_fav">favoritos/</string>
+    <string name="update_sucss">Perfil atualizado com sucesso!</string>
+    <string name="update_error">Falha ao salvar Perfil.</string>
+    <string name="erro_favoritar">Item já favoritado!</string>
+    <string name="erro_conexao">Por Favor verifique sua conexão.</string>
 </resources>
