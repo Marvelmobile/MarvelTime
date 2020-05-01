@@ -1,26 +1,25 @@
 package br.digitalhouse.marveltime.util;
-
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
-
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.facebook.login.LoginManager;
+import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import br.digitalhouse.marveltime.R;
-
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_APP;
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_UIID;
 import static com.google.android.gms.auth.api.Auth.*;
 
 public class Helper {
@@ -100,10 +99,21 @@ public class Helper {
 
     public static void deslogarFirebase() {
         FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
     }
 
     public static String getString(TextInputLayout viewName) {
         return viewName.getEditText().getText().toString();
+    }
+
+    public static String getIdUsuario(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(CHAVE_APP, Context.MODE_PRIVATE);
+        return preferences.getString(CHAVE_UIID, "");
+    }
+
+    public static void salvarIdUsuario(Context context, String uiid) {
+        SharedPreferences preferences = context.getSharedPreferences(CHAVE_APP, Context.MODE_PRIVATE);
+        preferences.edit().putString(CHAVE_UIID, uiid).apply();
     }
 
     public static String buscaChaveQuiz(int n) {
@@ -123,6 +133,7 @@ public class Helper {
                 break;
         }
         return sChave;
+
     }
 
     public static void sairContaGoogle(GoogleSignInOptions gso, Context context, FragmentActivity fragmentActivity) {
@@ -147,5 +158,10 @@ public class Helper {
             public void onConnectionSuspended(int i) {
             }
         });
+     }
+
+    public static void notificacao(Context contexto, String sMensagem) {
+        Toast toast = Toast.makeText(contexto, sMensagem, Toast.LENGTH_LONG);
+        toast.show();
     }
 }

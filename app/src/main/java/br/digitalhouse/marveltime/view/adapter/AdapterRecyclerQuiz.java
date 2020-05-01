@@ -30,7 +30,7 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
     public void onBindViewHolder(@NonNull ViewHolderQuiz holder, int position) {
         CardModel cardModel = listaCards.get(position);
         holder.bind(cardModel);
-        holder.image.setOnClickListener(v -> onClickQuiz.clickAbreQuiz(cardModel));
+        holder.imgProximo.setOnClickListener(v -> onClickQuiz.clickAbreQuiz(cardModel));
         holder.imgViewFavorito.setOnClickListener(v -> onClickQuiz.clickFavoritar(cardModel));
     }
 
