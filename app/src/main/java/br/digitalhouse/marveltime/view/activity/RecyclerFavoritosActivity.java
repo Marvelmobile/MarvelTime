@@ -18,7 +18,7 @@ import br.digitalhouse.marveltime.util.Helper;
 import br.digitalhouse.marveltime.view.Interfaces.OnClickFavoritos;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerFavoritos;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
+import br.digitalhouse.marveltime.viewmodel.FirebaseViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,17 +29,18 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
     private List<Favoritos> listaFvoritos = new ArrayList<>();
     private RecyclerView recyclerView;
     private AdapterRecyclerFavoritos adapter;
-    private MarvelViewModel viewModel;
+    private FirebaseViewModel viewModel;
     private ImageView imageViewSair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_favoritos);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_padrao);
         ButterKnife.bind(this);
         initViews();
 
-        viewModel.carregarFavorito();
+        viewModel.carregarFavoritoFirebase();
         viewModel.liveDatafavorito.observe(this, favoritos -> adapter.atualizaLista(favoritos));
       
       imageViewSair.setOnClickListener(v -> {
@@ -59,12 +60,12 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
         adapter = new AdapterRecyclerFavoritos(listaFvoritos, this);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapter);
-        viewModel = ViewModelProviders.of(this).get(MarvelViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(FirebaseViewModel.class);
     }
 
     public void removeFavoritoClickListener(Favoritos favorito) {
         if (favorito != null){
-            viewModel.deletarFavorito(favorito);
+            viewModel.deletarFavoritoFirebase(favorito);
             viewModel.favoritado.observe(this, favoritos -> adapter.removeItem(favorito));
             Snackbar snackbar = Snackbar.make(recyclerView, R.string.desfavoritado, Snackbar.LENGTH_LONG);
             snackbar.getView().setBackgroundColor(Color.GREEN);

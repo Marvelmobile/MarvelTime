@@ -19,7 +19,7 @@ import br.digitalhouse.marveltime.view.Interfaces.OnClickQuiz;
 import br.digitalhouse.marveltime.view.adapter.AdapterRecyclerQuiz;
 import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.viewmodel.MarvelViewModel;
+import br.digitalhouse.marveltime.viewmodel.FirebaseViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,7 +29,7 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
     private List<CardModel> listaCardQuiz = new ArrayList<>();
     private RecyclerView recyclerView;
     private AdapterRecyclerQuiz adapterRecyclerQuiz;
-    private MarvelViewModel viewModel;
+    private FirebaseViewModel viewModel;
     private ImageView imageViewSair;
 
     @BindView(R.id.tapBarMenu)
@@ -39,6 +39,7 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_quiz);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_padrao);
         ButterKnife.bind(this);
         initViews();
 
@@ -74,7 +75,7 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
         adapterRecyclerQuiz = new AdapterRecyclerQuiz(listaCardQuiz, this);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapterRecyclerQuiz);
-        viewModel = ViewModelProviders.of(this).get(MarvelViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(FirebaseViewModel.class);
     }
 
     private void initCardModel() {
@@ -100,7 +101,7 @@ public class RecyclerQuizActivity extends AppCompatActivity implements OnClickQu
     private void salvarFavorito(CardModel cardQuestao) {
         Favoritos favoritos = new Favoritos();
         favoritos.setCardModelquestao(cardQuestao);
-        viewModel.salvarFavorito(favoritos);
+        viewModel.salvarFavoritoFirebase(favoritos);
     }
 
     @OnClick(R.id.tapBarMenu)

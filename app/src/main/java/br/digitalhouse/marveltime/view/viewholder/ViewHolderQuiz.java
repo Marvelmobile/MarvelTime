@@ -11,12 +11,14 @@ public class ViewHolderQuiz extends RecyclerView.ViewHolder {
     public ImageView image;
     public TextView texto;
     public ImageView imgViewFavorito;
+    public ImageView imgProximo;
 
     public ViewHolderQuiz(@NonNull View itemView) {
         super(itemView);
         image = itemView.findViewById(R.id.imagem_quiz);
         texto = itemView.findViewById(R.id.textViewQuiz);
         imgViewFavorito = itemView.findViewById(R.id.favoritarQuiz);
+        imgProximo = itemView.findViewById(R.id.proximo);
     }
 
     public void bind(CardModel cardModel) {

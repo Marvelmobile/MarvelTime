@@ -1,5 +1,6 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
+import br.digitalhouse.marveltime.viewmodel.FirebaseViewModel;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_EMAIL;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -18,10 +20,12 @@ public class CadastroActivity extends AppCompatActivity {
     private TextInputLayout cadastrarSenhaConfirmacao;
     private Button bntCadastrar;
     private FirebaseAuth mFirebaseAuth;
+    private FirebaseViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_marvel);
         setContentView(R.layout.activity_cadastro);
         initViews();
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -35,13 +39,14 @@ public class CadastroActivity extends AppCompatActivity {
             mFirebaseAuth.createUserWithEmailAndPassword(Helper.getString(cadastrarEmail),
                     Helper.getString(cadastrarSenhaConfirmacao))
                     .addOnCompleteListener(CadastroActivity.this, task -> {
-                        if (!task.isSuccessful()){
-                            Toast.makeText(CadastroActivity.this,
-                                    task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        } else {
-                            voltarTelaLoginActivity(Helper.getString(cadastrarEmail));
-                        }
-                    });
+                                if (!task.isSuccessful()){
+                                    Toast.makeText(CadastroActivity.this,
+                                            task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                } else {
+                                    viewModel.salvarNomeFirebase(Helper.getString(cadastrarNome));
+                                    voltarTelaLoginActivity(Helper.getString(cadastrarEmail));
+                                }
+                            });
         }
     }
 
@@ -60,6 +65,7 @@ public class CadastroActivity extends AppCompatActivity {
         cadastrarSenha = findViewById(R.id.cadastrarSenha);
         cadastrarSenhaConfirmacao = findViewById(R.id.cadastrarSenhaConfirmacao);
         bntCadastrar = findViewById(R.id.bntCadastrar);
+        viewModel = ViewModelProviders.of(this).get(FirebaseViewModel.class);
     }
 
     private void notificacao(String sMensagem) {
