@@ -64,6 +64,9 @@
     <string name="erro_api">Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!</string>
     <string name="erro_bd">Problema ao carregar Personagens do banco de dados</string>
     <string name="desfavoritado">Item desfavoritado com sucesso!</string>
+    <string name="facebook_app_id">827026691132358</string>
+    <string name="fb_login_protocol_scheme">fb827026691132358</string>
+    <string name="fb_cancelado">Cancelado</string>
     <string name="path_fav">favoritos/</string>
     <string name="update_sucss">Perfil atualizado com sucesso!</string>
     <string name="update_error">Falha ao salvar Perfil.</string>

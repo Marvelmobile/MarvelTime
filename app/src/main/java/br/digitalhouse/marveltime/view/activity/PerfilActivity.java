@@ -11,7 +11,12 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Bundle;
+import android.os.Bundle
+import android.widget.ImageView;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -38,14 +43,17 @@ import static br.digitalhouse.marveltime.util.Constantes.CHAVE_IMG_PROFILE;
 import static br.digitalhouse.marveltime.util.Constantes.PERMISSION_CODE;
 
 public class PerfilActivity extends AppCompatActivity {
-    private TextInputLayout tivEmail;
+    private TextInputLayout tilEmail;
+    private FirebaseUser user;
+    private ImageView imageUsuario;
+    private TextInputLayout tilNome;
+    private TextInputLayout tilEmail;
     private CircleImageView imgFotoPerfil;
     private Button bntSalvar;
     private InputStream stream = null;
-    private TextInputLayout tivNome;
     private ProgressBar progressBar;
     private FirebaseViewModel viewModel;
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +67,7 @@ public class PerfilActivity extends AppCompatActivity {
         bntSalvar.setOnClickListener(v -> salvarPerfil());
 
         viewModel.liveDataErro.observe(this, error -> {
-            Snackbar snackbar = Snackbar.make(tivEmail, error, Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(tilEmail, error, Snackbar.LENGTH_LONG);
             snackbar.getView().setBackgroundColor(Color.RED);
             snackbar.show();
         });
@@ -75,8 +83,8 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void salvarPerfil() {
         if(Helper.verificaConexaoComInternet(this)) {
-            if (!Helper.isEmptyString(Helper.getString(tivNome))) {
-                viewModel.salvarNomeFirebase(Helper.getString(tivNome));
+            if (!Helper.isEmptyString(Helper.getString(tilNome))) {
+                viewModel.salvarNomeFirebase(Helper.getString(tilNome));
             }
             else {
                 Helper.notificacao(this, getString(R.string.preencher_campos));
@@ -95,17 +103,18 @@ public class PerfilActivity extends AppCompatActivity {
     private void loadEmail(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            tivEmail.getEditText().setText(user.getEmail());
-            tivEmail.getEditText().setEnabled(false);
-            tivNome.getEditText().setText(user.getDisplayName());
+            tilEmail.getEditText().setText(user.getEmail());
+            tilEmail.getEditText().setEnabled(false);
+            tilNome.getEditText().setText(user.getDisplayName());
+            Picasso.get().load(user.getPhotoUrl()).into(imageUsuario);
         }
     }
 
     public void initView(){
-        tivEmail = findViewById(R.id.textEmail);
+        tilEmail = findViewById(R.id.textEmail);
         imgFotoPerfil = findViewById(R.id.imageviewUsuario);
         bntSalvar = findViewById(R.id.btnSalvar);
-        tivNome = findViewById(R.id.textNomeCompleto);
+        tilNome = findViewById(R.id.textNomeCompleto);
         progressBar = findViewById(R.id.progressbarPerfil);
         viewModel = ViewModelProviders.of(this).get(FirebaseViewModel.class);
     }

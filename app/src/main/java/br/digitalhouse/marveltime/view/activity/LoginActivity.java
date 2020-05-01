@@ -1,4 +1,5 @@
 package br.digitalhouse.marveltime.view.activity;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +11,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import org.jetbrains.annotations.NotNull;
+import java.util.Arrays;
 import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.util.Helper;
 import static br.digitalhouse.marveltime.util.Constantes.Activity_UM_DOIS;
@@ -26,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView loginRegistro;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
+    private CallbackManager callbackManager;
+    private FloatingActionButton btnFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +71,14 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         loginRegistro.setOnClickListener(v -> startActivityForResult(new Intent(LoginActivity.this, CadastroActivity.class),1));
+
+        callbackManager = CallbackManager.Factory.create();
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
+        btnFacebook.setOnClickListener(click -> {
+            loginFacebook();
+        });
     }
 
     private boolean validaCampos(){
@@ -71,8 +92,9 @@ public class LoginActivity extends AppCompatActivity {
         return false;
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Activity_UM_DOIS) {
             if (resultCode == RESULT_OK) {
                 loginUsuario.getEditText().setText(data.getStringExtra(CHAVE_EMAIL));
@@ -101,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
         loginSenha = findViewById(R.id.loginSenha);
         bntLogin = findViewById(R.id.btnLogin);
         loginRegistro = findViewById(R.id.loginRegistro);
+        btnFacebook = findViewById(R.id.loginFacebook);
     }
 
     private void notificacao (String sMensagem){
@@ -114,9 +137,41 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         firebaseAuth.addAuthStateListener(authStateListener);
     }
+    
+    private void irParaMain(String userId) {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
+
+    public void loginFacebook() {
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile"));
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                AuthCredential credential = FacebookAuthProvider
+                        .getCredential(loginResult.getAccessToken().getToken());
+                FirebaseAuth.getInstance().signInWithCredential(credential)
+                        .addOnCompleteListener(task -> {
+                            irParaMain(loginResult.getAccessToken().getUserId());
+                        });
+            }
+
+            @Override
+            public void onCancel() {
+                notificacao(getString(R.string.fb_cancelado));
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
 
     private void irParaHome(String uiid) {
         Helper.salvarIdUsuario(getApplicationContext(), uiid);
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 }
+

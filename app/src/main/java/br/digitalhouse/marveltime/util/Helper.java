@@ -3,6 +3,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import com.facebook.login.LoginManager;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -89,6 +90,7 @@ public class Helper {
 
     public static void deslogarFirebase(){
         FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
     }
 
     public static String getString(TextInputLayout viewName) {

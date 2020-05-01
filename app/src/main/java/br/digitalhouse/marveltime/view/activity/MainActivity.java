@@ -2,7 +2,6 @@ package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import br.digitalhouse.marveltime.R;
@@ -32,12 +31,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         });
 
-        imageViewPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PerfilActivity.class));
-            }
-        });
+        imageViewPerfil.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PerfilActivity.class)));
     }
 
     private void initViews (){
