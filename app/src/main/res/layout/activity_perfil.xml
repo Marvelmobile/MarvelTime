@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_menu_principal">
+      
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +74,6 @@
                             android:textColorHint="@color/preto" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textEmail"
                         android:layout_width="match_parent"
@@ -82,7 +82,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp">
-
+                      
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -91,19 +91,26 @@
                             android:textColorHint="@color/preto" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <Button
-                        android:id="@+id/btnSalvar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="24dp"
-                        android:background="@drawable/rounded_corner"
-                        android:backgroundTint="@color/red_splash"
-                        android:text="@string/salvar_perfil"
-                        android:textStyle="bold"
-                        android:textColor="@color/branco" />
+                <Button
+                    android:id="@+id/btnSalvar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/rounded_corner"
+                    android:backgroundTint="@color/red_splash"
+                    android:text="@string/salvar_perfil"
+                    android:textStyle="bold"
+                    android:textColor="@color/branco" />
+
+                <ProgressBar
+                    android:id="@+id/progressbarPerfil"
+                    android:layout_width="111dp"
+                    android:layout_height="81dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
