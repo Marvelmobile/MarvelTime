@@ -15,6 +15,7 @@ public class ImagemPersonagemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_padrao);
         setContentView(R.layout.activity_imagem_personagem);
         initViews();
         if (getIntent() != null){

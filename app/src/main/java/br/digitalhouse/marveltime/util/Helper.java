@@ -1,13 +1,17 @@
 package br.digitalhouse.marveltime.util;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.facebook.login.LoginManager;
+import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import br.digitalhouse.marveltime.R;
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_APP;
+import static br.digitalhouse.marveltime.util.Constantes.CHAVE_UIID;
 
 public class Helper {
     public static boolean usuarioValido (String usuario){
@@ -93,6 +97,16 @@ public class Helper {
         return viewName.getEditText().getText().toString();
     }
 
+    public static String getIdUsuario(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(CHAVE_APP, Context.MODE_PRIVATE);
+        return preferences.getString(CHAVE_UIID, "");
+    }
+
+    public static void salvarIdUsuario(Context context, String uiid) {
+        SharedPreferences preferences = context.getSharedPreferences(CHAVE_APP, Context.MODE_PRIVATE);
+        preferences.edit().putString(CHAVE_UIID, uiid).apply();
+    }
+
     public static String buscaChaveQuiz(int n) {
         String sChave = "";
         switch (n){
@@ -111,4 +125,9 @@ public class Helper {
         }
         return sChave;
      }
+
+    public static void notificacao(Context contexto, String sMensagem) {
+        Toast toast = Toast.makeText(contexto, sMensagem, Toast.LENGTH_LONG);
+        toast.show();
+    }
 }

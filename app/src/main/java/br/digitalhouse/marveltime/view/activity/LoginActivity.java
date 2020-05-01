@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_marvel);
         initViews();
         linkCadastroUsuario();
         firebaseAuth = FirebaseAuth.getInstance();
@@ -51,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         authStateListener = firebaseAuth -> {
             FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
             if (firebaseUser != null){
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                irParaHome(firebaseUser.getUid());
             }
         };
 
@@ -63,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (!task.isSuccessful()){
                         Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     } else {
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        irParaHome(firebaseAuth.getCurrentUser().getUid());
                     }
                 });
             }
@@ -167,3 +168,10 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 }
+
+    private void irParaHome(String uiid) {
+        Helper.salvarIdUsuario(getApplicationContext(), uiid);
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+    }
+}
+
