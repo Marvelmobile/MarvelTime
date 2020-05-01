@@ -14,6 +14,7 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_menu_principal);
         initView();
         loadEmail();
     }

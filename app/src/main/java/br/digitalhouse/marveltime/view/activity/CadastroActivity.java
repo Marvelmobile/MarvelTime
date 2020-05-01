@@ -22,6 +22,7 @@ public class CadastroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_marvel);
         setContentView(R.layout.activity_cadastro);
         initViews();
         mFirebaseAuth = FirebaseAuth.getInstance();

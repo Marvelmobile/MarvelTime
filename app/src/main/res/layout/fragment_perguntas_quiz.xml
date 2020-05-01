@@ -5,7 +5,6 @@
     android:id="@+id/fragment_layout_quiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_menu_principal"
     tools:context=".view.fragment.PerguntasQuizFragment">
 
     <TextView
@@ -18,7 +17,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:fontFamily="@font/lato_bold_italic"
+        android:fontFamily="@font/lato_bold"
         android:gravity="center"
         android:text="@string/quiz_homem_aranha"
         android:textColor="@color/preto"

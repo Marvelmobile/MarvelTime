@@ -30,6 +30,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personagens_tela_activity);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_padrao);
         initView();
 
         if (getIntent() != null){

@@ -41,7 +41,7 @@ public class ResultadoFragment extends Fragment {
         questao.setText(porcento2+"/"+porcento+ " " +getString(R.string.resp_corretas));
         resultado= (rcorreto/rerrado)*100;
         porcento = String.valueOf(formato.format(resultado));
-        porcentagem.setText(porcento+" %");
+        porcentagem.setText(porcento.concat("%"));
 
         clickBtnShared();
         return v;
