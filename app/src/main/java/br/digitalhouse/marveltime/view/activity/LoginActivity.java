@@ -26,9 +26,6 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -141,7 +138,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-
 
     private boolean validaCampos() {
         if (Helper.isEmptyString(Helper.getString(loginUsuario)) || Helper.isEmptyString(Helper.getString(loginSenha)))
