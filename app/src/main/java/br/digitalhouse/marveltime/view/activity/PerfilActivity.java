@@ -10,6 +10,7 @@ import br.digitalhouse.marveltime.R;
 
 public class PerfilActivity extends AppCompatActivity {
     private TextInputLayout tivEmail;
+    private TextInputLayout tivNomeCompleto;
     private FirebaseUser user;
     private ImageView imageUsuario;
 
@@ -26,6 +27,7 @@ public class PerfilActivity extends AppCompatActivity {
         if (user != null) {
             String email = user.getEmail();
             tivEmail.getEditText().setText(email);
+            tivNomeCompleto.getEditText().setText(user.getDisplayName());
             Picasso.get().load(user.getPhotoUrl()).into(imageUsuario);
         }
     }
@@ -33,5 +35,6 @@ public class PerfilActivity extends AppCompatActivity {
     public void initView(){
         tivEmail = findViewById(R.id.textEmail);
         imageUsuario = findViewById(R.id.imageviewUsuario);
+        tivNomeCompleto = findViewById(R.id.textNomeCompleto);
     }
 }
