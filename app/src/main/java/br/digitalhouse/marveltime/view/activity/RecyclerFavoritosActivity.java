@@ -42,6 +42,12 @@ public class RecyclerFavoritosActivity extends AppCompatActivity implements OnCl
         viewModel.carregarFavoritoFirebase();
         viewModel.liveDatafavorito.observe(this, favoritos -> adapter.atualizaLista(favoritos));
         imageViewSair.setOnClickListener(v -> Helper.logout(this));
+
+        viewModel.liveDataErro.observe(this, error -> {
+            Snackbar snackbar = Snackbar.make(imageViewSair, error, Snackbar.LENGTH_LONG);
+            snackbar.getView().setBackgroundColor(Color.RED);
+            snackbar.show();
+        });
     }
 
     private void initViews() {

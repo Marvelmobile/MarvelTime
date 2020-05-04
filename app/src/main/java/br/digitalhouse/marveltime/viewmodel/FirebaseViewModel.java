@@ -21,6 +21,7 @@ import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.Favoritos;
 import br.digitalhouse.marveltime.util.Helper;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_IMG_PROFILE;
+import static br.digitalhouse.marveltime.util.Helper.verificaConexaoComInternet;
 
 public class FirebaseViewModel extends AndroidViewModel {
     private MutableLiveData<List<Favoritos>> mutableLiveDatafavorito = new MutableLiveData<>();
@@ -51,20 +52,25 @@ public class FirebaseViewModel extends AndroidViewModel {
     }
 
     public void carregarFavoritoFirebase() {
-        reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<Favoritos> favoritos = new ArrayList<>();
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    Favoritos result = child.getValue(Favoritos.class);
-                    favoritos.add(result);
+        if (verificaConexaoComInternet(getApplication())){
+            reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    List<Favoritos> favoritos = new ArrayList<>();
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        Favoritos result = child.getValue(Favoritos.class);
+                        favoritos.add(result);
+                    }
+                    mutableLiveDatafavorito.setValue(favoritos);
                 }
-                mutableLiveDatafavorito.setValue(favoritos);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
+        } else {
+            mutableLiveDataErro.setValue("Não foi possivel carregar os seus Favoritos! \nPor favor verifique sua conexão com a Internet.");
+        }
+
     }
 
     public void deletarFavoritoFirebase(Favoritos favorito) {
@@ -152,5 +158,5 @@ public class FirebaseViewModel extends AndroidViewModel {
             mutableLiveDataErro.setValue(e.getMessage());
             loading.setValue(false);
         });
-     }
+    }
 }
