@@ -159,4 +159,5 @@ public class FirebaseViewModel extends AndroidViewModel {
             loading.setValue(false);
         });
     }
+    
 }
