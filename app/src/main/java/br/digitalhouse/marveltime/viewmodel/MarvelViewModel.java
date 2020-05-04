@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import java.util.ArrayList;
 import java.util.List;
+import br.digitalhouse.marveltime.R;
 import br.digitalhouse.marveltime.model.PersonagemResponse;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.repository.MarvelRepository;
@@ -33,7 +34,6 @@ public class MarvelViewModel extends AndroidViewModel {
             recuperaOsDadosApi(offset);
         } else {
             carregaDadosBD(offset);
-            //TODO : Desse jeito funciona
             loading.setValue(false);
         }
     }
@@ -51,8 +51,8 @@ public class MarvelViewModel extends AndroidViewModel {
                                         mutablePersonagemLista.setValue(personagemResponse.getData().getResults()),
                                 throwable -> {
                                     Log.i("LOG", "erro : " + throwable.getMessage());
-                                    mutableLiveDataErro.setValue("Erro ao buscar dados da API. \nVerifique se há conexao com a Internet!");
-                                 })
+                                    mutableLiveDataErro.setValue(getApplication().getString(R.string.erro_api));
+                                })
         );
     }
 
@@ -62,16 +62,11 @@ public class MarvelViewModel extends AndroidViewModel {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable1 -> loading.setValue(true))
-                        //TODO : Nao está funcinoando, fica em loading infinito
                         .doOnTerminate(() -> loading.setValue(false))
-                        .subscribe(personagemResults ->
-                                        mutablePersonagemLista.setValue(personagemResults),
-                                 throwable -> {
-                                    Log.i("LOG", "erro : " + throwable.getMessage());
-                                    mutableLiveDataErro.setValue("Problema ao carregar Personagens do banco de dados");
-                                 })
-
-
+                        .subscribe(personagemResults -> mutablePersonagemLista.setValue(personagemResults),
+                                throwable -> {Log.i("LOG", "erro : " + throwable.getMessage());
+                                    mutableLiveDataErro.setValue(getApplication().getString(R.string.erro_bd));
+                                })
         );
     }
 

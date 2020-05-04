@@ -7,72 +7,81 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.RecyclerPersonagensActivity">
 
-    <FrameLayout
-        android:id="@+id/container"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/preto"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/background_padrao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ScrollView
+        <ImageView
+            android:id="@+id/img_sair_personagens"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_sair"
+            android:contentDescription="@string/description_sair"/>
+
+        <Button
+            android:id="@+id/personagens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/preto"
+            android:drawableStart="@drawable/ic_personagem"
+            android:paddingLeft="50dp"
+            android:paddingTop="10dp"
+            android:paddingRight="50dp"
+            android:paddingBottom="10dp"
+            android:text="@string/personagem"
+            android:textAllCaps="true"
+            android:textColor="@color/branco"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:background="@drawable/background_padrao"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="top|center">
-
-                <ImageView
-                    android:contentDescription="@string/logo"
-                    android:id="@+id/imgLogoMarvel2"
-                    android:layout_width="264dp"
-                    android:layout_height="117dp"
-                    android:layout_marginStart="65dp"
-                    android:layout_marginLeft="65dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="65dp"
-                    android:layout_marginRight="65dp"
-                    app:srcCompat="@drawable/logo_marvel_time_branco" />
-
-                <TextView
-                    android:id="@+id/personagens"
-                    android:layout_width="208dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/border"
-                    android:fontFamily="@font/lato"
-                    android:gravity="center"
-                    android:text="@string/personagens"
-                    android:textColor="@color/preto"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_personagens"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_gravity=""
-                    tools:listitem="@layout/cards_personagens"/>
-            </LinearLayout>
-        </ScrollView>
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="111dp"
-            android:layout_height="81dp"
-            android:visibility="visible"
-            android:layout_gravity="center"/>
-    </FrameLayout>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="10dp"
+                    tools:listitem="@layout/cards_personagens" />
+            </ScrollView>
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="111dp"
+                android:layout_height="81dp"
+                android:layout_gravity="center"
+                android:visibility="visible" />
+        </FrameLayout>
+    </LinearLayout>
 
     <com.michaldrabik.tapbarmenulib.TapBarMenu
         android:id="@+id/tapBarMenu"
@@ -91,49 +100,49 @@
         app:tbm_menuAnchor="bottom">
 
         <ImageView
-            android:contentDescription="@string/item"
             android:id="@+id/item1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/img_home"
-            tools:visibility="visible" />
+            android:src="@drawable/ic_home"
+            tools:visibility="visible"
+            android:contentDescription="@string/item"/>
 
         <ImageView
-            android:contentDescription="@string/item"
             android:id="@+id/item2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/img_favoritos" />
+            android:src="@drawable/ic_favorito_preto"
+            android:contentDescription="@string/item"/>
 
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
 
         <ImageView
-            android:contentDescription="@string/item"
             android:id="@+id/item3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/img_hferro" />
+            android:src="@drawable/ic_personagem_preto"
+            android:contentDescription="@string/item"/>
 
         <ImageView
-            android:contentDescription="@string/item"
             android:id="@+id/item4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/img_quiz_menu" />
+            android:src="@drawable/ic_quiz_preto"
+            android:contentDescription="@string/item"/>
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
 </androidx.constraintlayout.widget.ConstraintLayout>

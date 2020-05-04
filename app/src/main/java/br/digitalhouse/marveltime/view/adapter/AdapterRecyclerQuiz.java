@@ -1,25 +1,22 @@
 package br.digitalhouse.marveltime.view.adapter;
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
+import java.util.List;
 import br.digitalhouse.marveltime.model.CardModel;
 import br.digitalhouse.marveltime.R;
-import br.digitalhouse.marveltime.view.activity.RecebePerguntasQuizActivity;
+import br.digitalhouse.marveltime.view.Interfaces.OnClickQuiz;
 import br.digitalhouse.marveltime.view.viewholder.ViewHolderQuiz;
-import static br.digitalhouse.marveltime.util.Constantes.CHAVE_NOME;
 
 public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
-    private ArrayList<CardModel> listaCards;
-    private Context mContext;
+    private List<CardModel> listaCards;
+    private OnClickQuiz onClickQuiz;
 
-    public AdapterRecyclerQuiz(Context mContext, ArrayList<CardModel> listaCards) {
+    public AdapterRecyclerQuiz(List<CardModel> listaCards, OnClickQuiz onClickQuiz) {
         this.listaCards= listaCards;
-        this.mContext = mContext;
+        this.onClickQuiz = onClickQuiz;
     }
 
     @NonNull
@@ -30,23 +27,11 @@ public class AdapterRecyclerQuiz extends RecyclerView.Adapter<ViewHolderQuiz> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderQuiz holder, final int position) {
-        holder.image.setImageResource(listaCards.get(position).getImagem());
-        holder.texto.setText(listaCards.get(position).getNome());
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent= new Intent(mContext, RecebePerguntasQuizActivity.class);
-            intent.putExtra(CHAVE_NOME,verifica(position));
-            mContext.startActivity(intent);
-        });
-    }
-
-    private String verifica(int n) {
-        String nomeHeroi = null;
-        if(n==0){nomeHeroi="HA";}
-        if(n==1){nomeHeroi="TH";}
-        if(n==2){nomeHeroi="HF";}
-        if(n==3){nomeHeroi="CA";}
-        return nomeHeroi;
+    public void onBindViewHolder(@NonNull ViewHolderQuiz holder, int position) {
+        CardModel cardModel = listaCards.get(position);
+        holder.bind(cardModel);
+        holder.imgProximo.setOnClickListener(v -> onClickQuiz.clickAbreQuiz(cardModel));
+        holder.imgViewFavorito.setOnClickListener(v -> onClickQuiz.clickFavoritar(cardModel));
     }
 
     @Override
