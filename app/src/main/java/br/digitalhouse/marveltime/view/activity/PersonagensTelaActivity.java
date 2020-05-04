@@ -38,7 +38,7 @@ public class PersonagensTelaActivity extends AppCompatActivity {
             personagemResult = bundle.getParcelable(PERSONAGEM_KEY);            
             descricaoPersonagem.setText(personagemResult.getDescription());
             nomePersonagem.setText(personagemResult.getName());
-            String imageURL = personagemResult.getThumbnail().getPath().replace("http://", "https://");
+            String imageURL = personagemResult.getThumbnail().getPath().replace(getString(R.string.http), getString(R.string.https));
             Picasso.get().load(imageURL+"."+personagemResult.getThumbnail().getExtension()).into(imagemPersonagem);
 
             clickBtnShared();

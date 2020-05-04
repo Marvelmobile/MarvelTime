@@ -24,7 +24,6 @@
     <string name="confirmar_senhas_iguais">Os dados inseridos nos campos Senha e Confirme sua senha, devem ser iguais. Tente novamente.</string>
     <string name="regra_senha">A senha deve conter pelo menos 6 caracteres, uma letra maiuscula e minuscula, um número e um caracter especial.</string>
     <string name="registre_se">Ainda não é membro? [Registre-se aqui]</string>
-    <string name="user_senha_fora_regra">Usuário ou senha não atendem as regras, por favor, tente novamente</string>
     <string name="nome">nome</string>
     <string name="pergunta">pergunta</string>
     <string name="alt_1">alternativa1</string>
@@ -75,4 +74,7 @@
     <string name="erro_conexao">Por Favor verifique sua conexão.</string>
     <string name="simbolo_percento">%</string>
     <string name="simbolo_barra">/</string>
+    <string name="perm_facebook">public_profile</string>
+    <string name="http">http://</string>
+    <string name="https">https://</string>
 </resources>

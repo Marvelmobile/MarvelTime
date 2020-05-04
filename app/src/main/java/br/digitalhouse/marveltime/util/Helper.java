@@ -1,16 +1,12 @@
 package br.digitalhouse.marveltime.util;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
-import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.facebook.login.LoginManager;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
@@ -18,9 +14,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.view.activity.LoginActivity;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_APP;
 import static br.digitalhouse.marveltime.util.Constantes.CHAVE_UIID;
-import static com.google.android.gms.auth.api.Auth.*;
 
 public class Helper {
     public static boolean usuarioValido(String usuario) {
@@ -97,7 +93,7 @@ public class Helper {
         return "";
     }
 
-    public static void deslogarFirebase() {
+    private static void deslogarFirebase() {
         FirebaseAuth.getInstance().signOut();
         LoginManager.getInstance().logOut();
     }
@@ -136,29 +132,25 @@ public class Helper {
 
     }
 
-    public static void sairContaGoogle(GoogleSignInOptions gso, Context context, FragmentActivity fragmentActivity) {
-        GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(context)
-                .enableAutoManage(fragmentActivity, new GoogleApiClient.OnConnectionFailedListener() {
-                    @Override
-                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                    }
-                })
-                .addApi(GOOGLE_SIGN_IN_API, gso)
+    public static GoogleSignInClient google(Context context) {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestIdToken(context.getString(R.string.default_web_client_id))
                 .build();
-        mGoogleApiClient.connect();
-        mGoogleApiClient.registerConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
-            @Override
-            public void onConnected(@Nullable Bundle bundle) {
-                FirebaseAuth.getInstance().signOut();
-                if (mGoogleApiClient.isConnected()) {
-                    Auth.GoogleSignInApi.signOut(mGoogleApiClient);
-                }
-            }
-            @Override
-            public void onConnectionSuspended(int i) {
-            }
+        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(context, gso);
+        return googleSignInClient;
+    }
+
+    public static void logout(Context context){
+        GoogleSignInClient googleSignInClient = google(context);
+        googleSignInClient.signOut().addOnCompleteListener(task -> {
         });
-     }
+        Helper.deslogarFirebase();
+
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(intent);
+    }
 
     public static void notificacao(Context contexto, String sMensagem) {
         Toast toast = Toast.makeText(contexto, sMensagem, Toast.LENGTH_LONG);

@@ -75,9 +75,8 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void salvarPerfil() {
         if(Helper.verificaConexaoComInternet(this)) {
-            if (!Helper.isEmptyString(Helper.getString(tilNome))) {
+            if (!Helper.isEmptyString(Helper.getString(tilNome)))
                 viewModel.salvarNomeFirebase(Helper.getString(tilNome));
-            }
             else {
                 Helper.notificacao(this, getString(R.string.preencher_campos));
                 return;
@@ -86,9 +85,8 @@ public class PerfilActivity extends AppCompatActivity {
             if (stream != null){
                 viewModel.salvarImagemFirebase(stream);
                 this.stream = null;
-            } else {
-                Helper.notificacao(this, getString(R.string.update_sucss));
-            }
+            } else Helper.notificacao(this, getString(R.string.update_sucss));
+
         } else Helper.notificacao(this, getString(R.string.erro_conexao));
     }
 
@@ -98,7 +96,8 @@ public class PerfilActivity extends AppCompatActivity {
             tilEmail.getEditText().setText(user.getEmail());
             tilEmail.getEditText().setEnabled(false);
             tilNome.getEditText().setText(user.getDisplayName());
-            Picasso.get().load(user.getPhotoUrl()).into(imgFotoPerfil);
+            if(user.getPhotoUrl() != null)
+                Picasso.get().load(user.getPhotoUrl()).into(imgFotoPerfil);
         }
     }
 

@@ -22,7 +22,7 @@ public class ImagemPersonagemActivity extends AppCompatActivity {
             Bundle bundle = getIntent().getExtras();
             PersonagemResult personagemResult = bundle.getParcelable(IMAGEM_KEY);
             String imageURL = personagemResult.getThumbnail()
-                    .getPath().replace("http://", "https://");
+                    .getPath().replace(getString(R.string.http), getString(R.string.https));
             Picasso.get().load(imageURL+"."
                     + personagemResult.getThumbnail().getExtension()).into(civImagemDetalhe);
         }

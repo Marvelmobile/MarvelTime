@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,6 @@ import br.digitalhouse.marveltime.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
 import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
 
 public class RecyclerPersonagensActivity extends AppCompatActivity implements OnClickListenerPersonagem {
@@ -58,16 +56,7 @@ public class RecyclerPersonagensActivity extends AppCompatActivity implements On
         });
 
         marvelViewModel.liveDataErro.observe(this, error -> Toast.makeText(this, error, Toast.LENGTH_LONG).show());
-
-        imageViewSairPersonagem.setOnClickListener(v -> {
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestIdToken(getString(R.string.default_web_client_id))
-                    .requestEmail()
-                    .build();
-            Helper.sairContaGoogle(gso, getApplicationContext(), this);
-            Helper.deslogarFirebase();
-            startActivity(new Intent(RecyclerPersonagensActivity.this, LoginActivity.class));
-        });
+        imageViewSairPersonagem.setOnClickListener(v -> Helper.logout(this));
     }
 
     private void initViews() {
