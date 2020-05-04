@@ -66,7 +66,7 @@
     <string name="falhagoogle">Falha ao tentar logar com o Google</string>
     <string name="facebook_app_id">827026691132358</string>
     <string name="fb_login_protocol_scheme">fb827026691132358</string>
-    <string name="fb_cancelado">Cancelado</string>
+    <string name="fb_cancelado">Ação cancelada pelo Usuário</string>
     <string name="path_fav">favoritos/</string>
     <string name="update_sucss">Perfil atualizado com sucesso!</string>
     <string name="update_error">Falha ao salvar Perfil.</string>
