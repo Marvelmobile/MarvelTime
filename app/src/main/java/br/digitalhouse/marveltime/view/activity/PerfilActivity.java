@@ -45,7 +45,7 @@ public class PerfilActivity extends AppCompatActivity {
     private InputStream stream = null;
     private ProgressBar progressBar;
     private FirebaseViewModel viewModel;
-  
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,8 +121,8 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void captureImage() {
-        int permissionCamera = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
-        int permissionStorage = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionCamera = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
+        int permissionStorage = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         if (permissionCamera == PackageManager.PERMISSION_GRANTED && permissionStorage == PackageManager.PERMISSION_GRANTED) {
             EasyImage.openCameraForImage(this, MODE_PRIVATE);
@@ -131,10 +131,13 @@ public class PerfilActivity extends AppCompatActivity {
         }
     }
 
-    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        captureImage();
+        if(grantResults != null) {
+            for (int grantResult : grantResults)
+                if (!(grantResult == 0)) return;
+                else captureImage();
+        }
     }
 
     @Override

@@ -12,14 +12,14 @@ public class ViewHolderFavoritos extends RecyclerView.ViewHolder {
     public ImageView imageFavoritado;
     public TextView texto;
     public ImageView desfavoritar;
-    public ImageView imgAbrirFavorito;
+    public ImageView imgSetaFavorito;
 
     public ViewHolderFavoritos(@NonNull View itemView) {
         super(itemView);
         desfavoritar = itemView.findViewById(R.id.desfavoritar);
         imageFavoritado = itemView.findViewById(R.id.imagem_fav);
         texto = itemView.findViewById(R.id.textFav);
-        imgAbrirFavorito = itemView.findViewById(R.id.proximo_fav);
+        imgSetaFavorito = itemView.findViewById(R.id.proximo_fav);
     }
 
     public void bind(Favoritos favoritos) {

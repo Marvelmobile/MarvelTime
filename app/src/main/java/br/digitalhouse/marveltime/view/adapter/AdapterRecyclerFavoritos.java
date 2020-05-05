@@ -30,7 +30,8 @@ public class AdapterRecyclerFavoritos extends RecyclerView.Adapter<ViewHolderFav
     public void onBindViewHolder(@NonNull ViewHolderFavoritos viewHolder, int position) {
         Favoritos favoritos = listaFavoritos.get(position);
         viewHolder.bind(favoritos);
-        viewHolder.imgAbrirFavorito.setOnClickListener(v -> clickFavoritos.abrirFavoritoClickListener(favoritos));
+        viewHolder.imgSetaFavorito.setOnClickListener(v -> clickFavoritos.abrirFavoritoClickListener(favoritos));
+        viewHolder.imageFavoritado.setOnClickListener(v -> clickFavoritos.abrirFavoritoClickListener(favoritos));
         viewHolder.desfavoritar.setOnClickListener(v -> clickFavoritos.removeFavoritoClickListener(favoritos));
     }
 
