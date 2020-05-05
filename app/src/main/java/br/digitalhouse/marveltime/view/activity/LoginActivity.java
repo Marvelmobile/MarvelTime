@@ -152,7 +152,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
                         AuthCredential credential = FacebookAuthProvider.getCredential(loginResult.getAccessToken().getToken());
-                        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener(task -> irParaHome(loginResult.getAccessToken().getUserId()));
+                        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener(task -> {
+                            if (task.isSuccessful())
+                                irParaHome(loginResult.getAccessToken().getUserId());
+                            else
+                                Helper.notificacao(LoginActivity.this, getString(R.string.falha_facebook));
+                        });
                     }
 
                     @Override
