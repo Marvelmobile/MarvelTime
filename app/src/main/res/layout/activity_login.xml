@@ -1,116 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/preto"
     tools:context=".view.activity.LoginActivity">
 
-    <TextView
-        android:id="@+id/loginRegistro"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/AindaNaoMembroRegistre"
-        android:textColor="@color/corStringsBranco"
-        android:textSize="14sp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/red_splash"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:contentDescription="@string/imagem_tela_inicial"
-        android:id="@+id/imagemInicio"
-        android:layout_width="328dp"
-        android:layout_height="262dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/heroes" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginUsuario"
-        android:layout_width="330dp"
-        android:layout_height="56dp"
-        android:background="@color/backgroundCaixaTextoCinza"
-        android:textColorHint="@color/corStringsBranco"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagemInicio">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textLogin"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/usuarioLogin"
-            android:textColor="@color/corStringsBranco"
-            android:textColorHint="@color/corStringsBranco" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:gravity="center"
+            android:text="@string/bem_vindo"
+            android:textColor="@color/branco"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginSenha"
-        android:layout_width="330dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/backgroundCaixaTextoCinza"
-        android:textColorHint="@color/corStringsBranco"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginUsuario"
-        app:passwordToggleTint="@color/corStringsBranco">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/senhaLogin"
-            android:inputType="textPassword"
-            android:textColor="@color/corStringsBranco" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_corner">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="@string/button"
-        app:backgroundTint="@color/branco"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginSenha"
-        app:maxImageSize="40dp"
-        app:srcCompat="@drawable/img_entrar" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginUsuario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColorHint="@color/preto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/loginFacebook"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/azul_facebook"
-        android:clickable="true"
-        android:focusable="true"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toTopOf="@+id/loginRegistro"
-        app:layout_constraintStart_toStartOf="parent"
-        app:maxImageSize="27dp"
-        app:srcCompat="@drawable/face" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/usuarioLogin"
+                    android:textColor="@color/preto"
+                    android:textColorHint="@color/preto" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/loginGoogle"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="32dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toTopOf="@+id/loginRegistro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/google" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginSenha"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/preto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginUsuario"
+                app:passwordToggleTint="@color/preto">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/senha"
+                    android:inputType="textPassword"
+                    android:textColor="@color/preto"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/red_splash"
+                android:focusable="true"
+                android:text="@string/entrar"
+                android:textAllCaps="true"
+                android:textColor="@color/branco"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginSenha" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/loginFacebook"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/azul_facebook"
+                android:clickable="true"
+                android:focusable="true"
+                app:fabSize="mini"
+                app:layout_constraintEnd_toStartOf="@+id/loginGoogle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+                app:maxImageSize="27dp"
+                app:srcCompat="@drawable/icon_facebook" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/loginGoogle"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="100dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:backgroundTint="@color/branco"
+                app:fabSize="mini"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+                app:srcCompat="@drawable/icon_google" />
+
+            <TextView
+                android:id="@+id/loginRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/AindaNaoMembroRegistre"
+                android:textColor="@color/preto"
+                android:textColorLink="@color/red_splash"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginFacebook"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

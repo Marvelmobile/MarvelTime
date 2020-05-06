@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="corStringsBranco">#FFFFFF</color>
-    <color name="backgroundCaixaTextoCinza">#2F8D8C8C</color>
     <color name="preto">#000000</color>
-    <color name="azul_facebook">#3b5998</color>
+    <color name="azul_facebook">#45619d</color>
     <color name="backgroundBrancoComOpacidade">#68FFFFFF</color>
     <color name="red_splash">#EE1C25</color>
     <color name="branco">#FFFFFF</color>

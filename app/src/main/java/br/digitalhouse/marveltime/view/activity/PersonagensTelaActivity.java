@@ -1,13 +1,18 @@
 package br.digitalhouse.marveltime.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 import br.digitalhouse.marveltime.R;
+import br.digitalhouse.marveltime.model.Favoritos;
 import br.digitalhouse.marveltime.model.PersonagemResult;
 import br.digitalhouse.marveltime.model.Url;
+import br.digitalhouse.marveltime.viewmodel.FirebaseViewModel;
 import de.hdodenhof.circleimageview.CircleImageView;
 import static br.digitalhouse.marveltime.util.Constantes.IMAGEM_KEY;
 import static br.digitalhouse.marveltime.util.Constantes.PERSONAGEM_KEY;
@@ -18,22 +23,27 @@ public class PersonagensTelaActivity extends AppCompatActivity {
     private PersonagemResult personagemResult;
     private TextView nomePersonagem;
     private ImageView share_Personagem;
+    private ImageView imgFavorito;
+    private FirebaseViewModel viewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personagens_tela_activity);
+        getWindow().setBackgroundDrawableResource(R.drawable.background_padrao);
         initView();
-
-        clickBtnShared();
 
         if (getIntent() != null){
             Bundle bundle = getIntent().getExtras();           
             personagemResult = bundle.getParcelable(PERSONAGEM_KEY);            
             descricaoPersonagem.setText(personagemResult.getDescription());
             nomePersonagem.setText(personagemResult.getName());
-            String imageURL = personagemResult.getThumbnail().getPath().replace("http://", "https://");
+            String imageURL = personagemResult.getThumbnail().getPath().replace(getString(R.string.http), getString(R.string.https));
             Picasso.get().load(imageURL+"."+personagemResult.getThumbnail().getExtension()).into(imagemPersonagem);
+
+            clickBtnShared();
+
+            imgFavorito.setOnClickListener(v -> salvarFavorito(personagemResult));
         }
 
         imagemPersonagem.setOnClickListener(view -> {
@@ -43,6 +53,26 @@ public class PersonagensTelaActivity extends AppCompatActivity {
             intent.putExtras(bundle);
             startActivity(intent);
         });
+
+        viewModel.favoritado.observe(this, favoritos -> {
+            if (favoritos != null){
+                Snackbar snackbar = Snackbar.make(imgFavorito, favoritos.getPersonagemResult().getName() + " " + getString(R.string.favoritado), Snackbar.LENGTH_LONG);
+                snackbar.getView().setBackgroundColor(Color.GREEN);
+                snackbar.show();
+            }
+        });
+
+        viewModel.liveDataErro.observe(this, error -> {
+            Snackbar snackbar = Snackbar.make(imgFavorito, error, Snackbar.LENGTH_LONG);
+            snackbar.getView().setBackgroundColor(Color.RED);
+            snackbar.show();
+        });
+    }
+
+    private void salvarFavorito(PersonagemResult personagemResult) {
+        Favoritos favoritos = new Favoritos();
+        favoritos.setPersonagemResult(personagemResult);
+        viewModel.salvarFavoritoFirebase(favoritos);
     }
 
     private void initView(){
@@ -50,6 +80,8 @@ public class PersonagensTelaActivity extends AppCompatActivity {
         descricaoPersonagem = findViewById(R.id.texto_historia);
         nomePersonagem = findViewById(R.id.textView_nomePersonagem);
         share_Personagem = findViewById(R.id.share_resultado);
+        imgFavorito = findViewById(R.id.favorito_personagem);
+        viewModel = ViewModelProviders.of(this).get(FirebaseViewModel.class);
     }
 
     private void shareMarvel(PersonagemResult personagemResult) {
@@ -62,7 +94,6 @@ public class PersonagensTelaActivity extends AppCompatActivity {
 
     private String getLinkPersonagem(PersonagemResult personagemResult) {
        if(personagemResult.getUrls()!=null){
-
             for (Url url : personagemResult.getUrls()){
                 if(url.getType().equalsIgnoreCase("wiki")){
                     return url.getUrl();

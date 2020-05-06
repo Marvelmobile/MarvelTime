@@ -2,37 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="118dp"
     android:layout_height="220dp"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_personagens_layout"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
-    android:background="@color/branco"
-    android:orientation="vertical"
-    android:id="@+id/card_personagens_layout">
+    android:layout_marginBottom="16dp">
 
-    <ImageView
-        android:contentDescription="@string/logo"
-        android:id="@+id/imagem_personagens"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="3dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/capitaoamerica"/>
+        android:layout_height="180dp"
+        android:background="@drawable/background_marvel"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imagem_personagens"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_homem_aranha"
+            android:contentDescription="@string/personagem"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/texto_personagens"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/preto"
-        android:textColor="@color/branco"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/preto"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="Homem de ferro"
-        android:gravity="center"
-        android:layout_gravity="center"/>
+        tools:text="Homem de ferro" />
 </LinearLayout>

@@ -1,18 +1,28 @@
 package br.digitalhouse.marveltime.view.viewholder;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import br.digitalhouse.marveltime.R;
-import de.hdodenhof.circleimageview.CircleImageView;
+import br.digitalhouse.marveltime.model.CardModel;
 
 public class ViewHolderQuiz extends RecyclerView.ViewHolder {
-    public CircleImageView image;
+    public ImageView image;
     public TextView texto;
+    public ImageView imgViewFavorito;
+    public ImageView imgProximo;
 
     public ViewHolderQuiz(@NonNull View itemView) {
         super(itemView);
-        image= itemView.findViewById(R.id.imagem_favoritos);
-        texto= itemView.findViewById(R.id.textViewfavoritos);
+        image = itemView.findViewById(R.id.imagem_quiz);
+        texto = itemView.findViewById(R.id.textViewQuiz);
+        imgViewFavorito = itemView.findViewById(R.id.favoritarQuiz);
+        imgProximo = itemView.findViewById(R.id.proximo);
+    }
+
+    public void bind(CardModel cardModel) {
+        image.setImageResource(cardModel.getImagem());
+        texto.setText(cardModel.getNome());
     }
 }

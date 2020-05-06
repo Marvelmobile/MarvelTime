@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,8 +11,10 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
-    </LinearLayout>
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.michaldrabik.tapbarmenulib.TapBarMenu
         android:id="@+id/tapBarMenu"
@@ -37,7 +40,7 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/img_home"
+            android:src="@drawable/ic_home"
             tools:visibility="visible" />
 
         <ImageView
@@ -48,7 +51,7 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/img_favoritos" />
+            android:src="@drawable/ic_favorito_preto" />
 
         <Space
             android:layout_width="0dp"
@@ -63,7 +66,7 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/img_hferro" />
+            android:src="@drawable/ic_personagem_preto" />
 
         <ImageView
             android:contentDescription="@string/item"
@@ -73,6 +76,6 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/img_quiz_menu" />
+            android:src="@drawable/ic_quiz_preto" />
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
 </androidx.constraintlayout.widget.ConstraintLayout>
