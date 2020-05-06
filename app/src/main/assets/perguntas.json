@@ -1,0 +1,184 @@
+{
+  "perguntas": [
+    {
+      "nome": "HA",
+      "pergunta": "Qual o nome do meio de Peter Parker?",
+      "alternativa1": "FLECK",
+      "alternativa2": "WAYNE",
+      "alternativa3": "BENJAMIN",
+      "alternativa4": "STARK",
+      "resposta": "BENJAMIN"
+    },
+    {
+    "nome": "HA",
+    "pergunta": "Qual é o apelido do Homem Aranha?",
+    "alternativa1": "CABEÇA DE ARANHA",
+    "alternativa2": "CABEÇA DE TEIA",
+    "alternativa3": "HOMEM TEIA",
+    "alternativa4": "AMEAÇA ARANHA",
+    "resposta": "CABEÇA DE TEIA"
+    },
+    {
+      "nome": "HA",
+      "pergunta": "Os pais do Homem Aranha eram:",
+      "alternativa1": "AGENTES DA S.H.I.E.L.D",
+      "alternativa2": "SUPERHERÓIS",
+      "alternativa3": "PESSOAS COMUNS",
+      "alternativa4": "DONOS DE UM LABORATÓRIO",
+      "resposta": "AGENTES DA S.H.I.E.L.D"
+    },
+    {
+      "nome": "HA",
+      "pergunta": "O Homem Aranha quase foi interpretado por:",
+      "alternativa1": "LEONARDO DICAPRIO",
+      "alternativa2": "JOAQUIN PHOENIX",
+      "alternativa3": "BRAD PITT",
+      "alternativa4": "JOHNNY DEPP",
+      "resposta": "LEONARDO DICAPRIO"
+    },
+    {
+      "nome": "HA",
+      "pergunta": "Qual dos seguintes poderes o Homem Aranha não possui?",
+      "alternativa1": "INTELIGÊNCIA",
+      "alternativa2": "SENTIDO ARANHA",
+      "alternativa3": "AGILIDADE",
+      "alternativa4": "INVISIBILIDADE",
+      "resposta": "INVISIBILIDADE"
+    },
+    {
+      "nome": "HF",
+      "pergunta": "Qual é o verdadeiro nome do Homem de Ferro?",
+      "alternativa1": "TONY STARK",
+      "alternativa2": "BRUCE WAYNE",
+      "alternativa3": "PETER PARKER",
+      "alternativa4": "HOWARD STARK",
+      "resposta": "TONY STARK"
+    },
+    {
+      "nome": "HF",
+      "pergunta": "Qual das seguintes características o Homem de Ferro não possui?",
+      "alternativa1": "GÊNIO",
+      "alternativa2": "BILIONÁRIO",
+      "alternativa3": "HUMILDE",
+      "alternativa4": "FILÂNTROPO",
+      "resposta": "HUMILDE"
+    },
+    {
+      "nome": "HF",
+      "pergunta": "Quantos filmes existem sobre o Homem de Ferro?",
+      "alternativa1": "2",
+      "alternativa2": "3",
+      "alternativa3": "4",
+      "alternativa4": "5",
+      "resposta": "3"
+    },
+    {
+      "nome": "HF",
+      "pergunta": "Quando foi lançado o primeiro filme do Homem de Ferro?",
+      "alternativa1": "2008",
+      "alternativa2": "2007",
+      "alternativa3": "2009",
+      "alternativa4": "2010",
+      "resposta": "2008"
+    },
+    {
+      "nome": "HF",
+      "pergunta": "Qual o nome da Inteligência Artifical de seu traje?",
+      "alternativa1": "J.A.R.V.I.S",
+      "alternativa2": "ULTRON",
+      "alternativa3": "STARK",
+      "alternativa4": "WATSON",
+      "resposta": "J.A.R.V.I.S"
+    },
+    {
+      "nome": "TH",
+      "pergunta": "Quando foi lançado o primeiro filme do Thor?",
+      "alternativa1": "2010",
+      "alternativa2": "2011",
+      "alternativa3": "2008",
+      "alternativa4": "2009",
+      "resposta": "2011"
+    },
+    {
+      "nome": "TH",
+      "pergunta": "De qual reino Thor pertence?",
+      "alternativa1": "NOXUS",
+      "alternativa2": "DEMACIA",
+      "alternativa3": "PILTOLVER",
+      "alternativa4": "ASGARD",
+      "resposta": "ASGARD"
+    },
+    {
+      "nome": "TH",
+      "pergunta": "Thor é filho de:",
+      "alternativa1": "ASTRID",
+      "alternativa2": "RAGNAR",
+      "alternativa3": "ODIN",
+      "alternativa4": "FREYA",
+      "resposta": "ODIN"
+    },
+    {
+      "nome": "TH",
+      "pergunta": "Qual nome do martelo de Thor?",
+      "alternativa1": "MJOLNIR",
+      "alternativa2": "TARDIS",
+      "alternativa3": "FREGGA",
+      "alternativa4": "THANUS",
+      "resposta": "MJOLNIR"
+    },
+    {
+      "nome": "TH",
+      "pergunta": "Qual dos seguintes heróis conseguiram levantar o martelo de thor?",
+      "alternativa1": "CAPITÃO AMÉRICA",
+      "alternativa2": "HOMEM DE FERRO",
+      "alternativa3": "HULK",
+      "alternativa4": "PANTERA NEGRA",
+      "resposta": "CAPITÃO AMÉRICA"
+    },
+    {
+      "nome": "CA",
+      "pergunta": "Qual o verdadeiro nome do Capitão América?",
+      "alternativa1": "STEVE ROGERS",
+      "alternativa2": "TONY STARK",
+      "alternativa3": "ARTHUR FLECK",
+      "alternativa4": "JACK KIRBY",
+      "resposta": "STEVE ROGERS"
+    },
+    {
+      "nome": "CA",
+      "pergunta": "Quando foi lançado o primeiro filme do Capitão América?",
+      "alternativa1": "2012",
+      "alternativa2": "2008",
+      "alternativa3": "2011",
+      "alternativa4": "2007",
+      "resposta": "2011"
+    },
+    {
+      "nome": "CA",
+      "pergunta": "Em que ano nasceu o Capitão América?",
+      "alternativa1": "1918",
+      "alternativa2": "1928",
+      "alternativa3": "1938",
+      "alternativa4": "1948",
+      "resposta": "1918"
+    },
+    {
+      "nome": "CA",
+      "pergunta": "Do que é composto o escudo do Capitão América?",
+      "alternativa1": "ADAMANTIUM",
+      "alternativa2": "VIBRANIUM",
+      "alternativa3": "APRAVIUM",
+      "alternativa4": "CARBONIUM",
+      "resposta": "ADAMANTIUM"
+    },
+    {
+      "nome": "CA",
+      "pergunta": "Qual o nome da namorada do Capitão América?",
+      "alternativa1": "PERRY",
+      "alternativa2": "PETTY",
+      "alternativa3": "PENNY",
+      "alternativa4": "PEGGY",
+      "resposta": "PEGGY"
+    }
+  ]
+}
