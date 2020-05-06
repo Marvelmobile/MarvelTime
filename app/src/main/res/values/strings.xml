@@ -77,4 +77,5 @@
     <string name="perm_facebook">public_profile</string>
     <string name="http">http://</string>
     <string name="https">https://</string>
+    <string name="falha_facebook">Falha de Autenticação. Ja existe uma conta com este email.</string>
 </resources>
